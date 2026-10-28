@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>A06-03 回流账本（排班案例） · FDE 模板库</title>
+<link rel="stylesheet" href="../../assets/course.css">
+</head>
+<body>
+<a class="skip-link" href="#main">跳到正文</a>
+<main class="main" id="main">
+<article class="article">
+<nav class="crumb" aria-label="面包屑">
+<a href="../../index.html">教程首页</a><span class="sep">/</span>
+<a href="../../appendix-templates.html">模板库</a><span class="sep">/</span>
+<span>黄金样例</span>
+</nav>
+<header class="page-head">
+<div class="badges">
+<span class="badge badge-main">A06-03</span>
+<span class="badge">黄金样例</span>
+<span class="badge badge-time">Markdown 阅读视图</span>
+</div>
+<h1>A06-03 回流账本（排班案例）</h1>
+<p class="page-question">这是模板的阅读视图，源文件是 <code>06-03_回流账本_排班案例.md</code>。
+<a href="06-03_回流账本_排班案例.md">下载 / 编辑 Markdown</a> · <a href="../../appendix-templates.html">返回模板库</a></p>
+</header>
+<div class="prose">
+<blockquote>
+<p>【示例】匿名化案例，数字均为示例；人名与机构均为化名。
+三个基础条目取自 <code>_canon/case-bible.md</code> 的 CB-18；出现次数依据、补充条目与评审时间为本轮整理。</p>
+</blockquote>
+<p>本账本记录 S1“外部人员额度分配”为病理科做过的定制，判断哪些值得通用化。回流不是把所有定制都产品化，而是有证据地选择：先看是否重复出现，再看通用化成本是否低于每个项目重做，最后看会不会破坏硬约束。</p>
+<h2 id="tpl-sec-1">字段</h2>
+<p>出现次数按“项目 × 场景”计数，不按人次；同一场景多人提及只计 1 次。</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th scope="col">定制项</th>
+<th scope="col">出现次数</th>
+<th scope="col">出现次数依据</th>
+<th scope="col">通用化方案</th>
+<th scope="col">影响客户</th>
+<th scope="col">所有者</th>
+<th scope="col">状态</th>
+<th scope="col">下一次评审时间</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>妇科特殊借调规则</td>
+<td>1</td>
+<td>S1 一个月分配记录中仅 1 次：妇科向消化病理借 1 人天，陈静口头说明；无制度文件与证据ID支撑</td>
+<td>暂不产品化，记为客户配置；在额度分配界面保留“跨亚专科借调”备注字段</td>
+<td>仅妇科使用；其他亚专科无需迁移；若复用只需配置借调对象与上限</td>
+<td>陈静</td>
+<td>观察</td>
+<td>下一轮 S2 D2 复盘</td>
+</tr>
+<tr>
+<td>资质认定口径</td>
+<td>2</td>
+<td>妇科、乳腺各触发 1 次分配校验；另有赵岚访谈 1 次、D3 规则评审 1 次，按场景合并计 2 次</td>
+<td>做成可配置资质表：亚专科 × 班型 × 最低资质，支持主任特批与到期日</td>
+<td>三个亚专科均受益；历史分配需补录资质，迁移成本约 1 个工作日【示例】；周主任需确认特批链</td>
+<td>赵岚</td>
+<td>试点</td>
+<td>下一轮 S2 D3 方案评审</td>
+</tr>
+<tr>
+<td>额度跨月结转</td>
+<td>1</td>
+<td>孙老师访谈 1 次，制度未明确；S1 未发生实际结转，按“提出但未落地”计 1 次</td>
+<td>先不做，列为待确认；若开启，增加“结转额度”对象并重算缺口</td>
+<td>全部亚专科；开启后需重算历史缺口；财务与绩效口径需同步</td>
+<td>孙老师</td>
+<td>待定</td>
+<td>下一轮 S2 D1 前（查制度）</td>
+</tr>
+<tr>
+<td>夜班需求口径（12 人天是否含夜班）</td>
+<td>2</td>
+<td>赵岚现场原话 1 次（E-03）；D2 需求核对 1 次，仍未拆清</td>
+<td>需求表增加“含夜班/不含夜班”两列，并保留口径确认人</td>
+<td>三个亚专科；需补一列并回溯 1 个月需求；陈静需与组长逐项确认</td>
+<td>陈静</td>
+<td>试点</td>
+<td>下一轮 S2 D1 数据准备</td>
+</tr>
+<tr>
+<td>临时调整的简化审批链</td>
+<td>1</td>
+<td>周主任访谈 1 次；仅 S1 月中调整场景出现，Demo 未走完整审批链</td>
+<td>审批链配置化：默认两级（陈静提交→周主任批准），月中调整可降为一级并留痕</td>
+<td>周主任、陈静；迁移成本低，但需确认审计要求与谁可降级</td>
+<td>FDE</td>
+<td>观察</td>
+<td>下一轮 S2 D4 排练后</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="tpl-sec-2">计数口径</h2>
+<ul>
+<li>以“项目 × 场景”为计数单位：同一场景里三个人都提到同一件事，仍计 1 次。</li>
+<li>只计实际发生、实际配置或业务方明确提出的定制；泛泛说“希望更智能”不计。</li>
+<li>每条次数必须能指到证据ID、系统日志、访谈记录或配置项，不写“很多次”“经常”。</li>
+<li>次数会随项目增加而累加；新增一次必须补一行依据，不能只改数字。</li>
+<li>出现次数是产品化判断的输入，不是唯一条件；破坏硬约束或审计要求的定制，即使次数高也不产品化。</li>
+</ul>
+<h2 id="tpl-sec-3">状态定义</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th scope="col">状态</th>
+<th scope="col">含义</th>
+<th scope="col">离开条件</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>观察</td>
+<td>已记录，但次数或价值不足以投入</td>
+<td>再次出现，或业务方明确要求</td>
+</tr>
+<tr>
+<td>试点</td>
+<td>在下一个项目中以配置或组件形式试用</td>
+<td>试用通过且不破坏硬约束，可转已产品化</td>
+</tr>
+<tr>
+<td>待定</td>
+<td>依赖制度、权限或口径确认</td>
+<td>确认后转试点、观察或不做</td>
+</tr>
+<tr>
+<td>已产品化</td>
+<td>已进入通用资产清单，有位置、所有者与限制</td>
+<td>连续两个项目无需改动</td>
+</tr>
+<tr>
+<td>不做</td>
+<td>明确不通用化，保留为一次性实现</td>
+<td>需求本质变化时重新评估</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="tpl-sec-4">通用化判定</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th scope="col">判定</th>
+<th scope="col">条件</th>
+<th scope="col">本案对应</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>产品化</td>
+<td>出现 2 次以上；通用化成本低于重复实现；不影响硬约束与审计</td>
+<td>资质认定口径，转资质表试点</td>
+</tr>
+<tr>
+<td>配置化</td>
+<td>出现 1 次但可能复发；做成配置的成本很低</td>
+<td>妇科借调规则、简化审批链</td>
+</tr>
+<tr>
+<td>待定</td>
+<td>制度或权限未明确，贸然产品化会固化错误假设</td>
+<td>额度跨月结转</td>
+</tr>
+<tr>
+<td>不做</td>
+<td>一次性特例、含敏感数据或无复用价值</td>
+<td>客户原始 Excel、一次性话术</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="tpl-sec-5">下一次评审</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th scope="col">时间</th>
+<th scope="col">评审内容</th>
+<th scope="col">参与人</th>
+<th scope="col">期望产出</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>下一轮 S2 D1 前</td>
+<td>跨月结转制度口径</td>
+<td>孙老师、陈静</td>
+<td>待定转为试点或不做</td>
+</tr>
+<tr>
+<td>下一轮 S2 D1 数据准备</td>
+<td>夜班需求列是否落地</td>
+<td>陈静、赵岚</td>
+<td>试点是否继续</td>
+</tr>
+<tr>
+<td>下一轮 S2 D2 复盘</td>
+<td>借调规则是否再次出现</td>
+<td>陈静、赵岚</td>
+<td>观察转为配置或继续观察</td>
+</tr>
+<tr>
+<td>下一轮 S2 D3 方案评审</td>
+<td>资质表配置项与特批链</td>
+<td>赵岚、周主任</td>
+<td>试点转为已产品化或继续试点</td>
+</tr>
+<tr>
+<td>下一轮 S2 D4 排练后</td>
+<td>简化审批链的审计要求</td>
+<td>周主任、刘工</td>
+<td>观察转为试点或待定</td>
+</tr>
+<tr>
+<td>下一轮复盘（G6）</td>
+<td>全部条目状态复核</td>
+<td>FDE</td>
+<td>账本更新并同步 06-02</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="tpl-sec-6">与复盘和下一轮的一致性</h2>
+<ul>
+<li>资质表试点在 S2 D3 进入方案，不提前写进 S2 MVP 的必做项。</li>
+<li>跨月结转仍是待定，不作为 S2 的前置条件；S2 只用当月已发布分配。</li>
+<li>妇科借调规则保持客户配置，不进入通用资产清单。</li>
+<li>简化审批链在审计要求确认前，不进入 S2 的写回设计。</li>
+<li>每一条状态变化都要能回到 06-01 的事实或 06-02 的资产，不另起炉灶。</li>
+</ul>
+</div>
+<footer class="page-foot">
+<p class="muted">本页由 <code>_tools/build.py</code> 从 Markdown 自动生成，请改源文件而不是改这里。</p>
+</footer>
+</article>
+</main>
+</body>
+</html>

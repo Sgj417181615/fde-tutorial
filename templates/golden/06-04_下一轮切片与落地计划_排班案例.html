@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>A06-04 下一轮切片与落地计划（排班案例） · FDE 模板库</title>
+<link rel="stylesheet" href="../../assets/course.css">
+</head>
+<body>
+<a class="skip-link" href="#main">跳到正文</a>
+<main class="main" id="main">
+<article class="article">
+<nav class="crumb" aria-label="面包屑">
+<a href="../../index.html">教程首页</a><span class="sep">/</span>
+<a href="../../appendix-templates.html">模板库</a><span class="sep">/</span>
+<span>黄金样例</span>
+</nav>
+<header class="page-head">
+<div class="badges">
+<span class="badge badge-main">A06-04</span>
+<span class="badge">黄金样例</span>
+<span class="badge badge-time">Markdown 阅读视图</span>
+</div>
+<h1>A06-04 下一轮切片与落地计划（排班案例）</h1>
+<p class="page-question">这是模板的阅读视图，源文件是 <code>06-04_下一轮切片与落地计划_排班案例.md</code>。
+<a href="06-04_下一轮切片与落地计划_排班案例.md">下载 / 编辑 Markdown</a> · <a href="../../appendix-templates.html">返回模板库</a></p>
+</header>
+<div class="prose">
+<blockquote>
+<p>【示例】匿名化案例，数字均为示例；人名与机构均为化名。
+切片事实取自 <code>_canon/case-bible.md</code> 的 CB-02、CB-18；进入条件、首周动作与停止条件为本轮整理。</p>
+</blockquote>
+<p>下一轮选 S2“个人排班与换班”，最终决策是“某天某班谁上”。它不是 S1 的扩大版，而是以 S1 已发布的分配结果为输入的下一个决策闭环。S3 暂缓、S4 不做；本轮不为它们排里程碑。</p>
+<h2 id="tpl-sec-1">一、下一轮切片</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th scope="col">切片</th>
+<th scope="col">决策</th>
+<th scope="col">价值</th>
+<th scope="col">依赖</th>
+<th scope="col">里程碑</th>
+<th scope="col">负责人</th>
+<th scope="col">风险</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>S2 个人排班与换班</td>
+<td>某天某班谁上：把已分配的人落到具体日期与班型，换班走同一条调整记录</td>
+<td>减少月中临时改班与口头换班；排班时同时看到班型、资质与可用天数；为 S1 的额度分配提供执行反馈【示例】</td>
+<td>S1 分配结果稳定写回且可重开核对；日期、班型、请假、门诊、外出会诊数据可用；R-03、R-04、R-05 已确认；刘工确认读权限</td>
+<td>M1 S2 one-pager 通过五道门；M2 完成一周、四人、三种班型的排班；M3 一次换班产生 Adjustment 记录并写回；M4 陈静独立完成一次周排班并复盘</td>
+<td>陈静（业务）、FDE（方法）、刘工（数据）</td>
+<td>S1 写回不稳、日期数据缺失、规则冲突、范围膨胀；详见风险表</td>
+</tr>
+<tr>
+<td>S3 住院总轮转</td>
+<td>下月谁做住院总</td>
+<td>中等；但证据弱、轮转规则未清</td>
+<td>S2 稳定运行；住院总资质与轮转规则确认</td>
+<td>本轮不排期，S2 复盘后重新打分</td>
+<td>周主任</td>
+<td>暂缓</td>
+</tr>
+<tr>
+<td>S4 报表与统计</td>
+<td>无最终决策，以查看为主</td>
+<td>低</td>
+<td>无</td>
+<td>本轮不排期</td>
+<td>无</td>
+<td>不做</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>边界</strong>：本轮只承诺 S2 的一个最终决策。S1 的额度分配只作为输入，不在 S2 里重做；S3、S4 不进入本轮里程碑。</p>
+<h3 id="tpl-sec-2">里程碑与验收</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th scope="col">里程碑</th>
+<th scope="col">交付物与验收</th>
+<th scope="col">负责人</th>
+<th scope="col">时点</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>M1 切片成立</td>
+<td>S2 one-pager 只承诺“某天某班谁上”，五道门逐项有证据</td>
+<td>FDE</td>
+<td>S2 D1</td>
+</tr>
+<tr>
+<td>M2 排班可完成</td>
+<td>一周、四人、三种班型的排班表可保存并重新打开</td>
+<td>陈静</td>
+<td>S2 D3</td>
+</tr>
+<tr>
+<td>M3 换班可追溯</td>
+<td>一次换班产生 Adjustment 记录，含原值、新值与原因</td>
+<td>陈静</td>
+<td>S2 D4</td>
+</tr>
+<tr>
+<td>M4 独立操作与复盘</td>
+<td>陈静独立完成周排班；06-01 至 06-04 更新</td>
+<td>陈静、FDE</td>
+<td>S2 D5</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="tpl-sec-3">二、进入条件</h2>
+<p>依赖未满足时先补依赖或缩小切片，不硬排期。</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th scope="col">条件</th>
+<th scope="col">验收证据</th>
+<th scope="col">负责人</th>
+<th scope="col">截止</th>
+<th scope="col">未满足时的动作</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>C-01 S1 分配结果稳定写回</td>
+<td>最近一个月 Allocation.status 为“已发布”；Quota.used 与剩余可重算；陈静连续两次打开核对一致【示例】</td>
+<td>陈静</td>
+<td>S2 D1 前</td>
+<td>先修 S1 写回，不启动 S2 设计</td>
+</tr>
+<tr>
+<td>C-02 唯一版本</td>
+<td>本地对象为唯一权威版本；院内系统若仍手工同步，有同步时间、责任人与差异记录</td>
+<td>刘工</td>
+<td>S2 D1 前</td>
+<td>先做版本合并与对账，不进入排班</td>
+</tr>
+<tr>
+<td>C-03 日期与班型数据</td>
+<td>三个亚专科下月班型需求、人员请假、门诊、外出会诊已导出或书面确认</td>
+<td>陈静</td>
+<td>S2 D2 前</td>
+<td>缩小到“一个亚专科 × 一周”试点</td>
+</tr>
+<tr>
+<td>C-04 资质规则</td>
+<td>R-04 资质认定口径有确认人；资质表可作为配置项维护</td>
+<td>赵岚</td>
+<td>S2 D3 前</td>
+<td>只做资质提示，不做硬拦截，并写明边界</td>
+</tr>
+<tr>
+<td>C-05 换班规则</td>
+<td>换班由谁批准、是否留痕、是否影响额度，有书面口径</td>
+<td>周主任</td>
+<td>S2 D3 前</td>
+<td>换班先只记录不审批，列为待确认</td>
+</tr>
+<tr>
+<td>C-06 五道门复检</td>
+<td>五道门逐项有证据；第 4 门写回边界明确</td>
+<td>FDE</td>
+<td>S2 D1 前</td>
+<td>缺门先补，或缩小切片后再检</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="tpl-sec-4">三、首周动作</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th scope="col">日期</th>
+<th scope="col">上午</th>
+<th scope="col">下午</th>
+<th scope="col">产出</th>
+<th scope="col">负责人</th>
+<th scope="col">验收</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D1</td>
+<td>复核 S1 写回与唯一版本（C-01、C-02）</td>
+<td>观察陈静一次真实周排班，记录日期、班型与换班触发点</td>
+<td>S2 现状记录、数据清单、进入条件核对表</td>
+<td>陈静、FDE</td>
+<td>C-01、C-02 有证据；能指出 S1 数据在排班中的缺口</td>
+</tr>
+<tr>
+<td>D2</td>
+<td>画 S2 As-is 决策流：周排班→换班→确认</td>
+<td>补 R-03、R-04、R-05 的例外，写 S2 one-pager</td>
+<td>As-is 决策流、规则更新、one-pager 初稿</td>
+<td>陈静、赵岚</td>
+<td>one-pager 只承诺“某天某班谁上”</td>
+</tr>
+<tr>
+<td>D3</td>
+<td>对象模型增加日期、班型、排班、换班对象</td>
+<td>设计生命周期与写回，配置资质表</td>
+<td>对象模型、状态机、资质表配置项</td>
+<td>刘工、FDE</td>
+<td>每个状态迁移能写回本地对象</td>
+</tr>
+<tr>
+<td>D4</td>
+<td>准备数据快照与 Demo 脚本</td>
+<td>端到端排练，专门走一次换班</td>
+<td>快照、脚本、失败替代</td>
+<td>陈静</td>
+<td>换班产生 1 条 Adjustment 记录</td>
+</tr>
+<tr>
+<td>D5</td>
+<td>正式演示 S2 排班与换班</td>
+<td>复盘，更新 06-01 至 06-04</td>
+<td>阶段门记录、更新后的复盘与账本</td>
+<td>周主任、陈静</td>
+<td>决策可完成，重新打开能核对写回</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>顺序纪律</strong>：D1 若 C-01、C-02 未通过，D2 不进入排班设计，改为修复 S1 与版本对账。</p>
+<h2 id="tpl-sec-5">四、风险与停止条件</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th scope="col">风险</th>
+<th scope="col">触发条件</th>
+<th scope="col">应对</th>
+<th scope="col">停止或缩小条件</th>
+<th scope="col">负责人</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>S1 写回不稳定</td>
+<td>两次打开结果不一致，或本地与院内版本冲突</td>
+<td>冻结 S2，先做数据对账；明确本地对象为唯一版本</td>
+<td>对账后仍有任何一条分配不一致，停止 S2</td>
+<td>刘工、陈静</td>
+</tr>
+<tr>
+<td>日期与班型数据不可得</td>
+<td>D2 前拿不到请假、门诊、外出会诊</td>
+<td>缩小到“一个亚专科 × 一周”；缺失项用访谈确认值并标注</td>
+<td>关键班型需求无法确认，只做排班表结构，不做真实排班</td>
+<td>陈静</td>
+</tr>
+<tr>
+<td>规则冲突</td>
+<td>R-03“一人一天一个班”与连班偏好或换班请求冲突</td>
+<td>硬约束优先；换班写原因，不做自动求解</td>
+<td>超过 20% 班次无法排出，回到规则库重新确认【示例】</td>
+<td>赵岚</td>
+</tr>
+<tr>
+<td>范围膨胀</td>
+<td>自动优化、绩效核算或移动端被写进里程碑</td>
+<td>列入“不做清单”；只做规则校验与人工调整</td>
+<td>新需求进入本轮里程碑，切回 one-pager 重评</td>
+<td>FDE</td>
+</tr>
+<tr>
+<td>审批人不可用</td>
+<td>周主任无法参加 D5</td>
+<td>次日补审批，不假装已批准</td>
+<td>连续两次无法审批，换授权审批人或延后 D5</td>
+<td>陈静</td>
+</tr>
+<tr>
+<td>基线误读</td>
+<td>有人把 50 分钟当稳定值，或宣称降幅</td>
+<td>复测两次取中位数，写明样本数与口径</td>
+<td>未完成复测，对外只写“单次现场值”</td>
+<td>FDE</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="tpl-sec-6">五、成功标准</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th scope="col">标准</th>
+<th scope="col">验收方式</th>
+<th scope="col">负责人</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>陈静用真实一周数据完成排班</td>
+<td>排班表与操作日志，覆盖四人、三种班型</td>
+<td>陈静</td>
+</tr>
+<tr>
+<td>至少一次换班可追溯</td>
+<td>重新打开 Adjustment 记录，能看到原值、新值与原因</td>
+<td>陈静</td>
+</tr>
+<tr>
+<td>硬约束被拦住</td>
+<td>R-03、R-05 触发时有拦截记录，不是只提示</td>
+<td>FDE</td>
+</tr>
+<tr>
+<td>写回边界清楚</td>
+<td>本地对象写回成功；院内系统写什么、不写什么写明</td>
+<td>刘工</td>
+</tr>
+<tr>
+<td>业务确认完成</td>
+<td>组长与主任在界面上完成确认或审批</td>
+<td>周主任</td>
+</tr>
+<tr>
+<td>基线复测完成</td>
+<td>两次同口径计时，记录起止点与中位数</td>
+<td>陈静</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="tpl-sec-7">六、与复盘和回流账本的一致性</h2>
+<ul>
+<li>输入只使用 S1 已发布的分配结果，不在 S2 重新分配额度。</li>
+<li>资质表在 S2 D3 以试点进入，不提前成为硬门槛。</li>
+<li>额度跨月结转仍是待定，不作为 S2 前置条件。</li>
+<li>妇科借调规则保持客户配置，不进入通用资产。</li>
+<li>简化审批链在审计要求确认前，不进入 S2 写回设计。</li>
+<li>复用 06-02 的对象模型、冲突规则、三栏界面与写回规格；下一轮复盘继续用 06-01 的事实、判断、结果、原因四段结构。</li>
+</ul>
+</div>
+<footer class="page-foot">
+<p class="muted">本页由 <code>_tools/build.py</code> 从 Markdown 自动生成，请改源文件而不是改这里。</p>
+</footer>
+</article>
+</main>
+</body>
+</html>

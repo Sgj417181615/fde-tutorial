@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>A02-03 术语与说话人表（排班案例） · FDE 模板库</title>
+<link rel="stylesheet" href="../../assets/course.css">
+</head>
+<body>
+<a class="skip-link" href="#main">跳到正文</a>
+<main class="main" id="main">
+<article class="article">
+<nav class="crumb" aria-label="面包屑">
+<a href="../../index.html">教程首页</a><span class="sep">/</span>
+<a href="../../appendix-templates.html">模板库</a><span class="sep">/</span>
+<span>黄金样例</span>
+</nav>
+<header class="page-head">
+<div class="badges">
+<span class="badge badge-main">A02-03</span>
+<span class="badge">黄金样例</span>
+<span class="badge badge-time">Markdown 阅读视图</span>
+</div>
+<h1>A02-03 术语与说话人表（排班案例）</h1>
+<p class="page-question">这是模板的阅读视图，源文件是 <code>02-03_术语与说话人表_排班案例.md</code>。
+<a href="02-03_术语与说话人表_排班案例.md">下载 / 编辑 Markdown</a> · <a href="../../appendix-templates.html">返回模板库</a></p>
+</header>
+<div class="prose">
+<blockquote>
+<p>【示例】匿名化案例，数字均为示例；人名与机构均为化名。</p>
+</blockquote>
+<h2 id="tpl-sec-1">用途 / 何时用</h2>
+<p>在整理 D1 现场记录时同步维护。把业务词、数据字段和英文名对齐，并登记每个说话人的身份与可信度，防止同一个词在不同人嘴里表示不同东西。</p>
+<p>本表只登记本案出现的词；字段名为教学用示例映射，需刘工在 D2 前核对院内系统的真实字段。</p>
+<h2 id="tpl-sec-2">术语表</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th scope="col">业务词</th>
+<th scope="col">数据字段</th>
+<th scope="col">英文名</th>
+<th scope="col">定义</th>
+<th scope="col">说话人</th>
+<th scope="col">身份</th>
+<th scope="col">可信度</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>班型</td>
+<td>shift_type_code</td>
+<td>Shift Type</td>
+<td>白班、夜班、周末班三类；每类对应固定时段与所需人数</td>
+<td>陈静</td>
+<td>科秘书/排班员</td>
+<td>高——本人排班</td>
+</tr>
+<tr>
+<td>亚专科</td>
+<td>subspecialty_code</td>
+<td>Subspecialty</td>
+<td>妇科病理、乳腺病理、消化病理；额度与需求的最小分配单位</td>
+<td>赵岚</td>
+<td>妇科病理组长</td>
+<td>高——本人所在组</td>
+</tr>
+<tr>
+<td>专业组</td>
+<td>group_name</td>
+<td>—</td>
+<td>组长口中的“我们组”，本案与“亚专科”同义；院内系统叫“专业组”</td>
+<td>赵岚</td>
+<td>妇科病理组长</td>
+<td>中——口头叫法，需与系统对齐</td>
+</tr>
+<tr>
+<td>人天</td>
+<td>person_day</td>
+<td>Person-Day</td>
+<td>一人工作一天的工作量；1 人天 = 1 人 × 1 天，不含半天</td>
+<td>孙老师</td>
+<td>人力资源/绩效</td>
+<td>高——额度口径负责人</td>
+</tr>
+<tr>
+<td>额度</td>
+<td>quota_days</td>
+<td>Quota</td>
+<td>人力资源每月下发给亚专科的外部协作人员可用上限，单位人天</td>
+<td>孙老师</td>
+<td>人力资源/绩效</td>
+<td>高——额度发放者</td>
+</tr>
+<tr>
+<td>已用额度</td>
+<td>used_days</td>
+<td>Used Days</td>
+<td>已分配到人员的额度合计；当前以草表为准</td>
+<td>陈静</td>
+<td>科秘书/排班员</td>
+<td>中——系统字段待核</td>
+</tr>
+<tr>
+<td>剩余额度</td>
+<td>remaining_days</td>
+<td>Remaining Days</td>
+<td>额度减已用；可以为负，负值即超用</td>
+<td>陈静</td>
+<td>科秘书/排班员</td>
+<td>中——系统字段待核</td>
+</tr>
+<tr>
+<td>需求</td>
+<td>demand_days</td>
+<td>Demand</td>
+<td>组长提出的下月所需人天；当前为口头</td>
+<td>赵岚</td>
+<td>妇科病理组长</td>
+<td>高——本人提出</td>
+</tr>
+<tr>
+<td>可用天数</td>
+<td>available_days</td>
+<td>Available Days</td>
+<td>个人当月可上班天数，已扣年假、门诊、外出会诊</td>
+<td>陈静</td>
+<td>科秘书/排班员</td>
+<td>中——来源分散，王芳值待验证</td>
+</tr>
+<tr>
+<td>预排天数</td>
+<td>planned_days</td>
+<td>Planned Days</td>
+<td>草表上已排给个人的天数</td>
+<td>陈静</td>
+<td>科秘书/排班员</td>
+<td>高——本人操作</td>
+</tr>
+<tr>
+<td>超排</td>
+<td>over_allocation</td>
+<td>Over-allocation</td>
+<td>预排天数大于可用天数；C1 即王芳 10 &gt; 9</td>
+<td>陈静</td>
+<td>科秘书/排班员</td>
+<td>高——现场指出</td>
+</tr>
+<tr>
+<td>缺口</td>
+<td>gap</td>
+<td>Gap</td>
+<td>需求大于额度（额度缺口）或需求大于预排（执行缺口）；C2 指前者</td>
+<td>陈静</td>
+<td>科秘书/排班员</td>
+<td>中——两种口径混用，需拆开</td>
+</tr>
+<tr>
+<td>冲突</td>
+<td>conflict</td>
+<td>Conflict</td>
+<td>超排、缺口、资质不符的统称；本案为 C1、C2</td>
+<td>FDE 记录人</td>
+<td>FDE</td>
+<td>中——项目内定义</td>
+</tr>
+<tr>
+<td>资质</td>
+<td>qualification</td>
+<td>Qualification</td>
+<td>能独立承担某亚专科某班型的人员条件</td>
+<td>赵岚</td>
+<td>妇科病理组长</td>
+<td>中——认定口径未定</td>
+</tr>
+<tr>
+<td>结转</td>
+<td>carry_over</td>
+<td>Carry-over</td>
+<td>当月未用完额度是否可留到下月；尚未确认</td>
+<td>陈静</td>
+<td>科秘书/排班员</td>
+<td>低——工作假设 E-05</td>
+</tr>
+<tr>
+<td>草表</td>
+<td>—</td>
+<td>—</td>
+<td>陈静手画的“人 × 亚专科”纸质网格，事实上的全局视图</td>
+<td>陈静</td>
+<td>科秘书/排班员</td>
+<td>高——本人制作</td>
+</tr>
+<tr>
+<td>排班本</td>
+<td>—</td>
+<td>—</td>
+<td>科室纸质排班记录，含个人班次与备注</td>
+<td>陈静</td>
+<td>科秘书/排班员</td>
+<td>高——本人维护</td>
+</tr>
+<tr>
+<td>写回</td>
+<td>write_back</td>
+<td>Write-back</td>
+<td>界面操作后真实改变状态与额度字段，不只是弹提示</td>
+<td>FDE 记录人</td>
+<td>FDE</td>
+<td>中——Demo 口径</td>
+</tr>
+<tr>
+<td>版本</td>
+<td>version</td>
+<td>Version</td>
+<td>同一月份并存的分配方案副本；当前约 4 份</td>
+<td>陈静</td>
+<td>科秘书/排班员</td>
+<td>中——未清点</td>
+</tr>
+<tr>
+<td>外部协作人员</td>
+<td>external_staff</td>
+<td>External Collaborator</td>
+<td>非本科室编制、按人天协作的技师；本案四人</td>
+<td>孙老师</td>
+<td>人力资源/绩效</td>
+<td>高——额度口径</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="tpl-sec-3">歧义与口径</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th scope="col">易混词</th>
+<th scope="col">歧义</th>
+<th scope="col">本项目口径</th>
+<th scope="col">确认人</th>
+<th scope="col">状态</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>额度 / 需求</td>
+<td>额度是上限，需求是想要，现场常混着说</td>
+<td>额度用于校验，需求用于算缺口；两者不互换</td>
+<td>孙老师</td>
+<td>已确认</td>
+</tr>
+<tr>
+<td>缺口</td>
+<td>可能指额度不够，也可能指预排没排满</td>
+<td>C2 专指额度缺口；预排不足另称“执行缺口”</td>
+<td>陈静</td>
+<td>待确认</td>
+</tr>
+<tr>
+<td>可用天数</td>
+<td>排班本、年假表、组长口头各有一套</td>
+<td>以“可上班且具备资质”的书面值为准</td>
+<td>陈静</td>
+<td>待验证</td>
+</tr>
+<tr>
+<td>人天</td>
+<td>是否含半天、加班、夜班折算</td>
+<td>只计整天；加班与半天另行记录</td>
+<td>孙老师</td>
+<td>待确认</td>
+</tr>
+<tr>
+<td>超排</td>
+<td>可能指超个人可用天数，也可能指超额度</td>
+<td>本案 C1 专指超个人可用天数</td>
+<td>陈静</td>
+<td>已确认</td>
+</tr>
+<tr>
+<td>组 / 亚专科</td>
+<td>组长说“组”，系统说“亚专科”，报表说“专业组”</td>
+<td>本项目统一写“亚专科”，括号注现场叫法</td>
+<td>赵岚</td>
+<td>待与系统对齐</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="tpl-sec-4">同一业务词的不同叫法</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th scope="col">标准词</th>
+<th scope="col">现场叫法</th>
+<th scope="col">出现人</th>
+<th scope="col">处理</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>外部人员额度</td>
+<td>指标、名额、额度</td>
+<td>孙老师、陈静</td>
+<td>统一写“额度”，首次出现注“指标”</td>
+</tr>
+<tr>
+<td>亚专科</td>
+<td>专业组、组、专科</td>
+<td>赵岚、周主任</td>
+<td>统一写“亚专科”</td>
+</tr>
+<tr>
+<td>排班员</td>
+<td>科秘书、小陈</td>
+<td>周主任、赵岚</td>
+<td>统一写“陈静（科秘书/排班员）”</td>
+</tr>
+<tr>
+<td>外部协作人员</td>
+<td>外援、外包技师、外面的人</td>
+<td>陈静</td>
+<td>统一写“外部协作人员”</td>
+</tr>
+<tr>
+<td>超排</td>
+<td>排多了、超了、上不了那么多</td>
+<td>陈静</td>
+<td>统一写“超排（C1）”</td>
+</tr>
+<tr>
+<td>缺口</td>
+<td>差几个人天、不够、缺</td>
+<td>赵岚、陈静</td>
+<td>统一写“缺口”，并注明额度缺口或执行缺口</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="tpl-sec-5">说话人登记</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th scope="col">说话人</th>
+<th scope="col">身份</th>
+<th scope="col">组织</th>
+<th scope="col">可信度</th>
+<th scope="col">依据</th>
+<th scope="col">首次出现</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>陈静</td>
+<td>科秘书/排班员</td>
+<td>病理科</td>
+<td>高</td>
+<td>本人操作、亲历全流程</td>
+<td>09:12</td>
+</tr>
+<tr>
+<td>赵岚</td>
+<td>妇科病理亚专科组长</td>
+<td>病理科</td>
+<td>高</td>
+<td>本人提出需求、本组当事人</td>
+<td>10:05</td>
+</tr>
+<tr>
+<td>周主任</td>
+<td>科主任/最终审批人</td>
+<td>病理科</td>
+<td>高</td>
+<td>审批权限、制度解释</td>
+<td>11:10</td>
+</tr>
+<tr>
+<td>FDE 记录人</td>
+<td>FDE/访谈与记录（化名）</td>
+<td>项目组</td>
+<td>中</td>
+<td>提问者，不是业务事实来源</td>
+<td>09:13</td>
+</tr>
+<tr>
+<td>孙老师</td>
+<td>人力资源/绩效</td>
+<td>人力资源</td>
+<td>低</td>
+<td>未到场，额度口径由陈静转述</td>
+<td>未到场</td>
+</tr>
+<tr>
+<td>刘工</td>
+<td>信息科接口人</td>
+<td>信息科</td>
+<td>低</td>
+<td>未到场，系统与权限待确认</td>
+<td>未到场</td>
+</tr>
+<tr>
+<td>王芳</td>
+<td>外部协作技师</td>
+<td>外部</td>
+<td>低</td>
+<td>未访谈，仅有排班本 9 天记录</td>
+<td>未到场</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="tpl-sec-6">人员对照（非说话人）</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th scope="col">人员</th>
+<th scope="col">身份</th>
+<th scope="col">可用天数</th>
+<th scope="col">预排天数</th>
+<th scope="col">本案位置</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>王芳</td>
+<td>外部协作技师</td>
+<td>9</td>
+<td>10</td>
+<td>C1 当事人</td>
+</tr>
+<tr>
+<td>李强</td>
+<td>外部协作技师</td>
+<td>20</td>
+<td>20</td>
+<td>乳腺 12 + 消化 8</td>
+</tr>
+<tr>
+<td>周敏</td>
+<td>外部协作技师</td>
+<td>18</td>
+<td>12</td>
+<td>乳腺 10 + 消化 2；余 6 天</td>
+</tr>
+<tr>
+<td>陈卓</td>
+<td>外部协作技师</td>
+<td>12</td>
+<td>12</td>
+<td>消化 12</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="tpl-sec-7">维护记录</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th scope="col">日期</th>
+<th scope="col">变更</th>
+<th scope="col">原因</th>
+<th scope="col">处理人</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2026-10-19</td>
+<td>初版建立，登记 20 个术语、4 名现场说话人；FDE 记录人、FDE 协助人为 FDE 化名</td>
+<td>D1 现场整理</td>
+<td>FDE 记录人</td>
+</tr>
+<tr>
+<td>2026-10-19</td>
+<td>“缺口”拆为“额度缺口”和“执行缺口”</td>
+<td>陈静与赵岚用法不一致</td>
+<td>FDE 记录人</td>
+</tr>
+<tr>
+<td>待定</td>
+<td>补登“结转”的正式定义</td>
+<td>需孙老师确认制度</td>
+<td>陈静</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<footer class="page-foot">
+<p class="muted">本页由 <code>_tools/build.py</code> 从 Markdown 自动生成，请改源文件而不是改这里。</p>
+</footer>
+</article>
+</main>
+</body>
+</html>

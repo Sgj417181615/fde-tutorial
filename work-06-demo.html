@@ -1,0 +1,751 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<title>Demo 脚本、数据与环境 · FDE 零基础教程</title>
+<meta name="description" content="按分钟写脚本、准备脱敏快照、检查环境和失败替代，让用户自己完成决策。">
+<link rel="stylesheet" href="assets/course.css">
+<script>
+(function () {
+  try {
+    var saved = localStorage.getItem('fde-theme');
+    var theme = saved || (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+    document.documentElement.dataset.theme = theme;
+  } catch (e) {}
+})();
+</script>
+</head>
+<body class="track-workbench page-work-06-demo">
+<a class="skip-link" href="#main">跳到正文</a>
+
+<header class="topbar">
+  <button class="icon-btn nav-toggle" id="nav-toggle" type="button" aria-expanded="false" aria-controls="sidebar" aria-label="打开课程目录">
+    <span aria-hidden="true">☰</span>
+  </button>
+  <a class="brand" data-same-tab href="index.html"><span class="brand-mark">FDE</span><span class="brand-text">零基础教程</span></a>
+  <nav class="track-switch" aria-label="模块切换"><a class="track-link" data-same-tab href="index.html" title="从零建立完整心智模型">主线</a><span class="track-link active" aria-current="true" title="现场查用：输入、步骤、输出、阶段门">工作台</span><a class="track-link" data-same-tab href="day1-00-overview.html" title="六步链路：简报 → 访谈 → 证据 → 底稿 → 门">Day1</a><a class="track-link" data-same-tab href="appendix-methods.html" title="一卡一问，按阶段、产物、角色查">方法库</a><a class="track-link" data-same-tab href="appendix-templates.html" title="模板、产物链、术语与来源">附录</a></nav>
+  <div class="top-actions">
+    <button class="search-open" id="search-open" type="button" aria-haspopup="dialog">
+      <span aria-hidden="true">⌕</span><span class="search-label">搜索</span><kbd>/</kbd>
+    </button>
+    <button class="icon-btn" id="theme-toggle" type="button" aria-label="切换深浅色">◐</button>
+  </div>
+  <div class="read-progress" aria-hidden="true"><span id="read-progress"></span></div>
+</header>
+
+<div class="layout">
+  <aside class="sidebar" id="sidebar">
+    <nav class="course-tree" aria-label="课程目录"><header class="side-head"><p class="side-eyebrow">当前模块</p><p class="side-title">实操工作台</p><p class="side-caption">现场查用：输入、步骤、输出、阶段门</p><p class="side-meta">9 页<span class="dot">·</span>按需查</p></header><section class="nav-group"><p class="nav-group-title"><span class="nav-group-num">01</span>调研与记录</p><a class="nav-link" data-same-tab href="work-01-prep.html">调研前 7 天</a><a class="nav-link" data-same-tab href="work-02-interview.html">现场 60 分钟</a><a class="nav-link" data-same-tab href="work-03-record.html">记录：把现场变成证据</a><a class="nav-link" data-same-tab href="work-04-model.html">从证据到模型</a></section><section class="nav-group"><p class="nav-group-title"><span class="nav-group-num">02</span>交付与 Demo</p><a class="nav-link" data-same-tab href="work-05-spec.html">一小时压出评审包</a><span class="nav-link nav-current" aria-current="page">Demo 脚本、数据与环境</span><a class="nav-link" data-same-tab href="work-07-run.html">五天执行与阶段门</a><a class="nav-link" data-same-tab href="work-08-retro.html">复盘与回流</a><a class="nav-link" data-same-tab href="work-09-toolchain.html">工具链与硬编码路径</a></section></nav>
+  </aside>
+  <button class="scrim" id="scrim" type="button" aria-label="关闭目录" hidden></button>
+
+  <main class="main" id="main">
+    <nav class="crumb" aria-label="面包屑"><a data-same-tab href="index.html">教程</a><span class="sep">/</span><span>实操工作台</span><span class="sep">/</span><span>交付与 Demo</span><span class="sep">/</span><span aria-current="page">Demo 脚本、数据与环境</span></nav>
+    <article class="article">
+      <header class="page-head">
+        <div class="badges"><span class="badge badge-workbench">查用</span><span class="badge badge-time">18 分钟</span></div>
+        <h1>Demo 脚本、数据与环境</h1>
+        <p class="lede">按分钟写脚本、准备脱敏快照、检查环境和失败替代，让用户自己完成决策。</p>
+        <p class="page-question"><span class="eyebrow">本页要回答</span>怎样保证演示当天，用户能自己走完一次真实决策？</p>
+        <div class="page-meta">
+          <section class="meta-block">
+            <h2 class="meta-title" id="meta-objectives">读完你能</h2>
+            <ul class="objective-list"><li>写出按分钟、带失败替代的 Demo 脚本；</li><li>准备脱敏数据清单与快照；</li><li>用六项检查做 Go/No-Go。</li></ul>
+          </section>
+          <section class="meta-block">
+            <h2 class="meta-title" id="meta-prereq">前置</h2>
+            <p>先读：<a href="main-08-five-days.html" target="_blank" rel="noopener">Day1–5 每天做什么</a>、<a href="work-05-spec.html" target="_blank" rel="noopener">一小时压出评审包</a></p>
+          </section>
+        </div>
+      </header>
+
+      <div class="prose">
+        <dl class="runbook-head">
+<div><dt>何时用</dt><dd>方案设计完成后、第一次给用户看之前；正式 Demo 前 24 小时做 Go/No-Go</dd></div>
+<div><dt>前置</dt><dd>A04-06 MVP 范围、A05-02 五天计划、A05-05 KPI（关键指标）已确认</dd></div>
+<div><dt>输入</dt><dd>决策清单、FR、对象模型、生命周期、界面设计、MVP 范围</dd></div>
+<div><dt>输出</dt><dd>A05-06 Demo 脚本、A05-07 数据清单、A05-08 反馈记录</dd></div>
+<div><dt>阶段门与耗时</dt><dd>G5 验证执行门；首次约 2.5 小时，每日更新约 20 分钟</dd></div>
+</dl>
+
+<p>演示当天，陈静坐在你旁边，你的手放在鼠标上。你一边点一边说“这里我们做了……”，她一直点头。演示结束，周主任问：“所以她下个月就能这样分？”没人敢确定，因为完成决策的人是你。</p>
+<p>功能展示证明“系统有这个功能”；Demo 要证明“<strong>用户本人能完成一次真实决策</strong>”。这一页把它拆成脚本、数据、环境、预演、失败预案。</p>
+<h2 id="sec-when">何时用</h2>
+<p><strong>该用</strong>：</p>
+<ul>
+<li>D2 方案设计完成后，第一次把界面交给用户之前；</li>
+<li>五天验证期间每天 17:00 展示前，只更新当天要演的一段；</li>
+<li>正式 Demo 前 24 小时，用六项检查做 Go/No-Go（继续或不继续）。</li>
+</ul>
+<p><strong>不该用</strong>：</p>
+<ul>
+<li>A04-06 的“演示必需”还没定。先定范围，再写脚本；</li>
+<li>想用录屏或截图代替用户操作。它们只能做失败替代；</li>
+<li>关键用户或审批人不在场，也没有代理人。可以预演，不能宣称验证通过。</li>
+</ul>
+<div class="checkpoint">
+<p><strong>停一下</strong>：如果明天就演示，把鼠标交给陈静，然后你闭嘴，她能自己走到“提交审批”吗？</p>
+<p>只要有一个动作需要你“帮忙点一下”，这个动作就还没有被验证。</p>
+</div>
+<h2 id="sec-prereq">前置</h2>
+<p>开始写脚本前，下面六件事必须已经成立：</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th scope="col">前置</th>
+<th scope="col">判断标准</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>决策已收窄</td>
+<td>A04-01 里只有一个最终决策进入 Demo</td>
+</tr>
+<tr>
+<td>FR 可验收</td>
+<td>每条 FR 有界面、动作和验收标准</td>
+</tr>
+<tr>
+<td>对象与写回清楚</td>
+<td>A04-03、A04-04 说清数据来源与写回</td>
+</tr>
+<tr>
+<td>数据可碰</td>
+<td>脱敏方案已确认，快照可装载</td>
+</tr>
+<tr>
+<td>时间已排</td>
+<td>A05-02 写明日期、参与人和展示时点</td>
+</tr>
+<tr>
+<td>KPI 已定</td>
+<td>A05-05 写明顺手测哪个指标</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="sec-inputs">输入</h2>
+<p>从已有产物里取六样东西，不要重新想一遍方案：</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th scope="col">输入</th>
+<th scope="col">取什么</th>
+<th scope="col">用在哪一步</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A04-01 决策清单</td>
+<td>最终决策、决策人、时点、输入、动作</td>
+<td>写脚本第一句</td>
+</tr>
+<tr>
+<td>A04-02 功能需求 FR</td>
+<td>每个界面的操作与验收标准</td>
+<td>拆屏幕动作</td>
+</tr>
+<tr>
+<td>A04-03 对象模型</td>
+<td>演示中的对象、关系和基数</td>
+<td>准备数据</td>
+</tr>
+<tr>
+<td>A04-04 生命周期与写回</td>
+<td>状态怎么变、写回什么、谁有权限</td>
+<td>设计最后一步</td>
+</tr>
+<tr>
+<td>A04-05 增强与界面</td>
+<td>哪些计算、提示、冲突面板必须被看见</td>
+<td>排屏幕顺序</td>
+</tr>
+<tr>
+<td>A04-06 MVP 范围</td>
+<td>“演示必需”与“可延后”</td>
+<td>决定砍什么</td>
+</tr>
+</tbody>
+</table></div>
+<p>A05-02 决定你有多少分钟，A05-05 决定演示时要不要计时、计数。</p>
+<h2 id="sec-steps">步骤</h2>
+<h3 id="step-decide">第 1 步：用一句话写清“用户完成什么决策”（15 分钟）</h3>
+<p>照这个句式写：</p>
+<blockquote>
+<p>让【角色】在【时点】，用【输入】，决定【一个决策】，并在【界面】完成【一个动作】。</p>
+</blockquote>
+<p>排班案例的写法是：让陈静在每月 25 日前，用额度、需求和可用天数，决定三个亚专科怎么分，并提交组长确认、主任审批。</p>
+<p>一句话里出现两个“决定”，就删掉一个。</p>
+<h3 id="step-script">第 2 步：按分钟排 5–8 个屏幕动作（40 分钟）</h3>
+<p><span class="term-link" title="Demo Script：按分钟写清谁操作、做什么决定、看哪一屏、出问题说什么的演示脚本；不是功能清单。">Demo 脚本</span>不是功能清单，而是一张时间表：谁操作、在什么场景、做什么决定、看哪一屏、出问题说什么。</p>
+<p>正式 Demo 8–10 分钟，每日展示 3–5 分钟。开场只留用户当前要处理的缺口；中间每步对应决策的一部分；最后一步必须产生可见结果：状态、额度或记录变化。</p>
+<p>每步只写一句台词。某行删掉后决策仍完整，就删掉。</p>
+<h3 id="step-data">第 3 步：准备数据清单与脱敏快照（60 分钟）</h3>
+<p><span class="term-link" title="Demo Data Manifest：列出演示要用的数据源、脱敏状态、快照时间、装载方式和缺失时的替代数据。">Demo 数据清单</span>列出四个来源：人事表、额度表、排班本、需求记录。每行写清内容、脱敏方式、快照时间、装载方式、缺失替代和负责人。</p>
+<p>三条纪律：</p>
+<ul>
+<li><strong>真实月份。</strong> 四个人、三个亚专科、真实缺口，用户才会说“这就是我这个月”；</li>
+<li><strong>快照时间写死。</strong> 数据是某一天的状态，不是“最新数据”；</li>
+<li><strong>每个来源有替代。</strong> 装不进去就手工录入，打不开就用截图，读不到就用访谈确认值。</li>
+</ul>
+<p>装完完整走一遍，记下加载超过 3 秒的屏幕。演示当天不调试数据。</p>
+<h3 id="step-env">第 4 步：检查环境并留下复原点（30 分钟）</h3>
+<p>在演示机上确认四件事：账号权限包含查看、修改、审批；数据停在“演示前状态”；写回后重新打开能看到结果；断网时快照和截图在本机，投屏下关键列可见。</p>
+<p>把演示前的数据状态另存一份，预演一次复原一次。否则第二场会从“已经审批完”开始。</p>
+<h3 id="step-rehearse">第 5 步：预演两遍，第二遍让用户来（50 分钟）</h3>
+<p>第一遍自己走，计时，不看稿，找出哪里要等、哪里点不动、哪句话解释不清。</p>
+<p>第二遍请陈静本人来，把鼠标交给她，只报时间、记停顿、回答按钮用途。不要替她点。</p>
+<p>她停顿超过 10 秒的地方改文案或调顺序；她问“能不能跳过”的地方考虑砍掉。</p>
+<h3 id="step-fallback">第 6 步：为每一行写失败替代（20 分钟）</h3>
+<p>失败替代不是“出问题再说”，而是提前写好的三句话：</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th scope="col">失败类型</th>
+<th scope="col">现场做什么</th>
+<th scope="col">不能做什么</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>数据或网络失败</td>
+<td>切到快照或截图，口述本来会看到什么</td>
+<td>现场连生产库、导入新数据</td>
+</tr>
+<tr>
+<td>写回失败</td>
+<td>明说“权限还没开，目前在本地完成”，展示本地结果</td>
+<td>假装已写回院内系统</td>
+</tr>
+<tr>
+<td>审批人不在场</td>
+<td>陈静完成操作，说明“审批需本人确认，次日补”</td>
+<td>让 FDE 代替审批人批准</td>
+</tr>
+</tbody>
+</table></div>
+<p>“失败替代”要写到能照着念。现场最耗时的是围着故障讨论原因，不是故障本身。</p>
+<h3 id="step-feedback">第 7 步：演示后 10 分钟内收反馈（15 分钟）</h3>
+<p><span class="term-link" title="Feedback Log：逐条记录用户原话、发生场景、影响和待确认项的记录；不要转述成“用户很满意”。">反馈记录</span>只记五样：原话、场景、对决策的影响、待确认项、谁处理。不要写“用户很满意”，也不要替用户总结成“界面需要优化”。</p>
+<p>原话可能是“我审批的时候只想知道总额度有没有超”。它比十条满意度评分有用，直接决定下一版把哪个数字放上审批页。</p>
+<h2 id="sec-output">输出</h2>
+<ul>
+<li><strong>A05-06 Demo 脚本</strong> → <code>05_五天验证/05-06_Demo脚本.md</code>：时间、操作人、场景、决策、屏幕、台词、失败替代、预期反应；</li>
+<li><strong>A05-07 Demo 数据清单</strong> → <code>05_五天验证/05-07_Demo数据清单.md</code>：数据源、内容、脱敏、快照时间、装载方式、缺失替代、负责人；</li>
+<li><strong>A05-08 反馈记录</strong> → <code>05_五天验证/05-08_反馈记录.md</code>：反馈ID、原话、场景、来源、影响、待确认、处理、负责人。</li>
+</ul>
+<p>脚本和数据清单在演示前定稿；反馈记录在演示后 10 分钟内开始写。</p>
+<h2 id="sec-gate">阶段门</h2>
+<p>正式演示前，用 <a class="term-link" href="main-07-gates.html#term-demo-readiness-card" title="Demo Readiness Card：演示前的 Go/No-Go 检查单；六项缺一项就不开演示会。" target="_blank" rel="noopener">Demo Readiness Card（演示就绪卡）</a> 做 Go/No-Go。六项检查来自 <a class="case-link" href="main-08-five-days.html#cb-readiness" target="_blank" rel="noopener">案例 CB-10</a>：</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th scope="col">检查项</th>
+<th scope="col">通过标准</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>真实数据</td>
+<td>真实月份脱敏数据，不是玩具数据</td>
+</tr>
+<tr>
+<td>用户本人操作</td>
+<td>用户自己点，FDE 不代操作</td>
+</tr>
+<tr>
+<td>决策可完成</td>
+<td>从看到缺口到提交审批全程可走通</td>
+</tr>
+<tr>
+<td>写回可见</td>
+<td>审批后重新打开，状态与额度已变</td>
+</tr>
+<tr>
+<td>失败替代</td>
+<td>数据或网络失败时有离线快照与截图</td>
+</tr>
+<tr>
+<td>业务方在场</td>
+<td>决策人或授权审批人在场</td>
+</tr>
+</tbody>
+</table></div>
+<p>判定只有三种：六项全过是 <strong>Go</strong>；一项待确认、但有替代和负责人是<strong>有条件 Go</strong>，条件写进 A05-06 和当日日志；真实数据、用户操作、决策完成、写回可见任一项做不到是 <strong>No-Go</strong>，缩范围或延期。</p>
+<p>“业务方在场”要单独说清：决策人或书面授权的代理人到场，才算通过；只有接口人在场，按“一项待确认”处理，写成有条件 Go；既没有决策人也没有授权代理人，同样是 No-Go——演示可以继续，但不能宣称这次决策被验证过。</p>
+<p>不要用预录视频把 No-Go 包装成 Go。视频证明界面存在，不证明用户会做决定。</p>
+<h3 id="sec-readiness-card">填好的 Demo Readiness Card</h3>
+<p>按 S1 的真实状态填，状态一栏只写 CB-10 已有的结论：</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th scope="col">项目</th>
+<th scope="col">本案填法</th>
+<th scope="col">状态</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>观众与角色</td>
+<td>周主任（审批，最终拍板）、陈静（操作）、赵岚（需求确认）、孙老师（额度口径）、刘工（数据权限）【示例】</td>
+<td>—</td>
+</tr>
+<tr>
+<td>当天要完成的决策</td>
+<td>周主任批准本月分配；陈静判断这份配额能否直接用于下月；赵岚确认本组需求与例外</td>
+<td>—</td>
+</tr>
+<tr>
+<td>已验证路径</td>
+<td>额度全景 → 处理 C1（王芳 10 改 9）→ C2 申请追加 1 天、缺口 2 降到 1 → 组长确认 → 主任审批 → 写回</td>
+<td>通过</td>
+</tr>
+<tr>
+<td>冻结版本</td>
+<td>演示前 24 小时冻结版本号与数据快照，之后只修阻塞性缺陷</td>
+<td>—</td>
+</tr>
+<tr>
+<td>已知限制（主动讲）</td>
+<td>只做额度分配，不做日期班型、自动优化、工资绩效、院内实时同步和移动端；写回先用快照与手工</td>
+<td>—</td>
+</tr>
+<tr>
+<td>真实数据</td>
+<td>真实月份脱敏快照，4 人、3 个亚专科</td>
+<td>通过</td>
+</tr>
+<tr>
+<td>用户本人操作</td>
+<td>陈静自己点，FDE 不代操作</td>
+<td>通过</td>
+</tr>
+<tr>
+<td>写回可见</td>
+<td>审批后重新打开，状态与额度已变；写回本地对象，院内未写回要当场说明</td>
+<td>通过</td>
+</tr>
+<tr>
+<td>失败替代</td>
+<td>离线快照与截图；追加额度未批时只演示缺口暴露与登记</td>
+<td>通过</td>
+</tr>
+<tr>
+<td>讲解 / 操作 / 喊停 / 记录</td>
+<td>讲解 FDE；操作陈静；喊停 FDE 项目负责人（数据泄露、错误结论、明显超时即停）；记录同场另一人</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Go / No-Go 条件</td>
+<td>五项通过、业务方在场待确认 → 有条件 Go；周主任不到场则改为“陈静操作 + 次日补审批”</td>
+<td>待确认</td>
+</tr>
+</tbody>
+</table></div>
+<p>这张卡和上一张六项表是两个视角：六项表给结论，这张卡给“当天谁在、演到哪、哪些没做”。两处不一致，以更保守的为准。</p>
+<h2 id="sec-template">模板</h2>
+<p>空白模板在 <code>templates/blank/</code> 下，文件名与产物编号对应。下面是脚本骨架，可直接抄：</p>
+<div class="template-block">
+<div class="template-title">A05-06 Demo 脚本 <span>一行一个屏幕动作</span></div>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th scope="col">时间</th>
+<th scope="col">操作人</th>
+<th scope="col">场景</th>
+<th scope="col">决策/动作</th>
+<th scope="col">屏幕</th>
+<th scope="col">台词</th>
+<th scope="col">失败替代</th>
+<th scope="col">预期反应</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0:00–1:00</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>1:00–3:00</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>3:00–5:00</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>填写说明</strong>：时间连续不重叠；操作人写角色名；台词只写一句；失败替代能照着念；预期反应写“用户应该看到或说出什么”。</p>
+</div>
+<p><span id="cb-demo"></span><span id="cb-readiness"></span></p>
+<h2 id="sec-case">排班案例：8 分钟怎么排</h2>
+<p><span class="case-link">案例 CB-17</span> 给了一份可直接对照的脚本：</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th scope="col">时间</th>
+<th scope="col">操作人</th>
+<th scope="col">场景</th>
+<th scope="col">决策/动作</th>
+<th scope="col">屏幕</th>
+<th scope="col">失败替代</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0:00–1:00</td>
+<td>陈静</td>
+<td>打开本月分配</td>
+<td>查看三个亚专科的额度与缺口</td>
+<td>额度全景</td>
+<td>用离线快照</td>
+</tr>
+<tr>
+<td>1:00–3:00</td>
+<td>陈静</td>
+<td>处理 C1</td>
+<td>把王芳从 10 天改为 9 天，系统提示释放 1 天</td>
+<td>人员池 + 冲突面板</td>
+<td>截图 + 口述</td>
+</tr>
+<tr>
+<td>3:00–5:00</td>
+<td>陈静</td>
+<td>处理 C2</td>
+<td>申请额外 1 天额度，缺口从 2 降到 1；剩余 1 天登记负责人与日期</td>
+<td>缺口面板</td>
+<td>额外额度未批时，只演示缺口暴露与登记，不谎称清零</td>
+</tr>
+<tr>
+<td>5:00–6:30</td>
+<td>赵岚</td>
+<td>组长确认</td>
+<td>看到 11 人天（10 额度 + 1 追加）确认；若追加未批，显示 10 并登记 1 天缺口</td>
+<td>组长视图</td>
+<td>由陈静代点并说明</td>
+</tr>
+<tr>
+<td>6:30–8:00</td>
+<td>周主任</td>
+<td>审批</td>
+<td>查看总额度未超，点击批准</td>
+<td>审批视图</td>
+<td>次日补审批</td>
+</tr>
+</tbody>
+</table></div>
+<p>注意两点：8 分钟里陈静占 5 分钟，主操作人必须是用户本人；失败替代写到动作级，不是“数据出问题就说明”。</p>
+<p>数据侧同样用真实月份：四个人、三个亚专科，额度 10/22/22（妇科/乳腺/消化）【示例】，可用天数 9/20/18/12【示例】，需求 12/22/22（同序）【示例】。快照统一在 2026-09-30，缺失时用手工录入、截图或访谈确认值替代。</p>
+<p><a class="case-link" href="main-08-five-days.html#cb-readiness" target="_blank" rel="noopener">案例 CB-10</a> 的结果是五项通过、业务方在场待确认，结论为<strong>有条件 Go</strong>：周主任不到场就改为“陈静操作 + 次日补审批”，不假装审批已经发生。</p>
+<h2 id="sec-walkthrough">一次分配的完整走查</h2>
+<p>上一节的 8 分钟脚本是排练用的；这里把同一次分配摊开，看输入、规则和写回字段怎么流动。脚本见<a href="#sec-case">排班案例</a>。</p>
+<p><strong>输入样本。</strong> 五组输入，来源各不相同：</p>
+<ul>
+<li>需求：妇科 12、乳腺 22、消化 22 人天【示例】，组长口头或群里报；</li>
+<li>额度：妇科 10、乳腺 22、消化 22 人天【示例】，每月 20 日左右孙老师发到群里并附 Excel；</li>
+<li>可用天数：王芳 9、李强 20、周敏 18、陈卓 12 天【示例】，从排班本、年假表、门诊表拼出来；</li>
+<li>资质与班型：每人能上哪些亚专科、哪些班型，本页不写具体数值，资质矩阵没有权威来源，只能现场核对；</li>
+<li>结转与借用：能否跨月结转仍是 <a class="case-link" href="main-07-gates.html#cb-open" target="_blank" rel="noopener">案例 CB-11</a> 的待确认项；现状是先借下月或别的亚专科，事后补说明。</li>
+</ul>
+<p>王芳预排 10 天、可用 9 天。总量 59 人天大于需求 56 人天，冲突照样出现。</p>
+<p><strong>规则。</strong> 只用四条，编号来自 <a class="case-link" href="work-04-model.html#cb-rules" target="_blank" rel="noopener">案例 CB-15</a>：R-05 不得超过本人可用天数（硬约束，C1 违反的就是它）；R-04 资质不符不能排（硬约束，认定口径待确认）；R-03 一人一天只能上一个班；R-07 缺口最小（优化目标，不能覆盖前三条）。规则以外的“上次谁让过步”先留在陈静脑子里。</p>
+<p><strong>初始配额表。</strong> 系统按上月预排生成初分，不改一个数：</p>
+<div class="table-wrap"><table class="table-wrap">
+<thead><tr><th scope="col">亚专科</th><th scope="col">需求（人天）</th><th scope="col">可用额度（人天）</th><th scope="col">初分（人天）</th><th scope="col">缺口</th><th scope="col">标记</th></tr></thead>
+<tbody>
+<tr><td>妇科病理</td><td>12</td><td>10</td><td>10</td><td>2</td><td>C2 结构性缺口</td></tr>
+<tr><td>乳腺病理</td><td>22</td><td>22</td><td>22</td><td>0</td><td>—</td></tr>
+<tr><td>消化病理</td><td>22</td><td>22</td><td>22</td><td>0</td><td>—</td></tr>
+<tr><td><strong>合计</strong></td><td><strong>56</strong></td><td><strong>54</strong></td><td><strong>54</strong></td><td><strong>2</strong></td><td>C1 在人员层</td></tr>
+</tbody></table></div>
+
+<p>初分来自预排：王芳 10 天在妇科；李强 20 天（乳腺 12 + 消化 8）；周敏 12 天（乳腺 10 + 消化 2）；陈卓 12 天在消化【示例】。C1 不在这张表里——王芳被排 10 天、只能上 9 天，是人员层的超排；两张表一起看，才不会误以为科室都平了。</p>
+<p><strong>逐时点决策。</strong> 三个时点，每个只回答三件事：</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th scope="col">时点</th>
+<th scope="col">谁看什么</th>
+<th scope="col">做什么决定</th>
+<th scope="col">写回什么</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>20 日左右</td>
+<td>孙老师发额度；陈静对照需求表</td>
+<td>额度是否齐、口径是否和上月一致</td>
+<td>额度快照（月份、亚专科、额度人天）</td>
+</tr>
+<tr>
+<td>25 日前</td>
+<td>陈静看配额与 C1/C2；赵岚看本组缺口</td>
+<td>王芳 10 改 9；申请额外 1 天；剩余缺口登记负责人与日期</td>
+<td>分配人天、追加申请、缺口登记</td>
+</tr>
+<tr>
+<td>27 日</td>
+<td>周主任看冲突是否清零、总额度是否超</td>
+<td>批准或退回</td>
+<td>分配状态、额度已用与剩余、版本号</td>
+</tr>
+</tbody>
+</table></div>
+<p>C1 陈静自己能解决（少排 1 天）；C2 她定不了——加额度要孙老师点头，降需求要赵岚和周主任拍板。系统只摆缺口和选项，不替任何人选。</p>
+<p><strong>v0.1 到 v1.0。</strong> 第一版只做三件事：导入 4 个人、3 个亚专科和额度；按预排生成初分；标出 C1、C2。它不算最优解，也不替陈静改数。陈静的反馈很具体：要“改完立刻看到缺口少了几人天”。第二版因此加了两处——拖动人员后实时重算妇科缺口；追加额度批准前显示“申请中”，不假装到账。写回日志：</p>
+<div class="table-wrap"><table class="table-wrap">
+<thead><tr><th scope="col">版本</th><th scope="col">操作类型</th><th scope="col">操作人</th><th scope="col">时间</th><th scope="col">修改前 → 修改后</th><th scope="col">原因</th><th scope="col">审批 / 通知</th></tr></thead>
+<tbody>
+<tr><td>v0.1</td><td>初分生成</td><td>陈静</td><td>20 日收到额度后</td><td>— → 妇科 10 / 乳腺 22 / 消化 22</td><td>按上月预排与本月额度生成</td><td>未提交</td></tr>
+<tr><td>v0.2</td><td>手工调整</td><td>陈静</td><td>25 日前</td><td>王芳妇科 10 → 9；妇科初分 10 → 9</td><td>王芳本月只能上 9 天（C1，R-05）</td><td>未提交</td></tr>
+<tr><td>v0.3</td><td>追加额度申请</td><td>陈静 + 赵岚</td><td>25 日前</td><td>妇科额度 10 → 申请追加 1；缺口 2 → 1</td><td>本组至少 12 人天，否则夜班排不开</td><td>待额度发放方确认</td></tr>
+<tr><td>v0.4</td><td>缺口登记</td><td>陈静</td><td>25 日前</td><td>— → 妇科剩余 1 人天，负责人赵岚</td><td>追加额度未覆盖全部缺口</td><td>未发布</td></tr>
+<tr><td>v1.0</td><td>确认 → 审批 → 发布</td><td>赵岚确认、周主任审批</td><td>27 日</td><td>分配状态 已确认 → 已发布；额度已用同步</td><td>总额度未超，冲突已登记</td><td>审批人周主任；通知三个亚专科</td></tr>
+</tbody></table></div>
+
+<p>字段至少七个：版本号、操作类型、操作人、时间、修改前后值、原因、审批人与通知对象。发布后旧版本不覆盖，只新增版本。</p>
+<p><strong>KPI 前后对比。</strong> 只引用已有的基线与实测，不补数字：</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th scope="col">指标</th>
+<th scope="col">基线</th>
+<th scope="col">本轮实测</th>
+<th scope="col">能不能对外说下降</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>额度分配耗时</td>
+<td>约 3 小时（回忆值）</td>
+<td>50 分钟（现场计时一次）</td>
+<td>不能，基线未复测</td>
+</tr>
+<tr>
+<td>返工轮次</td>
+<td>2–3 轮</td>
+<td>1 轮</td>
+<td>只能说可能减少</td>
+</tr>
+<tr>
+<td>冲突发现时点</td>
+<td>月中执行时</td>
+<td>分配提交前</td>
+<td>能，C1 被拦住</td>
+</tr>
+<tr>
+<td>方案版本数</td>
+<td>约 4 份</td>
+<td>未复测</td>
+<td>不能</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>失败表。</strong> 五种错，每种都要能当场发现、当场停：</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th scope="col">哪里会错</th>
+<th scope="col">怎么发现</th>
+<th scope="col">怎么停 / 回退</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>可用天数与排班本对不上</td>
+<td>演示前逐人比对请假记录，出现两个值</td>
+<td>停下，改用访谈确认值并标来源，不改额度</td>
+</tr>
+<tr>
+<td>额度能否结转没确认</td>
+<td>算出的缺口比预期多或少</td>
+<td>按“不能结转”算并在界面标待确认，确认后重算再发布</td>
+</tr>
+<tr>
+<td>资质认定口径不一致</td>
+<td>同一人被两个亚专科同时要</td>
+<td>不默认“应该会”，标待确认，找赵岚书面确认</td>
+</tr>
+<tr>
+<td>写回权限没开</td>
+<td>点“批准”后重新打开，状态没变</td>
+<td>写回本地对象，现场明说院内系统未写回</td>
+</tr>
+<tr>
+<td>追加额度未批</td>
+<td>25 日后额度仍是 10</td>
+<td>只演示缺口暴露与登记，不谎称清零</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="sec-failures">常见失败</h2>
+<div class="pitfalls">
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th scope="col">现象</th>
+<th scope="col">原因</th>
+<th scope="col">处理</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>演示很顺，用户还是不会用</td>
+<td>FDE 全程代操作</td>
+<td>把鼠标交给用户，FDE 只报时间</td>
+</tr>
+<tr>
+<td>用户说“这不是我们的数据”</td>
+<td>用了玩具数据或脱敏过度</td>
+<td>换真实月份快照，保留结构和缺口</td>
+</tr>
+<tr>
+<td>演到一半开始修环境</td>
+<td>没有预检和复原点</td>
+<td>提前 24 小时预检，准备快照和截图</td>
+</tr>
+<tr>
+<td>失败时讨论技术原因</td>
+<td>没有写失败替代</td>
+<td>每行预写三句话，故障时直接切换</td>
+</tr>
+<tr>
+<td>演示后只有“挺好的”</td>
+<td>反馈被转述成满意度</td>
+<td>记原话、场景、影响，追问“哪一列让你做了判断”</td>
+</tr>
+<tr>
+<td>审批人不在仍说“已审批”</td>
+<td>把演示当成真实流程</td>
+<td>说“审批待本人确认”，次日补</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="hands-on">
+<p><strong>动手 20 分钟</strong>：从 A04-06 里挑一条“演示必需”，写一段 3 分钟的 Demo。</p>
+<ol>
+<li>用第 1 步的句式写一句决策，排 3–5 行脚本；</li>
+<li>找一位同事扮演用户，把鼠标交给他，你不出声；</li>
+<li>记下他停顿超过 10 秒的位置，改文案或删步骤。</li>
+</ol>
+<p><strong>自检</strong>：用户能独立完成最后一步；每行都有失败替代；删掉任意一行，决策链会断。</p>
+</div>
+<div class="self-test">
+<p><strong>三问自测</strong></p>
+<details>
+<summary>1. Demo 脚本为什么必须写“操作人”，而且通常不是 FDE？</summary>
+
+Demo 验证的是“用户能否自己完成决策”，不是“FDE 会不会操作”。操作人写成用户，才会暴露文案和权限问题。
+
+</details>
+<details>
+<summary>2. “有条件 Go”和“No-Go”的界线在哪？</summary>
+
+有条件 Go 是六项没有硬伤，只有一项待确认且有替代；No-Go 是四项硬指标中任一项做不到。
+
+</details>
+<details>
+<summary>3. 为什么失败替代要写到动作级？</summary>
+
+现场故障时，人最容易讨论原因。提前写成“切到快照”“只解决 1 天”“次日补审批”，才能一句话切换。
+
+</details>
+</div>
+<h2 id="sec-checklist">自检清单</h2>
+<p>演示前逐项打勾：</p>
+<ul>
+<li>[ ] 脚本第一句只包含一个最终决策；</li>
+<li>[ ] 总时长不超过 10 分钟，每行时间连续；</li>
+<li>[ ] 主操作人是用户本人，FDE 没有代操作步骤；</li>
+<li>[ ] 每一行都有可照着念的失败替代；</li>
+<li>[ ] 数据来自真实月份、已脱敏，快照时间写死；</li>
+<li>[ ] 数据清单每个来源都有缺失替代和负责人；</li>
+<li>[ ] 六项检查全部有结论，待确认项有条件；</li>
+<li>[ ] 演示后 10 分钟内记原话。</li>
+</ul>
+<div class="recap">
+<p><strong>本章带走</strong></p>
+<ol>
+<li>Demo 的判据是“用户本人完成一次真实决策”，不是“功能跑通”。</li>
+<li>脚本按分钟写，一行一个屏幕动作，每行带操作人和失败替代。</li>
+<li>数据用真实月份脱敏快照；环境预检后留复原点；六项检查决定 Go、有条件 Go 还是 No-Go。</li>
+</ol>
+</div>
+      </div>
+
+      <section class="term-cards" aria-label="本页术语卡"><p class="eyebrow">本页术语</p><div class="term-grid"><article class="term-card" id="term-demo-readiness-card"><h3 id="term-title-demo-readiness-card">Demo Readiness Card（演示就绪卡） <span class="term-en">Demo Readiness Card</span></h3><p>演示前的 Go/No-Go 检查单；六项缺一项就不开演示会。</p><a class="term-first" href="main-07-gates.html" target="_blank" rel="noopener">首次解释</a></article><article class="term-card" id="term-demo-script"><h3 id="term-title-demo-script">Demo 脚本 <span class="term-en">Demo Script</span></h3><p>按分钟写清谁操作、做什么决定、看哪一屏、出问题说什么的演示脚本；不是功能清单。</p></article><article class="term-card" id="term-data-manifest"><h3 id="term-title-data-manifest">Demo 数据清单 <span class="term-en">Demo Data Manifest</span></h3><p>列出演示要用的数据源、脱敏状态、快照时间、装载方式和缺失时的替代数据。</p></article><article class="term-card" id="term-feedback"><h3 id="term-title-feedback">反馈记录 <span class="term-en">Feedback Log</span></h3><p>逐条记录用户原话、发生场景、影响和待确认项的记录；不要转述成“用户很满意”。</p></article></div></section>
+      <section class="artifact-box" aria-label="本页产物"><div class="artifact-block"><h3 id="artifacts-out">本页要写出的产物</h3><ul><li><code>A05-06</code> Demo脚本 <span class="muted">→ 05_五天验证/05-06_Demo脚本.md</span> <span class="gate-tag">G5</span> <a href="templates/blank/05-06_Demo脚本.html" data-template-view data-template-title="A05-06 Demo脚本模板" title="A05-06 Demo脚本模板 ｜ 当前页弹窗预览">模板</a> <a href="templates/golden/05-06_Demo脚本_排班案例.html" data-template-view data-template-title="A05-06 Demo脚本黄金样例" title="A05-06 Demo脚本黄金样例 ｜ 当前页弹窗预览">黄金样例</a></li><li><code>A05-07</code> Demo数据清单 <span class="muted">→ 05_五天验证/05-07_Demo数据清单.md</span> <span class="gate-tag">G5</span> <a href="templates/blank/05-07_Demo数据清单.html" data-template-view data-template-title="A05-07 Demo数据清单模板" title="A05-07 Demo数据清单模板 ｜ 当前页弹窗预览">模板</a> <a href="templates/golden/05-07_Demo数据清单_排班案例.html" data-template-view data-template-title="A05-07 Demo数据清单黄金样例" title="A05-07 Demo数据清单黄金样例 ｜ 当前页弹窗预览">黄金样例</a></li><li><code>A05-08</code> 反馈记录 <span class="muted">→ 05_五天验证/05-08_反馈记录.md</span> <span class="gate-tag">G5</span> <a href="templates/blank/05-08_反馈记录.html" data-template-view data-template-title="A05-08 反馈记录模板" title="A05-08 反馈记录模板 ｜ 当前页弹窗预览">模板</a> <a href="templates/golden/05-08_反馈记录_排班案例.html" data-template-view data-template-title="A05-08 反馈记录黄金样例" title="A05-08 反馈记录黄金样例 ｜ 当前页弹窗预览">黄金样例</a></li></ul></div><div class="artifact-block"><h3 id="artifacts-in">开始前应已具备</h3><p class="muted"><code>A04-01</code> 决策清单、<code>A04-02</code> 功能需求FR、<code>A04-03</code> 对象模型、<code>A04-04</code> 生命周期与写回、<code>A04-05</code> 增强与界面、<code>A04-06</code> MVP范围与非范围、<code>A05-01</code> 五道门检查表、<code>A05-02</code> 五天计划、<code>A05-05</code> KPI基线与验证标准</p></div></section>
+      <section class="sources" aria-label="来源"><h2 id="sec-sources">来源与证据等级</h2><ol class="source-list"><li><span class="src-id">S04</span> <strong>Sequencing development</strong> <span class="badge badge-官方">官方</span><div class="muted">Palantir Technologies · 抓取 2026-10-19 · 版权归 Palantir Technologies；仅内部研究，不对外分发原文</div><div class="src-url"><a href="https://www.palantir.com/docs/foundry/use-case-life-cycle/sequencing-development/" rel="noreferrer" target="_blank">https://www.palantir.com/docs/foundry/use-case-life-cycle/sequencing-development/</a></div></li><li><span class="src-id">S17</span> <strong>FDE 方法论沉淀</strong> <span class="badge badge-实践">实践</span><div class="muted">本子项目 · 抓取 2026-09-23 · 内部方法沉淀</div><div class="src-url"><span class="muted">无公开链接</span></div></li><li><span class="src-id">S18</span> <strong>流程与范围模板</strong> <span class="badge badge-实践">实践</span><div class="muted">本子项目 · 抓取 2026-09-23 · 内部方法沉淀</div><div class="src-url"><span class="muted">无公开链接</span></div></li><li><span class="src-id">S20</span> <strong>FDE 实施手册 v1（9 章整合读本）</strong> <span class="badge badge-实践">实践</span><div class="muted">本子项目 · 抓取 2026-10-19 · 内部方法沉淀；官方事实另注出处</div><div class="src-url"><span class="muted">无公开链接</span></div></li></ol></section>
+      <nav class="pager" aria-label="翻页"><a class="pager-prev" data-same-tab href="work-05-spec.html"><span>上一页</span><strong>一小时压出评审包</strong></a><a class="pager-next" data-same-tab href="work-07-run.html"><span>下一页</span><strong>五天执行与阶段门</strong></a></nav>
+
+      <footer class="page-foot">
+        <p>本教程为内部方法研究。案例已匿名化，数字标注【示例】。Palantir 官方资料版权归 Palantir Technologies，仅作改写与链接。</p>
+        <p class="muted">发现断链或事实错误？回到 <a href="appendix-sources.html" target="_blank" rel="noopener">来源与版权</a> 核对出处。</p>
+      </footer>
+    </article>
+  </main>
+
+  <aside class="toc" id="toc" aria-label="页内目录">
+    <p class="toc-title">本页目录</p><ol class="toc-list"><li class="toc-h2"><a href="#sec-when">何时用</a></li><li class="toc-h2"><a href="#sec-prereq">前置</a></li><li class="toc-h2"><a href="#sec-inputs">输入</a></li><li class="toc-h2"><a href="#sec-steps">步骤</a><ul class="toc-sub"><li class="toc-h3"><a href="#step-decide">第 1 步：用一句话写清“用户完成什么决策”（15 分钟）</a></li><li class="toc-h3"><a href="#step-script">第 2 步：按分钟排 5–8 个屏幕动作（40 分钟）</a></li><li class="toc-h3"><a href="#step-data">第 3 步：准备数据清单与脱敏快照（60 分钟）</a></li><li class="toc-h3"><a href="#step-env">第 4 步：检查环境并留下复原点（30 分钟）</a></li><li class="toc-h3"><a href="#step-rehearse">第 5 步：预演两遍，第二遍让用户来（50 分钟）</a></li><li class="toc-h3"><a href="#step-fallback">第 6 步：为每一行写失败替代（20 分钟）</a></li><li class="toc-h3"><a href="#step-feedback">第 7 步：演示后 10 分钟内收反馈（15 分钟）</a></li></ul></li><li class="toc-h2"><a href="#sec-output">输出</a></li><li class="toc-h2"><a href="#sec-gate">阶段门</a><ul class="toc-sub"><li class="toc-h3"><a href="#sec-readiness-card">填好的 Demo Readiness Card</a></li></ul></li><li class="toc-h2"><a href="#sec-template">模板</a></li><li class="toc-h2"><a href="#sec-case">排班案例：8 分钟怎么排</a></li><li class="toc-h2"><a href="#sec-walkthrough">一次分配的完整走查</a></li><li class="toc-h2"><a href="#sec-failures">常见失败</a></li><li class="toc-h2"><a href="#sec-checklist">自检清单</a></li></ol>
+  </aside>
+</div>
+
+<div class="tpl-modal" id="tpl-modal" hidden>
+  <div class="tpl-panel" role="dialog" aria-modal="true" aria-labelledby="tpl-title">
+    <header class="tpl-head">
+      <div class="tpl-heading">
+        <p class="tpl-kicker">模板阅读视图</p>
+        <h2 id="tpl-title">模板</h2>
+      </div>
+      <div class="tpl-actions">
+        <a class="tpl-open" id="tpl-open" href="#" target="_blank" rel="noopener">在新标签打开 ↗</a>
+        <button class="icon-btn" id="tpl-close" type="button" aria-label="关闭模板">✕</button>
+      </div>
+    </header>
+    <div class="tpl-body">
+      <iframe id="tpl-frame" title="模板内容" loading="lazy"></iframe>
+    </div>
+  </div>
+</div>
+
+<div class="search-modal" id="search-modal" hidden>
+  <div class="search-panel" role="dialog" aria-modal="true" aria-labelledby="search-title">
+    <div class="search-head">
+      <label id="search-title" class="sr-only" for="search-input">搜索教程</label>
+      <input id="search-input" type="search" placeholder="搜索概念、产物、模板、方法卡…" autocomplete="off">
+      <button class="icon-btn" id="search-close" type="button" aria-label="关闭搜索">✕</button>
+    </div>
+    <div id="search-results" class="search-results" aria-live="polite"></div>
+    <p class="search-hint">按 <kbd>/</kbd> 或 <kbd>Ctrl</kbd>+<kbd>K</kbd> 打开，<kbd>Esc</kbd> 关闭。索引完全离线。</p>
+  </div>
+</div>
+
+<noscript><p class="noscript-note">搜索与阅读进度需要 JavaScript；正文、目录和翻页仍可正常使用。可用浏览器查找（Ctrl+F）。</p></noscript>
+
+<script src="assets/search-index.js"></script>
+<script src="assets/viz-data.js"></script>
+<script src="assets/app.js"></script>
+<script src="assets/viz.js"></script>
+
+</body>
+</html>

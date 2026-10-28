@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>A03-03 候选切片与打分（排班案例） · FDE 模板库</title>
+<link rel="stylesheet" href="../../assets/course.css">
+</head>
+<body>
+<a class="skip-link" href="#main">跳到正文</a>
+<main class="main" id="main">
+<article class="article">
+<nav class="crumb" aria-label="面包屑">
+<a href="../../index.html">教程首页</a><span class="sep">/</span>
+<a href="../../appendix-templates.html">模板库</a><span class="sep">/</span>
+<span>黄金样例</span>
+</nav>
+<header class="page-head">
+<div class="badges">
+<span class="badge badge-main">A03-03</span>
+<span class="badge">黄金样例</span>
+<span class="badge badge-time">Markdown 阅读视图</span>
+</div>
+<h1>A03-03 候选切片与打分（排班案例）</h1>
+<p class="page-question">这是模板的阅读视图，源文件是 <code>03-03_候选切片与打分_排班案例.md</code>。
+<a href="03-03_候选切片与打分_排班案例.md">下载 / 编辑 Markdown</a> · <a href="../../appendix-templates.html">返回模板库</a></p>
+</header>
+<div class="prose">
+<blockquote>
+<p>【示例】匿名化案例，数字均为示例。</p>
+</blockquote>
+<h2 id="tpl-sec-1">字段</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th scope="col">切片</th>
+<th scope="col">决策</th>
+<th scope="col">价值</th>
+<th scope="col">可行性</th>
+<th scope="col">证据强度</th>
+<th scope="col">风险</th>
+<th scope="col">总分</th>
+<th scope="col">结论</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>S1 外部人员额度分配</td>
+<td>本月每个亚专科用多少、分给谁</td>
+<td>3</td>
+<td>3</td>
+<td>2</td>
+<td>1</td>
+<td>8</td>
+<td>选中</td>
+</tr>
+<tr>
+<td>S2 个人排班与换班</td>
+<td>某天某班谁上</td>
+<td>3</td>
+<td>2</td>
+<td>2</td>
+<td>2</td>
+<td>7</td>
+<td>第二轮</td>
+</tr>
+<tr>
+<td>S3 住院总轮转</td>
+<td>下月谁做住院总</td>
+<td>2</td>
+<td>2</td>
+<td>1</td>
+<td>2</td>
+<td>5</td>
+<td>暂缓</td>
+</tr>
+<tr>
+<td>S4 报表与统计</td>
+<td>无（查看为主）</td>
+<td>1</td>
+<td>3</td>
+<td>3</td>
+<td>1</td>
+<td>7</td>
+<td>不做</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>为什么选 S1</strong>：</p>
+<ul>
+<li>它只包含一个最终决策，且这个决策每月真实发生。</li>
+<li>输入（额度、需求、可用天数）基本已有，缺的可以现场补。</li>
+<li>决策结果能写回，演示时看得见。</li>
+<li>S2 依赖 S1 的结果，先做 S2 会被上游数据卡住。</li>
+<li>S4 没有决策，不符合“决策先于数据”。</li>
+</ul>
+<p><strong>打分说明</strong>：分值是案例事实源定性等级（高/中/低）的 1–3 分映射【示例】，用于教学演示，不是唯一答案。口径固定为“价值 + 可行性 + 证据强度”；风险写危险程度（3 分最危险），单独看，不加进总分。S4 与 S2 同为 7 分却没被选，说明硬门槛先于总分。</p>
+</div>
+<footer class="page-foot">
+<p class="muted">本页由 <code>_tools/build.py</code> 从 Markdown 自动生成，请改源文件而不是改这里。</p>
+</footer>
+</article>
+</main>
+</body>
+</html>

@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<title>证据分级与双轴标注 · FDE 零基础教程</title>
+<meta name="description" content="一条访谈记录，该标成事实、假设还是待确认？">
+<link rel="stylesheet" href="../assets/course.css">
+<script>
+(function () {
+  try {
+    var saved = localStorage.getItem('fde-theme');
+    var theme = saved || (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+    document.documentElement.dataset.theme = theme;
+  } catch (e) {}
+})();
+</script>
+</head>
+<body class="track-methods page-mc-06">
+<a class="skip-link" href="#main">跳到正文</a>
+
+<header class="topbar">
+  <button class="icon-btn nav-toggle" id="nav-toggle" type="button" aria-expanded="false" aria-controls="sidebar" aria-label="打开课程目录">
+    <span aria-hidden="true">☰</span>
+  </button>
+  <a class="brand" data-same-tab href="../index.html"><span class="brand-mark">FDE</span><span class="brand-text">零基础教程</span></a>
+  <nav class="track-switch" aria-label="模块切换"><a class="track-link" data-same-tab href="../index.html" title="从零建立完整心智模型">主线</a><a class="track-link" data-same-tab href="../work-01-prep.html" title="现场查用：输入、步骤、输出、阶段门">工作台</a><a class="track-link" data-same-tab href="../day1-00-overview.html" title="六步链路：简报 → 访谈 → 证据 → 底稿 → 门">Day1</a><span class="track-link active" aria-current="true" title="一卡一问，按阶段、产物、角色查">方法库</span><a class="track-link" data-same-tab href="../appendix-templates.html" title="模板、产物链、术语与来源">附录</a></nav>
+  <div class="top-actions">
+    <button class="search-open" id="search-open" type="button" aria-haspopup="dialog">
+      <span aria-hidden="true">⌕</span><span class="search-label">搜索</span><kbd>/</kbd>
+    </button>
+    <button class="icon-btn" id="theme-toggle" type="button" aria-label="切换深浅色">◐</button>
+  </div>
+  <div class="read-progress" aria-hidden="true"><span id="read-progress"></span></div>
+</header>
+
+<div class="layout">
+  <aside class="sidebar" id="sidebar">
+    <nav class="course-tree" aria-label="课程目录"><header class="side-head"><p class="side-eyebrow">当前模块</p><p class="side-title">方法库</p><p class="side-caption">一卡一问，按阶段、产物、角色查</p><p class="side-meta">11 页<span class="dot">·</span>持续积累</p></header><section class="nav-group"><a class="nav-link nav-index" data-same-tab href="../appendix-methods.html">方法库索引 <span class="nav-hint">先看这张表</span></a><a class="nav-link nav-method" data-same-tab href="../methods/mc-01.html"><span class="nav-id">mc-01</span>四类规则分层</a><a class="nav-link nav-method" data-same-tab href="../methods/mc-02.html"><span class="nav-id">mc-02</span>最短行动闭环</a><a class="nav-link nav-method" data-same-tab href="../methods/mc-03.html"><span class="nav-id">mc-03</span>结果合同</a><a class="nav-link nav-method" data-same-tab href="../methods/mc-04.html"><span class="nav-id">mc-04</span>控制矩阵</a><a class="nav-link nav-method" data-same-tab href="../methods/mc-05.html"><span class="nav-id">mc-05</span>切片打分卡</a><span class="nav-link nav-method nav-current" aria-current="page"><span class="nav-id">mc-06</span>证据分级与双轴标注</span><a class="nav-link nav-method" data-same-tab href="../methods/mc-07.html"><span class="nav-id">mc-07</span>分轮追问</a><a class="nav-link nav-method" data-same-tab href="../methods/mc-08.html"><span class="nav-id">mc-08</span>五道门检查</a><a class="nav-link nav-method" data-same-tab href="../methods/mc-09.html"><span class="nav-id">mc-09</span>Demo 前置检查</a><a class="nav-link nav-method" data-same-tab href="../methods/mc-10.html"><span class="nav-id">mc-10</span>回流账本</a></section></nav>
+  </aside>
+  <button class="scrim" id="scrim" type="button" aria-label="关闭目录" hidden></button>
+
+  <main class="main" id="main">
+    <nav class="crumb" aria-label="面包屑"><a data-same-tab href="../index.html">教程</a><span class="sep">/</span><a data-same-tab href="../appendix-methods.html">方法库</a><span class="sep">/</span><span aria-current="page">证据分级与双轴标注</span></nav>
+    <article class="article">
+      <header class="page-head">
+        <div class="badges"><span class="badge badge-method">方法卡</span></div>
+        <h1>证据分级与双轴标注</h1>
+        <p class="lede">一条访谈记录，该标成事实、假设还是待确认？</p>
+        <p class="page-question"><span class="eyebrow">本页要回答</span>一条访谈记录，该标成事实、假设还是待确认？</p>
+        <div class="page-meta">
+          <section class="meta-block">
+            <h2 class="meta-title" id="meta-objectives">读完你能</h2>
+            <ul class="objective-list"><li>判断这个方法是否适用于你的场景；</li><li>按步骤执行并产出关联 artifact；</li><li>用检查清单自检，避开反模式。</li></ul>
+          </section>
+          <section class="meta-block">
+            <h2 class="meta-title" id="meta-prereq">前置</h2>
+            <p><span class="muted">无前置，从本页开始。</span></p>
+          </section>
+        </div>
+      </header>
+
+      <div class="prose">
+        <h2 id="answer">一句话回答</h2>
+<p>两个轴同时标：<strong>访谈状态</strong>（原文/观察、业务确认、工作假设、待验证）× <strong>来源权威性</strong>（官方、第三方、实践、推断、待确认）。只有“原文/观察 × 实践”这类组合能直接引用；“工作假设 × 推断”只能写成假设；“待验证 × 待确认”不能拿来做结论。</p>
+<p>这是 <a class="term-link" href="../work-03-record.html#term-evidence-ledger" title="Evidence Ledger：逐条记录原文/观察、来源、访谈状态、权威性、影响决策和待确认项的账本。" target="_blank" rel="noopener">证据台账</a> 的填写纪律，也是 <a class="term-link" href="../day1-03-evidence.html#term-evidence-state" title="Interview Evidence State：四类状态：原文/观察、业务确认、工作假设、待验证；它回答“这条信息被验证到什么程度”。" target="_blank" rel="noopener">访谈证据状态</a> 与 <a class="term-link" href="../appendix-sources.html#term-source-authority" title="Source Authority：五级来源成色：官方、第三方、实践、推断、待确认；它回答“这条信息凭什么可信”。" target="_blank" rel="noopener">来源权威性</a> 的联合用法。</p>
+<h2 id="when">什么时候用</h2>
+<p><strong>用</strong>：</p>
+<ul>
+<li>每记一条访谈、观察、文件摘录，就当场标；</li>
+<li>写 one-pager、FR 或五道门检查前，需要判断哪条能引用；</li>
+<li>阶段门评审时，有人追问“这个结论从哪来”。</li>
+</ul>
+<p><strong>不用</strong>：</p>
+<ul>
+<li>还没有来源，只有你的判断。先写进待确认清单；</li>
+<li>想用标注给一条证据“加分”。标注只描述状态，不改变事实；</li>
+<li>只是整理会议纪要，不服务于任何决策。那用普通纪要即可。</li>
+</ul>
+<h2 id="steps">怎么做</h2>
+<ol>
+<li><strong>抄原话</strong>：原文或观察照录，不改写、不总结，保留时间和场景。</li>
+<li><strong>标来源</strong>：写清谁说的、哪份文件、哪个观察 ID。多个来源就都写上。</li>
+<li><strong>标访谈状态</strong>：区分原话/观察、业务方确认、你的工作假设、仍需验证。</li>
+<li><strong>标权威性</strong>：官方文件、第三方资料、现场实践、你的推断、尚未确认，只选一个主标签。</li>
+<li><strong>写影响决策</strong>：这条证据会影响哪个决定。说不出来的，可能不该进台账。</li>
+<li><strong>写待确认</strong>：缺什么、找谁、什么时候补。没有负责人的待确认项等于没有。</li>
+<li><strong>等新证据再改</strong>：状态只能被新证据改变，不能因为时间久了或引用次数多了就升级。</li>
+</ol>
+<h2 id="case">排班案例片段</h2>
+<p><a class="case-link" href="../work-03-record.html#cb-evidence" target="_blank" rel="noopener">案例 CB-14</a> 里，E-01“我每个月要翻三个 Excel”是陈静的现场原话，标“原文/观察 × 实践”，可以直接引用；E-05“额度应该不能跨月”是工作假设 × 推断，只能写成假设，下一步问孙老师；E-06“王芳可上班 9 天”来自排班本照片，标“待验证 × 待确认”，需本人或人事确认后才能作为结论【示例】。</p>
+<p>同一个台账里，E-04 是周主任访谈中的业务确认，可以支持审批规则，但仍要写清“说明模板是否存在”这个待确认项。证据分级不是给证据排队，而是告诉你下一步该补什么。</p>
+<h2 id="checklist">检查清单</h2>
+<ul>
+<li>[ ] 原话/观察与你的解释分开写。</li>
+<li>[ ] 每行都有来源、访谈状态和权威性。</li>
+<li>[ ] 权威性不是自己封的，有依据。</li>
+<li>[ ] 待确认项有负责人和截止日期。</li>
+<li>[ ] 没有来源的数字没有进入结论。</li>
+<li>[ ] 业务确认有原话或记录，不是“他同意了”。</li>
+</ul>
+<h2 id="anti">反模式</h2>
+<ul>
+<li><strong>把“业务方说过”当官方事实</strong>：说过只是实践证据，不是制度。</li>
+<li><strong>把推断写成结论</strong>：推断可以写，但必须带“假设”标签。</li>
+<li><strong>一条证据支持多个互相矛盾的决策</strong>：说明它被过度使用了。</li>
+<li><strong>台账只记结论不记原话</strong>：三天后无法回溯，也无法判断可信度。</li>
+<li><strong>靠反复引用把假设升格为事实</strong>：引用次数不是证据强度。</li>
+</ul>
+<h2 id="related">关联</h2>
+<ul>
+<li>产物：A02-04 证据台账（<a class="template-link" href="../templates/blank/02-04_证据台账.html" data-template-view data-template-title="A02-04 证据台账模板" title="A02-04 证据台账模板 ｜ 当前页弹窗预览">A02-04 证据台账模板</a>）</li>
+<li>上游页面：<a class="page-link" href="../day1-03-evidence.html" target="_blank" rel="noopener">确认记录与证据状态</a></li>
+<li>相邻方法：<a class="page-link" href="../methods/mc-03.html" target="_blank" rel="noopener">结果合同</a>（结果合同）、<a class="page-link" href="../methods/mc-05.html" target="_blank" rel="noopener">切片打分卡</a>（切片打分）</li>
+<li>案例：<a class="case-link" href="../work-03-record.html#cb-evidence" target="_blank" rel="noopener">案例 CB-14</a></li>
+</ul>
+      </div>
+
+      
+      
+      <section class="sources" aria-label="来源"><h2 id="sec-sources">来源与证据等级</h2><ol class="source-list"><li><span class="src-id">S16</span> <strong>GR-FDE-01-014 D1 客户工具包（国润 Skill 工具包）</strong> <span class="badge badge-实践">实践</span><div class="muted">国润项目组 · 抓取 2026-10-19 · MIT；`grilling` 上游署名 Matt Pocock；包内文件不随教程分发</div><div class="src-url"><span class="muted">无公开链接</span></div></li><li><span class="src-id">S17</span> <strong>FDE 方法论沉淀</strong> <span class="badge badge-实践">实践</span><div class="muted">本子项目 · 抓取 2026-09-23 · 内部方法沉淀</div><div class="src-url"><span class="muted">无公开链接</span></div></li></ol></section>
+      <nav class="pager" aria-label="翻页"><a class="pager-prev" data-same-tab href="../methods/mc-05.html"><span>上一页</span><strong>切片打分卡</strong></a><a class="pager-next" data-same-tab href="../methods/mc-07.html"><span>下一页</span><strong>分轮追问</strong></a></nav>
+
+      <footer class="page-foot">
+        <p>本教程为内部方法研究。案例已匿名化，数字标注【示例】。Palantir 官方资料版权归 Palantir Technologies，仅作改写与链接。</p>
+        <p class="muted">发现断链或事实错误？回到 <a href="../appendix-sources.html" target="_blank" rel="noopener">来源与版权</a> 核对出处。</p>
+      </footer>
+    </article>
+  </main>
+
+  <aside class="toc" id="toc" aria-label="页内目录">
+    <p class="toc-title">本页目录</p><ol class="toc-list"><li class="toc-h2"><a href="#answer">一句话回答</a></li><li class="toc-h2"><a href="#when">什么时候用</a></li><li class="toc-h2"><a href="#steps">怎么做</a></li><li class="toc-h2"><a href="#case">排班案例片段</a></li><li class="toc-h2"><a href="#checklist">检查清单</a></li><li class="toc-h2"><a href="#anti">反模式</a></li><li class="toc-h2"><a href="#related">关联</a></li></ol>
+  </aside>
+</div>
+
+<div class="tpl-modal" id="tpl-modal" hidden>
+  <div class="tpl-panel" role="dialog" aria-modal="true" aria-labelledby="tpl-title">
+    <header class="tpl-head">
+      <div class="tpl-heading">
+        <p class="tpl-kicker">模板阅读视图</p>
+        <h2 id="tpl-title">模板</h2>
+      </div>
+      <div class="tpl-actions">
+        <a class="tpl-open" id="tpl-open" href="#" target="_blank" rel="noopener">在新标签打开 ↗</a>
+        <button class="icon-btn" id="tpl-close" type="button" aria-label="关闭模板">✕</button>
+      </div>
+    </header>
+    <div class="tpl-body">
+      <iframe id="tpl-frame" title="模板内容" loading="lazy"></iframe>
+    </div>
+  </div>
+</div>
+
+<div class="search-modal" id="search-modal" hidden>
+  <div class="search-panel" role="dialog" aria-modal="true" aria-labelledby="search-title">
+    <div class="search-head">
+      <label id="search-title" class="sr-only" for="search-input">搜索教程</label>
+      <input id="search-input" type="search" placeholder="搜索概念、产物、模板、方法卡…" autocomplete="off">
+      <button class="icon-btn" id="search-close" type="button" aria-label="关闭搜索">✕</button>
+    </div>
+    <div id="search-results" class="search-results" aria-live="polite"></div>
+    <p class="search-hint">按 <kbd>/</kbd> 或 <kbd>Ctrl</kbd>+<kbd>K</kbd> 打开，<kbd>Esc</kbd> 关闭。索引完全离线。</p>
+  </div>
+</div>
+
+<noscript><p class="noscript-note">搜索与阅读进度需要 JavaScript；正文、目录和翻页仍可正常使用。可用浏览器查找（Ctrl+F）。</p></noscript>
+
+<script src="../assets/search-index.js"></script>
+<script src="../assets/viz-data.js"></script>
+<script src="../assets/app.js"></script>
+<script src="../assets/viz.js"></script>
+
+</body>
+</html>

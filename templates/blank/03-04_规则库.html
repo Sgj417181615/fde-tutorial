@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>A03-04 规则库（四层） · FDE 模板库</title>
+<link rel="stylesheet" href="../../assets/course.css">
+</head>
+<body>
+<a class="skip-link" href="#main">跳到正文</a>
+<main class="main" id="main">
+<article class="article">
+<nav class="crumb" aria-label="面包屑">
+<a href="../../index.html">教程首页</a><span class="sep">/</span>
+<a href="../../appendix-templates.html">模板库</a><span class="sep">/</span>
+<span>空白模板</span>
+</nav>
+<header class="page-head">
+<div class="badges">
+<span class="badge badge-main">A03-04</span>
+<span class="badge">空白模板</span>
+<span class="badge badge-time">Markdown 阅读视图</span>
+</div>
+<h1>A03-04 规则库（四层）</h1>
+<p class="page-question">这是模板的阅读视图，源文件是 <code>03-04_规则库.md</code>。
+<a href="03-04_规则库.md">下载 / 编辑 Markdown</a> · <a href="../../appendix-templates.html">返回模板库</a></p>
+</header>
+<div class="prose">
+<h2 id="tpl-sec-1">用途 / 何时用</h2>
+<p>在现状梳理和方案设计之间使用。把业务方口头或制度里的规则收集起来，分成配置数据、硬约束、软偏好、优化目标四层，为 FR、对象模型和校验逻辑提供依据。</p>
+<h2 id="tpl-sec-2">填写说明</h2>
+<ul>
+<li>一条规则一行，分配唯一“规则ID”，例如 R-01。</li>
+<li>“规则原文”尽量保留业务方原话；改写时不要改变约束强度。</li>
+<li>“层级”只写配置数据、硬约束、软偏好、优化目标四类之一。</li>
+<li>“适用对象”写到人员、额度、班型、亚专科等具体对象。</li>
+<li>“例外”写制度允许的特批或例外；没有就写“无”。</li>
+<li>“冲突”写与哪条规则或哪种现实做法冲突，以及冲突时谁优先。</li>
+<li>“确认人”必须是能对这条规则负责的业务角色。</li>
+<li>“证据ID”引用 A02-04 或 A02-01；未确认的规则标【待确认】。</li>
+<li>优化目标不能写成硬约束；硬约束必须有拦截方式。</li>
+</ul>
+<h2 id="tpl-sec-3">字段</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th scope="col">规则ID</th>
+<th scope="col">规则原文</th>
+<th scope="col">层级</th>
+<th scope="col">适用对象</th>
+<th scope="col">例外</th>
+<th scope="col">冲突</th>
+<th scope="col">确认人</th>
+<th scope="col">证据ID</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="tpl-sec-4">质量门自检（G3）</h2>
+<ul>
+<li>[ ] 每条规则都归入四个层级之一，没有混合层级。</li>
+<li>[ ] 硬约束写得可执行，能说明触发时如何拦截。</li>
+<li>[ ] 软偏好与优化目标没有被写成硬约束。</li>
+<li>[ ] 规则原文保留了约束强度，没有在改写中放松。</li>
+<li>[ ] 例外和冲突都已写明，且指出冲突时的优先级。</li>
+<li>[ ] 每条规则都有业务确认人和证据ID或【待确认】标记。</li>
+<li>[ ] 规则之间没有未说明的矛盾。</li>
+<li>[ ] 影响最终决策的规则已能被 FR 和校验逻辑引用。</li>
+</ul>
+</div>
+<footer class="page-foot">
+<p class="muted">本页由 <code>_tools/build.py</code> 从 Markdown 自动生成，请改源文件而不是改这里。</p>
+</footer>
+</article>
+</main>
+</body>
+</html>

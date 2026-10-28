@@ -1,0 +1,565 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<title>Day1 工作台总览 · FDE 零基础教程</title>
+<meta name="description" content="六步链路、AI 与手工双路径、工作区初始化、工具包下载、路由表：D1 到底怎么跑。">
+<link rel="stylesheet" href="assets/course.css">
+<script>
+(function () {
+  try {
+    var saved = localStorage.getItem('fde-theme');
+    var theme = saved || (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+    document.documentElement.dataset.theme = theme;
+  } catch (e) {}
+})();
+</script>
+</head>
+<body class="track-day1 page-day1-00-overview">
+<a class="skip-link" href="#main">跳到正文</a>
+
+<header class="topbar">
+  <button class="icon-btn nav-toggle" id="nav-toggle" type="button" aria-expanded="false" aria-controls="sidebar" aria-label="打开课程目录">
+    <span aria-hidden="true">☰</span>
+  </button>
+  <a class="brand" data-same-tab href="index.html"><span class="brand-mark">FDE</span><span class="brand-text">零基础教程</span></a>
+  <nav class="track-switch" aria-label="模块切换"><a class="track-link" data-same-tab href="index.html" title="从零建立完整心智模型">主线</a><a class="track-link" data-same-tab href="work-01-prep.html" title="现场查用：输入、步骤、输出、阶段门">工作台</a><span class="track-link active" aria-current="true" title="六步链路：简报 → 访谈 → 证据 → 底稿 → 门">Day1</span><a class="track-link" data-same-tab href="appendix-methods.html" title="一卡一问，按阶段、产物、角色查">方法库</a><a class="track-link" data-same-tab href="appendix-templates.html" title="模板、产物链、术语与来源">附录</a></nav>
+  <div class="top-actions">
+    <button class="search-open" id="search-open" type="button" aria-haspopup="dialog">
+      <span aria-hidden="true">⌕</span><span class="search-label">搜索</span><kbd>/</kbd>
+    </button>
+    <button class="icon-btn" id="theme-toggle" type="button" aria-label="切换深浅色">◐</button>
+  </div>
+  <div class="read-progress" aria-hidden="true"><span id="read-progress"></span></div>
+</header>
+
+<div class="layout">
+  <aside class="sidebar" id="sidebar">
+    <nav class="course-tree" aria-label="课程目录"><header class="side-head"><p class="side-eyebrow">当前模块</p><p class="side-title">Day1 工作台</p><p class="side-caption">六步链路：简报 → 访谈 → 证据 → 底稿 → 门</p><p class="side-meta">6 页<span class="dot">·</span>约 100 分钟</p></header><section class="nav-group nav-group-plain"><span class="nav-link nav-current" aria-current="page">Day1 工作台总览</span><a class="nav-link" data-same-tab href="day1-01-brief.html">需求定向简报</a><a class="nav-link" data-same-tab href="day1-02-grill.html">分轮访谈</a><a class="nav-link" data-same-tab href="day1-03-evidence.html">确认记录与证据状态</a><a class="nav-link" data-same-tab href="day1-04-spec.html">D1 工作底稿</a><a class="nav-link" data-same-tab href="day1-05-quality.html">D1 阶段门与评分</a></section></nav>
+  </aside>
+  <button class="scrim" id="scrim" type="button" aria-label="关闭目录" hidden></button>
+
+  <main class="main" id="main">
+    <nav class="crumb" aria-label="面包屑"><a data-same-tab href="index.html">教程</a><span class="sep">/</span><span>Day1 工作台</span><span class="sep">/</span><span aria-current="page">Day1 工作台总览</span></nav>
+    <article class="article">
+      <header class="page-head">
+        <div class="badges"><span class="badge badge-day1">专项</span><span class="badge badge-time">12 分钟</span></div>
+        <h1>Day1 工作台总览</h1>
+        <p class="lede">六步链路、AI 与手工双路径、工作区初始化、工具包下载、路由表：D1 到底怎么跑。</p>
+        <p class="page-question"><span class="eyebrow">本页要回答</span>D1 这一天的目标是什么，我现在走到哪一步？</p>
+        <div class="page-meta">
+          <section class="meta-block">
+            <h2 class="meta-title" id="meta-objectives">读完你能</h2>
+            <ul class="objective-list"><li>说出六步链路与每步产物；</li><li>选择 AI 路径或手工路径并说明差异；</li><li>初始化工作区与项目档案目录。</li></ul>
+          </section>
+          <section class="meta-block">
+            <h2 class="meta-title" id="meta-prereq">前置</h2>
+            <p>先读：<a href="main-02-slicing.html" target="_blank" rel="noopener">把“系统”切成可验证的决策</a></p>
+          </section>
+        </div>
+      </header>
+
+      <div class="prose">
+        <dl class="runbook-head">
+<div><dt>何时用</dt><dd>第一次跑 D1，或接手一个进行到一半的 D1 项目</dd></div>
+<div><dt>时间盒与角色</dt><dd>读完 12 分钟；FDE 主跑，业务专家确认，记录员留痕</dd></div>
+<div><dt>本页产出</dt><dd>可用的 D1 工作区、FDE项目档案/ 目录、A00-04 知情同意与数据权限</dd></div>
+<div><dt>阶段门</dt><dd>G0 项目章程门</dd></div>
+</dl>
+
+<p>明天进场。群里最后一句是：“先做个排班系统，越快越好。”你手里有一个下午、三个人、一台电脑，以及六份还没填的表。</p>
+<p>如果从“做系统”开始，你会很快画出页面、表格和按钮；但到了第二天，没人能说清“昨天到底确认了什么”。<span class="term-link" title="Day 1：国润 D1 工具包里的“第一天共创”，指完成需求定向、分轮取证和五项产出的阶段。">D1</span> 要解决的就是这个问题：它不是“访谈一整天”，而是一条有六个停靠点的链路，每一站都留下一个能被别人接手的产物。</p>
+<h2 id="sec-what">这一天到底在干什么</h2>
+<p>D1 的目标可以压成一句话：<strong>把“做一个系统”改写成“谁在什么时候做一个什么决定”，并判断这个决定值不值得在五天内验证。</strong></p>
+<p>这句话有三个关键词：</p>
+<ul>
+<li><strong>谁</strong>：具体角色，不是“业务部门”。</li>
+<li><strong>什么时候</strong>：月度、每天、临时，决定了他需要什么输入。</li>
+<li><strong>什么决定</strong>：一个决定，不是一串功能。</li>
+</ul>
+<p>D1 结束时，你不只交一份记录，还要交一个判断：继续、有条件继续，还是回去补证。第二天（<span class="term-link" title="Day 2：D1 之后的次日工作，通常进入数据、建模、最小闭环或更聚焦的验证。">D2</span>）的团队能不能直接开工，取决于 D1 有没有把这三件事说清。</p>
+<div class="checkpoint">
+<p><strong>停一下</strong>：如果现在让你用一句话说出“这个项目要让谁做什么决定”，你能说出来吗？</p>
+<p>说不出来是正常的。D1 的前三步，就是把这句说不出来的话，逐步逼出来。</p>
+</div>
+<h2 id="sec-chain">六步链路</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th scope="col">步</th>
+<th scope="col">动作</th>
+<th scope="col">落到哪里</th>
+<th scope="col">停下来确认什么</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1 需求定向简报</td>
+<td>写八字段，痛点全部标“假设”</td>
+<td><code>00_项目章程/00-05_需求定向简报.md</code></td>
+<td>每个痛点都有“待确认”</td>
+</tr>
+<tr>
+<td>2 人工确认</td>
+<td>拿简报找业务方逐条点头或纠正</td>
+<td>简报批注 + 10 分钟当面确认</td>
+<td>至少三条被改写或确认</td>
+</tr>
+<tr>
+<td>3 分轮访谈</td>
+<td>每轮 2–4 问，问完一轮再推进</td>
+<td><code>01_调研准备/01-02_分轮访谈提纲.md</code></td>
+<td>每个问题有编号和“为什么问”</td>
+</tr>
+<tr>
+<td>4 证据记录</td>
+<td>原话/观察与解释分开，标状态</td>
+<td><code>02_现场记录/02-01_现场观察记录.md</code></td>
+<td>每条观察有原话和“待确认”</td>
+</tr>
+<tr>
+<td>5 D1 工作底稿</td>
+<td>五项产出：一页纸、As-is、决策-动作、KPI、MVP 范围</td>
+<td><code>03_现状与切片/03-06_D1工作底稿.md</code></td>
+<td>五项都能独立回答一个问题</td>
+</tr>
+<tr>
+<td>6 阶段门</td>
+<td>按 rubric（评分表）给结论</td>
+<td><code>03_现状与切片/03-07_D1阶段门记录.md</code></td>
+<td>结论是三种之一，附条件和负责人</td>
+</tr>
+</tbody>
+</table></div>
+<p>点开任意一步，看它的动作、产出和停止条件：</p>
+<div class="viz-embed"><figure class="viz viz-steps" data-viz="day1-chain"><figcaption class="viz-head"><span class="viz-kicker">交互图</span><h3 id="viz-day1-title">D1 的六步链路</h3><p>六步不是六个会。点一步，看它落到哪份产物、停下来确认什么、由哪一页讲。</p></figcaption><ol class="viz-step-list"><li><button type="button" class="viz-step-card" data-step="1" aria-pressed="false"><span class="viz-step-no">1</span><strong>需求定向简报</strong><span class="viz-step-action">写八字段，痛点全部标“假设”</span></button></li><li><button type="button" class="viz-step-card" data-step="2" aria-pressed="false"><span class="viz-step-no">2</span><strong>人工确认</strong><span class="viz-step-action">拿简报找业务方逐条点头或纠正</span></button></li><li><button type="button" class="viz-step-card" data-step="3" aria-pressed="false"><span class="viz-step-no">3</span><strong>分轮访谈</strong><span class="viz-step-action">每轮 2–4 问，问完一轮再推进</span></button></li><li><button type="button" class="viz-step-card" data-step="4" aria-pressed="false"><span class="viz-step-no">4</span><strong>证据记录</strong><span class="viz-step-action">原话/观察与解释分开，标状态</span></button></li><li><button type="button" class="viz-step-card" data-step="5" aria-pressed="false"><span class="viz-step-no">5</span><strong>D1 工作底稿</strong><span class="viz-step-action">五项产出：一页纸、As-is、决策-动作、KPI、MVP 范围</span></button></li><li><button type="button" class="viz-step-card" data-step="6" aria-pressed="false"><span class="viz-step-no">6</span><strong>阶段门</strong><span class="viz-step-action">按 rubric（评分表）给结论</span></button></li></ol><div class="viz-detail viz-step-detail" aria-live="polite"><p class="viz-placeholder">先点第 2 步。它最容易被省掉，省掉之后假设就会被当成事实。</p></div></figure></div>
+
+<p>六步不是六个会。现场常见的是把 2、4、6 挤在午饭前完成，但<strong>第 2 步和第 6 步不能省</strong>：第 2 步决定你的假设有没有被纠正，第 6 步决定这一天有没有结论。省掉它们，D1 就退化成一场“聊得不错”的访谈。</p>
+<h2 id="sec-workspace">工作区初始化</h2>
+<p>先建三个顶层目录，把“草稿”“定稿”“旧版本”分开。这样你不会在交付时把录音文件名发出去，也不会在改到第三版时找不到第一版。</p>
+<div class="file-tree">D1-项目名/
+├── _工作区/              # 草稿、录音、截图、临时表；不进交付
+│   ├── 00-05_需求定向简报_草稿.md
+│   └── 访谈录音/
+├── FDE项目档案/          # 只放定稿 artifact
+│   ├── 00_项目章程/
+│   ├── 01_调研准备/
+│   ├── 02_现场记录/
+│   ├── 03_现状与切片/
+│   ├── 04_方案设计/
+│   ├── 05_五天验证/
+│   ├── 06_复盘与回流/
+│   └── README.md
+└── _归档/                # 按日期存放旧版本</div>
+
+<p>初始化只要五步，约 15 分钟：</p>
+<ol>
+<li><strong>建三个顶层目录</strong>（2 分钟）：<code>_工作区/</code>、<code>FDE项目档案/</code>、<code>_归档/</code>。</li>
+<li><strong>建七个档案子目录</strong>（2 分钟）：从 <code>00_项目章程/</code> 到 <code>06_复盘与回流/</code>，名字和编号照抄。</li>
+<li><strong>放入已有底稿</strong>（3 分钟）：把 A00-01 项目一页纸、A00-02 干系人地图复制进 <code>00_项目章程/</code>。</li>
+<li><strong>写 README 三行</strong>（3 分钟）：项目名、当前在第几步、下一次要更新的 artifact。</li>
+<li><strong>先填 A00-04</strong>（5 分钟）：数据类别、用途、脱敏方式、存储位置、访问人、授权人、授权日期、销毁方式。<strong>没有这份授权，不录音、不拍照、不把真实数据带出客户环境。</strong></li>
+</ol>
+<p>A00-04 不是行政表格。它决定你后面能不能引用原话、能不能保存截图、验证结束后要不要删除副本。先谈权限，再谈效率。</p>
+<h2 id="sec-router">路由表：我现在在哪一步</h2>
+<p>D1 最容易出现的问题不是“不会做”，而是“做着做着串台了”。用症状定位，不要凭感觉。</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th scope="col">你现在的症状</th>
+<th scope="col">第几步</th>
+<th scope="col">下一步动作</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>只有一个模糊需求，说不出谁做什么决定</td>
+<td>1</td>
+<td>写 A00-05，痛点先标“假设”</td>
+</tr>
+<tr>
+<td>简报填完了，但没人点头</td>
+<td>2</td>
+<td>约业务方 10 分钟，逐条确认或纠正</td>
+</tr>
+<tr>
+<td>访谈记录像聊天，找不到重点</td>
+<td>3</td>
+<td>每轮只留 2–4 个问题，加编号</td>
+</tr>
+<tr>
+<td>记了结论，但想不起原话</td>
+<td>4</td>
+<td>回到 A02-01 补原话、动作和“待确认”</td>
+</tr>
+<tr>
+<td>五项产出都写了，但互相矛盾</td>
+<td>5</td>
+<td>用“动作”和“KPI”交叉检查</td>
+</tr>
+<tr>
+<td>大家都说“可以继续”，但没人说条件</td>
+<td>6</td>
+<td>按 rubric 写结论、附加条件和负责人</td>
+</tr>
+</tbody>
+</table></div>
+<p>如果同时命中两行，回到<strong>编号更小</strong>的那一步。D1 是串行链路，后面的产物不能替前面的空白背书。</p>
+<h2 id="sec-paths">AI 路径与手工路径</h2>
+<p>两条路径的差别在“谁来整理”，不在“谁来确认”。产出必须等价。</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th scope="col">步骤</th>
+<th scope="col">有 AI 助手时</th>
+<th scope="col">纯手工时</th>
+<th scope="col">等价性检查</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>工作区</td>
+<td>让 AI 按目录树生成空文件和 README 骨架</td>
+<td>按上面的树手工建</td>
+<td>七个目录齐全，README 有三行</td>
+</tr>
+<tr>
+<td>简报</td>
+<td>让 AI 生成八字段初稿，逐条标“假设”</td>
+<td>用 A00-05 空白模板手写</td>
+<td>八字段齐全，痛点无一是结论</td>
+</tr>
+<tr>
+<td>访谈</td>
+<td>让 AI 把问题压到每轮 2–4 个，并解释为什么问</td>
+<td>用 A01-02 提纲和问题卡</td>
+<td>每题有编号、为什么问、中性选项</td>
+</tr>
+<tr>
+<td>证据</td>
+<td>让 AI 把原话与解释分开，标“待确认”</td>
+<td>用 A02-01 表头逐条填</td>
+<td>每条有原话/动作和待确认</td>
+</tr>
+<tr>
+<td>底稿</td>
+<td>让 AI 按五项产出起草，缺证据的标“待补证”</td>
+<td>用 A03-06 骨架逐项填</td>
+<td>五项齐全，关键结论有证据</td>
+</tr>
+<tr>
+<td>阶段门</td>
+<td>让 AI 按 rubric 自评并指出最低分项</td>
+<td>人工逐项打分</td>
+<td>结论、理由、条件一致</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>手工路径不依赖任何 skill 安装。</strong>你只需要纸、计时器、上面的表头，以及愿意在每一步停下来确认。AI 路径省的是整理时间，不是确认责任；AI 不能替业务方点头，也不能替阶段门签字。</p>
+<h2 id="sec-skill-map">工具包技能地图</h2>
+<p>工具包有六个技能，都是提示词，不是软件；没有也能按手工路径做，标准一样。</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th scope="col">技能</th>
+<th scope="col">职责</th>
+<th scope="col">何时用</th>
+<th scope="col">对应</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>gr-project-setup</code></td>
+<td>查现有文件，给工作区配置草案，确认后才写入</td>
+<td>首次进带文件的项目</td>
+<td><a href="#sec-workspace">工作区</a></td>
+</tr>
+<tr>
+<td><code>gr-workflow-guide</code></td>
+<td>判断你在哪一步，推荐下一步用哪个技能，然后停下</td>
+<td>不知道该干什么</td>
+<td><a href="#sec-router">路由表</a></td>
+</tr>
+<tr>
+<td><code>gr-domain-brief</code></td>
+<td>给需求、痛点、价值、路线的初判，痛点标假设</td>
+<td>陌生需求、还没访谈</td>
+<td><a href="day1-01-brief.html" target="_blank" rel="noopener">第 1 步</a></td>
+</tr>
+<tr>
+<td><code>gr-d1-grill</code></td>
+<td>按四类证据状态做分轮取证访谈</td>
+<td>简报确认后、访谈时</td>
+<td><a href="day1-02-grill.html" target="_blank" rel="noopener">第 3–4 步</a></td>
+</tr>
+<tr>
+<td><code>grilling</code></td>
+<td>通用设计树追问：一轮一批，每题带推荐答案</td>
+<td>同上；或压测方案</td>
+<td><a href="methods/mc-07.html" target="_blank" rel="noopener">MC-07</a></td>
+</tr>
+<tr>
+<td><code>gr-d1-to-spec</code></td>
+<td>整理五项产出，保留证据和未决项</td>
+<td>共识已有、缺口有人</td>
+<td><a href="day1-04-spec.html" target="_blank" rel="noopener">第 5 步</a></td>
+</tr>
+</tbody>
+</table></div>
+<p>顺序：</p>
+<pre><code class="language-text">（可选）gr-project-setup
+  → gr-workflow-guide 判断位置
+  → gr-domain-brief → 业务方确认
+  → gr-d1-grill（借 grilling 的分轮机制）
+  → gr-d1-to-spec → 阶段门
+</code></pre>
+<p>两者不是二选一：<code>gr-d1-grill</code> 是 D1 业务版，管证据状态和确认记录；<code>grilling</code> 是通用追问方法，管问题树和轮次。没有前者时，用后者加本教程的证据表也能走。</p>
+<p>调用示例：</p>
+<ul>
+<li>简报：<code>用 gr-domain-brief 读这份会议记录，给出八字段初判；痛点和价值标“假设”，并列出不确定处。</code></li>
+<li>访谈：<code>用 gr-d1-grill，基于简报和已有记录，生成第一轮 2–4 问，每题说明为什么问。</code></li>
+<li>整理：<code>用 gr-d1-to-spec，把今天的问答整理成五项产出；缺证据的写“待补证”，附负责人和日期。</code></li>
+</ul>
+<p>三条使用规则：</p>
+<ol>
+<li><strong>技能只整理，不确认。</strong> 生成的每一句都要能回到证据；回不到就标“工作假设”。</li>
+<li><strong>技能不可用就降级。</strong> 用本页和<a href="day1-01-brief.html" target="_blank" rel="noopener">第 1 步</a>到<a href="day1-04-spec.html" target="_blank" rel="noopener">第 4 步</a>的表头手工做，标准不变；不要为了用技能停下 D1。</li>
+<li><strong>确认后写入。</strong> <code>gr-project-setup</code> 和任何写文件动作，先给人看草案；不接受“已经帮你建好了”。</li>
+</ol>
+<h2 id="sec-source">工具包来源与使用边界</h2>
+<p>D1 工作台的流程骨架来自国润项目组的 <strong>GR-FDE-01-014 D1 客户工具包</strong> <span class="cite" title="GR-FDE-01-014 D1 客户工具包（国润 Skill 工具包）">[S16]</span>。工具包里用到的 <code>grilling</code> 追问方法来自 Matt Pocock，按 MIT 许可使用 <span class="cite" title="GR-FDE-01-014 D1 客户工具包（国润 Skill 工具包）">[S16]</span>。流程设计同时参考了 FDE 方法论沉淀 <span class="cite" title="FDE 方法论沉淀">[S17]</span>。</p>
+<p>本教程正文只做改写和重组，不复制工具包原文、表格或提示词；原始工具包以 MIT 许可原样提供下载，见下文。你要读的是面向零基础的执行说明，不是工具包影印件。</p>
+<p>三条边界：</p>
+<ol>
+<li>工具包覆盖 D1，不覆盖 D2 之后的建模和验证；</li>
+<li>AI 技能是加速器，不是前提；没有安装任何技能，也能按手工路径走完；</li>
+<li>工具包和本教程都不替你承担数据权限与业务确认的责任。</li>
+</ol>
+<h2 id="sec-toolkit">工具包下载与安装</h2>
+<p>工具包是六个 Claude Code 技能加一份使用说明，整包约 2 MB。两种取法：整包下载后解压，或先读使用说明再挑单个技能。</p>
+<ul>
+<li><a href="downloads/gr-fde-01-014.zip" target="_blank" rel="noopener">下载整包 <code>gr-fde-01-014.zip</code></a></li>
+<li><a href="downloads/gr-fde-01-014/使用说明.html" target="_blank" rel="noopener">在线阅读使用说明</a></li>
+</ul>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th scope="col">技能</th>
+<th scope="col">什么时候用</th>
+<th scope="col">源文件</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>gr-workflow-guide</code></td>
+<td>不确定下一步该做预研、追问还是整理，先让它判断位置</td>
+<td><a href="downloads/gr-fde-01-014/skills/gr-workflow-guide/SKILL.md" target="_blank" rel="noopener">SKILL.md</a></td>
+</tr>
+<tr>
+<td><code>gr-domain-brief</code></td>
+<td>陌生行业或陌生产品，需要先给需求、痛点与路线初判</td>
+<td><a href="downloads/gr-fde-01-014/skills/gr-domain-brief/SKILL.md" target="_blank" rel="noopener">SKILL.md</a></td>
+</tr>
+<tr>
+<td><code>grilling</code></td>
+<td>对已有方案做压力测试，一轮一轮追问到共识（Matt Pocock 原作）</td>
+<td><a href="downloads/gr-fde-01-014/skills/grilling/SKILL.md" target="_blank" rel="noopener">SKILL.md</a></td>
+</tr>
+<tr>
+<td><code>gr-d1-grill</code></td>
+<td>D1 共创现场，按证据追问术语、共识与缺口</td>
+<td><a href="downloads/gr-fde-01-014/skills/gr-d1-grill/SKILL.md" target="_blank" rel="noopener">SKILL.md</a></td>
+</tr>
+<tr>
+<td><code>gr-d1-to-spec</code></td>
+<td>D1 收尾，把问答整理成五项产出并保留未决项</td>
+<td><a href="downloads/gr-fde-01-014/skills/gr-d1-to-spec/SKILL.md" target="_blank" rel="noopener">SKILL.md</a></td>
+</tr>
+<tr>
+<td><code>gr-project-setup</code></td>
+<td>要建任务、证据、术语与确认记录的位置时，先出草案再写入</td>
+<td><a href="downloads/gr-fde-01-014/skills/gr-project-setup/SKILL.md" target="_blank" rel="noopener">SKILL.md</a></td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>安装。</strong> 解压后把 <code>skills/</code> 下的文件夹整个放进项目的 <code>.claude/skills/</code>（或用户级技能目录），重启会话即可被发现。技能不是硬依赖：装不上就按本页的手工路径走，标准不变。</p>
+<p><strong>许可。</strong> 工具包整体与其中每个技能都带 MIT <code>LICENSE</code>；<code>grilling</code> 的上游作者是 Matt Pocock，署名与许可必须随包保留。再分发时不要删 <code>LICENSE</code>，也不要把原创技能说成本教程的产出。</p>
+<p><strong>D1 当天用的模板。</strong> 不想在六个页面之间逐份找，可以直接拿按六步顺序摆好的套装：</p>
+<div class="viz-embed"><div class="download-grid" role="list"><a class="download-card" role="listitem" href="downloads/fde-d1-field-kit.zip" target="_blank" rel="noopener"><span class="download-count">8 份</span><strong>Day1 现场日套装</strong><span class="download-desc">D1 当天从简报、访谈、证据到阶段门要用的 8 份模板，按当天顺序摆好。</span><span class="download-file">fde-d1-field-kit.zip</span></a></div><p class="download-note">全部为离线 zip：解压即用，不联网、不需要安装。模板是 Markdown 文件，用任意文本编辑器或 Obsidian 打开。工具包下载在 <a href="day1-00-overview.html#sec-toolkit">Day1 总览</a>。</p></div>
+
+<h2 id="sec-roles">角色与时间盒</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th scope="col">角色</th>
+<th scope="col">在 D1 做什么</th>
+<th scope="col">不做什么</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>FDE</td>
+<td>主持链路、写简报、控制轮次、收口</td>
+<td>不替业务方下结论</td>
+</tr>
+<tr>
+<td>业务专家</td>
+<td>确认或纠正简报、回答访谈、指出例外</td>
+<td>不被要求当场给方案</td>
+</tr>
+<tr>
+<td>记录员</td>
+<td>记原话、时间、角色、待确认</td>
+<td>不把解释写成观察</td>
+</tr>
+<tr>
+<td>决策人</td>
+<td>在阶段门确认结论和条件</td>
+<td>不必参加每一轮访谈</td>
+</tr>
+</tbody>
+</table></div>
+<p>一个可执行的一日排期（约 5 小时净工作，不含午休）：0:00–0:35 写简报并确认；0:35–2:05 分轮访谈与现场观察；2:05–2:55 整理证据；2:55–4:25 填工作底稿；4:25–4:50 阶段门评分与 D2 输入。时间盒到点就停，未完成的部分写成“待补证”，不要用加班掩盖缺口。</p>
+<div class="hands-on">
+<p><strong>动手 15 分钟</strong>：初始化你的 D1 工作区。</p>
+<ol>
+<li>按上面的树建三个顶层目录和七个档案子目录。</li>
+<li>在 <code>FDE项目档案/README.md</code> 写三行：项目名、当前第几步、下一次要更新的 artifact。</li>
+<li>填一版 A00-04 的八个字段；拿不到的写“待授权”，不要留空。</li>
+<li>把 A00-01 和 A00-02 复制进 <code>00_项目章程/</code>，文件名不改。</li>
+</ol>
+<p><strong>自检</strong>：① 草稿是否都在 <code>_工作区/</code>，定稿是否都在 <code>FDE项目档案/</code>；② README 能不能让一个没参加过的人知道下一步；③ A00-04 是否写清了存储位置和销毁方式。</p>
+</div>
+<h2 id="sec-pitfalls">常见失败</h2>
+<div class="pitfalls">
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th scope="col">现象</th>
+<th scope="col">原因</th>
+<th scope="col">处理</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>把 D1 排成“访谈一整天”</td>
+<td>以为聊得越多越好</td>
+<td>按六步链路排时间盒，每步都有停止条件</td>
+</tr>
+<tr>
+<td>先花两小时装 AI 工具</td>
+<td>把工具当成开工前提</td>
+<td>先走手工路径；工具只加速整理</td>
+</tr>
+<tr>
+<td>在工作区里直接写定稿</td>
+<td>草稿和交付混在一起</td>
+<td>定稿一律进 <code>FDE项目档案/</code> 对应编号目录</td>
+</tr>
+<tr>
+<td>一次建全 42 份档案</td>
+<td>把填表当项目</td>
+<td>先建最小集，D1 只填当天需要的</td>
+</tr>
+<tr>
+<td>没有确认就写“业务确认”</td>
+<td>把点头当签字</td>
+<td>没有原话或书面记录，只能写“工作假设”</td>
+</tr>
+<tr>
+<td>阶段门结论写成“继续推进”</td>
+<td>不敢给条件</td>
+<td>只允许三种结论，并写最低分项和负责人</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<h2 id="sec-self-test">三问自测</h2>
+<div class="self-test">
+<details>
+<summary>1. D1 的六步里，哪一步最容易被跳过，后果是什么？</summary>
+
+第 2 步“人工确认”和第 6 步“阶段门”。跳过确认，假设会被当成事实；跳过阶段门，团队带着未决项进入 D2，第二天会重新问一遍 D1 的问题。
+
+</details>
+<details>
+<summary>2. 手工路径需要安装什么？</summary>
+
+什么都不需要。纸、计时器、A00-05 / A01-02 / A02-01 的表头即可。AI 路径只是把整理工作自动化，产出标准完全相同。
+
+</details>
+<details>
+<summary>3. 工作区、档案目录、归档目录各放什么？</summary>
+
+工作区放草稿、录音、截图；档案目录只放定稿 artifact；归档目录放按日期保存的旧版本。三者混用，交付时最容易发错文件。
+
+</details>
+</div>
+<div class="recap">
+<p><strong>本章带走</strong></p>
+<ol>
+<li>D1 是一条六步链路，每一站都有产物和停止条件，不是一场自由访谈。</li>
+<li>先建工作区与档案目录，再谈工具；手工路径不依赖任何 skill 安装。</li>
+<li>工具包来自 GR-FDE-01-014，<code>grilling</code> 署名 Matt Pocock、MIT 许可；本教程正文只改写，原始工具包按原许可提供下载。</li>
+</ol>
+</div>
+      </div>
+
+      <section class="term-cards" aria-label="本页术语卡"><p class="eyebrow">本页术语</p><div class="term-grid"><article class="term-card" id="term-d1"><h3 id="term-title-d1">D1 <span class="term-en">Day 1</span></h3><p>国润 D1 工具包里的“第一天共创”，指完成需求定向、分轮取证和五项产出的阶段。</p></article><article class="term-card" id="term-d2"><h3 id="term-title-d2">D2 <span class="term-en">Day 2</span></h3><p>D1 之后的次日工作，通常进入数据、建模、最小闭环或更聚焦的验证。</p></article><article class="term-card" id="term-runbook"><h3 id="term-title-runbook">Runbook（操作手册页） <span class="term-en">Runbook</span></h3><p>工作台里按“何时用、输入、步骤、输出、阶段门、模板、常见失败”组织的可执行页面。</p><a class="term-first" href="work-01-prep.html" target="_blank" rel="noopener">首次解释</a></article></div></section>
+      <section class="artifact-box" aria-label="本页产物"><div class="artifact-block"><h3 id="artifacts-out">本页要写出的产物</h3><ul><li><code>A00-04</code> 知情同意与数据权限 <span class="muted">→ 00_项目章程/00-04_知情同意与数据权限.md</span> <span class="gate-tag">G0</span> <a href="templates/blank/00-04_知情同意与数据权限.html" data-template-view data-template-title="A00-04 知情同意与数据权限模板" title="A00-04 知情同意与数据权限模板 ｜ 当前页弹窗预览">模板</a> <a href="templates/golden/00-04_知情同意与数据权限_排班案例.html" data-template-view data-template-title="A00-04 知情同意与数据权限黄金样例" title="A00-04 知情同意与数据权限黄金样例 ｜ 当前页弹窗预览">黄金样例</a></li></ul></div><div class="artifact-block"><h3 id="artifacts-in">开始前应已具备</h3><p class="muted"><code>A00-01</code> 项目一页纸</p></div></section>
+      <section class="sources" aria-label="来源"><h2 id="sec-sources">来源与证据等级</h2><ol class="source-list"><li><span class="src-id">S16</span> <strong>GR-FDE-01-014 D1 客户工具包（国润 Skill 工具包）</strong> <span class="badge badge-实践">实践</span><div class="muted">国润项目组 · 抓取 2026-10-19 · MIT；`grilling` 上游署名 Matt Pocock；包内文件不随教程分发</div><div class="src-url"><span class="muted">无公开链接</span></div></li><li><span class="src-id">S17</span> <strong>FDE 方法论沉淀</strong> <span class="badge badge-实践">实践</span><div class="muted">本子项目 · 抓取 2026-09-23 · 内部方法沉淀</div><div class="src-url"><span class="muted">无公开链接</span></div></li></ol></section>
+      <nav class="pager" aria-label="翻页"><span class="pager-empty"></span><a class="pager-next" data-same-tab href="day1-01-brief.html"><span>下一页</span><strong>需求定向简报</strong></a></nav>
+
+      <footer class="page-foot">
+        <p>本教程为内部方法研究。案例已匿名化，数字标注【示例】。Palantir 官方资料版权归 Palantir Technologies，仅作改写与链接。</p>
+        <p class="muted">发现断链或事实错误？回到 <a href="appendix-sources.html" target="_blank" rel="noopener">来源与版权</a> 核对出处。</p>
+      </footer>
+    </article>
+  </main>
+
+  <aside class="toc" id="toc" aria-label="页内目录">
+    <p class="toc-title">本页目录</p><ol class="toc-list"><li class="toc-h2"><a href="#sec-what">这一天到底在干什么</a></li><li class="toc-h2"><a href="#sec-chain">六步链路</a></li><li class="toc-h2"><a href="#sec-workspace">工作区初始化</a></li><li class="toc-h2"><a href="#sec-router">路由表：我现在在哪一步</a></li><li class="toc-h2"><a href="#sec-paths">AI 路径与手工路径</a></li><li class="toc-h2"><a href="#sec-skill-map">工具包技能地图</a></li><li class="toc-h2"><a href="#sec-source">工具包来源与使用边界</a></li><li class="toc-h2"><a href="#sec-toolkit">工具包下载与安装</a></li><li class="toc-h2"><a href="#sec-roles">角色与时间盒</a></li><li class="toc-h2"><a href="#sec-pitfalls">常见失败</a></li><li class="toc-h2"><a href="#sec-self-test">三问自测</a></li></ol>
+  </aside>
+</div>
+
+<div class="tpl-modal" id="tpl-modal" hidden>
+  <div class="tpl-panel" role="dialog" aria-modal="true" aria-labelledby="tpl-title">
+    <header class="tpl-head">
+      <div class="tpl-heading">
+        <p class="tpl-kicker">模板阅读视图</p>
+        <h2 id="tpl-title">模板</h2>
+      </div>
+      <div class="tpl-actions">
+        <a class="tpl-open" id="tpl-open" href="#" target="_blank" rel="noopener">在新标签打开 ↗</a>
+        <button class="icon-btn" id="tpl-close" type="button" aria-label="关闭模板">✕</button>
+      </div>
+    </header>
+    <div class="tpl-body">
+      <iframe id="tpl-frame" title="模板内容" loading="lazy"></iframe>
+    </div>
+  </div>
+</div>
+
+<div class="search-modal" id="search-modal" hidden>
+  <div class="search-panel" role="dialog" aria-modal="true" aria-labelledby="search-title">
+    <div class="search-head">
+      <label id="search-title" class="sr-only" for="search-input">搜索教程</label>
+      <input id="search-input" type="search" placeholder="搜索概念、产物、模板、方法卡…" autocomplete="off">
+      <button class="icon-btn" id="search-close" type="button" aria-label="关闭搜索">✕</button>
+    </div>
+    <div id="search-results" class="search-results" aria-live="polite"></div>
+    <p class="search-hint">按 <kbd>/</kbd> 或 <kbd>Ctrl</kbd>+<kbd>K</kbd> 打开，<kbd>Esc</kbd> 关闭。索引完全离线。</p>
+  </div>
+</div>
+
+<noscript><p class="noscript-note">搜索与阅读进度需要 JavaScript；正文、目录和翻页仍可正常使用。可用浏览器查找（Ctrl+F）。</p></noscript>
+
+<script src="assets/search-index.js"></script>
+<script src="assets/viz-data.js"></script>
+<script src="assets/app.js"></script>
+<script src="assets/viz.js"></script>
+
+</body>
+</html>

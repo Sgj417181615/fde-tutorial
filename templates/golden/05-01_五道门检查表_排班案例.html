@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>A05-01 五道门检查表（排班案例） · FDE 模板库</title>
+<link rel="stylesheet" href="../../assets/course.css">
+</head>
+<body>
+<a class="skip-link" href="#main">跳到正文</a>
+<main class="main" id="main">
+<article class="article">
+<nav class="crumb" aria-label="面包屑">
+<a href="../../index.html">教程首页</a><span class="sep">/</span>
+<a href="../../appendix-templates.html">模板库</a><span class="sep">/</span>
+<span>黄金样例</span>
+</nav>
+<header class="page-head">
+<div class="badges">
+<span class="badge badge-main">A05-01</span>
+<span class="badge">黄金样例</span>
+<span class="badge badge-time">Markdown 阅读视图</span>
+</div>
+<h1>A05-01 五道门检查表（排班案例）</h1>
+<p class="page-question">这是模板的阅读视图，源文件是 <code>05-01_五道门检查表_排班案例.md</code>。
+<a href="05-01_五道门检查表_排班案例.md">下载 / 编辑 Markdown</a> · <a href="../../appendix-templates.html">返回模板库</a></p>
+</header>
+<div class="prose">
+<blockquote>
+<p>【示例】匿名化案例，数字均为示例；人名与机构均为化名。</p>
+</blockquote>
+<p>本表用于 D1 开始前的预检和 D5 阶段门前的复核。五道门固定为：窄决策、三方人马、真实数据权限、可演示底座、每日展示。结论只使用“通过”“有条件”“不通过”。事实依据取自 <code>_canon/case-bible.md</code> 的 CB-12、CB-16、CB-17。</p>
+<h2 id="tpl-sec-1">一、总体结论</h2>
+<p><strong>有条件继续。</strong> 五道门中四道通过，第 4 道“可演示底座”为有条件：本地对象写回可用，院内排班系统写回权限在 D1 内无法取得。条件、负责人与截止见第三节。该结论与 A05-09 阶段门记录一致，不存在一份说通过、另一份说待定的情况。</p>
+<h2 id="tpl-sec-2">二、逐门检查</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th scope="col">门</th>
+<th scope="col">检查项</th>
+<th scope="col">证据</th>
+<th scope="col">结论</th>
+<th scope="col">负责人</th>
+<th scope="col">日期</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1 窄决策</td>
+<td>只做一个最终决策：DC-1 与 DC-2 合并为“本月额度分配方案确认”</td>
+<td>A03-05 S1 one-pager；CB-03 决策清单</td>
+<td>通过</td>
+<td>周主任</td>
+<td>D1</td>
+</tr>
+<tr>
+<td>1 窄决策</td>
+<td>决策可在一屏内完成：额度全景、人员池、冲突面板同屏</td>
+<td>D2 界面走查记录，三栏无需翻页</td>
+<td>通过</td>
+<td>陈静</td>
+<td>D2</td>
+</tr>
+<tr>
+<td>1 窄决策</td>
+<td>决策结果可保存、可重新打开复核</td>
+<td>D3 本地对象写回测试记录</td>
+<td>通过</td>
+<td>刘工</td>
+<td>D3</td>
+</tr>
+<tr>
+<td>2 三方人马</td>
+<td>业务方：陈静操作、赵岚确认、周主任审批，三人均确认时段</td>
+<td>D1–D5 日历邀请与 D1 签到表</td>
+<td>通过</td>
+<td>陈静</td>
+<td>D1</td>
+</tr>
+<tr>
+<td>2 三方人马</td>
+<td>数据方：刘工提供只读账号、快照导出与字段说明</td>
+<td>只读账号开通记录；快照导出清单</td>
+<td>通过</td>
+<td>刘工</td>
+<td>D1</td>
+</tr>
+<tr>
+<td>2 三方人马</td>
+<td>应用方：FDE 两人全程在场，一人操作、一人记录</td>
+<td>FDE 排期表与分工说明</td>
+<td>通过</td>
+<td>FDE</td>
+<td>D1</td>
+</tr>
+<tr>
+<td>3 真实数据权限</td>
+<td>有书面授权：用途、数据范围、访问人、存储位置、销毁期限</td>
+<td>授权书，周主任签字，条款对齐 CB-12</td>
+<td>通过</td>
+<td>周主任</td>
+<td>D1</td>
+</tr>
+<tr>
+<td>3 真实数据权限</td>
+<td>脱敏方案具体到字段，姓名全部替换为化名</td>
+<td>A05-07 Demo 数据清单“字段级脱敏”表</td>
+<td>通过</td>
+<td>刘工</td>
+<td>D1</td>
+</tr>
+<tr>
+<td>3 真实数据权限</td>
+<td>真实数据可用：2026-09-30 快照，3 个亚专科、4 人、1 个月</td>
+<td>快照文件；行数与合计核对记录</td>
+<td>通过</td>
+<td>陈静</td>
+<td>D1</td>
+</tr>
+<tr>
+<td>3 真实数据权限</td>
+<td>数据只存放在客户内网指定目录，不上传公网</td>
+<td>存储路径截图；FDE 设备未留存副本声明</td>
+<td>通过</td>
+<td>刘工</td>
+<td>D1</td>
+</tr>
+<tr>
+<td>4 可演示底座</td>
+<td>能装载快照：CSV 导入本地库，断网仍可打开</td>
+<td>D1 导入日志；离线打开截图</td>
+<td>通过</td>
+<td>FDE</td>
+<td>D1</td>
+</tr>
+<tr>
+<td>4 可演示底座</td>
+<td>能写回：分配状态与额度已用可持久化，重开可见</td>
+<td>本地对象写回测试记录，状态由“建议”变“已确认”</td>
+<td>有条件</td>
+<td>刘工</td>
+<td>D1</td>
+</tr>
+<tr>
+<td>4 可演示底座</td>
+<td>能在现场由用户本人操作，不由 FDE 代点</td>
+<td>D4 陈静独立完成一遍 C1、C2 的排练记录</td>
+<td>通过</td>
+<td>陈静</td>
+<td>D4</td>
+</tr>
+<tr>
+<td>5 每日展示</td>
+<td>每天 17:00 向陈静展示当天增量，时点已进日历</td>
+<td>D1–D4 日历邀请；D5 Demo 单独排期</td>
+<td>通过</td>
+<td>陈静</td>
+<td>D1</td>
+</tr>
+<tr>
+<td>5 每日展示</td>
+<td>展示有固定记录人和记录模板，反馈当天入库</td>
+<td>A05-03 每日日志、A05-08 反馈记录模板</td>
+<td>通过</td>
+<td>FDE</td>
+<td>D1</td>
+</tr>
+<tr>
+<td>5 每日展示</td>
+<td>业务方知悉展示时点，缺席时有替代安排</td>
+<td>群公告截图；赵岚、周主任的回复记录</td>
+<td>通过</td>
+<td>陈静</td>
+<td>D1</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="tpl-sec-3">三、条件与补足动作</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th scope="col">条件编号</th>
+<th scope="col">对应门</th>
+<th scope="col">条件内容</th>
+<th scope="col">补足动作</th>
+<th scope="col">负责人</th>
+<th scope="col">截止</th>
+<th scope="col">未满足时的降级</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>C-01</td>
+<td>4 可演示底座</td>
+<td>院内排班系统写回权限未取得</td>
+<td>向信息科提交变更申请，确认能否在五天内开通；同时完成本地对象写回</td>
+<td>刘工</td>
+<td>D1 18:00</td>
+<td>只写回本地对象，Demo 中明确说明“未写回院内系统”，不补录、不假装已对接</td>
+</tr>
+<tr>
+<td>C-02</td>
+<td>4 可演示底座</td>
+<td>本地写回字段需与额度已用同步</td>
+<td>D1 晚完成一次“确认分配→额度已用+1→重开核对”的联调</td>
+<td>刘工</td>
+<td>D1 20:00</td>
+<td>若同步失败，Demo 只演示状态变更，额度已用改为人工核对并当场说明</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>条件判定</strong>：C-01 的“能否开通”在 D1 18:00 得到明确答复——需走变更审批，五天不够。因此按降级方案执行，条件不算“已关闭”，转入 A05-09 的待办，作为 S2 立项前置。C-02 当晚完成，D2 复核通过。</p>
+<h2 id="tpl-sec-4">四、每日回看</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th scope="col">日期</th>
+<th scope="col">门 1</th>
+<th scope="col">门 2</th>
+<th scope="col">门 3</th>
+<th scope="col">门 4</th>
+<th scope="col">门 5</th>
+<th scope="col">回看结论</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D1</td>
+<td>通过</td>
+<td>通过</td>
+<td>通过</td>
+<td>有条件</td>
+<td>通过</td>
+<td>继续；C-01 走降级，C-02 当晚联调</td>
+</tr>
+<tr>
+<td>D2</td>
+<td>通过</td>
+<td>通过</td>
+<td>通过</td>
+<td>有条件</td>
+<td>通过</td>
+<td>继续；无新增红灯</td>
+</tr>
+<tr>
+<td>D3</td>
+<td>通过</td>
+<td>通过</td>
+<td>通过</td>
+<td>有条件</td>
+<td>通过</td>
+<td>继续；写回字段与 FR-05 对齐</td>
+</tr>
+<tr>
+<td>D4</td>
+<td>通过</td>
+<td>通过</td>
+<td>通过</td>
+<td>有条件</td>
+<td>通过</td>
+<td>继续；周主任 D5 到场待上午确认</td>
+</tr>
+<tr>
+<td>D5</td>
+<td>通过</td>
+<td>通过</td>
+<td>通过</td>
+<td>有条件</td>
+<td>通过</td>
+<td>转 A05-09，结论“通过（有条件延续）”</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="tpl-sec-5">五、检查人与确认</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th scope="col">角色</th>
+<th scope="col">姓名</th>
+<th scope="col">检查范围</th>
+<th scope="col">确认方式</th>
+<th scope="col">日期</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>业务操作者</td>
+<td>陈静</td>
+<td>门 1 的可操作性、门 5 的展示时点</td>
+<td>现场逐项确认</td>
+<td>D1</td>
+</tr>
+<tr>
+<td>数据与权限</td>
+<td>刘工</td>
+<td>门 3 的授权与脱敏、门 4 的写回</td>
+<td>授权书与测试记录签字</td>
+<td>D1</td>
+</tr>
+<tr>
+<td>业务审批人</td>
+<td>周主任</td>
+<td>总体结论与 C-01 降级方案</td>
+<td>口头同意并记入 D1 日志</td>
+<td>D1</td>
+</tr>
+<tr>
+<td>交付负责人</td>
+<td>FDE</td>
+<td>表单完整性、证据可追溯</td>
+<td>提交 A05-09 复核</td>
+<td>D5</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>判定口径说明</strong>：</p>
+<ul>
+<li>“通过”指证据已存在且可当场复核，不是“大家觉得没问题”；</li>
+<li>“有条件”必须能写出一条可执行的补足动作，否则应判“不通过”；</li>
+<li>检查人不能只由 FDE 自己签字，门 3 必须有刘工或周主任确认；</li>
+<li>本表不替代 A05-09；D5 的最终结论以阶段门记录为准。</li>
+</ul>
+</div>
+<footer class="page-foot">
+<p class="muted">本页由 <code>_tools/build.py</code> 从 Markdown 自动生成，请改源文件而不是改这里。</p>
+</footer>
+</article>
+</main>
+</body>
+</html>

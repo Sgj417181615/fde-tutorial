@@ -1,0 +1,706 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<title>D1 工作底稿 · FDE 零基础教程</title>
+<meta name="description" content="五项产出、证据摘要、未决项、阶段门结论与 D2 输入：D1 结束时到底交什么。">
+<link rel="stylesheet" href="assets/course.css">
+<script>
+(function () {
+  try {
+    var saved = localStorage.getItem('fde-theme');
+    var theme = saved || (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+    document.documentElement.dataset.theme = theme;
+  } catch (e) {}
+})();
+</script>
+</head>
+<body class="track-day1 page-day1-04-spec">
+<a class="skip-link" href="#main">跳到正文</a>
+
+<header class="topbar">
+  <button class="icon-btn nav-toggle" id="nav-toggle" type="button" aria-expanded="false" aria-controls="sidebar" aria-label="打开课程目录">
+    <span aria-hidden="true">☰</span>
+  </button>
+  <a class="brand" data-same-tab href="index.html"><span class="brand-mark">FDE</span><span class="brand-text">零基础教程</span></a>
+  <nav class="track-switch" aria-label="模块切换"><a class="track-link" data-same-tab href="index.html" title="从零建立完整心智模型">主线</a><a class="track-link" data-same-tab href="work-01-prep.html" title="现场查用：输入、步骤、输出、阶段门">工作台</a><span class="track-link active" aria-current="true" title="六步链路：简报 → 访谈 → 证据 → 底稿 → 门">Day1</span><a class="track-link" data-same-tab href="appendix-methods.html" title="一卡一问，按阶段、产物、角色查">方法库</a><a class="track-link" data-same-tab href="appendix-templates.html" title="模板、产物链、术语与来源">附录</a></nav>
+  <div class="top-actions">
+    <button class="search-open" id="search-open" type="button" aria-haspopup="dialog">
+      <span aria-hidden="true">⌕</span><span class="search-label">搜索</span><kbd>/</kbd>
+    </button>
+    <button class="icon-btn" id="theme-toggle" type="button" aria-label="切换深浅色">◐</button>
+  </div>
+  <div class="read-progress" aria-hidden="true"><span id="read-progress"></span></div>
+</header>
+
+<div class="layout">
+  <aside class="sidebar" id="sidebar">
+    <nav class="course-tree" aria-label="课程目录"><header class="side-head"><p class="side-eyebrow">当前模块</p><p class="side-title">Day1 工作台</p><p class="side-caption">六步链路：简报 → 访谈 → 证据 → 底稿 → 门</p><p class="side-meta">6 页<span class="dot">·</span>约 100 分钟</p></header><section class="nav-group nav-group-plain"><a class="nav-link" data-same-tab href="day1-00-overview.html">Day1 工作台总览</a><a class="nav-link" data-same-tab href="day1-01-brief.html">需求定向简报</a><a class="nav-link" data-same-tab href="day1-02-grill.html">分轮访谈</a><a class="nav-link" data-same-tab href="day1-03-evidence.html">确认记录与证据状态</a><span class="nav-link nav-current" aria-current="page">D1 工作底稿</span><a class="nav-link" data-same-tab href="day1-05-quality.html">D1 阶段门与评分</a></section></nav>
+  </aside>
+  <button class="scrim" id="scrim" type="button" aria-label="关闭目录" hidden></button>
+
+  <main class="main" id="main">
+    <nav class="crumb" aria-label="面包屑"><a data-same-tab href="index.html">教程</a><span class="sep">/</span><span>Day1 工作台</span><span class="sep">/</span><span aria-current="page">D1 工作底稿</span></nav>
+    <article class="article">
+      <header class="page-head">
+        <div class="badges"><span class="badge badge-day1">专项</span><span class="badge badge-time">22 分钟</span></div>
+        <h1>D1 工作底稿</h1>
+        <p class="lede">五项产出、证据摘要、未决项、阶段门结论与 D2 输入：D1 结束时到底交什么。</p>
+        <p class="page-question"><span class="eyebrow">本页要回答</span>D1 结束时，交给次日团队的到底应该是哪几份东西？</p>
+        <div class="page-meta">
+          <section class="meta-block">
+            <h2 class="meta-title" id="meta-objectives">读完你能</h2>
+            <ul class="objective-list"><li>逐项填出 D1 五项产出；</li><li>把证据摘要与未决项分开写；</li><li>给出阶段门结论和 D2 输入清单。</li></ul>
+          </section>
+          <section class="meta-block">
+            <h2 class="meta-title" id="meta-prereq">前置</h2>
+            <p>先读：<a href="day1-03-evidence.html" target="_blank" rel="noopener">确认记录与证据状态</a></p>
+          </section>
+        </div>
+      </header>
+
+      <div class="prose">
+        <dl class="runbook-head">
+<div><dt>本轮目标</dt><dd>把 D1 的发现压成五份可评审的产出，并给出下一步结论</dd></div>
+<div><dt>时间盒与角色</dt><dd>90 分钟；FDE、业务专家、记录员</dd></div>
+<div><dt>主要产出</dt><dd>A03-06 工作底稿、A03-07 阶段门记录、A03-08 D2 输入</dd></div>
+<div><dt>阶段门</dt><dd>G3（D1 门）</dd></div>
+</dl>
+
+<p>第一天共创结束，最常见的情况是：白板上画满了，群里多了几十条消息，每个人都说“今天很有收获”。但第二天团队接手时，问三个问题就卡住：<strong>我们到底决定做什么？依据是哪几条？还有什么没确认？</strong></p>
+<p>D1 工作底稿就是为这三个问题准备的。它不是会议纪要，也不是 PPT，而是一份<strong>能独立被读懂、能支撑阶段门判断、能直接交给 D2</strong> 的结构化文档。</p>
+<p>这一页按“五项产出 → 工作底稿 → 阶段门 → D2 输入”的顺序，把最后 90 分钟怎么收口讲清楚。</p>
+<h2 id="sec-goal">本轮目标与位置</h2>
+<p>Day1 的六步链路是：</p>
+<div class="step-list">需求定向简报（假设）
+→ 人工确认（业务方点头/纠正）
+→ 分轮访谈（2–4 问/轮，一轮一确认）
+→ 证据记录（原文/观察、业务确认、工作假设、待验证）
+→ <strong>D1 工作底稿（五项产出）</strong>
+→ 阶段门与 D2 输入（通过 / 有条件继续 / 待补证）</div>
+
+<p>你现在在第 5 步。前面四步的产物应该已经在桌上：</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th scope="col">输入</th>
+<th scope="col">你要从中取什么</th>
+<th scope="col">如果缺失</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A00-05 需求定向简报</td>
+<td>初始假设，用来对照“今天推翻了什么”</td>
+<td>先补一页，否则工作底稿没有起点</td>
+</tr>
+<tr>
+<td>A02-04 证据台账</td>
+<td>每条结论的依据与成色</td>
+<td>不能编，缺的标“待补证”</td>
+</tr>
+<tr>
+<td>A02-05 待确认与问题清单</td>
+<td>未决项与负责人</td>
+<td>现场补负责人，补不了就升级为阶段门条件</td>
+</tr>
+<tr>
+<td>A02-06 D1 确认记录</td>
+<td>业务方明确点头/纠正的原话</td>
+<td>没有确认记录，不能写“业务确认”</td>
+</tr>
+<tr>
+<td>A03-04 规则库（如有）</td>
+<td>硬约束、软偏好、配置数据</td>
+<td>没有就先留空，不要在 D1 硬造</td>
+</tr>
+</tbody>
+</table></div>
+<div class="checkpoint">
+<p><strong>停一下</strong>：如果现在只允许你带一张纸离开 D1，你会带哪一张？</p>
+<p>正确答案不是“访谈记录”，而是<strong>能说清“做什么、不做什么、凭什么、下一步要什么”的那一张</strong>。这就是工作底稿要承担的职责。</p>
+</div>
+<h2 id="sec-five-outputs">五项产出</h2>
+<p><span class="term-link" title="D1 Work Paper：D1 结束时交给次日团队的底稿，含五项产出、证据摘要、未决项、阶段门结论和 D2 输入。">D1 工作底稿</span> 的核心是五项产出。它们不是五个文档，而是工作底稿里的五个章节。每项都要能独立回答一个问题。</p>
+<h3 id="out-01">产出 1：Use Case 一页纸</h3>
+<p>回答：<strong>谁，在什么时点，根据什么输入，做什么决定，触发什么动作，带来什么价值，明确不做什么？</strong></p>
+<p>六个字段，缺一不可：</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th scope="col">字段</th>
+<th scope="col">写法</th>
+<th scope="col">反例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>用户</td>
+<td>具体角色，不是部门</td>
+<td>“业务部门”</td>
+</tr>
+<tr>
+<td>决策</td>
+<td>一个决定，不是一串功能</td>
+<td>“支持排班管理”</td>
+</tr>
+<tr>
+<td>输入</td>
+<td>做这个决定实际要看的东西</td>
+<td>“相关数据”</td>
+</tr>
+<tr>
+<td>动作</td>
+<td>决定之后系统/人做什么</td>
+<td>“提升效率”</td>
+</tr>
+<tr>
+<td>价值</td>
+<td>可观察的变化，最好有基线</td>
+<td>“降本增效”</td>
+</tr>
+<tr>
+<td>不做什么</td>
+<td>明确排除的范围</td>
+<td>空着</td>
+</tr>
+</tbody>
+</table></div>
+<p>排班案例的 S1 一页纸见 <a class="case-link" href="case-a-one-pager.html#cb-one-pager" target="_blank" rel="noopener">案例 CB-04</a>。它的用户是“陈静（排班员）操作，赵岚确认，周主任审批”，决策是“每个亚专科用多少外部人员额度、分给谁”，不是“做一个排班系统”。</p>
+<h3 id="out-02">产出 2：As-is 决策流</h3>
+<p>回答：<strong>今天这件事实际怎么运转？</strong></p>
+<p>不要画“应该怎样”的流程图，画“实际怎样”。</p>
+<p>A03-01 的完整表头有九列：步骤、角色、触发、输入、判断规则、输出、耗时、痛点、证据ID。<strong>D1 只要求六列的最小视图</strong>，其余三列（触发、耗时、证据ID）在 D2 前补齐，并写进 D2 输入清单的待办。D1 的六列：</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th scope="col">步骤</th>
+<th scope="col">谁做</th>
+<th scope="col">输入</th>
+<th scope="col">判断/规则</th>
+<th scope="col">输出</th>
+<th scope="col">卡点</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1 收额度</td>
+<td>孙老师 → 陈静</td>
+<td>各亚专科额度</td>
+<td>按月度下发</td>
+<td>微信群 + Excel</td>
+<td>版本分散</td>
+</tr>
+<tr>
+<td>2 收需求</td>
+<td>陈静 → 组长</td>
+<td>下月人数需求</td>
+<td>口头为主</td>
+<td>口头/群消息</td>
+<td>无记录</td>
+</tr>
+<tr>
+<td>3 核对可用天数</td>
+<td>陈静</td>
+<td>排班本、年假、门诊表</td>
+<td>凭记忆估算</td>
+<td>草表</td>
+<td>无单一来源</td>
+</tr>
+<tr>
+<td>4 协调</td>
+<td>陈静 → 组长</td>
+<td>冲突清单</td>
+<td>按经验平衡</td>
+<td>改版</td>
+<td>电话往返</td>
+</tr>
+<tr>
+<td>5 审批录入</td>
+<td>周主任 → 陈静</td>
+<td>最终表</td>
+<td>签字</td>
+<td>院内系统</td>
+<td>月中调整不留痕</td>
+</tr>
+</tbody>
+</table></div>
+<p>判断/规则这一列最重要。它往往是业务方“没说出来但一直在用”的规则，也是后面 FR 和规则库的原料。证据ID 那一列虽在 D1 可缺，但每行至少要能指回一条台账记录，指不出来就说明这条流程是推断的，要标“待验证”。</p>
+<h3 id="out-03">产出 3：用户-决策-动作清单</h3>
+<p>回答：<strong>每个角色在什么时候做什么决定，决定后触发什么动作？</strong></p>
+<p>这张表把“流程”拆成“决策点”。一行一个决策：</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th scope="col">角色</th>
+<th scope="col">时点</th>
+<th scope="col">决策</th>
+<th scope="col">输入</th>
+<th scope="col">动作</th>
+<th scope="col">频率</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>陈静</td>
+<td>每月 25 日前</td>
+<td>每个亚专科分多少额度</td>
+<td>需求、额度、可用天数</td>
+<td>填分配表</td>
+<td>月度</td>
+</tr>
+<tr>
+<td>陈静</td>
+<td>分配过程中</td>
+<td>某个人分给哪个亚专科</td>
+<td>可用天数、技能</td>
+<td>调整分配</td>
+<td>每次分配</td>
+</tr>
+<tr>
+<td>周主任</td>
+<td>月底</td>
+<td>是否批准</td>
+<td>分配表、冲突说明</td>
+<td>签字/退回</td>
+<td>月度</td>
+</tr>
+<tr>
+<td>赵岚</td>
+<td>月中</td>
+<td>是否接受缺口</td>
+<td>夜班需求、组内可用人</td>
+<td>向陈静提出调整</td>
+<td>临时</td>
+</tr>
+</tbody>
+</table></div>
+<p>如果一行写不出“动作”，说明它不是一个决策，只是背景信息。</p>
+<h3 id="out-04">产出 4：KPI 基线与五天验证标准</h3>
+<p>回答：<strong>现在是多少，五天后算不算变好？</strong></p>
+<p>四个要素：当前值、目标值、测量方式、数据来源。再加一个验证日。</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th scope="col">指标</th>
+<th scope="col">当前值【示例】</th>
+<th scope="col">目标值</th>
+<th scope="col">怎么测</th>
+<th scope="col">数据来源</th>
+<th scope="col">验证日</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>额度分配耗时</td>
+<td>约 3 小时（回忆值）</td>
+<td>≤1 小时</td>
+<td>陈静实际操作计时，取两次中位数</td>
+<td>现场观察</td>
+<td>D5</td>
+</tr>
+<tr>
+<td>冲突发现时点</td>
+<td>月中执行时</td>
+<td>分配提交前</td>
+<td>记录首次发现 C1/C2 的位置</td>
+<td>系统记录/观察</td>
+<td>D5</td>
+</tr>
+<tr>
+<td>方案版本数</td>
+<td>约 4 份（Excel、微信、纸质、系统）</td>
+<td>1 份</td>
+<td>清点文件与聊天记录</td>
+<td>现场清点</td>
+<td>D5 演示前</td>
+</tr>
+<tr>
+<td>返工轮次</td>
+<td>2–3 轮</td>
+<td>≤1 轮</td>
+<td>统计组长提出调整的轮数</td>
+<td>版本记录</td>
+<td>D5</td>
+</tr>
+</tbody>
+</table></div>
+<p>没有基线的 KPI 不是 KPI，是愿望。D1 拿不到精确值就写“约”，并注明“待 D2 用系统数据校准”。</p>
+<h3 id="out-05">产出 5：MVP 范围与非范围</h3>
+<p>回答：<strong>五天内演示什么，明确不做什么，哪些待确认？</strong></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th scope="col">类别</th>
+<th scope="col">内容</th>
+<th scope="col">理由</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>做</strong></td>
+<td>S1 额度分配：3 个亚专科、4 个人、额度校验、冲突提示、写回</td>
+<td>一条端到端决策链，五天可验证</td>
+</tr>
+<tr>
+<td><strong>不做</strong></td>
+<td>个人排班与换班（S2）、住院总轮转（S3）、自动优化、移动端</td>
+<td>范围太大或依赖未确认规则</td>
+</tr>
+<tr>
+<td><strong>待确认</strong></td>
+<td>12 人天是否含夜班、年假表能否导出、额度能否跨月借</td>
+<td>影响数据模型或规则，D2 前确认</td>
+</tr>
+</tbody>
+</table></div>
+<p>“不做”不是减分项，是让“做”可信的前提。一份没有“不做什么”的 MVP，通常也说不清“做完什么算成功”。</p>
+<div class="checkpoint">
+<p><strong>停一下</strong>：五项产出里，哪一项最容易被写成“正确的废话”？</p>
+<p>通常是产出 1 的“价值”和产出 4 的 KPI。它们最容易出现“提升效率”“降低成本”这种无法验证的句子。判断标准：<strong>五天后，你能不能指着某个记录说“变了/没变”？</strong></p>
+</div>
+<h2 id="sec-workpaper">D1 工作底稿怎么排</h2>
+<p>A03-06 的推荐结构如下。顺序不要随意调整：先结论，再依据，再未决，最后下一步。</p>
+<div class="template-block">
+<div class="template-title">A03-06 D1 工作底稿 <span>骨架，可直接复制</span></div>
+<pre><code class="language-text"># D1 工作底稿 · &lt;项目名&gt; · &lt;日期&gt;
+
+## 0. 一页结论
+- 建议切片：
+- 建议阶段门结论：通过 / 有条件继续 / 待补证
+- 一句话理由：
+
+## 1. Use Case 一页纸
+（六字段：用户 / 决策 / 输入 / 动作 / 价值 / 不做什么）
+
+## 2. As-is 决策流
+（步骤 / 谁做 / 输入 / 判断 / 输出 / 卡点）
+
+## 3. 用户-决策-动作清单
+（角色 / 时点 / 决策 / 输入 / 动作 / 频率）
+
+## 4. KPI 基线与五天验证标准
+（指标 / 当前值 / 目标值 / 测量方式 / 来源 / 验证日）
+
+## 5. MVP 范围与非范围
+（做 / 不做 / 待确认）
+
+## 6. 证据摘要
+| 结论 | 证据ID | 访谈状态 | 权威性 | 备注 |
+
+## 7. 未决项
+| 问题ID | 问题 | 影响 | 当前假设 | 验证方式 | 负责人 | 截止 |
+
+## 8. 阶段门结论
+- 结论：
+- 依据：
+- 附加条件：
+- 签字/确认人：
+
+## 9. D2 输入清单
+（决策 / 数据 / 人 / 权限 / 未决项）
+</code></pre>
+</div>
+<p>两个容易排错的地方：</p>
+<ol>
+<li><strong>证据摘要不是台账全文。</strong> 只放“支撑五项产出”的关键证据，通常 8–15 条。全文仍在 A02-04。</li>
+<li><strong>未决项不是“问题池”。</strong> 只放会影响阶段门结论或 D2 计划的项。纯好奇的问题放回 A02-05。</li>
+</ol>
+<h2 id="sec-gate">阶段门：三种结论</h2>
+<p>D1 结束时必须给出一个明确结论，不能“继续推进”四个字了事。只有三种：</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th scope="col">结论</th>
+<th scope="col">含义</th>
+<th scope="col">必要条件</th>
+<th scope="col">下一步</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>通过</strong></td>
+<td>切片、证据、范围都足以进入 D2</td>
+<td>rubric ≥9；五项产出齐全；关键未决项不影响 MVP</td>
+<td>按 A03-08 启动 D2</td>
+</tr>
+<tr>
+<td><strong>有条件继续</strong></td>
+<td>方向成立，但有 1–2 个条件必须先满足</td>
+<td>rubric 6–8；条件明确、有负责人、有截止</td>
+<td>条件满足后自动转“通过”，否则回退</td>
+</tr>
+<tr>
+<td><strong>待补证</strong></td>
+<td>关键假设没有证据，或范围无法收敛</td>
+<td>rubric ≤5；或存在阻塞级未决项</td>
+<td>回 D1 补访谈/补数据，不进入 D2</td>
+</tr>
+</tbody>
+</table></div>
+<p>表里是最低条件，完整的一票否决清单（五项任一为 0、证据或门依据为 0、未决项会改变数据模型）见下一页；两处结论必须一致，不能在这里判“通过”、到下一页又变成“待补证”。</p>
+<p><strong>D1 rubric（总分 12）</strong>：五项产出各 0–2 分（共 10 分），“证据可追溯”“阶段门依据”各 0–1 分（共 2 分）。维度就是上表的五行，加上这两项审查项。</p>
+<p><strong>≥9 通过，6–8 有条件继续，≤5 待补证。</strong> 打分不是为了精确，而是逼团队指出“哪一项还虚”。每一项 0/1/2 分分别长什么样、怎样避免把 1 分打成 2 分，下一页<a href="day1-05-quality.html#sec-rubric" target="_blank" rel="noopener">《D1 阶段门与评分》</a>给了完整锚点和一票否决规则；这一页只需要先算出分、写出 A03-07 的结论。</p>
+<p>阶段门记录写到 A03-07，至少包含：结论、各维度得分、依据的证据 ID、附加条件、确认人、日期。</p>
+<h2 id="sec-d2">D2 输入清单</h2>
+<p>D1 的交付不是“一份文档”，而是“让 D2 能开工的一组输入”。A03-08 至少列五类，每类再标一个优先级：</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th scope="col">类别</th>
+<th scope="col">内容</th>
+<th scope="col">排班案例示例</th>
+<th scope="col">优先级</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>决策</strong></td>
+<td>D2 要支撑哪些决策</td>
+<td>S1 额度分配、冲突提示</td>
+<td>高</td>
+</tr>
+<tr>
+<td><strong>数据</strong></td>
+<td>需要哪些表/字段/粒度</td>
+<td>人员可用天数、亚专科需求、额度、技能</td>
+<td>高</td>
+</tr>
+<tr>
+<td><strong>人</strong></td>
+<td>谁接受访谈、谁确认规则、谁签字</td>
+<td>陈静、赵岚、孙老师、周主任</td>
+<td>中</td>
+</tr>
+<tr>
+<td><strong>权限</strong></td>
+<td>账号、数据访问、环境</td>
+<td>排班系统只读账号、Excel 共享目录</td>
+<td>高</td>
+</tr>
+<tr>
+<td><strong>未决项</strong></td>
+<td>D2 前必须关闭的问题</td>
+<td>Q-01 12 人天是否含夜班</td>
+<td>高</td>
+</tr>
+</tbody>
+</table></div>
+<p>优先级只有高、中、低三档：高是“D2 第一天不做完就开不了工”，中是可以边做边补，低是本轮可以不做。每一项都要有负责人和期望时间。没有这些，D2 第一天会重新问一遍 D1 已经问过的问题。</p>
+<h2 id="sec-case">排班案例：从一页纸到工作底稿</h2>
+<p>用 S1 走一遍五项产出，看看“填出来”是什么样（数字均为【示例】）。</p>
+<p><strong>产出 1（一页纸）</strong>：<a class="case-link" href="case-a-one-pager.html#cb-one-pager" target="_blank" rel="noopener">案例 CB-04</a> 的六段已经完整填写。核心句是：陈静在每月 25 日前，根据需求、额度、可用天数，决定每个亚专科的额度分配与人员归属，写回排班表并提交赵岚确认、周主任审批。</p>
+<p><strong>产出 2（As-is）</strong>：五步——收额度、收需求、凭记忆核对、电话协调、审批录入。卡点是版本分散、需求无记录、可用天数无单一来源、协调靠电话、月中调整不留痕。</p>
+<p><strong>产出 3（决策-动作）</strong>：陈静的月度额度分配、分配中的个人归属调整、周主任的批准/退回、赵岚的缺口申诉，共四个决策点。</p>
+<p><strong>产出 4（KPI）</strong>：分配耗时 3 小时 → ≤1 小时；冲突发现从“月中执行时”提前到“分配提交前”；方案版本 4 份 → 1 份；返工 2–3 轮 → ≤1 轮。</p>
+<p><strong>产出 5（MVP）</strong>：做 3 个亚专科、4 个人、额度校验、冲突提示、写回；不做 S2/S3、自动优化、移动端；待确认 12 人天口径、年假表导出、额度跨月借用。</p>
+<p><strong>证据摘要</strong>：E-01（三个 Excel 并存）、E-03（妇科至少 12 人天）、E-04（额度不能超，超了写说明）、E-06（王芳只能上 9 天，待本人确认）。前三条支撑 As-is 与 KPI，E-06 支撑 C1，但状态是“待验证”，所以工作底稿里写“C1 需在 D2 前由本人/护士长确认”，不能写成“C1 已确认”。</p>
+<p><strong>未决项</strong>：Q-01（12 是否含夜班）、Q-02（年假表能否导出）、Q-03（额度能否跨月借）。三项都影响 MVP 的数据模型或规则。</p>
+<p><strong>阶段门结论</strong>：五项产出齐全，关键证据可追溯，但 Q-01、Q-02 影响额度校验逻辑，所以结论是<strong>“有条件继续”</strong>：D2 开始前关闭 Q-01、Q-02，否则退回“待补证”。这比一句“通过”更诚实，也更可执行。</p>
+<h2 id="sec-paths">AI 路径与手工路径</h2>
+<p>D1 工作底稿可以用工具加速，但两条路径必须产出等价结果。手工路径不依赖任何 skill 安装。</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th scope="col">步骤</th>
+<th scope="col">有 AI 技能时</th>
+<th scope="col">纯手工时</th>
+<th scope="col">等价性检查</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>汇总证据</td>
+<td>从 A02-04 抽取与五项产出相关的条目</td>
+<td>人工按“影响决策”列筛选</td>
+<td>关键结论都能找到证据 ID</td>
+</tr>
+<tr>
+<td>起草一页纸</td>
+<td>用模板生成六字段初稿，逐条标注依据</td>
+<td>按 A03-05 模板手写</td>
+<td>六字段齐全，无功能清单式表述</td>
+</tr>
+<tr>
+<td>生成 As-is</td>
+<td>从观察记录归纳步骤，标出判断规则</td>
+<td>按 A03-01 表头逐行填</td>
+<td>六列最小视图齐全，卡点具体</td>
+</tr>
+<tr>
+<td>起草 KPI</td>
+<td>从证据中提取基线，缺的标“待校准”</td>
+<td>按 A05-05 表头手填</td>
+<td>每个指标有来源与验证日</td>
+</tr>
+<tr>
+<td>阶段门自评</td>
+<td>按 rubric 给分并说明理由</td>
+<td>人工逐项打分</td>
+<td>分数与理由一致，条件有负责人</td>
+</tr>
+<tr>
+<td>D2 输入</td>
+<td>从工作底稿抽取五类输入</td>
+<td>按 A03-08 模板逐项填</td>
+<td>五类齐全，每项有优先级和负责人</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>AI 路径的硬规则</strong>：AI 生成的每一条结论都必须能回到证据 ID；不能回到的，标“工作假设”，不能写成“业务确认”。AI 不能替业务方签字，也不能替阶段门做最终判断。</p>
+<p><strong>对应技能</strong>：<code>gr-d1-to-spec</code>（可选）。它只做整理，不自行补规则、指标、范围或批准人；缺的写“待确认”，并附负责人和补证日期。技能不可用时，按 A03-06 的五项骨架手工填，标准不变。</p>
+<div class="hands-on">
+<p><strong>动手 15 分钟</strong>：用你手上的项目，填一版“最小工作底稿”。</p>
+<ol>
+<li>只填四块：一页纸的“用户/决策/动作”、As-is 的三步、KPI 的一个指标、MVP 的“不做”清单。</li>
+<li>每条结论后面标一个证据 ID；没有证据的标“待补证”。</li>
+<li>按 rubric 给自己打分，写下最低的那一项。</li>
+<li>给出阶段门结论：通过 / 有条件继续 / 待补证，并写一句理由。</li>
+</ol>
+<p><strong>自检</strong>：① 决策句里有没有具体角色和时点；② “不做”清单是否至少有三项；③ 阶段门结论是否有证据支撑，而不是“感觉可以”。</p>
+</div>
+<h2 id="sec-failures">常见失败</h2>
+<div class="pitfalls">
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th scope="col">现象</th>
+<th scope="col">原因</th>
+<th scope="col">处理</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>工作底稿像会议纪要</td>
+<td>按时间顺序记，而不是按决策组织</td>
+<td>按“五项产出 + 证据 + 未决 + 门”重排</td>
+</tr>
+<tr>
+<td>五项产出都写了，但互相矛盾</td>
+<td>各写各的，没有交叉检查</td>
+<td>一页纸的“动作”必须出现在决策-动作清单；KPI 必须对应一页纸的“价值”</td>
+</tr>
+<tr>
+<td>阶段门永远是“通过”</td>
+<td>不敢给条件，或 rubric 走过场</td>
+<td>强制写“最低分项”和“附加条件”；没有条件就说明证据足够</td>
+</tr>
+<tr>
+<td>未决项没有负责人</td>
+<td>把问题清单当垃圾桶</td>
+<td>每条必须有一个人名和一个日期；没有就升级为阻塞项</td>
+</tr>
+<tr>
+<td>KPI 没有基线</td>
+<td>D1 拿不到数据就放弃</td>
+<td>写“约”+“待 D2 校准”，并注明测量方式</td>
+</tr>
+<tr>
+<td>AI 生成的内容直接当结论</td>
+<td>没有回溯证据</td>
+<td>每条 AI 结论标证据 ID；标不出的降为工作假设</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="self-test">
+<p><strong>三问自测</strong></p>
+<details>
+<summary>1. 五项产出里，哪一项决定“五天后能不能验收”？</summary>
+
+KPI 基线与五天验证标准。没有基线，就无法判断变化；没有测量方式，就无法在 D5 给出结论。
+
+</details>
+<details>
+<summary>2. “有条件继续”与“待补证”的区别是什么？</summary>
+
+“有条件继续”是方向成立，但必须先满足明确条件（有负责人、有截止），条件满足即转通过；“待补证”是关键假设没有证据或范围无法收敛，必须回 D1 补证，不能进入 D2。
+
+</details>
+<details>
+<summary>3. 工作底稿里的“证据摘要”和 A02-04 台账是什么关系？</summary>
+
+摘要是台账的子集，只放支撑五项产出的关键证据（约 8–15 条）；全文与所有原始记录仍在台账，便于追溯。
+
+</details>
+</div>
+<h2 id="sec-checklist">自检清单</h2>
+<ul>
+<li>[ ] 五项产出齐全，每项都能独立回答自己的问题；</li>
+<li>[ ] 一页纸的“不做什么”至少三条，且有理由；</li>
+<li>[ ] As-is 有“判断/规则”列，不只是步骤；</li>
+<li>[ ] 每个决策点都有触发动作；</li>
+<li>[ ] KPI 有当前值、目标值、测量方式、来源、验证日；</li>
+<li>[ ] 关键结论都能回到证据 ID；</li>
+<li>[ ] 未决项有负责人和截止日期；</li>
+<li>[ ] 阶段门结论是三种之一，附 rubric 得分与理由；</li>
+<li>[ ] A03-08 五类输入齐全，每类有优先级和负责人。</li>
+</ul>
+<div class="recap">
+<p><strong>本章带走</strong></p>
+<ol>
+<li>D1 工作底稿不是会议纪要，而是“五项产出 + 证据摘要 + 未决项 + 阶段门 + D2 输入”的决策文档。</li>
+<li>五项产出必须互相咬合：一页纸的“动作”进决策-动作清单，KPI 对应“价值”，MVP 的“不做”约束范围。</li>
+<li>阶段门只给三种结论；有条件继续必须写清条件、负责人和截止日期，否则就是变相的“通过”。</li>
+</ol>
+</div>
+      </div>
+
+      <section class="term-cards" aria-label="本页术语卡"><p class="eyebrow">本页术语</p><div class="term-grid"><article class="term-card" id="term-d1-workpaper"><h3 id="term-title-d1-workpaper">D1 工作底稿 <span class="term-en">D1 Work Paper</span></h3><p>D1 结束时交给次日团队的底稿，含五项产出、证据摘要、未决项、阶段门结论和 D2 输入。</p></article><article class="term-card" id="term-open-item"><h3 id="term-title-open-item">未决项 <span class="term-en">Open Item</span></h3><p>尚未确认、但会影响下一步的问题；必须有当前假设、验证方式、负责人和截止日期。</p></article></div></section>
+      <section class="artifact-box" aria-label="本页产物"><div class="artifact-block"><h3 id="artifacts-out">本页要写出的产物</h3><ul><li><code>A03-01</code> As-is决策流 <span class="muted">→ 03_现状与切片/03-01_As-is决策流.md</span> <span class="gate-tag">G3</span> <a href="templates/blank/03-01_As-is决策流.html" data-template-view data-template-title="A03-01 As-is决策流模板" title="A03-01 As-is决策流模板 ｜ 当前页弹窗预览">模板</a> <a href="templates/golden/03-01_As-is决策流_排班案例.html" data-template-view data-template-title="A03-01 As-is决策流黄金样例" title="A03-01 As-is决策流黄金样例 ｜ 当前页弹窗预览">黄金样例</a></li><li><code>A03-02</code> 用户-决策-动作清单 <span class="muted">→ 03_现状与切片/03-02_用户-决策-动作清单.md</span> <span class="gate-tag">G3</span> <a href="templates/blank/03-02_用户-决策-动作清单.html" data-template-view data-template-title="A03-02 用户-决策-动作清单模板" title="A03-02 用户-决策-动作清单模板 ｜ 当前页弹窗预览">模板</a> <a href="templates/golden/03-02_用户-决策-动作清单_排班案例.html" data-template-view data-template-title="A03-02 用户-决策-动作清单黄金样例" title="A03-02 用户-决策-动作清单黄金样例 ｜ 当前页弹窗预览">黄金样例</a></li><li><code>A03-05</code> use-case one-pager <span class="muted">→ 03_现状与切片/03-05_use-case-one-pager.md</span> <span class="gate-tag">G3</span> <a href="templates/blank/03-05_use-case-one-pager.html" data-template-view data-template-title="A03-05 use-case one-pager模板" title="A03-05 use-case one-pager模板 ｜ 当前页弹窗预览">模板</a> <a href="templates/golden/03-05_use-case-one-pager_排班案例.html" data-template-view data-template-title="A03-05 use-case one-pager黄金样例" title="A03-05 use-case one-pager黄金样例 ｜ 当前页弹窗预览">黄金样例</a></li><li><code>A03-06</code> D1工作底稿 <span class="muted">→ 03_现状与切片/03-06_D1工作底稿.md</span> <span class="gate-tag">G3</span> <a href="templates/blank/03-06_D1工作底稿.html" data-template-view data-template-title="A03-06 D1工作底稿模板" title="A03-06 D1工作底稿模板 ｜ 当前页弹窗预览">模板</a> <a href="templates/golden/03-06_D1工作底稿_排班案例.html" data-template-view data-template-title="A03-06 D1工作底稿黄金样例" title="A03-06 D1工作底稿黄金样例 ｜ 当前页弹窗预览">黄金样例</a></li><li><code>A03-07</code> D1阶段门记录 <span class="muted">→ 03_现状与切片/03-07_D1阶段门记录.md</span> <span class="gate-tag">G3</span> <a href="templates/blank/03-07_D1阶段门记录.html" data-template-view data-template-title="A03-07 D1阶段门记录模板" title="A03-07 D1阶段门记录模板 ｜ 当前页弹窗预览">模板</a> <a href="templates/golden/03-07_D1阶段门记录_排班案例.html" data-template-view data-template-title="A03-07 D1阶段门记录黄金样例" title="A03-07 D1阶段门记录黄金样例 ｜ 当前页弹窗预览">黄金样例</a></li><li><code>A03-08</code> D2输入清单 <span class="muted">→ 03_现状与切片/03-08_D2输入清单.md</span> <span class="gate-tag">G3</span> <a href="templates/blank/03-08_D2输入清单.html" data-template-view data-template-title="A03-08 D2输入清单模板" title="A03-08 D2输入清单模板 ｜ 当前页弹窗预览">模板</a> <a href="templates/golden/03-08_D2输入清单_排班案例.html" data-template-view data-template-title="A03-08 D2输入清单黄金样例" title="A03-08 D2输入清单黄金样例 ｜ 当前页弹窗预览">黄金样例</a></li><li><code>A04-06</code> MVP范围与非范围 <span class="muted">→ 04_方案设计/04-06_MVP范围与非范围.md</span> <span class="gate-tag">G4</span> <a href="templates/blank/04-06_MVP范围与非范围.html" data-template-view data-template-title="A04-06 MVP范围与非范围模板" title="A04-06 MVP范围与非范围模板 ｜ 当前页弹窗预览">模板</a> <a href="templates/golden/04-06_MVP范围与非范围_排班案例.html" data-template-view data-template-title="A04-06 MVP范围与非范围黄金样例" title="A04-06 MVP范围与非范围黄金样例 ｜ 当前页弹窗预览">黄金样例</a></li><li><code>A05-05</code> KPI基线与验证标准 <span class="muted">→ 05_五天验证/05-05_KPI基线与验证标准.md</span> <span class="gate-tag">G5</span> <a href="templates/blank/05-05_KPI基线与验证标准.html" data-template-view data-template-title="A05-05 KPI基线与验证标准模板" title="A05-05 KPI基线与验证标准模板 ｜ 当前页弹窗预览">模板</a> <a href="templates/golden/05-05_KPI基线与验证标准_排班案例.html" data-template-view data-template-title="A05-05 KPI基线与验证标准黄金样例" title="A05-05 KPI基线与验证标准黄金样例 ｜ 当前页弹窗预览">黄金样例</a></li></ul></div><div class="artifact-block"><h3 id="artifacts-in">开始前应已具备</h3><p class="muted"><code>A02-04</code> 证据台账、<code>A02-05</code> 待确认与问题清单、<code>A02-06</code> D1确认记录、<code>A00-05</code> 需求定向简报、<code>A03-04</code> 规则库（四层）</p></div></section>
+      <section class="sources" aria-label="来源"><h2 id="sec-sources">来源与证据等级</h2><ol class="source-list"><li><span class="src-id">S16</span> <strong>GR-FDE-01-014 D1 客户工具包（国润 Skill 工具包）</strong> <span class="badge badge-实践">实践</span><div class="muted">国润项目组 · 抓取 2026-10-19 · MIT；`grilling` 上游署名 Matt Pocock；包内文件不随教程分发</div><div class="src-url"><span class="muted">无公开链接</span></div></li><li><span class="src-id">S17</span> <strong>FDE 方法论沉淀</strong> <span class="badge badge-实践">实践</span><div class="muted">本子项目 · 抓取 2026-09-23 · 内部方法沉淀</div><div class="src-url"><span class="muted">无公开链接</span></div></li><li><span class="src-id">S20</span> <strong>FDE 实施手册 v1（9 章整合读本）</strong> <span class="badge badge-实践">实践</span><div class="muted">本子项目 · 抓取 2026-10-19 · 内部方法沉淀；官方事实另注出处</div><div class="src-url"><span class="muted">无公开链接</span></div></li></ol></section>
+      <nav class="pager" aria-label="翻页"><a class="pager-prev" data-same-tab href="day1-03-evidence.html"><span>上一页</span><strong>确认记录与证据状态</strong></a><a class="pager-next" data-same-tab href="day1-05-quality.html"><span>下一页</span><strong>D1 阶段门与评分</strong></a></nav>
+
+      <footer class="page-foot">
+        <p>本教程为内部方法研究。案例已匿名化，数字标注【示例】。Palantir 官方资料版权归 Palantir Technologies，仅作改写与链接。</p>
+        <p class="muted">发现断链或事实错误？回到 <a href="appendix-sources.html" target="_blank" rel="noopener">来源与版权</a> 核对出处。</p>
+      </footer>
+    </article>
+  </main>
+
+  <aside class="toc" id="toc" aria-label="页内目录">
+    <p class="toc-title">本页目录</p><ol class="toc-list"><li class="toc-h2"><a href="#sec-goal">本轮目标与位置</a></li><li class="toc-h2"><a href="#sec-five-outputs">五项产出</a><ul class="toc-sub"><li class="toc-h3"><a href="#out-01">产出 1：Use Case 一页纸</a></li><li class="toc-h3"><a href="#out-02">产出 2：As-is 决策流</a></li><li class="toc-h3"><a href="#out-03">产出 3：用户-决策-动作清单</a></li><li class="toc-h3"><a href="#out-04">产出 4：KPI 基线与五天验证标准</a></li><li class="toc-h3"><a href="#out-05">产出 5：MVP 范围与非范围</a></li></ul></li><li class="toc-h2"><a href="#sec-workpaper">D1 工作底稿怎么排</a></li><li class="toc-h2"><a href="#sec-gate">阶段门：三种结论</a></li><li class="toc-h2"><a href="#sec-d2">D2 输入清单</a></li><li class="toc-h2"><a href="#sec-case">排班案例：从一页纸到工作底稿</a></li><li class="toc-h2"><a href="#sec-paths">AI 路径与手工路径</a></li><li class="toc-h2"><a href="#sec-failures">常见失败</a></li><li class="toc-h2"><a href="#sec-checklist">自检清单</a></li></ol>
+  </aside>
+</div>
+
+<div class="tpl-modal" id="tpl-modal" hidden>
+  <div class="tpl-panel" role="dialog" aria-modal="true" aria-labelledby="tpl-title">
+    <header class="tpl-head">
+      <div class="tpl-heading">
+        <p class="tpl-kicker">模板阅读视图</p>
+        <h2 id="tpl-title">模板</h2>
+      </div>
+      <div class="tpl-actions">
+        <a class="tpl-open" id="tpl-open" href="#" target="_blank" rel="noopener">在新标签打开 ↗</a>
+        <button class="icon-btn" id="tpl-close" type="button" aria-label="关闭模板">✕</button>
+      </div>
+    </header>
+    <div class="tpl-body">
+      <iframe id="tpl-frame" title="模板内容" loading="lazy"></iframe>
+    </div>
+  </div>
+</div>
+
+<div class="search-modal" id="search-modal" hidden>
+  <div class="search-panel" role="dialog" aria-modal="true" aria-labelledby="search-title">
+    <div class="search-head">
+      <label id="search-title" class="sr-only" for="search-input">搜索教程</label>
+      <input id="search-input" type="search" placeholder="搜索概念、产物、模板、方法卡…" autocomplete="off">
+      <button class="icon-btn" id="search-close" type="button" aria-label="关闭搜索">✕</button>
+    </div>
+    <div id="search-results" class="search-results" aria-live="polite"></div>
+    <p class="search-hint">按 <kbd>/</kbd> 或 <kbd>Ctrl</kbd>+<kbd>K</kbd> 打开，<kbd>Esc</kbd> 关闭。索引完全离线。</p>
+  </div>
+</div>
+
+<noscript><p class="noscript-note">搜索与阅读进度需要 JavaScript；正文、目录和翻页仍可正常使用。可用浏览器查找（Ctrl+F）。</p></noscript>
+
+<script src="assets/search-index.js"></script>
+<script src="assets/viz-data.js"></script>
+<script src="assets/app.js"></script>
+<script src="assets/viz.js"></script>
+
+</body>
+</html>

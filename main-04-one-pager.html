@@ -1,0 +1,397 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<title>一页纸对齐范围 · FDE 零基础教程</title>
+<meta name="description" content="用六段式 one-pager 把切片压成一页，写解决什么、不解决什么、怎么算成功。">
+<link rel="stylesheet" href="assets/course.css">
+<script>
+(function () {
+  try {
+    var saved = localStorage.getItem('fde-theme');
+    var theme = saved || (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+    document.documentElement.dataset.theme = theme;
+  } catch (e) {}
+})();
+</script>
+</head>
+<body class="track-main page-main-04-one-pager">
+<a class="skip-link" href="#main">跳到正文</a>
+
+<header class="topbar">
+  <button class="icon-btn nav-toggle" id="nav-toggle" type="button" aria-expanded="false" aria-controls="sidebar" aria-label="打开课程目录">
+    <span aria-hidden="true">☰</span>
+  </button>
+  <a class="brand" data-same-tab href="index.html"><span class="brand-mark">FDE</span><span class="brand-text">零基础教程</span></a>
+  <nav class="track-switch" aria-label="模块切换"><span class="track-link active" aria-current="true" title="从零建立完整心智模型">主线</span><a class="track-link" data-same-tab href="work-01-prep.html" title="现场查用：输入、步骤、输出、阶段门">工作台</a><a class="track-link" data-same-tab href="day1-00-overview.html" title="六步链路：简报 → 访谈 → 证据 → 底稿 → 门">Day1</a><a class="track-link" data-same-tab href="appendix-methods.html" title="一卡一问，按阶段、产物、角色查">方法库</a><a class="track-link" data-same-tab href="appendix-templates.html" title="模板、产物链、术语与来源">附录</a></nav>
+  <div class="top-actions">
+    <button class="search-open" id="search-open" type="button" aria-haspopup="dialog">
+      <span aria-hidden="true">⌕</span><span class="search-label">搜索</span><kbd>/</kbd>
+    </button>
+    <button class="icon-btn" id="theme-toggle" type="button" aria-label="切换深浅色">◐</button>
+  </div>
+  <div class="read-progress" aria-hidden="true"><span id="read-progress"></span></div>
+</header>
+
+<div class="layout">
+  <aside class="sidebar" id="sidebar">
+    <nav class="course-tree" aria-label="课程目录"><header class="side-head"><p class="side-eyebrow">当前模块</p><p class="side-title">主线</p><p class="side-caption">从零建立完整心智模型</p><p class="side-meta">16 页<span class="dot">·</span>约 4 小时</p></header><section class="nav-group"><p class="nav-group-title"><span class="nav-group-num">01</span>开始</p><a class="nav-link" data-same-tab href="index.html">开始：这份教程怎么用</a></section><section class="nav-group"><p class="nav-group-title"><span class="nav-group-num">02</span>看懂 FDE</p><a class="nav-link" data-same-tab href="main-01-fde.html">FDE 是什么，不是什么</a><a class="nav-link" data-same-tab href="main-02-slicing.html">把“系统”切成可验证的决策</a><a class="nav-link" data-same-tab href="lab-slicing.html">实验室：切三个模糊需求</a></section><section class="nav-group"><p class="nav-group-title"><span class="nav-group-num">03</span>看清现状</p><a class="nav-link" data-same-tab href="main-03-as-is.html">看清今天实际怎么运转</a><span class="nav-link nav-current" aria-current="page">一页纸对齐范围</span><a class="nav-link" data-same-tab href="case-a-one-pager.html">案例 A：S1 如何被选中</a><a class="nav-link" data-same-tab href="lab-one-pager.html">实验室：20 分钟拼一页纸</a></section><section class="nav-group"><p class="nav-group-title"><span class="nav-group-num">04</span>设计验证</p><a class="nav-link" data-same-tab href="main-05-fr.html">把决策写成一句可验收的 FR</a><a class="nav-link" data-same-tab href="main-06-solution.html">方案设计四件套</a><a class="nav-link" data-same-tab href="case-b-solution.html">案例 B：从一页纸到 Demo</a></section><section class="nav-group"><p class="nav-group-title"><span class="nav-group-num">05</span>跑起来</p><a class="nav-link" data-same-tab href="main-07-gates.html">开始前的五道门</a><a class="nav-link" data-same-tab href="main-08-five-days.html">Day1–5 每天做什么</a><a class="nav-link" data-same-tab href="main-09-adoption.html">从项目到组织能力</a></section><section class="nav-group"><p class="nav-group-title"><span class="nav-group-num">06</span>选读</p><a class="nav-link" data-same-tab href="main-10-patterns.html">五种实施模式<span class="nav-optional">选读</span></a><a class="nav-link" data-same-tab href="main-11-lessons.html">一线八堂课<span class="nav-optional">选读</span></a></section></nav>
+  </aside>
+  <button class="scrim" id="scrim" type="button" aria-label="关闭目录" hidden></button>
+
+  <main class="main" id="main">
+    <nav class="crumb" aria-label="面包屑"><a data-same-tab href="index.html">教程</a><span class="sep">/</span><span>主线</span><span class="sep">/</span><span>看清现状</span><span class="sep">/</span><span aria-current="page">一页纸对齐范围</span></nav>
+    <article class="article">
+      <header class="page-head">
+        <div class="badges"><span class="badge badge-main">必读</span><span class="badge badge-time">18 分钟</span></div>
+        <h1>一页纸对齐范围</h1>
+        <p class="lede">用六段式 one-pager 把切片压成一页，写解决什么、不解决什么、怎么算成功。</p>
+        <p class="page-question"><span class="eyebrow">本页要回答</span>怎样让业务方在半小时内对“做什么、不做什么”达成一致？</p>
+        <div class="page-meta">
+          <section class="meta-block">
+            <h2 class="meta-title" id="meta-objectives">读完你能</h2>
+            <ul class="objective-list"><li>说出一页纸六段各自的作用；</li><li>把决策清单压成一条最终决策；</li><li>写出一页可评审的 one-pager。</li></ul>
+          </section>
+          <section class="meta-block">
+            <h2 class="meta-title" id="meta-prereq">前置</h2>
+            <p>先读：<a href="main-03-as-is.html" target="_blank" rel="noopener">看清今天实际怎么运转</a></p>
+          </section>
+        </div>
+      </header>
+
+      <div class="prose">
+        <p>周三下午，你把业务方、组长和信息科拉进同一间会议室。开场大家都同意：“先做个排班系统。”</p>
+<p>两小时后，白板上出现了三张不同的图：业务方想“月底分额度别再来回改”，组长想“我们组缺的人要能被看见”，信息科想“先把三个 Excel 对成一个版本”。每个人都点头，理解却不一样。</p>
+<p>再写三十页需求文档，只会让分歧藏得更深。你需要<strong>一页纸</strong>：在半小时内，让所有人对“谁做什么决定、凭什么、做完什么算成功、这次不碰什么”说出同一句话。</p>
+<h2 id="sec-why">一页纸不是缩小版需求文档</h2>
+<p><span class="term-link" title="Use Case One-pager：把范围、决策、相关方、功能需求、指标和现状压在一页内的对齐工具，不是正式需求文档。">One-pager（一页纸）</span> 把范围、决策、相关方、成功标准和现状压在一页内。它的价值不在“短”，而在<strong>迫使范围收敛</strong>：一页写不下，通常不是字太少，而是还没决定这次到底做哪一件事。</p>
+<p>两者分工不同：</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th scope="col"></th>
+<th scope="col">一页纸</th>
+<th scope="col">正式需求文档</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>主要读者</td>
+<td>业务方、审批人、实施团队</td>
+<td>开发、测试、验收</td>
+</tr>
+<tr>
+<td>主要作用</td>
+<td>对齐“做什么、不做什么”</td>
+<td>固定“怎么做、做到什么程度”</td>
+</tr>
+<tr>
+<td>详细程度</td>
+<td>一段一句话，能当场争论</td>
+<td>字段、规则、异常、接口</td>
+</tr>
+</tbody>
+</table></div>
+<p>一页纸不是合同替代品，而是合同的<strong>前置共识</strong>：业务方点头，后面才值得展开细节。</p>
+<div class="checkpoint">
+<p><strong>停一下</strong>：如果现在让你把项目压成一页，你会先写“功能”，还是先写“谁在什么时候做什么决定”？</p>
+<p>先写功能，往往得到功能清单；先写决策，才有机会得到可验证的端到端链路。</p>
+</div>
+<h2 id="sec-six">六段：每一段只回答一个问题</h2>
+<p>一页纸的正文由六段组成，顺序不要调换：先有人，才有决定；先有决定，才谈输入和动作；最后才是价值和边界。六段分别回答：<strong>用户</strong>（谁做决定）、<strong>决策</strong>（哪一个决定）、<strong>输入</strong>（凭什么）、<strong>动作</strong>（决定后做什么）、<strong>价值</strong>（什么变化）、<strong>不做什么</strong>（边界在哪）。</p>
+<h3 id="seg-user">用户：写角色，不写部门</h3>
+<p>用户不是“病理科”，而是“陈静主操作；周主任审批；赵岚等组长提需求并确认”。三个人做三件不同的事，不能合并成一个“业务方”。</p>
+<p>分清四种角色：<strong>操作者</strong>（点界面的人）、<strong>审批者</strong>（能说“重做”的人）、<strong>被影响者</strong>（工作会变的人）、<strong>数据/权限把关人</strong>（决定能否取数、写回的人）。一页纸重点写前两种，后两种放“相关方”；出现“各部门配合”，基本等于没写。</p>
+<p>相关方不能只列名字，还要写清“他关心什么、可能在哪个点上反对”。CB-00 的四个人可以当一张最小冲突表：</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th scope="col">角色</th>
+<th scope="col">在意什么</th>
+<th scope="col">可能的反对/分歧</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>周主任（审批）</td>
+<td>总额度不超、临床不出事、别天天救火</td>
+<td>方案会增加他的审批动作，或让他承担系统判断错误</td>
+</tr>
+<tr>
+<td>陈静（操作）</td>
+<td>少返工、别靠回忆、月底不被追问</td>
+<td>新流程比 Excel 更慢，或出了问题仍要她手工兜底</td>
+</tr>
+<tr>
+<td>赵岚（需求提出）</td>
+<td>本组缺口被看见、人手够用</td>
+<td>额度按“总量平均”分，而不是按结构性缺口分</td>
+</tr>
+<tr>
+<td>孙老师（额度发放）</td>
+<td>口径统一、可审计</td>
+<td>现场改口径，导致月底对不上账</td>
+</tr>
+<tr>
+<td>刘工（数据权限）</td>
+<td>不增加系统负担、权限可控</td>
+<td>写回范围过大，或权限绕过既有审批</td>
+</tr>
+</tbody>
+</table></div>
+<p>这张表不是让一页纸变长，而是提前暴露“谁会说不”。如果某一行写不出反对理由，通常说明你还没和这个人说过话。</p>
+<h3 id="seg-decision">决策：一条最终决策</h3>
+<p>决策段只写<strong>一个</strong>最终决定。推荐句式：</p>
+<blockquote>
+<p><code>____（角色）在____（时点），根据____（输入），决定____（决定），并触发____（动作）。</code></p>
+</blockquote>
+<p>以 <a class="case-link" href="case-a-one-pager.html#cb-one-pager" target="_blank" rel="noopener">案例 CB-04</a> 为例：陈静在每月 25 日前，根据各亚专科需求、外部额度和人员可用天数，决定本月每个亚专科用多少额度、分给谁，并写回分配记录、提交确认。</p>
+<p>需要用“并且”连接两个互不相干的决定时，通常说明这是两个切片，拆开。</p>
+<h3 id="seg-input">输入：决定前必须看到的信息</h3>
+<p>输入不是数据清单，而是<strong>这个决定离不开的信息</strong>。每写一条问：缺了它，决定会不会变？不会变的删掉。</p>
+<p>CB-04 列了五类输入：月度需求、下发额度、人员可用天数、人员资质与可上班型、上月结转与借用规则。每一条都要说清来源、口径和新鲜度：例如“可用天数”是否已扣年假、门诊、外出会诊，否则同一个词两个人算出两个数。</p>
+<p>输入可以不完美，但必须标状态：已有、待补、待确认；不要把“待确认”写成“已有”。</p>
+<h3 id="seg-action">动作：决定之后发生什么</h3>
+<p>动作要能被看见。CB-04 写：在“亚专科 × 人员”界面调整；系统即时显示已分配、剩余额度、缺口与冲突；保存后写回；提交组长确认、主任审批。</p>
+<p>这里有两类动作，不能混：<strong>系统动作</strong>（计算、提示、保存、写回）和<strong>人的动作</strong>（确认、调整、审批、拒绝）。</p>
+<p>只有“查看报表”、没有写回或确认，它更接近看板；五天验证时，你很难证明“决策变了”。</p>
+<h3 id="seg-value">价值：可观察的变化</h3>
+<p>价值段要回答：现在多少，做完变成多少，怎么测——即 <a class="term-link" href="main-07-gates.html#term-kpi" title="Key Performance Indicator：能用一个数字衡量“有没有变好”的指标，必须有定义、基线、目标和测量方式。" target="_blank" rel="noopener">KPI（关键绩效指标）</a> 的定义、基线、目标、测量方式。</p>
+<p>CB-04 写：分配耗时从约 3 小时降到 1 小时以内【示例】；冲突在排班前暴露，而非月中才发现；额度、分配、调整有同一份可追溯记录。</p>
+<p>注意“约”字：基线来自回忆时必须写“约”，并注明待现场复测。没有基线的价值不是价值，是愿望。</p>
+<h3 id="seg-not">不做什么：给范围装围栏</h3>
+<p>“不做什么”至少三条，每条带理由或归属。CB-04 排除：个人排班（S2）、住院总轮转（S3）、工资绩效核算，以及“自动替人做最终决定”。</p>
+<p>这条清单让“做什么”可信：业务方看到 S2 被排除，反而更相信 S1 能在五天内交付；有人加需求时，你也能回答“这条属于 S2，下一轮再谈”。</p>
+<div class="checkpoint">
+<p><strong>停一下</strong>：六段里，哪一段最容易被写成“正确的废话”？</p>
+<p>通常是“价值”和“不做什么”。判断标准很直接：五天后，你能不能指着一条记录说“变了”或“没变”？如果不能，这一段还需要重写。</p>
+</div>
+<h2 id="sec-decision-list">决策清单：把“决策”压成一条</h2>
+<p><span class="term-link" title="Decision List：把最终决策、中间决策、决策人、时点、输入和动作逐条列出的表；一个决策一行。">决策清单</span> 是一行一个决策的表：决策、决策人、时点、输入、动作、频率。这里先要一张<strong>决策清单 v0</strong>：从 A03-02 的角色-决策行里挑出与这一片有关的，用来决定一页纸承诺哪一条。正式的 A04-01 在方案设计阶段再展开，补上中间决策和影响对象；权限不在决策清单里，落在 A04-04 生命周期的“谁可操作”。</p>
+<p><a class="case-link" href="case-a-one-pager.html#cb-decisions" target="_blank" rel="noopener">案例 CB-03</a> 有四行：</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th scope="col">编号</th>
+<th scope="col">决策</th>
+<th scope="col">类型</th>
+<th scope="col">是否进这次 one-pager</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>DC-1</td>
+<td>各亚专科本月额度怎么分</td>
+<td>最终决策的一部分</td>
+<td>进</td>
+</tr>
+<tr>
+<td>DC-2</td>
+<td>某个人分到哪个亚专科</td>
+<td>最终决策的一部分</td>
+<td>进</td>
+</tr>
+<tr>
+<td>DC-3</td>
+<td>出现缺口时怎么办</td>
+<td>中间决策</td>
+<td>不进五天 Demo</td>
+</tr>
+<tr>
+<td>DC-4</td>
+<td>最终方案是否发布</td>
+<td>审批动作</td>
+<td>只做最小确认</td>
+</tr>
+</tbody>
+</table></div>
+<p>编号用 DC（Decision），避免和 Day1 工具包的 D1（第一天）混淆。</p>
+<p>压缩规则：DC-1、DC-2 合并成一条“额度分配方案”的确认；DC-3 是需要例外规则的中间决策；DC-4 是审批动作。一页纸只承诺 DC-1/DC-2，不把 DC-3 的借调、改派、申请额外额度放进五天。到了 A04-01，DC-3 会以“出现缺口时怎么办”保留为中间决策行，DC-4 写成审批动作，赵岚的组长确认作为 DC-4 之前的子步骤，不单独占一行。</p>
+<p>DC-3 一旦进入范围，就要定义缺口口径、向谁借、跨月怎么还、谁有权批，五天验证不了。把它留在边界外，S1 才能端到端跑通。</p>
+<h2 id="sec-order">为什么本教程先讲现状，再写一页纸</h2>
+<p>官方 use case lifecycle 的公开顺序，是先描述 use case、提炼功能需求，再做解决方案设计和开发排序 <span class="cite" title="Use case lifecycle · Overview">[S01]</span>。也就是说，官方材料默认你已经知道“用户是谁、要改变什么决定”。</p>
+<p>本教程把顺序调成了：</p>
+<div class="step-list">观察现状（As-is）→ 列决策清单 → 选切片 → <strong>写 one-pager</strong> → 再写功能需求与方案</div>
+
+<p>原因很实际：零基础的读者如果一进场就写一页纸，很容易把会议上的想象写成“用户”和“决策”。先看陈静怎么收额度、怎么翻纸质本、怎么打电话协调，你才知道“决策”到底发生在哪一步，输入到底缺在哪。</p>
+<p>两种顺序产物形态不同，但核心问题一致：<strong>谁的什么决定，凭什么，值不值得继续。</strong> 官方顺序不是错误；本教程的顺序是面向零基础现场观察的教学改编【实践】。你也可以先按官方材料框出 use case，再回现场用 As-is 校验，只要别把“会议共识”当成“现状证据”。</p>
+<h2 id="sec-demo">用 CB-04 走一遍六段</h2>
+<p>把 CB-04 拆开看，六段各自承担什么：</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th scope="col">段落</th>
+<th scope="col">CB-04 的关键内容</th>
+<th scope="col">这一段做对了什么</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>用户</td>
+<td>陈静主操作；赵岚提需求并确认；周主任审批</td>
+<td>操作者、提出者、审批者分开</td>
+</tr>
+<tr>
+<td>决策</td>
+<td>每个亚专科用多少额度、分给谁</td>
+<td>只有一个最终决定</td>
+</tr>
+<tr>
+<td>输入</td>
+<td>需求、额度、可用天数、资质、结转规则</td>
+<td>每条都能对应到决定</td>
+</tr>
+<tr>
+<td>动作</td>
+<td>调整、即时提示、写回、提交确认</td>
+<td>有系统动作，也有人的动作</td>
+</tr>
+<tr>
+<td>价值</td>
+<td>3 小时降到 1 小时以内【示例】；冲突提前暴露</td>
+<td>有基线、有可观察变化</td>
+</tr>
+<tr>
+<td>不做什么</td>
+<td>不做 S2、S3、工资绩效、自动最终决定</td>
+<td>边界具体，能挡住现场加需求</td>
+</tr>
+</tbody>
+</table></div>
+<p>页脚三块也别省：成功标准是五天验收条件，不是长期 KPI；相关方写清审批、操作、需求、额度口径、数据权限；现状一句话说清“Excel + 微信 + 记忆 + 纸质草表”。</p>
+<h2 id="sec-template">可抄模板：A03-05</h2>
+<p><a class="template-link" href="templates/blank/03-05_use-case-one-pager.html" data-template-view data-template-title="A03-05 use-case one-pager模板" title="A03-05 use-case one-pager模板 ｜ 当前页弹窗预览">A03-05 use-case one-pager模板</a> 的空白模板如下。先把标题和六段填满，再补成功标准、相关方和现状；不要反过来先写功能。</p>
+<div class="template-block">
+<div class="template-title">A03-05 use-case one-pager <span>可直接复制</span></div>
+<pre><code class="language-text"># &lt;切片名&gt; one-pager
+1. 用户：&lt;操作者&gt;；&lt;审批者&gt;；&lt;需求提出/确认者&gt;
+2. 决策：&lt;角色&gt;在&lt;时点&gt;，根据&lt;关键输入&gt;，决定&lt;一个决定&gt;。
+3. 输入：&lt;输入 1&gt;（来源/口径/状态）；&lt;输入 2&gt;（……）
+4. 动作：&lt;系统动作：计算/提示/写回&gt;；&lt;人的动作：确认/审批&gt;
+5. 价值：&lt;基线&gt; → &lt;目标&gt;；测法：____；数据来源：____
+6. 不做什么：&lt;范围 A，理由&gt;；&lt;范围 B，理由&gt;；&lt;范围 C，理由&gt;
+
+成功标准（五天验证）：&lt;可观察条件 1&gt;；&lt;可观察条件 2&gt;
+相关方：&lt;审批&gt;、&lt;操作&gt;、&lt;需求&gt;、&lt;数据/权限&gt;
+现状：&lt;今天实际怎么做，一句话&gt;
+</code></pre>
+</div>
+<p>模板自带的三个硬检查：决策段只能有一个“决定”；“不做什么”至少三条；价值段要么有基线，要么写“待校准”，并同时写清测量方式、数据来源、校准日期和负责人——四项缺一项，不算通过。</p>
+<div class="hands-on">
+<p><strong>动手 12 分钟</strong>：用你手上的项目，写出第一版 A03-05。</p>
+<ol>
+<li>打开 <code>03_现状与切片/03-05_use-case-one-pager.md</code>，从 A03-02 里选一行最终决策，套进决策句。</li>
+<li>补六段。输入标注来源和状态；“不做什么”至少三条，每条对应一个候选切片或明确边界。</li>
+<li>价值写“基线 → 目标 → 测法”；没有基线就写“约”并标“待校准”，同时写明测量方式、数据来源、校准日期和负责人。</li>
+</ol>
+<p><strong>三条自检</strong>：</p>
+<ul>
+<li>用户是否是具体角色，且操作者与审批者分开？</li>
+<li>决策段是否只有一个“决定”，没有塞进功能清单？</li>
+<li>每条“不做什么”是否有理由，能在现场直接引用？</li>
+</ul>
+<p><strong>参考答案（CB-04 的压缩句）</strong>：陈静在每月 25 日前，根据需求、额度和可用天数，决定每个亚专科用多少额度、分给谁，写回并提交确认；S2、S3、工资绩效不在本次范围。</p>
+</div>
+<div class="pitfalls">
+<p><strong>坑 1：把一页纸写成功能清单。</strong>
+表现：决策段出现“支持导入、导出、提醒、审批、统计”。后果：范围无法收敛，五天做不完。
+处理：回到决策清单，只保留一条最终决策；其他功能标为“动作”或“不做什么”。</p>
+<p><strong>坑 2：用户写成部门或“所有人”。</strong>
+表现：“用户：病理科”。后果：不知道谁操作、谁审批，界面和验收都没有对象。
+处理：写具体角色，并区分操作者、审批者、被影响者、数据把关人。</p>
+<p><strong>坑 3：价值没有基线。</strong>
+表现：“提升效率、降低出错”。后果：五天后无法判断有没有变好。
+处理：写“当前约多少 → 目标多少 → 怎么测”；拿不到数就写“待校准”，不要编。</p>
+<p><strong>坑 4：“不做什么”空着。</strong>
+表现：六段只填了五段，或写“其他需求后续再说”。后果：现场每加一个需求，范围就膨胀一次。
+处理：至少三条，每条带理由或归属切片；加需求时先问“它属于哪条边界”。</p>
+</div>
+<div class="self-test">
+<p><strong>三问自测</strong></p>
+<details>
+<summary>1. 六段中，哪一段最能防止范围膨胀？为什么？</summary>
+
+“不做什么”。它把边界写成可引用的句子，现场加需求时可以直接说“这条属于 S2，下一轮再谈”。没有它，通常也说不清“做完什么算成功”。
+
+</details>
+<details>
+<summary>2. 官方 lifecycle 与本教程的顺序差在哪？这说明官方错了吗？</summary>
+
+官方公开顺序是先描述 use case、提炼功能需求，再做方案设计和开发排序；本教程先观察现状、列决策清单，再写 one-pager。差别来自读者起点：零基础读者需要先用 As-is 校验会议想象。官方不是错误，本教程是有意的教学改编【实践】。
+
+</details>
+<details>
+<summary>3. CB-03 的 DC-3 为什么不进这次 one-pager？</summary>
+
+DC-3 是“出现缺口时怎么办”的中间决策，涉及借调、改派、申请额外额度等例外规则；要定义缺口口径、借用权限和跨月归还，五天验证不了。一页纸只承诺 DC-1/DC-2。
+
+</details>
+</div>
+<div class="recap">
+<p><strong>本章带走</strong></p>
+<ol>
+<li>一页纸不是缩小版需求文档，而是让业务方在半小时内对“做什么、不做什么”达成一致的范围围栏。</li>
+<li>六段各回答一个问题：用户、决策、输入、动作、价值、不做什么；决策只能有一条，价值必须有基线，边界至少三条。</li>
+<li>本教程先看现状再写一页纸，是对官方 lifecycle 的教学改编；决策清单负责详细，一页纸负责收敛，两者不能互相替代。</li>
+</ol>
+</div>
+      </div>
+
+      <section class="term-cards" aria-label="本页术语卡"><p class="eyebrow">本页术语</p><div class="term-grid"><article class="term-card" id="term-functional-requirement"><h3 id="term-title-functional-requirement">Functional Requirement（功能需求） <span class="term-en">Functional Requirement</span></h3><p>用“谁、在什么界面、依据什么输入、做什么决定、产生什么动作”写成的可验收句子。</p><a class="term-first" href="main-05-fr.html" target="_blank" rel="noopener">首次解释</a></article><article class="term-card" id="term-kpi"><h3 id="term-title-kpi">KPI（关键绩效指标） <span class="term-en">Key Performance Indicator</span></h3><p>能用一个数字衡量“有没有变好”的指标，必须有定义、基线、目标和测量方式。</p><a class="term-first" href="main-07-gates.html" target="_blank" rel="noopener">首次解释</a></article><article class="term-card" id="term-one-pager"><h3 id="term-title-one-pager">One-pager（一页纸） <span class="term-en">Use Case One-pager</span></h3><p>把范围、决策、相关方、功能需求、指标和现状压在一页内的对齐工具，不是正式需求文档。</p></article><article class="term-card" id="term-decision-list"><h3 id="term-title-decision-list">决策清单 <span class="term-en">Decision List</span></h3><p>把最终决策、中间决策、决策人、时点、输入和动作逐条列出的表；一个决策一行。</p></article></div></section>
+      <section class="artifact-box" aria-label="本页产物"><div class="artifact-block"><h3 id="artifacts-out">本页要写出的产物</h3><ul><li><code>A03-05</code> use-case one-pager <span class="muted">→ 03_现状与切片/03-05_use-case-one-pager.md</span> <span class="gate-tag">G3</span> <a href="templates/blank/03-05_use-case-one-pager.html" data-template-view data-template-title="A03-05 use-case one-pager模板" title="A03-05 use-case one-pager模板 ｜ 当前页弹窗预览">模板</a> <a href="templates/golden/03-05_use-case-one-pager_排班案例.html" data-template-view data-template-title="A03-05 use-case one-pager黄金样例" title="A03-05 use-case one-pager黄金样例 ｜ 当前页弹窗预览">黄金样例</a></li></ul></div><div class="artifact-block"><h3 id="artifacts-in">开始前应已具备</h3><p class="muted"><code>A00-01</code> 项目一页纸、<code>A03-01</code> As-is决策流、<code>A03-02</code> 用户-决策-动作清单、<code>A03-03</code> 候选切片与打分</p></div></section>
+      <section class="sources" aria-label="来源"><h2 id="sec-sources">来源与证据等级</h2><ol class="source-list"><li><span class="src-id">S01</span> <strong>Use case lifecycle · Overview</strong> <span class="badge badge-官方">官方</span><div class="muted">Palantir Technologies · 抓取 2026-10-19 · 版权归 Palantir Technologies；仅内部研究，不对外分发原文</div><div class="src-url"><a href="https://www.palantir.com/docs/foundry/use-case-life-cycle/overview/" rel="noreferrer" target="_blank">https://www.palantir.com/docs/foundry/use-case-life-cycle/overview/</a></div></li><li><span class="src-id">S17</span> <strong>FDE 方法论沉淀</strong> <span class="badge badge-实践">实践</span><div class="muted">本子项目 · 抓取 2026-09-23 · 内部方法沉淀</div><div class="src-url"><span class="muted">无公开链接</span></div></li><li><span class="src-id">S18</span> <strong>流程与范围模板</strong> <span class="badge badge-实践">实践</span><div class="muted">本子项目 · 抓取 2026-09-23 · 内部方法沉淀</div><div class="src-url"><span class="muted">无公开链接</span></div></li><li><span class="src-id">S20</span> <strong>FDE 实施手册 v1（9 章整合读本）</strong> <span class="badge badge-实践">实践</span><div class="muted">本子项目 · 抓取 2026-10-19 · 内部方法沉淀；官方事实另注出处</div><div class="src-url"><span class="muted">无公开链接</span></div></li></ol></section>
+      <nav class="pager" aria-label="翻页"><a class="pager-prev" data-same-tab href="main-03-as-is.html"><span>上一页</span><strong>看清今天实际怎么运转</strong></a><a class="pager-next" data-same-tab href="case-a-one-pager.html"><span>下一页</span><strong>案例 A：S1 如何被选中</strong></a></nav>
+
+      <footer class="page-foot">
+        <p>本教程为内部方法研究。案例已匿名化，数字标注【示例】。Palantir 官方资料版权归 Palantir Technologies，仅作改写与链接。</p>
+        <p class="muted">发现断链或事实错误？回到 <a href="appendix-sources.html" target="_blank" rel="noopener">来源与版权</a> 核对出处。</p>
+      </footer>
+    </article>
+  </main>
+
+  <aside class="toc" id="toc" aria-label="页内目录">
+    <p class="toc-title">本页目录</p><ol class="toc-list"><li class="toc-h2"><a href="#sec-why">一页纸不是缩小版需求文档</a></li><li class="toc-h2"><a href="#sec-six">六段：每一段只回答一个问题</a><ul class="toc-sub"><li class="toc-h3"><a href="#seg-user">用户：写角色，不写部门</a></li><li class="toc-h3"><a href="#seg-decision">决策：一条最终决策</a></li><li class="toc-h3"><a href="#seg-input">输入：决定前必须看到的信息</a></li><li class="toc-h3"><a href="#seg-action">动作：决定之后发生什么</a></li><li class="toc-h3"><a href="#seg-value">价值：可观察的变化</a></li><li class="toc-h3"><a href="#seg-not">不做什么：给范围装围栏</a></li></ul></li><li class="toc-h2"><a href="#sec-decision-list">决策清单：把“决策”压成一条</a></li><li class="toc-h2"><a href="#sec-order">为什么本教程先讲现状，再写一页纸</a></li><li class="toc-h2"><a href="#sec-demo">用 CB-04 走一遍六段</a></li><li class="toc-h2"><a href="#sec-template">可抄模板：A03-05</a></li></ol>
+  </aside>
+</div>
+
+<div class="tpl-modal" id="tpl-modal" hidden>
+  <div class="tpl-panel" role="dialog" aria-modal="true" aria-labelledby="tpl-title">
+    <header class="tpl-head">
+      <div class="tpl-heading">
+        <p class="tpl-kicker">模板阅读视图</p>
+        <h2 id="tpl-title">模板</h2>
+      </div>
+      <div class="tpl-actions">
+        <a class="tpl-open" id="tpl-open" href="#" target="_blank" rel="noopener">在新标签打开 ↗</a>
+        <button class="icon-btn" id="tpl-close" type="button" aria-label="关闭模板">✕</button>
+      </div>
+    </header>
+    <div class="tpl-body">
+      <iframe id="tpl-frame" title="模板内容" loading="lazy"></iframe>
+    </div>
+  </div>
+</div>
+
+<div class="search-modal" id="search-modal" hidden>
+  <div class="search-panel" role="dialog" aria-modal="true" aria-labelledby="search-title">
+    <div class="search-head">
+      <label id="search-title" class="sr-only" for="search-input">搜索教程</label>
+      <input id="search-input" type="search" placeholder="搜索概念、产物、模板、方法卡…" autocomplete="off">
+      <button class="icon-btn" id="search-close" type="button" aria-label="关闭搜索">✕</button>
+    </div>
+    <div id="search-results" class="search-results" aria-live="polite"></div>
+    <p class="search-hint">按 <kbd>/</kbd> 或 <kbd>Ctrl</kbd>+<kbd>K</kbd> 打开，<kbd>Esc</kbd> 关闭。索引完全离线。</p>
+  </div>
+</div>
+
+<noscript><p class="noscript-note">搜索与阅读进度需要 JavaScript；正文、目录和翻页仍可正常使用。可用浏览器查找（Ctrl+F）。</p></noscript>
+
+<script src="assets/search-index.js"></script>
+<script src="assets/viz-data.js"></script>
+<script src="assets/app.js"></script>
+<script src="assets/viz.js"></script>
+
+</body>
+</html>

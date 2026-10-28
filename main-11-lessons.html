@@ -1,0 +1,338 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<title>一线八堂课 · FDE 零基础教程</title>
+<meta name="description" content="第三方一线实践补充的判断框架与教训，明确它不能替代官方方法。">
+<link rel="stylesheet" href="assets/course.css">
+<script>
+(function () {
+  try {
+    var saved = localStorage.getItem('fde-theme');
+    var theme = saved || (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+    document.documentElement.dataset.theme = theme;
+  } catch (e) {}
+})();
+</script>
+</head>
+<body class="track-main page-main-11-lessons">
+<a class="skip-link" href="#main">跳到正文</a>
+
+<header class="topbar">
+  <button class="icon-btn nav-toggle" id="nav-toggle" type="button" aria-expanded="false" aria-controls="sidebar" aria-label="打开课程目录">
+    <span aria-hidden="true">☰</span>
+  </button>
+  <a class="brand" data-same-tab href="index.html"><span class="brand-mark">FDE</span><span class="brand-text">零基础教程</span></a>
+  <nav class="track-switch" aria-label="模块切换"><span class="track-link active" aria-current="true" title="从零建立完整心智模型">主线</span><a class="track-link" data-same-tab href="work-01-prep.html" title="现场查用：输入、步骤、输出、阶段门">工作台</a><a class="track-link" data-same-tab href="day1-00-overview.html" title="六步链路：简报 → 访谈 → 证据 → 底稿 → 门">Day1</a><a class="track-link" data-same-tab href="appendix-methods.html" title="一卡一问，按阶段、产物、角色查">方法库</a><a class="track-link" data-same-tab href="appendix-templates.html" title="模板、产物链、术语与来源">附录</a></nav>
+  <div class="top-actions">
+    <button class="search-open" id="search-open" type="button" aria-haspopup="dialog">
+      <span aria-hidden="true">⌕</span><span class="search-label">搜索</span><kbd>/</kbd>
+    </button>
+    <button class="icon-btn" id="theme-toggle" type="button" aria-label="切换深浅色">◐</button>
+  </div>
+  <div class="read-progress" aria-hidden="true"><span id="read-progress"></span></div>
+</header>
+
+<div class="layout">
+  <aside class="sidebar" id="sidebar">
+    <nav class="course-tree" aria-label="课程目录"><header class="side-head"><p class="side-eyebrow">当前模块</p><p class="side-title">主线</p><p class="side-caption">从零建立完整心智模型</p><p class="side-meta">16 页<span class="dot">·</span>约 4 小时</p></header><section class="nav-group"><p class="nav-group-title"><span class="nav-group-num">01</span>开始</p><a class="nav-link" data-same-tab href="index.html">开始：这份教程怎么用</a></section><section class="nav-group"><p class="nav-group-title"><span class="nav-group-num">02</span>看懂 FDE</p><a class="nav-link" data-same-tab href="main-01-fde.html">FDE 是什么，不是什么</a><a class="nav-link" data-same-tab href="main-02-slicing.html">把“系统”切成可验证的决策</a><a class="nav-link" data-same-tab href="lab-slicing.html">实验室：切三个模糊需求</a></section><section class="nav-group"><p class="nav-group-title"><span class="nav-group-num">03</span>看清现状</p><a class="nav-link" data-same-tab href="main-03-as-is.html">看清今天实际怎么运转</a><a class="nav-link" data-same-tab href="main-04-one-pager.html">一页纸对齐范围</a><a class="nav-link" data-same-tab href="case-a-one-pager.html">案例 A：S1 如何被选中</a><a class="nav-link" data-same-tab href="lab-one-pager.html">实验室：20 分钟拼一页纸</a></section><section class="nav-group"><p class="nav-group-title"><span class="nav-group-num">04</span>设计验证</p><a class="nav-link" data-same-tab href="main-05-fr.html">把决策写成一句可验收的 FR</a><a class="nav-link" data-same-tab href="main-06-solution.html">方案设计四件套</a><a class="nav-link" data-same-tab href="case-b-solution.html">案例 B：从一页纸到 Demo</a></section><section class="nav-group"><p class="nav-group-title"><span class="nav-group-num">05</span>跑起来</p><a class="nav-link" data-same-tab href="main-07-gates.html">开始前的五道门</a><a class="nav-link" data-same-tab href="main-08-five-days.html">Day1–5 每天做什么</a><a class="nav-link" data-same-tab href="main-09-adoption.html">从项目到组织能力</a></section><section class="nav-group"><p class="nav-group-title"><span class="nav-group-num">06</span>选读</p><a class="nav-link" data-same-tab href="main-10-patterns.html">五种实施模式<span class="nav-optional">选读</span></a><span class="nav-link nav-current" aria-current="page">一线八堂课<span class="nav-optional">选读</span></span></section></nav>
+  </aside>
+  <button class="scrim" id="scrim" type="button" aria-label="关闭目录" hidden></button>
+
+  <main class="main" id="main">
+    <nav class="crumb" aria-label="面包屑"><a data-same-tab href="index.html">教程</a><span class="sep">/</span><span>主线</span><span class="sep">/</span><span>选读</span><span class="sep">/</span><span aria-current="page">一线八堂课</span></nav>
+    <article class="article">
+      <header class="page-head">
+        <div class="badges"><span class="badge badge-main">选读</span><span class="badge badge-time">15 分钟</span></div>
+        <h1>一线八堂课</h1>
+        <p class="lede">第三方一线实践补充的判断框架与教训，明确它不能替代官方方法。</p>
+        <p class="page-question"><span class="eyebrow">本页要回答</span>一线实践补了官方方法的哪些空白，哪些只能当参考？</p>
+        <div class="page-meta">
+          <section class="meta-block">
+            <h2 class="meta-title" id="meta-objectives">读完你能</h2>
+            <ul class="objective-list"><li>区分八堂课里的事实、判断与传闻；</li><li>说出至少三条能立刻用在调研中的做法；</li><li>指出这些内容的证据边界。</li></ul>
+          </section>
+          <section class="meta-block">
+            <h2 class="meta-title" id="meta-prereq">前置</h2>
+            <p>先读：<a href="main-09-adoption.html" target="_blank" rel="noopener">从项目到组织能力</a></p>
+          </section>
+        </div>
+      </header>
+
+      <div class="prose">
+        <p>官方方法告诉你该产出什么，却没说现场会怎么坏。这一页的八条，来自一份第三方读物对八场一线演讲的整理；它能补官方看不到的判断，但不能当官方规格。</p>
+<h2 id="sec-origin">这八堂课从哪里来</h2>
+<p>S15《FDE 入门到精通》汇总了 AI Engineer World's Fair FDE 专场的八场演讲，讲者来自 Sierra、Anthropic、Kepler、Varick Agents、Ramp、Decagon、Cognition 与 Factory。<span class="cite" title="《FDE 入门到精通》（FDE: From Fundamentals to Mastery）">[S15]</span></p>
+<p>它不是 Palantir 官方资料。案例、团队规模和数字都是讲者口径，不是行业基准。下面的八条是本地重写，不复制原文。</p>
+<p>读它要打三层折扣：<strong>不是官方</strong>；<strong>是二次整理</strong>；<strong>数字是讲者自述</strong>。用 <a class="term-link" href="appendix-sources.html#term-source-authority" title="Source Authority：五级来源成色：官方、第三方、实践、推断、待确认；它回答“这条信息凭什么可信”。" target="_blank" rel="noopener">来源权威性</a> 判断一条信息凭什么可信，再决定它进方案还是进假设清单。</p>
+<h2 id="sec-eight">八堂课速查</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th scope="col">课</th>
+<th scope="col">讲者 / 公司</th>
+<th scope="col">一句话主张</th>
+<th scope="col">本教程落点</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>一</td>
+<td>Natalie Meurer / Sierra</td>
+<td>名称会变，连续责任不能丢</td>
+<td><a class="page-link" href="main-01-fde.html" target="_blank" rel="noopener">FDE 是什么，不是什么</a></td>
+</tr>
+<tr>
+<td>二</td>
+<td>Kevin Bai / Anthropic</td>
+<td>没有原语，FDE 就退化成外包</td>
+<td><a class="page-link" href="main-01-fde.html" target="_blank" rel="noopener">FDE 是什么，不是什么</a></td>
+</tr>
+<tr>
+<td>三</td>
+<td>Vinoo Ganesh / Kepler</td>
+<td>追动作、进现场、建模名词动词</td>
+<td><a class="page-link" href="main-03-as-is.html" target="_blank" rel="noopener">看清今天实际怎么运转</a></td>
+</tr>
+<tr>
+<td>四</td>
+<td>Vasuman Moza / Varick</td>
+<td>流程地图要装下四类事实</td>
+<td><a class="page-link" href="main-06-solution.html" target="_blank" rel="noopener">方案设计四件套</a></td>
+</tr>
+<tr>
+<td>五</td>
+<td>Leo Mehr / Ramp</td>
+<td>写代码之前，先说清不做什么</td>
+<td><a class="page-link" href="main-02-slicing.html" target="_blank" rel="noopener">把“系统”切成可验证的决策</a></td>
+</tr>
+<tr>
+<td>六</td>
+<td>Sunny Rekhi / Decagon</td>
+<td>代码越便宜，克制越贵</td>
+<td><a class="page-link" href="main-04-one-pager.html" target="_blank" rel="noopener">一页纸对齐范围</a></td>
+</tr>
+<tr>
+<td>七</td>
+<td>Jia Wu / Cognition</td>
+<td>客户现场是最高保真评测集</td>
+<td><a class="page-link" href="main-09-adoption.html" target="_blank" rel="noopener">从项目到组织能力</a></td>
+</tr>
+<tr>
+<td>八</td>
+<td>Eno Reyes / Factory</td>
+<td>验证循环决定自主上限</td>
+<td><a class="page-link" href="main-08-five-days.html" target="_blank" rel="noopener">Day1–5 每天做什么</a></td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="lesson-1">第一课：FDE 是四层责任的叠加</h3>
+<p><strong>一句话</strong>：FDE 不是固定职位，而是平台稳定、数据与本体、定制应用、平台能力扩散四层责任压在同一个人身上；不可替代的是客户责任的连续性。</p>
+<p><span class="ev-third">【第三方】</span> Meurer 把 Palantir 的现场工作按瓶颈拆成四段：先让系统在客户环境里不倒，再接入数据并建本体，然后用定制应用支撑决策，最后教客户自己构建。她说这个名称已经装下太多工作；值得保留的是同一个人能回答客户为什么买、系统怎么搭、用户为什么不用、故障让谁付代价。她把这种跨交接边界的责任称为 <a class="term-link" href="main-01-fde.html#term-continuity-accountability" title="Continuity of Accountability：同一个人或团队持续理解客户为何买、系统怎么搭、用户为何不用，并把信息带回产品。" target="_blank" rel="noopener">客户责任连续性</a>。</p>
+<p><span class="ev-practice">【实践】</span> <strong>在现场怎么用</strong>：</p>
+<ul>
+<li>画交接图：售前、签约、实施、上线、支持，标出客户上下文最可能丢在哪一格，指定一个人跨过去。</li>
+<li>分工时问“你处理过哪一类现场问题”，不要只问做过几年；不同年代入行的人，强项完全不同。</li>
+<li>每次交接留一页“为什么买、现在怎么跑、哪里会坏”，跟着项目走。</li>
+</ul>
+<p>落点：<a class="page-link" href="main-01-fde.html" target="_blank" rel="noopener">FDE 是什么，不是什么</a>。</p>
+<h3 id="lesson-2">第二课：先判断需不需要 FDE</h3>
+<p><strong>一句话</strong>：用“产品复杂度 × 用户技术能力”的四象限判断核心区；平台不会自动变成业务结果，没有原语，FDE 团队就是外包开发公司。</p>
+<p><span class="ev-third">【第三方】</span> Bai 说客户买的不是平台，而是业务结果；供应商只是暂时“借”出熟悉平台的工程师。他的判据很硬：如果每名 FDE 都从空白代码库开始，公司拥有的不是 FDE 团队，而是项目制开发。可持续的前提是 <a class="term-link" href="main-09-adoption.html#term-primitive" title="Primitive：平台提供、可重复组合的基础能力，如认证、连接器、权限、评测。" target="_blank" rel="noopener">原语</a>——认证、数据连接、工作流、评测这些可组合能力。他提醒关键人风险：重点客户至少两人覆盖。</p>
+<p><span class="ev-practice">【实践】</span> <strong>在现场怎么用</strong>：</p>
+<ul>
+<li>把产品放进四象限：复杂产品卖给非技术用户才是核心区；不在这个象限，优先文档、开发者关系或标准实施。</li>
+<li>清点一次交付里哪些来自共享平台、哪些是客户特例；说不清比例，先别扩编。</li>
+<li>给重点客户配第二双眼睛，用 <a class="term-link" href="main-09-adoption.html#term-pairing" title="Pairing：重要会议、架构与决策至少有第二人理解，防止知识被一个人垄断。" target="_blank" rel="noopener">结对</a> 防止现场共识变成未经审视的事实。</li>
+</ul>
+<p>落点：<a class="page-link" href="main-01-fde.html" target="_blank" rel="noopener">FDE 是什么，不是什么</a>。</p>
+<h3 id="lesson-3">第三课：客户带来方案，你要追出动作</h3>
+<p><strong>一句话</strong>：客户交来的是想象中的解决方案，FDE 要把它追成具体动作，再用一天内的小原型换取现场访问权。</p>
+<p><span class="ev-third">【第三方】</span> 一家运输客户交来 47 页需求和一整套商业智能设想【讲者自述】；团队讨论几个月范围，始终没进调度员现场。一名工程师到场后只问“周一早上看到这些信息，第一件事做什么”，答案是发现延误后打电话调整运力；团队当天先做了一条告警。另一个案例里，数据工程师反对 Parquet 迁移近一年，现场才发现她每天要双击 CSV 抽查几行；补一个查看器，迁移才通过。</p>
+<p><span class="ev-practice">【实践】</span> <strong>在现场怎么用</strong>：</p>
+<ul>
+<li>三连追问：真正想达到的目标是什么？看到结果后下一步做什么？今天没有这套系统，你怎样绕过去？</li>
+<li>到工位旁坐半天，记录复制粘贴、切工具、打电话、叹气发生在哪个界面后。</li>
+<li>列出客户混用的名词（客户、账户、计费实体、组织编号），定义对象、关系和动作。</li>
+</ul>
+<p>落点：<a class="page-link" href="main-03-as-is.html" target="_blank" rel="noopener">看清今天实际怎么运转</a>。</p>
+<h3 id="lesson-4">第四课：流程地图要装下四类事实</h3>
+<p><strong>一句话</strong>：能用的流程地图必须同时装下正式规则、系统状态、组织关系、经验判断；记录系统的权威是制度性的，不是技术性的。</p>
+<p><span class="ev-third">【第三方】</span> Varick 在财务部门看到的黄金路径是“收发票、匹配采购单、审批、付款”，真实路径却是：正常单据由 Sarah 处理，对不上转给 Chris，Chris 还要等另一个部门回复几天。Moza 还指出一个采用悖论：把整段流程压成一个按钮，也删掉了员工的控制点——何时检查、何时撤回、出错找谁。新系统必须读写 <a class="term-link" href="main-06-solution.html#term-system-of-record" title="System of Record：组织保存权威业务数据与审计记录的核心系统；写回必须尊重它的权威，而不是另造一套账本。" target="_blank" rel="noopener">记录系统</a>，继承权限、校验和审计。</p>
+<p><span class="ev-practice">【实践】</span> <strong>在现场怎么用</strong>：</p>
+<ul>
+<li>用一个真实案例填四类事实；经验判断那一栏空着，说明你只访谈了管理者。</li>
+<li>标出记录系统，写清每个写回字段的去向、权限继承和审计。</li>
+<li>用 <a class="term-link" href="work-05-spec.html#term-control-matrix" title="Control Matrix：把流程每一步分成完全自主、人在回路、纯人工，并写清验证者、审批者和回滚方式。" target="_blank" rel="noopener">人机控制矩阵</a> 重画人机分工：完全自主、人在回路、纯人工；“人工兜底”要有负责人和响应时限。</li>
+</ul>
+<p>落点：<a class="page-link" href="main-06-solution.html" target="_blank" rel="noopener">方案设计四件套</a>。</p>
+<div class="checkpoint">
+<p><strong>停一下</strong>：第三课和第四课都在画图，但一张画“工作怎么流动”，一张画“事实存在哪里”。你上次画的图缺哪类事实？</p>
+</div>
+<h3 id="lesson-5">第五课：写代码前先说清不做什么</h3>
+<p><strong>一句话</strong>：FDE 最稀缺的能力不是快速说“能”，而是在动手前分清客户的紧急、销售的紧急和工程代价。</p>
+<p><span class="ev-third">【第三方】</span> 周五晚上，销售转来一家重要客户的 SAP 集成请求。Mehr 的第一原则是 always be scoping：先问为什么现在、不做会怎样、真实用户多少、今天手工替代成本多高、客户技术团队能承担什么、会挤掉队列里哪一项。他还讲了一个限定词案例：团队同时做了 iOS 和 Android 报销，后来才知道客户的设备政策只允许 iOS，Android 用户根本不存在。</p>
+<p><span class="ev-practice">【实践】</span> <strong>在现场怎么用</strong>：</p>
+<ul>
+<li>把六问贴在需求入口，任何“尽快”先过一遍；答不出“会挤掉什么”，就不排期。</li>
+<li>把“移动端、集成、实时”逼出限定词：哪种设备、哪组动作、多少秒。</li>
+<li>每周看队列：新承诺挤掉哪项旧工作；用 token 扩上下文与规范，不只堆人头。</li>
+</ul>
+<p>落点：<a class="page-link" href="main-02-slicing.html" target="_blank" rel="noopener">把“系统”切成可验证的决策</a>。</p>
+<h3 id="lesson-6">第六课：代码越便宜，越要克制</h3>
+<p><strong>一句话</strong>：生成成本下降后，最贵的是克制与远见；最早几次对话就要写清成功定义，再用一个可验证结果换取扩张。</p>
+<p><span class="ev-third">【第三方】</span> Decagon 把成功定义拆得很早：支持哪些渠道、改善哪种意图、看解决率还是转人工率、第一阶段明确不做什么。少写一句，几个月后供应商说“已上线”，客户却说“所有客服都该被替代”。Rekhi 的做法是先落地再扩张：找一条数周内能证明价值的窄流程，再沿已有连接扩到相邻场景。行业知识在他眼里只是高质量假设，不能替代现场验证。</p>
+<p><span class="ev-practice">【实践】</span> <strong>在现场怎么用</strong>：</p>
+<ul>
+<li>第一次会议就写一页成功定义：渠道、意图、指标、第一阶段不做什么、什么情况必须转人工。</li>
+<li>先交付一条窄流程，再扩张；不要接客户扔来的“整个厨房”。</li>
+<li>建一本手工动作账：出现几次、耗多少工程时间、抽象后哪次部署变快；第三次出现再评估产品化。</li>
+</ul>
+<p>落点：<a class="page-link" href="main-04-one-pager.html" target="_blank" rel="noopener">一页纸对齐范围</a>。</p>
+<h3 id="lesson-7">第七课：客户现场是最高保真评测集</h3>
+<p><strong>一句话</strong>：产品能力与客户问题是两个圆，FDE 要同时扩大重叠；写代码只是问题的一部分，指标必须从活动量走到交付结果。</p>
+<p><span class="ev-third">【第三方】</span> Wu 把编码估为整个企业交付问题的约 20%【讲者自述】——其余是理解遗留系统、补测试、过审查、协调发布、监控和维护。她把指标分三层：会话数与有效工程小时、项目交付周期、被合并的拉取请求。三层要一起看：会话很多却没有合并，可能只是在反复尝试；周期缩短但故障上升，不算价值。客户现场是最真实的评测集，也是噪声最大的地方；<span class="term-link" title="Agent Readiness：一个任务或代码库支持 Agent 安全自主工作的程度，取决于边界、上下文、工具和验证循环。">Agent 准备度</span>由确定性验证循环决定。</p>
+<p><span class="ev-practice">【实践】</span> <strong>在现场怎么用</strong>：</p>
+<ul>
+<li>每个部署先定“哪一层指标算成功”，不要拿使用量交差。</li>
+<li>把失败写成可比较的证据：哪类仓库、什么前置条件、多少客户重复、修好能解锁什么任务。</li>
+<li>交付完成的标志是客户自己的事件能稳定触发 Agent，而不是你每天手工点一次。</li>
+</ul>
+<p>落点：<a class="page-link" href="main-09-adoption.html" target="_blank" rel="noopener">从项目到组织能力</a>。</p>
+<h3 id="lesson-8">第八课：模型不是系统</h3>
+<p><strong>一句话</strong>：企业要拥有 <span class="term-link" title="Harness：围绕模型提供上下文、工具、权限、轨迹、验证和治理的运行环境；模型不是系统。">运行框架</span>、执行轨迹、数据和治理；Agent 的自主上限由确定性验证循环决定，不由模型分数决定。</p>
+<p><span class="ev-third">【第三方】</span> Factory 把软件开发画成一个循环：外部信号进入规划，Agent 构建，编译、类型、单测、安全扫描和 lint 给出可读判定，发布后的监控再产生新信号。长任务被放进 missions——有界、可验证的任务容器：先写清目标与完成检查，Agent 再连续执行，直到通过或升级。Reyes 强调模型可以换，运行框架和治理不能跟着丢。他给了两个不能混用的口径【讲者自述】：约 15%–20% 的工作能端到端完全自主，以及两次人工干预之间 Agent 能连续执行 80% 以上的动作。Epcot 的警示是：只有明星团队能跑的样板，是从未来城市变成主题公园。</p>
+<p><span class="ev-practice">【实践】</span> <strong>在现场怎么用</strong>：</p>
+<ul>
+<li>画出客户的软件工厂循环，标出每个交接点的状态存在哪里；只存在人脑里，就是断点。</li>
+<li>列出确定性验证器与缺口；每个缺口写清谁人工检查、多久一次、失败怎么停。</li>
+<li>区分两个口径，别合成一个“自主率”；扩覆盖和减少中断是两种下一步。</li>
+<li>样板验收看扩张模型：下一批代码库是谁、最低验证要求、谁治理、成本怎么量。</li>
+</ul>
+<p>落点：<a class="page-link" href="main-08-five-days.html" target="_blank" rel="noopener">Day1–5 每天做什么</a>。</p>
+<h2 id="sec-how">怎么用这八条</h2>
+<p>不要八条一起上。下一次调研先带第三、五条；方案评审带第二、四、六条；上线前看第七、八条；第一条贯穿始终。</p>
+<p>读时要分开三类内容：可核对的事实、讲者的判断、无法核实的自述数字。事实可查，判断要试，数字只当背景。</p>
+<h2 id="sec-boundary">证据边界</h2>
+<p>这八条补官方方法之外的现场判断，不替代 Use Case 生命周期、Solution Design 四件套和模板。</p>
+<p>如果客户问“这是 Palantir 官方方法吗”，正确回答是：<strong>不是</strong>。这是我们参考第三方材料整理的判断清单。</p>
+<p>三条边界：公司案例不是行业基准；讲者做法不是验收标准；没有现场证据不引用数字。<span class="cite" title="FDE 方法论沉淀">[S17]</span> 只负责把经验改写成动作。</p>
+<h2 id="sec-pitfalls">常见坑</h2>
+<div class="pitfalls">
+<p><strong>坑 1：把八堂课当官方标准。</strong>
+表现：对客户说“FDE 就该这样做”。后果：现场不适用时，信任受损。
+处理：说明是第三方经验，非官方规格。</p>
+<p><strong>坑 2：把讲者数字当行业基准。</strong>
+表现：把百分比、页数直接写进排期。后果：数字被当成工期。
+处理：只用于说明判断，不进排期和验收。</p>
+<p><strong>坑 3：只学动作，不学前提。</strong>
+表现：照搬“一天出原型”，却跳过原语和验证。后果：每次交付从零开始，团队退化成外包。
+处理：先确认原语、记录系统和验证器就位。</p>
+<p><strong>坑 4：把“人在回路”写成安慰话。</strong>
+表现：评审时写一句“人工兜底”就通过。后果：异常没人接，系统停住。
+处理：写清谁看、看什么证据、多久响应、失败怎么回滚。</p>
+</div>
+<div class="hands-on">
+<p><strong>动手一刻钟</strong>：选三条，写进下次调研。</p>
+<ol>
+<li>从八条里选三条，必须包含第三课（追动作）和第五课（压范围）。</li>
+<li>每条写三行：现场动作 / 要拿到的证据 / 判断标准。</li>
+<li>在提纲里加三个问题；写不出，说明这条还没变成动作。</li>
+</ol>
+<p><strong>三条自检</strong>：有没有一个动作能在半小时内做完？每个动作有没有“看到什么算通过”的标准？你有没有把第三方经验写成“官方要求”？</p>
+<p><strong>参考答案</strong>：</p>
+<blockquote>
+<p>第三课：跟调度员走完一次真实排班；证据是他在哪个界面停下打电话；标准是触发条件、通知对象、替代动作都说得清。
+第五课：把“要一个排班系统”压成切片；证据是“不做会怎样”和“会挤掉哪项”；标准是五天内能演示。
+第八课：列出排班场景的验证器；证据是哪些规则能自动判定、哪些只能人工看；标准是每个缺口有负责人和停止条件。</p>
+</blockquote>
+</div>
+<div class="self-test">
+<p><strong>三问自测</strong></p>
+<details>
+<summary>1. S15 是 Palantir 官方资料吗？</summary>
+
+不是。它是第三方读物；案例和数字都是讲者口径，不是官方规格或行业基准。
+
+</details>
+<details>
+<summary>2. 客户说“我要一个看板”，第三课会怎么追问？</summary>
+
+先问“看到这些信息后第一件事做什么”，再问“没有系统时怎么绕”。若答案是发现异常后打电话，就先做触发动作的告警，而不是堆图表。
+
+</details>
+<details>
+<summary>3. 为什么说“模型不是系统”？</summary>
+
+模型可替换；任务上下文、工具权限、执行轨迹、数据归属和治理必须留在企业手里。自主上限取决于确定性验证，不取决于模型分数。
+
+</details>
+</div>
+<div class="recap">
+<p><strong>本章带走</strong></p>
+<ol>
+<li>八堂课是第三方一线经验的本地重写，不是 Palantir 官方方法；案例和数字只能当背景，不能当基准。</li>
+<li>八条分别补责任连续性、适配判断、动作追问、流程事实、范围压缩、成功定义、结果指标和验证系统。</li>
+<li>下一次调研先带第三、五条；评审、上线、复盘各取对应几条，不要八条一起上。</li>
+</ol>
+</div>
+      </div>
+
+      <section class="term-cards" aria-label="本页术语卡"><p class="eyebrow">本页术语</p><div class="term-grid"><article class="term-card" id="term-source-authority"><h3 id="term-title-source-authority">来源权威性 <span class="term-en">Source Authority</span></h3><p>五级来源成色：官方、第三方、实践、推断、待确认；它回答“这条信息凭什么可信”。</p><a class="term-first" href="appendix-sources.html" target="_blank" rel="noopener">首次解释</a></article><article class="term-card" id="term-eight-lessons"><h3 id="term-title-eight-lessons">一线八堂课 <span class="term-en">Eight Field Lessons</span></h3><p>来自一线实践汇编的判断框架与教训，属于【第三方】，不能当官方规格。</p></article><article class="term-card" id="term-agent-readiness"><h3 id="term-title-agent-readiness">Agent 准备度 <span class="term-en">Agent Readiness</span></h3><p>一个任务或代码库支持 Agent 安全自主工作的程度，取决于边界、上下文、工具和验证循环。</p></article><article class="term-card" id="term-deterministic-validation"><h3 id="term-title-deterministic-validation">确定性验证 <span class="term-en">Deterministic Validation</span></h3><p>编译、类型检查、单测、lint、策略规则等能给出可复现判定的检查。</p></article><article class="term-card" id="term-harness"><h3 id="term-title-harness">运行框架 <span class="term-en">Harness</span></h3><p>围绕模型提供上下文、工具、权限、轨迹、验证和治理的运行环境；模型不是系统。</p></article><article class="term-card" id="term-eval"><h3 id="term-title-eval">评测集 <span class="term-en">Eval</span></h3><p>用任务、样本和成功条件反复检查系统是否改善；企业评测还要看工具调用、风险、成本和业务结果。</p></article></div></section>
+      
+      <section class="sources" aria-label="来源"><h2 id="sec-sources">来源与证据等级</h2><ol class="source-list"><li><span class="src-id">S15</span> <strong>《FDE 入门到精通》（FDE: From Fundamentals to Mastery）</strong> <span class="badge badge-第三方">第三方</span><div class="muted">高飞 / feigaobox10 · 抓取 2026-10-19 · CC BY-NC-SA 4.0；非官方，未获讲者或公司背书</div><div class="src-url"><a href="https://github.com/feigaobox10/fde-reader" rel="noreferrer" target="_blank">https://github.com/feigaobox10/fde-reader</a></div></li><li><span class="src-id">S17</span> <strong>FDE 方法论沉淀</strong> <span class="badge badge-实践">实践</span><div class="muted">本子项目 · 抓取 2026-09-23 · 内部方法沉淀</div><div class="src-url"><span class="muted">无公开链接</span></div></li></ol></section>
+      <nav class="pager" aria-label="翻页"><a class="pager-prev" data-same-tab href="main-10-patterns.html"><span>上一页</span><strong>五种实施模式</strong></a><span class="pager-empty"></span></nav>
+
+      <footer class="page-foot">
+        <p>本教程为内部方法研究。案例已匿名化，数字标注【示例】。Palantir 官方资料版权归 Palantir Technologies，仅作改写与链接。</p>
+        <p class="muted">发现断链或事实错误？回到 <a href="appendix-sources.html" target="_blank" rel="noopener">来源与版权</a> 核对出处。</p>
+      </footer>
+    </article>
+  </main>
+
+  <aside class="toc" id="toc" aria-label="页内目录">
+    <p class="toc-title">本页目录</p><ol class="toc-list"><li class="toc-h2"><a href="#sec-origin">这八堂课从哪里来</a></li><li class="toc-h2"><a href="#sec-eight">八堂课速查</a><ul class="toc-sub"><li class="toc-h3"><a href="#lesson-1">第一课：FDE 是四层责任的叠加</a></li><li class="toc-h3"><a href="#lesson-2">第二课：先判断需不需要 FDE</a></li><li class="toc-h3"><a href="#lesson-3">第三课：客户带来方案，你要追出动作</a></li><li class="toc-h3"><a href="#lesson-4">第四课：流程地图要装下四类事实</a></li><li class="toc-h3"><a href="#lesson-5">第五课：写代码前先说清不做什么</a></li><li class="toc-h3"><a href="#lesson-6">第六课：代码越便宜，越要克制</a></li><li class="toc-h3"><a href="#lesson-7">第七课：客户现场是最高保真评测集</a></li><li class="toc-h3"><a href="#lesson-8">第八课：模型不是系统</a></li></ul></li><li class="toc-h2"><a href="#sec-how">怎么用这八条</a></li><li class="toc-h2"><a href="#sec-boundary">证据边界</a></li><li class="toc-h2"><a href="#sec-pitfalls">常见坑</a></li></ol>
+  </aside>
+</div>
+
+<div class="tpl-modal" id="tpl-modal" hidden>
+  <div class="tpl-panel" role="dialog" aria-modal="true" aria-labelledby="tpl-title">
+    <header class="tpl-head">
+      <div class="tpl-heading">
+        <p class="tpl-kicker">模板阅读视图</p>
+        <h2 id="tpl-title">模板</h2>
+      </div>
+      <div class="tpl-actions">
+        <a class="tpl-open" id="tpl-open" href="#" target="_blank" rel="noopener">在新标签打开 ↗</a>
+        <button class="icon-btn" id="tpl-close" type="button" aria-label="关闭模板">✕</button>
+      </div>
+    </header>
+    <div class="tpl-body">
+      <iframe id="tpl-frame" title="模板内容" loading="lazy"></iframe>
+    </div>
+  </div>
+</div>
+
+<div class="search-modal" id="search-modal" hidden>
+  <div class="search-panel" role="dialog" aria-modal="true" aria-labelledby="search-title">
+    <div class="search-head">
+      <label id="search-title" class="sr-only" for="search-input">搜索教程</label>
+      <input id="search-input" type="search" placeholder="搜索概念、产物、模板、方法卡…" autocomplete="off">
+      <button class="icon-btn" id="search-close" type="button" aria-label="关闭搜索">✕</button>
+    </div>
+    <div id="search-results" class="search-results" aria-live="polite"></div>
+    <p class="search-hint">按 <kbd>/</kbd> 或 <kbd>Ctrl</kbd>+<kbd>K</kbd> 打开，<kbd>Esc</kbd> 关闭。索引完全离线。</p>
+  </div>
+</div>
+
+<noscript><p class="noscript-note">搜索与阅读进度需要 JavaScript；正文、目录和翻页仍可正常使用。可用浏览器查找（Ctrl+F）。</p></noscript>
+
+<script src="assets/search-index.js"></script>
+<script src="assets/viz-data.js"></script>
+<script src="assets/app.js"></script>
+<script src="assets/viz.js"></script>
+
+</body>
+</html>

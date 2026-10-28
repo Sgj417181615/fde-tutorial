@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>A00-03 范围与非范围 · FDE 模板库</title>
+<link rel="stylesheet" href="../../assets/course.css">
+</head>
+<body>
+<a class="skip-link" href="#main">跳到正文</a>
+<main class="main" id="main">
+<article class="article">
+<nav class="crumb" aria-label="面包屑">
+<a href="../../index.html">教程首页</a><span class="sep">/</span>
+<a href="../../appendix-templates.html">模板库</a><span class="sep">/</span>
+<span>空白模板</span>
+</nav>
+<header class="page-head">
+<div class="badges">
+<span class="badge badge-main">A00-03</span>
+<span class="badge">空白模板</span>
+<span class="badge badge-time">Markdown 阅读视图</span>
+</div>
+<h1>A00-03 范围与非范围</h1>
+<p class="page-question">这是模板的阅读视图，源文件是 <code>00-03_范围与非范围.md</code>。
+<a href="00-03_范围与非范围.md">下载 / 编辑 Markdown</a> · <a href="../../appendix-templates.html">返回模板库</a></p>
+</header>
+<div class="prose">
+<h2 id="tpl-sec-1">用途 / 何时用</h2>
+<p>在项目章程阶段、开始访谈和切片之前使用。把“这次做到哪里、明确不做什么、什么情况下需要改范围”写清楚，避免后续把相邻问题不断塞进同一轮验证。</p>
+<h2 id="tpl-sec-2">填写说明</h2>
+<ul>
+<li>“包含”写本轮要覆盖的流程、角色、数据粒度与时间范围。</li>
+<li>“不包含”写相邻但本轮不做的问题、系统和角色；每条说明为什么先不做。</li>
+<li>“边界条件”写范围成立的前提，例如数据可获得、用户在岗、权限已批。</li>
+<li>“依赖”写范围之外但必须到位的人、数据、系统或授权。</li>
+<li>“变更规则”写谁提出、谁批准、什么条件下允许扩大或缩小范围。</li>
+<li>范围变更后同步更新 A00-01 的版本与日期。</li>
+</ul>
+<h2 id="tpl-sec-3">字段</h2>
+<h3 id="tpl-sec-4">包含</h3>
+<p>（逐条列出本轮覆盖的流程、角色、数据粒度和时间范围）</p>
+<h3 id="tpl-sec-5">不包含</h3>
+<p>（逐条列出明确不做的内容，并写一句“为什么先不做”）</p>
+<h3 id="tpl-sec-6">边界条件</h3>
+<p>（范围成立的前提条件；写成可检查的陈述）</p>
+<h3 id="tpl-sec-7">依赖</h3>
+<p>（范围外但必须到位的人、数据、系统、权限；写责任方）</p>
+<h3 id="tpl-sec-8">变更规则</h3>
+<p>（提出人、批准人、触发条件、记录位置）</p>
+<h2 id="tpl-sec-9">质量门自检（G0）</h2>
+<ul>
+<li>[ ] “包含”能对应到具体流程、角色和数据粒度。</li>
+<li>[ ] “不包含”至少三条，且每条都有先不做的理由。</li>
+<li>[ ] 业务方已逐条确认“不包含”，不是团队单方面决定。</li>
+<li>[ ] 边界条件可检查，不写“视情况而定”。</li>
+<li>[ ] 每项依赖都有责任方和期望时间。</li>
+<li>[ ] 变更规则写清了提出人、批准人和记录位置。</li>
+<li>[ ] 范围变更后已同步更新项目一页纸的版本。</li>
+</ul>
+</div>
+<footer class="page-foot">
+<p class="muted">本页由 <code>_tools/build.py</code> 从 Markdown 自动生成，请改源文件而不是改这里。</p>
+</footer>
+</article>
+</main>
+</body>
+</html>

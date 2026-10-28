@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>A04-06 MVP范围与非范围（排班案例） · FDE 模板库</title>
+<link rel="stylesheet" href="../../assets/course.css">
+</head>
+<body>
+<a class="skip-link" href="#main">跳到正文</a>
+<main class="main" id="main">
+<article class="article">
+<nav class="crumb" aria-label="面包屑">
+<a href="../../index.html">教程首页</a><span class="sep">/</span>
+<a href="../../appendix-templates.html">模板库</a><span class="sep">/</span>
+<span>黄金样例</span>
+</nav>
+<header class="page-head">
+<div class="badges">
+<span class="badge badge-main">A04-06</span>
+<span class="badge">黄金样例</span>
+<span class="badge badge-time">Markdown 阅读视图</span>
+</div>
+<h1>A04-06 MVP范围与非范围（排班案例）</h1>
+<p class="page-question">这是模板的阅读视图，源文件是 <code>04-06_MVP范围与非范围_排班案例.md</code>。
+<a href="04-06_MVP范围与非范围_排班案例.md">下载 / 编辑 Markdown</a> · <a href="../../appendix-templates.html">返回模板库</a></p>
+</header>
+<div class="prose">
+<blockquote>
+<p>【示例】匿名化案例，数字均为示例；人名与机构均为化名。</p>
+</blockquote>
+<p>本样例直接采用 <code>_canon/case-bible.md</code> CB-09 的做、不做、待确认，并补上验收方式与五天边界。范围只支撑 S1 的 DC-1、DC-2 合并决策和 DC-4 审批；DC-3 只演示“发现缺口并登记处理”，不承诺把所有缺口清零。</p>
+<h2 id="tpl-sec-1">用途 / 何时用</h2>
+<p>在 FR、对象模型和生命周期基本确定后使用，锁定五天 Demo 的边界。范围写不清，五天就会被“顺手多做一点”拖垮；范围冻结后，新需求只记录，不临时塞进 Demo。</p>
+<h2 id="tpl-sec-2">包含</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th scope="col">编号</th>
+<th scope="col">包含项</th>
+<th scope="col">对应 FR</th>
+<th scope="col">验收方式</th>
+<th scope="col">通过标准</th>
+<th scope="col">验收人</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>M-01</td>
+<td>一个月、三个亚专科、四个人的真实脱敏数据</td>
+<td>FR-01～FR-05 的数据前置</td>
+<td>打开快照逐项核对</td>
+<td>三个亚专科（妇科、乳腺、消化）、四个人（王芳、李强、周敏、陈卓）、2026-10 月；姓名已化名，无联系方式</td>
+<td>陈静</td>
+</tr>
+<tr>
+<td>M-02</td>
+<td>额度全景与缺口</td>
+<td>FR-01</td>
+<td>同屏查看，并与额度表对照</td>
+<td>需求 56、额度 54、缺口 2；妇科 12/10/2、乳腺 22/22/0、消化 22/22/0</td>
+<td>陈静</td>
+</tr>
+<tr>
+<td>M-03</td>
+<td>人员分配到亚专科</td>
+<td>FR-02</td>
+<td>现场拖入或选择分配并保存</td>
+<td>保存后 Allocation 与 Quota.used 变化；超出可用天数或资质不符时被阻止并说明原因</td>
+<td>陈静</td>
+</tr>
+<tr>
+<td>M-04</td>
+<td>C1、C2 的识别与至少一个解决</td>
+<td>FR-03</td>
+<td>打开冲突面板，选择一个冲突处理</td>
+<td>C1 显示超出 1 天；C2 显示缺口 2 人天；至少一个在界面解决并留下调整记录</td>
+<td>陈静、赵岚</td>
+</tr>
+<tr>
+<td>M-05</td>
+<td>组长确认</td>
+<td>FR-04</td>
+<td>赵岚本人操作，不由 FDE 代点</td>
+<td>赵岚选择确认或提出调整；意见写回对应分配记录，陈静能看到</td>
+<td>赵岚</td>
+</tr>
+<tr>
+<td>M-06</td>
+<td>主任审批与写回后重新打开</td>
+<td>FR-05</td>
+<td>周主任批准后关闭再打开</td>
+<td>分配状态为已发布；额度已用与剩余同步更新；重新打开结果一致</td>
+<td>周主任</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>包含边界说明</strong>：M-01 的“真实”指真实月份脱敏快照，不是玩具数据；M-04 的“至少一个”意味着允许另一个缺口保留并登记，不假装两个都已清零。</p>
+<h2 id="tpl-sec-3">不包含</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th scope="col">编号</th>
+<th scope="col">不包含项</th>
+<th scope="col">原因</th>
+<th scope="col">若业务方强烈要求</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>N-01</td>
+<td>具体日期与班型的个人排班（S2）</td>
+<td>依赖 S1 的分配结果，五天做不完，且会引入新的日期冲突</td>
+<td>记录为下一轮切片，不在 Demo 加页面</td>
+</tr>
+<tr>
+<td>N-02</td>
+<td>自动优化算法或求解器</td>
+<td>规则与数据尚未验证，先做规则校验与冲突提示</td>
+<td>只给建议动作，不自动改分配</td>
+</tr>
+<tr>
+<td>N-03</td>
+<td>工资、绩效核算</td>
+<td>不在 S1 的决策链上，数据也不在本次授权范围</td>
+<td>明确拒绝并记录，不口头答应</td>
+</tr>
+<tr>
+<td>N-04</td>
+<td>与院内系统实时双向同步</td>
+<td>权限与接口未确认，先用快照加手工写回</td>
+<td>降级为本地对象写回加导出，并在 Demo 说明边界</td>
+</tr>
+<tr>
+<td>N-05</td>
+<td>移动端</td>
+<td>本轮以桌面端闭环为先，移动适配会分散五天精力</td>
+<td>列下一轮，不做“顺手适配”的承诺</td>
+</tr>
+<tr>
+<td>N-06</td>
+<td>S3 住院总轮转、S4 报表统计</td>
+<td>S3 无 S1 的决策闭环，S4 以查看为主、价值低</td>
+<td>记录到候选切片，不排期</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>一致性</strong>：S2、S3、S4 只出现在“不包含”和“可延后”，不在“包含”或“演示必需”中出现，避免同一功能两边都写。</p>
+<h2 id="tpl-sec-4">待确认</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th scope="col">事项</th>
+<th scope="col">影响</th>
+<th scope="col">当前假设</th>
+<th scope="col">负责人</th>
+<th scope="col">截止日期</th>
+<th scope="col">未确认时的处理</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>额度能否跨月结转</td>
+<td>影响缺口计算与 C2 的 2 人天能否跨月补</td>
+<td>不能结转</td>
+<td>孙老师（陈静跟进）</td>
+<td>D2</td>
+<td>按当月口径计算，C2 保持 2 人天，不借下月</td>
+</tr>
+<tr>
+<td>外部人员资质由谁认定</td>
+<td>影响 R-04 的校验强度</td>
+<td>由组长认定</td>
+<td>赵岚（陈静跟进）</td>
+<td>D2</td>
+<td>资质校验降级为提示，不阻断，标“待认定”</td>
+</tr>
+<tr>
+<td>临时调整是否走同一审批链</td>
+<td>影响生命周期与 Demo 边界</td>
+<td>走简化审批</td>
+<td>周主任（FDE 跟进）</td>
+<td>D3</td>
+<td>本轮只演示“发起调整”，不演示完整重审批</td>
+</tr>
+<tr>
+<td>写回院内系统需要什么权限</td>
+<td>影响 Demo 的写回路径</td>
+<td>先写回本地对象</td>
+<td>刘工</td>
+<td>D1（已到期；D3 前复核）</td>
+<td>本地对象写回加导出，Demo 明说未写回院内系统</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>与 D1 阶段门的区分</strong>：Q-01“12 人天是否含夜班”、Q-02“年假表能否导出”是 D1 的放行条件，已在 A03-07、A03-08 跟踪，必须在 D2 开工前关闭；本表不重复列出，避免同一问题在两处有不同截止日期。</p>
+<h2 id="tpl-sec-5">演示必需</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th scope="col">编号</th>
+<th scope="col">必需项</th>
+<th scope="col">没有它就无法走通什么</th>
+<th scope="col">失败替代</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D-01</td>
+<td>真实脱敏数据快照（3 亚专科、4 人、2026-10）</td>
+<td>无法让陈静用自己的月份操作，Demo 变成幻灯片</td>
+<td>离线快照加截图，标注数据日期</td>
+</tr>
+<tr>
+<td>D-02</td>
+<td>额度全景与缺口</td>
+<td>陈静无法判断从哪里开始调整，DC-1 没有输入</td>
+<td>打印额度表并口述缺口，不假装系统已算</td>
+</tr>
+<tr>
+<td>D-03</td>
+<td>人员分配与硬约束校验</td>
+<td>DC-2 无法完成，C1 无法被拦住</td>
+<td>手工演示校验规则并标“未实现”</td>
+</tr>
+<tr>
+<td>D-04</td>
+<td>C1、C2 识别与至少一个解决</td>
+<td>看不到“总量够但结构不对”的价值</td>
+<td>只演示识别与登记，不谎称已解决</td>
+</tr>
+<tr>
+<td>D-05</td>
+<td>组长确认、主任审批与写回重开</td>
+<td>决策闭环断在审批，无法证明写回可见</td>
+<td>周主任缺席时次日补审批，不假装已批准</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>上限</strong>：演示必需五条，不再增加。任何新增项先进入“待确认”或“可延后”，经周主任确认后才可能替换现有条目。</p>
+<h2 id="tpl-sec-6">可延后</h2>
+<ul>
+<li>条目：额度跨月结转计算；延后条件：孙老师确认规则并在 D2 前书面回复，未回复则按“不结转”演示并标注假设。</li>
+<li>条目：临时调整的完整审批链；延后条件：周主任在 D3 前确认是否同链，未确认则只演示“发起调整”。</li>
+<li>条目：院内系统实时写回；延后条件：刘工确认权限；未确认则本地对象写回加导出，Demo 明说边界。</li>
+<li>条目：S2 个人排班与换班；延后条件：S1 分配结果稳定写回，且周主任认可继续（CB-18 的下一轮切片）。</li>
+<li>条目：移动端；延后条件：桌面端闭环验收通过后单独立项，不在本轮做响应式承诺。</li>
+<li>条目：S4 报表统计；延后条件：S1 稳定运行一个月后再评估，先不做自动报表。</li>
+</ul>
+<h2 id="tpl-sec-7">五天边界</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th scope="col">日期</th>
+<th scope="col">范围内</th>
+<th scope="col">边界外（当天不做）</th>
+<th scope="col">检查点</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D1</td>
+<td>现场观察、证据台账、基线、D1 阶段门</td>
+<td>不设计界面、不写 FR、不承诺降幅</td>
+<td>17:00 陈静看证据与基线；Q-01、Q-02 登记</td>
+</tr>
+<tr>
+<td>D2</td>
+<td>As-is、四层规则库、切片打分、S1 one-pager、D2 输入</td>
+<td>不扩到 S2、不做报表、不做移动端</td>
+<td>Q-01、Q-02 关闭；17:00 展示增量</td>
+</tr>
+<tr>
+<td>D3</td>
+<td>决策清单、对象模型、生命周期、FR、增强与界面、MVP 范围</td>
+<td>不做优化算法、不做院内实时同步</td>
+<td>范围冻结；17:00 展示并确认不做清单</td>
+</tr>
+<tr>
+<td>D4</td>
+<td>数据快照、Demo 脚本、端到端排练</td>
+<td>不新增功能，只修阻塞缺陷</td>
+<td>C1/C2 至少一个走通；确认周主任能否到场</td>
+</tr>
+<tr>
+<td>D5</td>
+<td>最终彩排、正式 Demo、复盘</td>
+<td>不承诺未复测的降幅，不把“有条件”说成“已完成”</td>
+<td>Demo 当场；写回后重新打开核对</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="tpl-sec-8">范围一致性检查</h2>
+<ul>
+<li>包含六项与不包含六项没有重叠；S2 只在“不包含”和“可延后”出现。</li>
+<li>演示必需五条全部来自包含项，没有额外功能；删除任一必需项都会导致 DC-1、DC-2 或 DC-4 走不通。</li>
+<li>待确认四项都有负责人、截止日期和未确认时的降级处理，不留“以后再说”。</li>
+<li>五天边界与 A05-02 一致；D3 冻结后新增需求只记录，不实现，不临时扩大 Demo。</li>
+<li>若 Q-01、Q-02 在 D2 前未关闭，D2 不进入方案设计，五天计划顺延补证，而不是带着错误口径往下做。</li>
+</ul>
+</div>
+<footer class="page-foot">
+<p class="muted">本页由 <code>_tools/build.py</code> 从 Markdown 自动生成，请改源文件而不是改这里。</p>
+</footer>
+</article>
+</main>
+</body>
+</html>

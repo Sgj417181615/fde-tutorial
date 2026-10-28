@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>A04-02 功能需求FR_排班案例 · FDE 模板库</title>
+<link rel="stylesheet" href="../../assets/course.css">
+</head>
+<body>
+<a class="skip-link" href="#main">跳到正文</a>
+<main class="main" id="main">
+<article class="article">
+<nav class="crumb" aria-label="面包屑">
+<a href="../../index.html">教程首页</a><span class="sep">/</span>
+<a href="../../appendix-templates.html">模板库</a><span class="sep">/</span>
+<span>黄金样例</span>
+</nav>
+<header class="page-head">
+<div class="badges">
+<span class="badge badge-main">A04-02</span>
+<span class="badge">黄金样例</span>
+<span class="badge badge-time">Markdown 阅读视图</span>
+</div>
+<h1>A04-02 功能需求FR_排班案例</h1>
+<p class="page-question">这是模板的阅读视图，源文件是 <code>04-02_功能需求FR_排班案例.md</code>。
+<a href="04-02_功能需求FR_排班案例.md">下载 / 编辑 Markdown</a> · <a href="../../appendix-templates.html">返回模板库</a></p>
+</header>
+<div class="prose">
+<blockquote>
+<p>【示例】匿名化案例，数字均为示例。需求取自 <code>_canon/case-bible.md</code>（CB-07），证据 ID 取自 CB-14；不新增人名、系统名或数字。</p>
+</blockquote>
+<p>本样例把 S1 的 DC-1、DC-2 决策落成五条可验收的功能需求。E-06 仍是“待验证”，不能当成已确认事实。</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th scope="col">FR编号</th>
+<th scope="col">用户</th>
+<th scope="col">界面</th>
+<th scope="col">输入</th>
+<th scope="col">决策</th>
+<th scope="col">动作</th>
+<th scope="col">验收标准</th>
+<th scope="col">证据ID</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>FR-01</td>
+<td>陈静</td>
+<td>月度额度分配－额度全景</td>
+<td>月份、各亚专科需求、额度、已分配、剩余、缺口</td>
+<td>从哪里开始调整</td>
+<td>查看并选择亚专科</td>
+<td>同一屏能看到三个亚专科的需求、额度、已分配、剩余与缺口</td>
+<td>E-01</td>
+</tr>
+<tr>
+<td>FR-02</td>
+<td>陈静</td>
+<td>月度额度分配－人员池与亚专科分配</td>
+<td>人员可用天数、资质、可上班型、人天</td>
+<td>某人分到哪个亚专科、分几天</td>
+<td>把人拖入亚专科并保存</td>
+<td>超出可用天数或资质不符时阻止保存并说明原因</td>
+<td>E-06（待验证）</td>
+</tr>
+<tr>
+<td>FR-03</td>
+<td>陈静</td>
+<td>月度额度分配－冲突面板</td>
+<td>分配记录、额度、规则 R-03、R-05</td>
+<td>如何处理超排或缺口</td>
+<td>查看冲突类型、对象、差额与建议动作</td>
+<td>C1 与 C2 被识别，分别显示超出 1 天与缺口 2 人天</td>
+<td>E-03、E-06</td>
+</tr>
+<tr>
+<td>FR-04</td>
+<td>赵岚</td>
+<td>组长视图</td>
+<td>本组分配、需求</td>
+<td>确认还是提出调整</td>
+<td>点击确认或填写意见</td>
+<td>意见写回对应分配记录，陈静能看到</td>
+<td>E-03</td>
+</tr>
+<tr>
+<td>FR-05</td>
+<td>周主任</td>
+<td>审批视图</td>
+<td>冲突状态、总额度、已分配</td>
+<td>批准还是退回</td>
+<td>点击批准</td>
+<td>分配状态变为已发布，额度已用与剩余同步更新</td>
+<td>E-04</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>自检</strong>：五条 FR 各自只承载一个决策；界面都落到具体屏幕；验收标准都能现场观察。FR-02 依赖的 E-06 仍待本人或人事确认，演示时只能显示“待验证”的来源，不能写成已核实。</p>
+</div>
+<footer class="page-foot">
+<p class="muted">本页由 <code>_tools/build.py</code> 从 Markdown 自动生成，请改源文件而不是改这里。</p>
+</footer>
+</article>
+</main>
+</body>
+</html>

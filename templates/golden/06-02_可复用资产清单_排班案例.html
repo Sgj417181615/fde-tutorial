@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>A06-02 可复用资产清单（排班案例） · FDE 模板库</title>
+<link rel="stylesheet" href="../../assets/course.css">
+</head>
+<body>
+<a class="skip-link" href="#main">跳到正文</a>
+<main class="main" id="main">
+<article class="article">
+<nav class="crumb" aria-label="面包屑">
+<a href="../../index.html">教程首页</a><span class="sep">/</span>
+<a href="../../appendix-templates.html">模板库</a><span class="sep">/</span>
+<span>黄金样例</span>
+</nav>
+<header class="page-head">
+<div class="badges">
+<span class="badge badge-main">A06-02</span>
+<span class="badge">黄金样例</span>
+<span class="badge badge-time">Markdown 阅读视图</span>
+</div>
+<h1>A06-02 可复用资产清单（排班案例）</h1>
+<p class="page-question">这是模板的阅读视图，源文件是 <code>06-02_可复用资产清单_排班案例.md</code>。
+<a href="06-02_可复用资产清单_排班案例.md">下载 / 编辑 Markdown</a> · <a href="../../appendix-templates.html">返回模板库</a></p>
+</header>
+<div class="prose">
+<blockquote>
+<p>【示例】匿名化案例，数字均为示例；人名与机构均为化名。
+资产事实取自 <code>_canon/case-bible.md</code>（CB-02、CB-04、CB-05、CB-06、CB-07、CB-14、CB-15、CB-16、CB-17）。</p>
+</blockquote>
+<p>本清单盘点 S1“外部人员额度分配”留下的 8 项资产。位置均指本教程仓库内可访问的文件；所有案例数据已匿名化，资产中不包含客户原始数据。可复用不等于可直接复制到生产，每项都写清前置条件与已知限制。</p>
+<h2 id="tpl-sec-1">字段</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th scope="col">资产</th>
+<th scope="col">类型</th>
+<th scope="col">位置</th>
+<th scope="col">复用条件</th>
+<th scope="col">已知限制</th>
+<th scope="col">所有者</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>额度分配对象模型</td>
+<td>文档</td>
+<td><code>templates/golden/04-03_对象模型_排班案例.md</code>；事实源 <code>_canon/case-bible.md</code> 的 CB-05</td>
+<td>场景是“月度额度→亚专科→人员”的两级分配；至少需要 Person、Subspecialty、Quota、Allocation、Conflict 五类对象；先确认额度口径与可用天数来源</td>
+<td>只覆盖人天与亚专科，不含日期、班型、换班对象，不能直接支撑 S2；字段需按客户术语表改名；跨月结转未建模</td>
+<td>FDE 方法组</td>
+</tr>
+<tr>
+<td>冲突规则集（超排/缺口/资质）</td>
+<td>规则</td>
+<td><code>_canon/case-bible.md</code> 的 CB-15；落地表 <code>templates/blank/03-04_规则库.md</code></td>
+<td>已区分硬约束、软偏好与优化目标；能拿到可用天数、额度、资质三类输入；每条规则有业务确认人</td>
+<td>资质认定口径未统一，仍在回流账本试点；只做规则校验，不做求解器；R-07、R-08 是优化目标，不能当硬约束</td>
+<td>赵岚（业务口径）、FDE（规则结构）</td>
+</tr>
+<tr>
+<td>三栏界面（额度全景 + 人员池 + 冲突面板）</td>
+<td>组件</td>
+<td><code>templates/blank/04-05_增强与界面.md</code>；交互依据 <code>_canon/case-bible.md</code> 的 CB-04、CB-07</td>
+<td>决策是“分多少、分给谁”，能在一屏内同时看到总额度、缺口与冲突；有明确的写回动作</td>
+<td>不是可复用前端代码，只是布局与交互规格；窄屏需改为分步；依赖冲突规则的输出质量</td>
+<td>FDE 方法组</td>
+</tr>
+<tr>
+<td>双轴证据台账</td>
+<td>模板</td>
+<td><code>templates/golden/02-04_证据台账_排班案例.md</code>；口径 <code>_canon/case-bible.md</code> 的 CB-14</td>
+<td>访谈与观察记录需要区分“访谈状态 × 权威性”；每条证据有来源、影响决策与待确认项</td>
+<td>双轴是判断工具，不是证据分级标准；“待验证/待确认”不能直接用于结论；需在 D2 前补齐负责人与截止</td>
+<td>陈静（业务侧）、FDE</td>
+</tr>
+<tr>
+<td>五道门检查表</td>
+<td>模板</td>
+<td><code>templates/blank/05-01_五道门检查表.md</code>；案例结果 <code>_canon/case-bible.md</code> 的 CB-16</td>
+<td>五天验证开始前与 D5 各做一次；每道门有可核查证据；有条件项写负责人与截止</td>
+<td>五道门是准入检查，不衡量方案价值；本案第 4 门只是“有条件通过”；不能替代阶段门记录</td>
+<td>FDE 方法组</td>
+</tr>
+<tr>
+<td>候选切片打分表</td>
+<td>模板</td>
+<td><code>templates/golden/03-03_候选切片与打分_排班案例.md</code>；切片事实 <code>_canon/case-bible.md</code> 的 CB-02</td>
+<td>有 3–4 个候选切片，且每个能写出一句话最终决策；评分口径固定为价值、可行性、证据强度，风险单列</td>
+<td>分值是定性等级的 1–3 映射，不是精确测算；硬门槛先于总分；不同项目之间不可横向比较分数</td>
+<td>FDE 方法组</td>
+</tr>
+<tr>
+<td>生命周期与写回规格</td>
+<td>文档</td>
+<td><code>templates/golden/04-04_生命周期与写回_排班案例.md</code>；事实源 <code>_canon/case-bible.md</code> 的 CB-06</td>
+<td>每个状态迁移对应真实 Action 与写回字段；用户能在界面完成迁移；有失败回退与操作人权限</td>
+<td>本案只验证了本地对象写回，院内系统未写回；状态机未覆盖跨月结转与撤销；需按客户审批链调整</td>
+<td>刘工（权限）、FDE</td>
+</tr>
+<tr>
+<td>Demo 脚本与数据清单</td>
+<td>模板</td>
+<td><code>templates/golden/05-06_Demo脚本_排班案例.md</code>；<code>templates/blank/05-07_Demo数据清单.md</code>；事实源 CB-17</td>
+<td>8 分钟、5 个环节，每环节有失败替代；数据快照已脱敏；由业务方本人操作</td>
+<td>时间与台词是示例，需按客户现场重排；快照日期固定，不能当实时数据；审批人缺席时只能“次日补审批”</td>
+<td>陈静（操作）、FDE</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="tpl-sec-2">复用顺序</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th scope="col">步骤</th>
+<th scope="col">先看什么</th>
+<th scope="col">产出</th>
+<th scope="col">不要做什么</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1 判场景</td>
+<td>候选切片打分表；确认是否只有一个最终决策</td>
+<td>一句话决策与切片结论</td>
+<td>不要先搭页面或接数据</td>
+</tr>
+<tr>
+<td>2 定对象</td>
+<td>对象模型；核对额度、人员、冲突三类对象</td>
+<td>对象清单与关系基数</td>
+<td>不要把源系统表结构整张照搬</td>
+</tr>
+<tr>
+<td>3 定规则</td>
+<td>冲突规则集；标出硬约束与优化目标</td>
+<td>硬约束拦截点与例外</td>
+<td>不要把优化目标写成硬约束</td>
+</tr>
+<tr>
+<td>4 定界面与写回</td>
+<td>三栏界面规格、生命周期与写回规格</td>
+<td>一屏决策路径与写回字段</td>
+<td>不要只弹提示、不写回</td>
+</tr>
+<tr>
+<td>5 定验证</td>
+<td>五道门检查表、Demo 脚本与数据清单</td>
+<td>准入结论与演示脚本</td>
+<td>不要用玩具数据或代操作</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="tpl-sec-3">资产与五道门的对应</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th scope="col">门</th>
+<th scope="col">支撑资产</th>
+<th scope="col">复用时确认什么</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1 窄决策</td>
+<td>候选切片打分表、one-pager 相关模板</td>
+<td>是否只有一个最终决策，S3、S4 是否被排除</td>
+</tr>
+<tr>
+<td>2 三方人马</td>
+<td>五道门检查表、双轴证据台账</td>
+<td>业务、数据、应用三方是否都有名有角色</td>
+</tr>
+<tr>
+<td>3 真实数据权限</td>
+<td>双轴证据台账、Demo 数据清单</td>
+<td>是否有书面授权与脱敏方案</td>
+</tr>
+<tr>
+<td>4 可演示底座</td>
+<td>对象模型、生命周期与写回规格、三栏界面</td>
+<td>能否装快照、能否写回、失败如何降级</td>
+</tr>
+<tr>
+<td>5 每日展示</td>
+<td>五道门检查表</td>
+<td>展示时点、参与人与增量是否固定</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="tpl-sec-4">复用前检查</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th scope="col">检查项</th>
+<th scope="col">通过标准</th>
+<th scope="col">本案状态</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>数据脱敏</td>
+<td>人名、机构、联系方式已替换；原始数据不入库</td>
+<td>通过，全部为化名与示例值</td>
+</tr>
+<tr>
+<td>术语一致</td>
+<td>亚专科、额度、分配、冲突在对象、规则、界面中同名</td>
+<td>通过，统一使用 CB-05 术语</td>
+</tr>
+<tr>
+<td>规则有确认人</td>
+<td>每条硬约束有业务确认人与例外处理</td>
+<td>部分通过，资质口径仍在试点</td>
+</tr>
+<tr>
+<td>写回边界写明</td>
+<td>明确本地对象与院内系统各自写什么、不写什么</td>
+<td>通过，院内系统标注“未写回”</td>
+</tr>
+<tr>
+<td>所有者明确</td>
+<td>每项资产有维护角色，不是“某人电脑里”</td>
+<td>通过</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="tpl-sec-5">不纳入清单</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th scope="col">项</th>
+<th scope="col">原因</th>
+<th scope="col">处理</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>妇科特殊借调规则</td>
+<td>仅出现 1 次，属客户特例</td>
+<td>留在客户配置，不产品化</td>
+</tr>
+<tr>
+<td>客户原始 Excel、微信记录、排班本照片</td>
+<td>含敏感数据，不可入库</td>
+<td>验证结束后按授权销毁副本，只保留脱敏汇总</td>
+</tr>
+<tr>
+<td>一次性演示话术</td>
+<td>不可跨场景复用</td>
+<td>放入 Demo 脚本备注，不作为独立资产</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="tpl-sec-6">维护约定</h2>
+<ul>
+<li>每次项目复盘后 3 个工作日内更新本清单，新增资产必须写位置、复用条件与限制。</li>
+<li>修改黄金样例时，同步检查对应空白模板字段是否仍匹配。</li>
+<li>已知限制只能补充、不能删除；限制消失时写清验证证据。</li>
+<li>资产所有者变更时登记新角色与生效时间。</li>
+<li>任何资产不得包含客户敏感数据；示例数据必须标注【示例】。</li>
+</ul>
+</div>
+<footer class="page-foot">
+<p class="muted">本页由 <code>_tools/build.py</code> 从 Markdown 自动生成，请改源文件而不是改这里。</p>
+</footer>
+</article>
+</main>
+</body>
+</html>

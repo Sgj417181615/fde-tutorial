@@ -1,0 +1,777 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<title>术语表 · FDE 零基础教程</title>
+<meta name="description" content="教程出现的核心术语、英文名、定义与首次解释页。">
+<link rel="stylesheet" href="assets/course.css">
+<script>
+(function () {
+  try {
+    var saved = localStorage.getItem('fde-theme');
+    var theme = saved || (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+    document.documentElement.dataset.theme = theme;
+  } catch (e) {}
+})();
+</script>
+</head>
+<body class="track-appendix page-appendix-glossary">
+<a class="skip-link" href="#main">跳到正文</a>
+
+<header class="topbar">
+  <button class="icon-btn nav-toggle" id="nav-toggle" type="button" aria-expanded="false" aria-controls="sidebar" aria-label="打开课程目录">
+    <span aria-hidden="true">☰</span>
+  </button>
+  <a class="brand" data-same-tab href="index.html"><span class="brand-mark">FDE</span><span class="brand-text">零基础教程</span></a>
+  <nav class="track-switch" aria-label="模块切换"><a class="track-link" data-same-tab href="index.html" title="从零建立完整心智模型">主线</a><a class="track-link" data-same-tab href="work-01-prep.html" title="现场查用：输入、步骤、输出、阶段门">工作台</a><a class="track-link" data-same-tab href="day1-00-overview.html" title="六步链路：简报 → 访谈 → 证据 → 底稿 → 门">Day1</a><a class="track-link" data-same-tab href="appendix-methods.html" title="一卡一问，按阶段、产物、角色查">方法库</a><span class="track-link active" aria-current="true" title="模板、产物链、术语与来源">附录</span></nav>
+  <div class="top-actions">
+    <button class="search-open" id="search-open" type="button" aria-haspopup="dialog">
+      <span aria-hidden="true">⌕</span><span class="search-label">搜索</span><kbd>/</kbd>
+    </button>
+    <button class="icon-btn" id="theme-toggle" type="button" aria-label="切换深浅色">◐</button>
+  </div>
+  <div class="read-progress" aria-hidden="true"><span id="read-progress"></span></div>
+</header>
+
+<div class="layout">
+  <aside class="sidebar" id="sidebar">
+    <nav class="course-tree" aria-label="课程目录"><header class="side-head"><p class="side-eyebrow">当前模块</p><p class="side-title">附录</p><p class="side-caption">模板、产物链、术语与来源</p><p class="side-meta">5 页<span class="dot">·</span>随时查</p></header><section class="nav-group nav-group-plain"><a class="nav-link" data-same-tab href="appendix-templates.html">模板库</a><a class="nav-link" data-same-tab href="appendix-artifacts.html">产物链与档案</a><a class="nav-link" data-same-tab href="appendix-methods.html">方法库</a><span class="nav-link nav-current" aria-current="page">术语表</span><a class="nav-link" data-same-tab href="appendix-sources.html">来源与版权</a></section></nav>
+  </aside>
+  <button class="scrim" id="scrim" type="button" aria-label="关闭目录" hidden></button>
+
+  <main class="main" id="main">
+    <nav class="crumb" aria-label="面包屑"><a data-same-tab href="index.html">教程</a><span class="sep">/</span><span>附录</span><span class="sep">/</span><span aria-current="page">术语表</span></nav>
+    <article class="article">
+      <header class="page-head">
+        <div class="badges"><span class="badge badge-appendix">查用</span><span class="badge badge-time">5 分钟</span></div>
+        <h1>术语表</h1>
+        <p class="lede">教程出现的核心术语、英文名、定义与首次解释页。</p>
+        <p class="page-question"><span class="eyebrow">本页要回答</span>这个词是什么意思，第一次在哪页讲过？</p>
+        <div class="page-meta">
+          <section class="meta-block">
+            <h2 class="meta-title" id="meta-objectives">读完你能</h2>
+            <ul class="objective-list"><li>查到一个术语的定义与 owner 页；</li><li>区分容易混淆的相邻术语；</li><li>回到首次解释页补上下文。</li></ul>
+          </section>
+          <section class="meta-block">
+            <h2 class="meta-title" id="meta-prereq">前置</h2>
+            <p><span class="muted">无前置，从本页开始。</span></p>
+          </section>
+        </div>
+      </header>
+
+      <div class="prose">
+        <p>常用术语第一次出现时，正文会给出中文、英文和一句人话解释；这一页是检索入口。遇到正文一带而过、或者你想确认某个词到底指什么的，以这里的定义为准。</p>
+<p>表格按阶段和主题分组。<strong>首次解释页</strong>是 owner（首次系统解释它的页面），不是唯一出现页。想补上下文，点 owner 链接回去；相邻词的分界通常写在“一句话解释”的后半句。</p>
+<p>想离线查或导入 Excel，可以整包下载：</p>
+<div class="viz-embed"><div class="download-grid" role="list"><a class="download-card" role="listitem" href="downloads/fde-glossary.zip" target="_blank" rel="noopener"><span class="download-count">89 条</span><strong>术语速查表</strong><span class="download-desc">Markdown 与 CSV 两版，按中文、英文、解释、主责页面排列，可直接检索。</span><span class="download-file">fde-glossary.zip</span></a></div><p class="download-note">全部为离线 zip：解压即用，不联网、不需要安装。模板是 Markdown 文件，用任意文本编辑器或 Obsidian 打开。工具包下载在 <a href="day1-00-overview.html#sec-toolkit" target="_blank" rel="noopener">Day1 总览</a>。</p></div>
+
+<div class="checkpoint">
+<p><strong>停一下</strong>：如果你要找的词不在表里，先别造词。把原话记进证据台账，标【待确认】，再回来对照相邻术语。</p>
+</div>
+<h2 id="glossary-roles">角色与协作方式</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th scope="col">中文</th>
+<th scope="col">英文</th>
+<th scope="col">一句话解释</th>
+<th scope="col">首次解释页（owner）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>FDE</td>
+<td>Forward Deployed Engineer</td>
+<td>驻客户现场、用工程解决业务问题并对结果负责。</td>
+<td><a href="main-01-fde.html" target="_blank" rel="noopener">FDE 是什么，不是什么</a></td>
+</tr>
+<tr>
+<td>Delta</td>
+<td>Delta</td>
+<td>Palantir 对偏现场写代码的 FDE/FDSE 代号。</td>
+<td><a href="main-01-fde.html" target="_blank" rel="noopener">FDE 是什么，不是什么</a></td>
+</tr>
+<tr>
+<td>Echo</td>
+<td>Deployment Strategist</td>
+<td>Palantir 对偏业务定义与价值框定的策略师代号。</td>
+<td><a href="main-01-fde.html" target="_blank" rel="noopener">FDE 是什么，不是什么</a></td>
+</tr>
+<tr>
+<td>Dev</td>
+<td>Platform Engineer</td>
+<td>服务多个客户、做通用平台能力的工程师。</td>
+<td><a href="main-01-fde.html" target="_blank" rel="noopener">FDE 是什么，不是什么</a></td>
+</tr>
+<tr>
+<td>AIP Bootcamp</td>
+<td>AIP Bootcamp</td>
+<td>Palantir 1–5 天售前工作坊，目标是从零到用例。</td>
+<td><a href="main-01-fde.html" target="_blank" rel="noopener">FDE 是什么，不是什么</a></td>
+</tr>
+<tr>
+<td>AIP</td>
+<td>Artificial Intelligence Platform</td>
+<td>Palantir 的 AI 平台，教程只在背景处提及。</td>
+<td><a href="main-01-fde.html" target="_blank" rel="noopener">FDE 是什么，不是什么</a></td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="glossary-demand">需求、切片与验证节奏</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th scope="col">中文</th>
+<th scope="col">英文</th>
+<th scope="col">一句话解释</th>
+<th scope="col">首次解释页（owner）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>用例</td>
+<td>Use Case</td>
+<td>限期内为一组用户交付新能力的一次努力。</td>
+<td><a href="main-02-slicing.html" target="_blank" rel="noopener">把“系统”切成可验证的决策</a></td>
+</tr>
+<tr>
+<td>切片</td>
+<td>Slice</td>
+<td>围绕一个最终决策的端到端验证单元；写不出决策的只是功能。</td>
+<td><a href="main-02-slicing.html" target="_blank" rel="noopener">把“系统”切成可验证的决策</a></td>
+</tr>
+<tr>
+<td>最薄切片</td>
+<td>Thin Slice</td>
+<td>真实数据、真实用户、一次真实决策的最短路径。</td>
+<td><a href="main-02-slicing.html" target="_blank" rel="noopener">把“系统”切成可验证的决策</a></td>
+</tr>
+<tr>
+<td>决策</td>
+<td>Decision</td>
+<td>在候选方案中选一个并承担后果；查看不算。</td>
+<td><a href="main-03-as-is.html" target="_blank" rel="noopener">看清今天实际怎么运转</a></td>
+</tr>
+<tr>
+<td>五道门</td>
+<td>Five Gates</td>
+<td>开始五天验证前必须通过的五个条件。</td>
+<td><a href="main-07-gates.html" target="_blank" rel="noopener">开始前的五道门</a></td>
+</tr>
+<tr>
+<td>合作约定</td>
+<td>Engagement Contract</td>
+<td>一页写清验证做什么、不做什么、何时停。</td>
+<td><a href="main-07-gates.html" target="_blank" rel="noopener">开始前的五道门</a></td>
+</tr>
+<tr>
+<td>SOW</td>
+<td>Statement of Work</td>
+<td>正式工作说明书；合作约定不是 SOW，也不替代合同。</td>
+<td><a href="main-07-gates.html" target="_blank" rel="noopener">开始前的五道门</a></td>
+</tr>
+<tr>
+<td>切片约定</td>
+<td>Thin-slice Contract</td>
+<td>写清最薄切片的边界、数据、通过标准和责任人。</td>
+<td><a href="main-07-gates.html" target="_blank" rel="noopener">开始前的五道门</a></td>
+</tr>
+<tr>
+<td>演示就绪卡</td>
+<td>Demo Readiness Card</td>
+<td>演示前六项 Go/No-Go 检查，缺一项不开会。</td>
+<td><a href="main-07-gates.html" target="_blank" rel="noopener">开始前的五道门</a></td>
+</tr>
+<tr>
+<td>关键绩效指标</td>
+<td>Key Performance Indicator</td>
+<td>有定义、基线、目标和测量方式的指标。</td>
+<td><a href="main-07-gates.html" target="_blank" rel="noopener">开始前的五道门</a></td>
+</tr>
+<tr>
+<td>基线</td>
+<td>Baseline</td>
+<td>改造前实测的当前值；没有它不能称改善。</td>
+<td><a href="work-01-prep.html" target="_blank" rel="noopener">调研前 7 天</a></td>
+</tr>
+<tr>
+<td>最小可用版本</td>
+<td>Minimum Viable Product</td>
+<td>能进入真实工作并持续使用的最小版本。</td>
+<td><a href="main-08-five-days.html" target="_blank" rel="noopener">Day1–5 每天做什么</a></td>
+</tr>
+<tr>
+<td>最小可行演示</td>
+<td>Minimum Viable Demo</td>
+<td>只为一次真实决策演示服务的最小版本。</td>
+<td><a href="main-08-five-days.html" target="_blank" rel="noopener">Day1–5 每天做什么</a></td>
+</tr>
+<tr>
+<td>切片打分卡</td>
+<td>Slice Scorecard</td>
+<td>用价值、可行性、证据、风险给切片打分。</td>
+<td><a href="work-04-model.html" target="_blank" rel="noopener">从证据到模型</a></td>
+</tr>
+<tr>
+<td>结果合同</td>
+<td>Outcome Contract</td>
+<td>把“要系统”改写成“要改善什么结果”。</td>
+<td><a href="work-01-prep.html" target="_blank" rel="noopener">调研前 7 天</a></td>
+</tr>
+<tr>
+<td>最短行动闭环</td>
+<td>Shortest Action Loop</td>
+<td>真实用户用真实数据完成一次有价值动作。</td>
+<td><a href="work-04-model.html" target="_blank" rel="noopener">从证据到模型</a></td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="glossary-as-is">现状、决策与一页纸</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th scope="col">中文</th>
+<th scope="col">英文</th>
+<th scope="col">一句话解释</th>
+<th scope="col">首次解释页（owner）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>现状</td>
+<td>As-is</td>
+<td>今天实际怎么运转，含等待、切换和例外。</td>
+<td><a href="main-03-as-is.html" target="_blank" rel="noopener">看清今天实际怎么运转</a></td>
+</tr>
+<tr>
+<td>泳道图</td>
+<td>Swimlane Diagram</td>
+<td>按角色分泳道、按时点排步骤的图。</td>
+<td><a href="main-03-as-is.html" target="_blank" rel="noopener">看清今天实际怎么运转</a></td>
+</tr>
+<tr>
+<td>一页纸</td>
+<td>Use Case One-pager</td>
+<td>把范围、决策、相关方和指标压在一页内。</td>
+<td><a href="main-04-one-pager.html" target="_blank" rel="noopener">一页纸对齐范围</a></td>
+</tr>
+<tr>
+<td>决策清单</td>
+<td>Decision List</td>
+<td>逐条列出决策、决策人、时点和动作。</td>
+<td><a href="main-04-one-pager.html" target="_blank" rel="noopener">一页纸对齐范围</a></td>
+</tr>
+<tr>
+<td>功能需求</td>
+<td>Functional Requirement (FR)</td>
+<td>用“谁—界面—输入—决策—动作”写成的验收句。</td>
+<td><a href="main-05-fr.html" target="_blank" rel="noopener">把决策写成一句可验收的 FR</a></td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="glossary-solution">方案设计与对象建模</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th scope="col">中文</th>
+<th scope="col">英文</th>
+<th scope="col">一句话解释</th>
+<th scope="col">首次解释页（owner）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>方案设计</td>
+<td>Solution Design</td>
+<td>把功能需求拆成对象、生命周期、增强和界面。</td>
+<td><a href="main-06-solution.html" target="_blank" rel="noopener">方案设计四件套</a></td>
+</tr>
+<tr>
+<td>对象模型</td>
+<td>Object Model</td>
+<td>用对象、关系和基数描述业务语义。</td>
+<td><a href="main-06-solution.html" target="_blank" rel="noopener">方案设计四件套</a></td>
+</tr>
+<tr>
+<td>生命周期图</td>
+<td>Lifecycle Diagram</td>
+<td>描述对象状态及 Action 迁移的图。</td>
+<td><a href="main-06-solution.html" target="_blank" rel="noopener">方案设计四件套</a></td>
+</tr>
+<tr>
+<td>数据增强</td>
+<td>Enrichment</td>
+<td>为支撑决策输入而补充的派生概念。</td>
+<td><a href="main-06-solution.html" target="_blank" rel="noopener">方案设计四件套</a></td>
+</tr>
+<tr>
+<td>界面意图</td>
+<td>Interface Expectation</td>
+<td>先写用户意图，再选实现工具。</td>
+<td><a href="main-06-solution.html" target="_blank" rel="noopener">方案设计四件套</a></td>
+</tr>
+<tr>
+<td>本体</td>
+<td>Ontology</td>
+<td>把业务对象、关系和可执行动作建模的语义层。</td>
+<td><a href="main-06-solution.html" target="_blank" rel="noopener">方案设计四件套</a></td>
+</tr>
+<tr>
+<td>写回</td>
+<td>Write-back</td>
+<td>界面动作真正修改对象数据，而不只是切页面。</td>
+<td><a href="main-06-solution.html" target="_blank" rel="noopener">方案设计四件套</a></td>
+</tr>
+<tr>
+<td>Core 对象</td>
+<td>Core Object</td>
+<td>直接映射源系统一个数据粒度的对象。</td>
+<td><a href="main-06-solution.html" target="_blank" rel="noopener">方案设计四件套</a></td>
+</tr>
+<tr>
+<td>Derived 对象</td>
+<td>Derived Object</td>
+<td>源系统没有、需计算或人工维护的对象。</td>
+<td><a href="main-06-solution.html" target="_blank" rel="noopener">方案设计四件套</a></td>
+</tr>
+<tr>
+<td>Use Case 对象</td>
+<td>Use Case Object</td>
+<td>用户主动创建或修改的业务对象。</td>
+<td><a href="main-06-solution.html" target="_blank" rel="noopener">方案设计四件套</a></td>
+</tr>
+<tr>
+<td>状态机</td>
+<td>State Machine</td>
+<td>描述对象状态与 Action 迁移关系的图。</td>
+<td><a href="main-06-solution.html" target="_blank" rel="noopener">方案设计四件套</a></td>
+</tr>
+<tr>
+<td>Action</td>
+<td>Action</td>
+<td>对象状态迁移时执行的动作；必须写清迁移后状态、写回字段和权限。</td>
+<td><a href="main-06-solution.html" target="_blank" rel="noopener">方案设计四件套</a></td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="glossary-evidence">调研、证据与 Day1</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th scope="col">中文</th>
+<th scope="col">英文</th>
+<th scope="col">一句话解释</th>
+<th scope="col">首次解释页（owner）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>证据台账</td>
+<td>Evidence Ledger</td>
+<td>逐条记录原文、来源、状态和待确认项。</td>
+<td><a href="work-03-record.html" target="_blank" rel="noopener">记录：把现场变成证据</a></td>
+</tr>
+<tr>
+<td>访谈证据状态</td>
+<td>Interview Evidence State</td>
+<td>原文/观察、业务确认、工作假设、待验证。</td>
+<td><a href="day1-03-evidence.html" target="_blank" rel="noopener">确认记录与证据状态</a></td>
+</tr>
+<tr>
+<td>来源权威性</td>
+<td>Source Authority</td>
+<td>官方、第三方、实践、推断、待确认。</td>
+<td><a href="appendix-sources.html" target="_blank" rel="noopener">来源与版权</a></td>
+</tr>
+<tr>
+<td>逐字稿</td>
+<td>Transcript</td>
+<td>带时间戳和说话人标记的访谈原文。</td>
+<td><a href="work-03-record.html" target="_blank" rel="noopener">记录：把现场变成证据</a></td>
+</tr>
+<tr>
+<td>术语与说话人表</td>
+<td>Term &amp; Speaker Table</td>
+<td>对齐业务词、字段、英文名和说话人的表。</td>
+<td><a href="work-03-record.html" target="_blank" rel="noopener">记录：把现场变成证据</a></td>
+</tr>
+<tr>
+<td>确认记录</td>
+<td>Confirmation Record</td>
+<td>记录谁何时确认了什么、原话和未确认项。</td>
+<td><a href="day1-03-evidence.html" target="_blank" rel="noopener">确认记录与证据状态</a></td>
+</tr>
+<tr>
+<td>未决项</td>
+<td>Open Item</td>
+<td>尚未确认但影响下一步的问题，须有假设和期限。</td>
+<td><a href="day1-04-spec.html" target="_blank" rel="noopener">D1 工作底稿</a></td>
+</tr>
+<tr>
+<td>需求定向简报</td>
+<td>Domain Brief</td>
+<td>访谈前写下的需求理解与假设，不是结论。</td>
+<td><a href="day1-01-brief.html" target="_blank" rel="noopener">需求定向简报</a></td>
+</tr>
+<tr>
+<td>追问</td>
+<td>Grilling</td>
+<td>按决策树分轮追问，每轮问 2–4 个问题。</td>
+<td><a href="day1-02-grill.html" target="_blank" rel="noopener">分轮访谈</a></td>
+</tr>
+<tr>
+<td>一轮</td>
+<td>Round</td>
+<td>只问 2–4 个问题、等回答后再推进的访谈单元。</td>
+<td><a href="day1-02-grill.html" target="_blank" rel="noopener">分轮访谈</a></td>
+</tr>
+<tr>
+<td>评分表</td>
+<td>Rubric</td>
+<td>把“做得好不好”拆成可观察维度打分。</td>
+<td><a href="day1-05-quality.html" target="_blank" rel="noopener">D1 阶段门与评分</a></td>
+</tr>
+<tr>
+<td>证据等级</td>
+<td>Evidence Grade</td>
+<td>A/B/C/D 四档，衡量一条结论能否直接支撑决策。</td>
+<td><a href="day1-03-evidence.html" target="_blank" rel="noopener">确认记录与证据状态</a></td>
+</tr>
+<tr>
+<td>D1</td>
+<td>Day 1</td>
+<td>国润 D1 工具包的第一天共创阶段。</td>
+<td><a href="day1-00-overview.html" target="_blank" rel="noopener">Day1 工作台总览</a></td>
+</tr>
+<tr>
+<td>D2</td>
+<td>Day 2</td>
+<td>D1 之后次日的工作，进入数据或验证。</td>
+<td><a href="day1-00-overview.html" target="_blank" rel="noopener">Day1 工作台总览</a></td>
+</tr>
+<tr>
+<td>D1 工作底稿</td>
+<td>D1 Work Paper</td>
+<td>D1 交给次日团队的底稿，含五项产出和未决项。</td>
+<td><a href="day1-04-spec.html" target="_blank" rel="noopener">D1 工作底稿</a></td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="glossary-workbench">工作台执行与治理</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th scope="col">中文</th>
+<th scope="col">英文</th>
+<th scope="col">一句话解释</th>
+<th scope="col">首次解释页（owner）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>操作手册页</td>
+<td>Runbook</td>
+<td>按何时用、输入、步骤、输出、阶段门组织。</td>
+<td><a href="work-01-prep.html" target="_blank" rel="noopener">调研前 7 天</a></td>
+</tr>
+<tr>
+<td>四类规则分层</td>
+<td>Four Rule Layers</td>
+<td>配置数据、硬约束、软偏好、优化目标。</td>
+<td><a href="work-04-model.html" target="_blank" rel="noopener">从证据到模型</a></td>
+</tr>
+<tr>
+<td>人机控制矩阵</td>
+<td>Control Matrix</td>
+<td>把每步分成自主、人在回路、纯人工并定责。</td>
+<td><a href="work-05-spec.html" target="_blank" rel="noopener">一小时压出评审包</a></td>
+</tr>
+<tr>
+<td>Demo 脚本</td>
+<td>Demo Script</td>
+<td>按分钟写清谁操作、做什么决定、看哪屏。</td>
+<td><a href="work-06-demo.html" target="_blank" rel="noopener">Demo 脚本、数据与环境</a></td>
+</tr>
+<tr>
+<td>Demo 数据清单</td>
+<td>Demo Data Manifest</td>
+<td>列出演示数据源、脱敏状态和替代数据。</td>
+<td><a href="work-06-demo.html" target="_blank" rel="noopener">Demo 脚本、数据与环境</a></td>
+</tr>
+<tr>
+<td>反馈记录</td>
+<td>Feedback Log</td>
+<td>逐条记录用户原话、场景和影响。</td>
+<td><a href="work-06-demo.html" target="_blank" rel="noopener">Demo 脚本、数据与环境</a></td>
+</tr>
+<tr>
+<td>每日日志</td>
+<td>Daily Log</td>
+<td>每天记录完成、阻塞、决策和明日计划。</td>
+<td><a href="work-07-run.html" target="_blank" rel="noopener">五天执行与阶段门</a></td>
+</tr>
+<tr>
+<td>问题日志</td>
+<td>Issue Log</td>
+<td>记录问题现象、影响、绕行、负责人和期限。</td>
+<td><a href="work-07-run.html" target="_blank" rel="noopener">五天执行与阶段门</a></td>
+</tr>
+<tr>
+<td>决策日志</td>
+<td>Decision Log</td>
+<td>记录决策、决策人、依据、备选和复审时间。</td>
+<td><a href="work-07-run.html" target="_blank" rel="noopener">五天执行与阶段门</a></td>
+</tr>
+<tr>
+<td>阶段门</td>
+<td>Stage Gate</td>
+<td>G0–G6，进入下一阶段前必须满足的检查点。</td>
+<td><a href="main-07-gates.html" target="_blank" rel="noopener">开始前的五道门</a></td>
+</tr>
+<tr>
+<td>复盘</td>
+<td>Retrospective</td>
+<td>按事实、判断、结果、原因、下一步回顾。</td>
+<td><a href="work-08-retro.html" target="_blank" rel="noopener">复盘与回流</a></td>
+</tr>
+<tr>
+<td>回流账本</td>
+<td>Backfill Ledger</td>
+<td>记录客户定制、出现次数和通用化方案。</td>
+<td><a href="work-08-retro.html" target="_blank" rel="noopener">复盘与回流</a></td>
+</tr>
+<tr>
+<td>下一轮切片</td>
+<td>Next Slice</td>
+<td>基于本轮证据选出的下一个最小闭环。</td>
+<td><a href="work-08-retro.html" target="_blank" rel="noopener">复盘与回流</a></td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="glossary-dossier">档案、模板与方法库</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th scope="col">中文</th>
+<th scope="col">英文</th>
+<th scope="col">一句话解释</th>
+<th scope="col">首次解释页（owner）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>产物</td>
+<td>Artifact</td>
+<td>有编号、生产者、消费者和阶段门的文件。</td>
+<td><a href="appendix-artifacts.html" target="_blank" rel="noopener">产物链与档案</a></td>
+</tr>
+<tr>
+<td>质量门</td>
+<td>Quality Gate</td>
+<td>单份产物或单页内容过关的自检标准；与 G0–G6 阶段门不是一回事。</td>
+<td><a href="appendix-artifacts.html" target="_blank" rel="noopener">产物链与档案</a></td>
+</tr>
+<tr>
+<td>黄金样例</td>
+<td>Golden Sample</td>
+<td>用排班案例完整填写的示范产物。</td>
+<td><a href="appendix-templates.html" target="_blank" rel="noopener">模板库</a></td>
+</tr>
+<tr>
+<td>方法卡</td>
+<td>Method Card</td>
+<td>回答一个可操作问题、带步骤和清单的小卡。</td>
+<td><a href="appendix-methods.html" target="_blank" rel="noopener">方法库</a></td>
+</tr>
+<tr>
+<td>项目档案</td>
+<td>Project Dossier</td>
+<td>按 00–06 阶段组织的 42 份 artifact 集合。</td>
+<td><a href="index.html" target="_blank" rel="noopener">开始：这份教程怎么用</a></td>
+</tr>
+<tr>
+<td>最小可交付档案</td>
+<td>Minimal Dossier</td>
+<td>一轮完整验证所需的最低证据链，12 份。</td>
+<td><a href="index.html" target="_blank" rel="noopener">开始：这份教程怎么用</a></td>
+</tr>
+<tr>
+<td>模板</td>
+<td>Template</td>
+<td>带字段说明、质量自检和示例的空白文件。</td>
+<td><a href="appendix-templates.html" target="_blank" rel="noopener">模板库</a></td>
+</tr>
+<tr>
+<td>方法库</td>
+<td>Method Library</td>
+<td>按阶段、产物、角色自动索引的方法卡库。</td>
+<td><a href="appendix-methods.html" target="_blank" rel="noopener">方法库</a></td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="glossary-adoption">组织落地与实施模式</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th scope="col">中文</th>
+<th scope="col">英文</th>
+<th scope="col">一句话解释</th>
+<th scope="col">首次解释页（owner）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>组织落地</td>
+<td>Adoption</td>
+<td>从首个用例成功走到组织持续复制。</td>
+<td><a href="main-09-adoption.html" target="_blank" rel="noopener">从项目到组织能力</a></td>
+</tr>
+<tr>
+<td>试点</td>
+<td>Pilot</td>
+<td>把出现两次的定制做成可配置方案，先在一个客户验证。</td>
+<td><a href="main-09-adoption.html" target="_blank" rel="noopener">从项目到组织能力</a></td>
+</tr>
+<tr>
+<td>产品化</td>
+<td>Productization</td>
+<td>同一模式出现三次以上后，写进所有客户共用的标准产品。</td>
+<td><a href="main-09-adoption.html" target="_blank" rel="noopener">从项目到组织能力</a></td>
+</tr>
+<tr>
+<td>四块所有权</td>
+<td>Four Ownership Areas</td>
+<td>业务、数据、应用、治理四块各有所有者。</td>
+<td><a href="main-09-adoption.html" target="_blank" rel="noopener">从项目到组织能力</a></td>
+</tr>
+<tr>
+<td>Foundry</td>
+<td>Foundry</td>
+<td>Palantir 的数据与本体平台，教程只作背景提及。</td>
+<td><a href="main-09-adoption.html" target="_blank" rel="noopener">从项目到组织能力</a></td>
+</tr>
+<tr>
+<td>intake</td>
+<td>Intake</td>
+<td>新用例进入评审、排队与优先级分配的入口。</td>
+<td><a href="main-09-adoption.html" target="_blank" rel="noopener">从项目到组织能力</a></td>
+</tr>
+<tr>
+<td>三阶段角色</td>
+<td>Program / Ontology / Platform Leads</td>
+<td>依次为计划负责人、本体管理员、平台负责人。</td>
+<td><a href="main-09-adoption.html" target="_blank" rel="noopener">从项目到组织能力</a></td>
+</tr>
+<tr>
+<td>实施模式</td>
+<td>Use Case Pattern</td>
+<td>可复用的实施蓝图，如告警、分群、分配。</td>
+<td><a href="main-10-patterns.html" target="_blank" rel="noopener">五种实施模式</a></td>
+</tr>
+<tr>
+<td>一线八堂课</td>
+<td>Eight Field Lessons</td>
+<td>一线实践汇编的判断框架，属第三方。</td>
+<td><a href="main-11-lessons.html" target="_blank" rel="noopener">一线八堂课</a></td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="glossary-confusions">最容易混的五组</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th scope="col">相邻术语</th>
+<th scope="col">一句话区分</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>MVP / MVD</td>
+<td>MVP 要能持续使用；MVD 只服务一次演示。</td>
+</tr>
+<tr>
+<td>阶段门 / 质量门</td>
+<td>阶段门是 G0–G6，管阶段推进；质量门管单份或单页产物过关。</td>
+</tr>
+<tr>
+<td>阶段门 / 五道门</td>
+<td>阶段门按 00–06 阶段推进；五道门是进五天验证前的一次性准备检查（A05-01）。</td>
+</tr>
+<tr>
+<td>访谈证据状态 / 来源权威性</td>
+<td>前者答“验证到哪”，后者答“凭什么信”。</td>
+</tr>
+<tr>
+<td>生命周期图 / 状态机 / 泳道图</td>
+<td>前两者看对象状态，泳道图看角色步骤。</td>
+</tr>
+</tbody>
+</table></div>
+<div class="recap">
+<p><strong>本章带走</strong></p>
+<ol>
+<li>术语首次出现时已解释，本页只用于检索和回查。</li>
+<li>先看中文、英文和一句话解释，再回 owner 页补上下文。</li>
+<li>容易混的词成对记：MVP/MVD、阶段门/质量门、阶段门/五道门、证据状态/来源权威性、生命周期图/状态机/泳道图。</li>
+</ol>
+</div>
+      </div>
+
+      <section class="term-cards" aria-label="本页术语卡"><p class="eyebrow">本页术语</p><div class="term-grid"><article class="term-card" id="term-fde"><h3 id="term-title-fde">FDE <span class="term-en">Forward Deployed Engineer</span></h3><p>扎在客户现场、用工程手段解决业务问题，并对业务结果负责的角色。</p><a class="term-first" href="main-01-fde.html" target="_blank" rel="noopener">首次解释</a></article><article class="term-card" id="term-use-case"><h3 id="term-title-use-case">Use Case（用例） <span class="term-en">Use Case</span></h3><p>由专职团队在限定时间内、为一组明确用户交付新能力的一次努力；它不是“接一个系统”或“上一个算法”。</p><a class="term-first" href="main-02-slicing.html" target="_blank" rel="noopener">首次解释</a></article><article class="term-card" id="term-thin-slice"><h3 id="term-title-thin-slice">Thin Slice（最薄切片） <span class="term-en">Thin Slice</span></h3><p>一条最短的端到端路径：用真实数据，让真实用户完成一次真实决策，并留下可观察的结果。</p><a class="term-first" href="main-02-slicing.html" target="_blank" rel="noopener">首次解释</a></article></div></section>
+      
+      <section class="sources" aria-label="来源"><h2 id="sec-sources">来源与证据等级</h2><ol class="source-list"><li><span class="src-id">S01</span> <strong>Use case lifecycle · Overview</strong> <span class="badge badge-官方">官方</span><div class="muted">Palantir Technologies · 抓取 2026-10-19 · 版权归 Palantir Technologies；仅内部研究，不对外分发原文</div><div class="src-url"><a href="https://www.palantir.com/docs/foundry/use-case-life-cycle/overview/" rel="noreferrer" target="_blank">https://www.palantir.com/docs/foundry/use-case-life-cycle/overview/</a></div></li><li><span class="src-id">S17</span> <strong>FDE 方法论沉淀</strong> <span class="badge badge-实践">实践</span><div class="muted">本子项目 · 抓取 2026-09-23 · 内部方法沉淀</div><div class="src-url"><span class="muted">无公开链接</span></div></li><li><span class="src-id">S20</span> <strong>FDE 实施手册 v1（9 章整合读本）</strong> <span class="badge badge-实践">实践</span><div class="muted">本子项目 · 抓取 2026-10-19 · 内部方法沉淀；官方事实另注出处</div><div class="src-url"><span class="muted">无公开链接</span></div></li></ol></section>
+      <nav class="pager" aria-label="翻页"><a class="pager-prev" data-same-tab href="appendix-methods.html"><span>上一页</span><strong>方法库</strong></a><a class="pager-next" data-same-tab href="appendix-sources.html"><span>下一页</span><strong>来源与版权</strong></a></nav>
+
+      <footer class="page-foot">
+        <p>本教程为内部方法研究。案例已匿名化，数字标注【示例】。Palantir 官方资料版权归 Palantir Technologies，仅作改写与链接。</p>
+        <p class="muted">发现断链或事实错误？回到 <a href="appendix-sources.html" target="_blank" rel="noopener">来源与版权</a> 核对出处。</p>
+      </footer>
+    </article>
+  </main>
+
+  <aside class="toc" id="toc" aria-label="页内目录">
+    <p class="toc-title">本页目录</p><ol class="toc-list"><li class="toc-h2"><a href="#glossary-roles">角色与协作方式</a></li><li class="toc-h2"><a href="#glossary-demand">需求、切片与验证节奏</a></li><li class="toc-h2"><a href="#glossary-as-is">现状、决策与一页纸</a></li><li class="toc-h2"><a href="#glossary-solution">方案设计与对象建模</a></li><li class="toc-h2"><a href="#glossary-evidence">调研、证据与 Day1</a></li><li class="toc-h2"><a href="#glossary-workbench">工作台执行与治理</a></li><li class="toc-h2"><a href="#glossary-dossier">档案、模板与方法库</a></li><li class="toc-h2"><a href="#glossary-adoption">组织落地与实施模式</a></li><li class="toc-h2"><a href="#glossary-confusions">最容易混的五组</a></li></ol>
+  </aside>
+</div>
+
+<div class="tpl-modal" id="tpl-modal" hidden>
+  <div class="tpl-panel" role="dialog" aria-modal="true" aria-labelledby="tpl-title">
+    <header class="tpl-head">
+      <div class="tpl-heading">
+        <p class="tpl-kicker">模板阅读视图</p>
+        <h2 id="tpl-title">模板</h2>
+      </div>
+      <div class="tpl-actions">
+        <a class="tpl-open" id="tpl-open" href="#" target="_blank" rel="noopener">在新标签打开 ↗</a>
+        <button class="icon-btn" id="tpl-close" type="button" aria-label="关闭模板">✕</button>
+      </div>
+    </header>
+    <div class="tpl-body">
+      <iframe id="tpl-frame" title="模板内容" loading="lazy"></iframe>
+    </div>
+  </div>
+</div>
+
+<div class="search-modal" id="search-modal" hidden>
+  <div class="search-panel" role="dialog" aria-modal="true" aria-labelledby="search-title">
+    <div class="search-head">
+      <label id="search-title" class="sr-only" for="search-input">搜索教程</label>
+      <input id="search-input" type="search" placeholder="搜索概念、产物、模板、方法卡…" autocomplete="off">
+      <button class="icon-btn" id="search-close" type="button" aria-label="关闭搜索">✕</button>
+    </div>
+    <div id="search-results" class="search-results" aria-live="polite"></div>
+    <p class="search-hint">按 <kbd>/</kbd> 或 <kbd>Ctrl</kbd>+<kbd>K</kbd> 打开，<kbd>Esc</kbd> 关闭。索引完全离线。</p>
+  </div>
+</div>
+
+<noscript><p class="noscript-note">搜索与阅读进度需要 JavaScript；正文、目录和翻页仍可正常使用。可用浏览器查找（Ctrl+F）。</p></noscript>
+
+<script src="assets/search-index.js"></script>
+<script src="assets/viz-data.js"></script>
+<script src="assets/app.js"></script>
+<script src="assets/viz.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,433 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<title>工具链与硬编码路径 · FDE 零基础教程</title>
+<meta name="description" content="转写、Word、HTML 验收三条工具链怎么用，哪些参数绑定旧项目、换项目先改哪里。">
+<link rel="stylesheet" href="assets/course.css">
+<script>
+(function () {
+  try {
+    var saved = localStorage.getItem('fde-theme');
+    var theme = saved || (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+    document.documentElement.dataset.theme = theme;
+  } catch (e) {}
+})();
+</script>
+</head>
+<body class="track-workbench page-work-09-toolchain">
+<a class="skip-link" href="#main">跳到正文</a>
+
+<header class="topbar">
+  <button class="icon-btn nav-toggle" id="nav-toggle" type="button" aria-expanded="false" aria-controls="sidebar" aria-label="打开课程目录">
+    <span aria-hidden="true">☰</span>
+  </button>
+  <a class="brand" data-same-tab href="index.html"><span class="brand-mark">FDE</span><span class="brand-text">零基础教程</span></a>
+  <nav class="track-switch" aria-label="模块切换"><a class="track-link" data-same-tab href="index.html" title="从零建立完整心智模型">主线</a><span class="track-link active" aria-current="true" title="现场查用：输入、步骤、输出、阶段门">工作台</span><a class="track-link" data-same-tab href="day1-00-overview.html" title="六步链路：简报 → 访谈 → 证据 → 底稿 → 门">Day1</a><a class="track-link" data-same-tab href="appendix-methods.html" title="一卡一问，按阶段、产物、角色查">方法库</a><a class="track-link" data-same-tab href="appendix-templates.html" title="模板、产物链、术语与来源">附录</a></nav>
+  <div class="top-actions">
+    <button class="search-open" id="search-open" type="button" aria-haspopup="dialog">
+      <span aria-hidden="true">⌕</span><span class="search-label">搜索</span><kbd>/</kbd>
+    </button>
+    <button class="icon-btn" id="theme-toggle" type="button" aria-label="切换深浅色">◐</button>
+  </div>
+  <div class="read-progress" aria-hidden="true"><span id="read-progress"></span></div>
+</header>
+
+<div class="layout">
+  <aside class="sidebar" id="sidebar">
+    <nav class="course-tree" aria-label="课程目录"><header class="side-head"><p class="side-eyebrow">当前模块</p><p class="side-title">实操工作台</p><p class="side-caption">现场查用：输入、步骤、输出、阶段门</p><p class="side-meta">9 页<span class="dot">·</span>按需查</p></header><section class="nav-group"><p class="nav-group-title"><span class="nav-group-num">01</span>调研与记录</p><a class="nav-link" data-same-tab href="work-01-prep.html">调研前 7 天</a><a class="nav-link" data-same-tab href="work-02-interview.html">现场 60 分钟</a><a class="nav-link" data-same-tab href="work-03-record.html">记录：把现场变成证据</a><a class="nav-link" data-same-tab href="work-04-model.html">从证据到模型</a></section><section class="nav-group"><p class="nav-group-title"><span class="nav-group-num">02</span>交付与 Demo</p><a class="nav-link" data-same-tab href="work-05-spec.html">一小时压出评审包</a><a class="nav-link" data-same-tab href="work-06-demo.html">Demo 脚本、数据与环境</a><a class="nav-link" data-same-tab href="work-07-run.html">五天执行与阶段门</a><a class="nav-link" data-same-tab href="work-08-retro.html">复盘与回流</a><span class="nav-link nav-current" aria-current="page">工具链与硬编码路径</span></section></nav>
+  </aside>
+  <button class="scrim" id="scrim" type="button" aria-label="关闭目录" hidden></button>
+
+  <main class="main" id="main">
+    <nav class="crumb" aria-label="面包屑"><a data-same-tab href="index.html">教程</a><span class="sep">/</span><span>实操工作台</span><span class="sep">/</span><span>交付与 Demo</span><span class="sep">/</span><span aria-current="page">工具链与硬编码路径</span></nav>
+    <article class="article">
+      <header class="page-head">
+        <div class="badges"><span class="badge badge-workbench">查用</span><span class="badge badge-time">12 分钟</span></div>
+        <h1>工具链与硬编码路径</h1>
+        <p class="lede">转写、Word、HTML 验收三条工具链怎么用，哪些参数绑定旧项目、换项目先改哪里。</p>
+        <p class="page-question"><span class="eyebrow">本页要回答</span>现有工具链哪些能直接用，哪些一带到新项目就会出错？</p>
+        <div class="page-meta">
+          <section class="meta-block">
+            <h2 class="meta-title" id="meta-objectives">读完你能</h2>
+            <ul class="objective-list"><li>跑通转写 → 术语校正 → Word/HTML 的最小链路；</li><li>找出脚本里的硬编码路径与项目参数；</li><li>写出一份换项目前的改造清单。</li></ul>
+          </section>
+          <section class="meta-block">
+            <h2 class="meta-title" id="meta-prereq">前置</h2>
+            <p>先读：<a href="work-03-record.html" target="_blank" rel="noopener">记录：把现场变成证据</a></p>
+          </section>
+        </div>
+      </header>
+
+      <div class="prose">
+        <dl class="runbook-head">
+<div><dt>何时用</dt><dd>新项目第一次跑转写、Word 或 HTML 验收之前</dd></div>
+<div><dt>输入</dt><dd>已授权的录音/音频、A02-03 术语与说话人表、可运行的工具目录</dd></div>
+<div><dt>输出</dt><dd>为 A02-02 逐字稿提供原始转写稿（定稿与说话人标注在 work-03 完成）、工具链检查记录（无 artifact ID），三条链路各一条可复现命令</dd></div>
+<div><dt>验收与耗时</dt><dd>换项目后可重复运行；约 3 小时</dd></div>
+</dl>
+
+<p>工具在旧项目里跑得很好。换到新项目，第一条命令就报“找不到文件”，可文件明明在那儿。你改了输入路径，输出又写回旧项目；截图看起来成功，打开却是 Chrome 的目录列表。</p>
+<p>脚本没坏，是它<strong>绑死在旧项目上</strong>。路径、项目名、输出目录、浏览器位置，任何一项写死，换项目就会静默出错。</p>
+<h2 id="sec-when">何时用</h2>
+<p><strong>该用</strong>：</p>
+<ul>
+<li>新项目启动，第一次跑转写、Word 生成或 HTML 验收之前；</li>
+<li>从别的项目复制了工具目录，准备直接复用；</li>
+<li>工具报“找不到文件”“输出为空”，但源文件确实存在。</li>
+</ul>
+<p><strong>不该用</strong>：</p>
+<ul>
+<li>只做一次的手工任务。为一次性操作搭管线，成本高于手工；</li>
+<li>录音尚未获得授权、材料未脱敏时。先解决权限，再谈工具；</li>
+<li>把工具链当成交付物。它是开发期工具；它喂给 A02-02、A02-03 和最终文档，本身不进档案。</li>
+</ul>
+<p>工具包给的是可执行起点，不是即插即用的交付物 <span class="cite" title="GR-FDE-01-014 D1 客户工具包（国润 Skill 工具包）">[S16]</span>。复制后先检查参数，不要直接运行。</p>
+<div class="checkpoint">
+<p><strong>停一下</strong>：你怎么判断一条命令“真的成功了”？</p>
+<p>不是看终端没报错，而是看三件事：输出文件存在、内容能打开、写入位置在新项目内。少一件，都是“看起来成功”。</p>
+</div>
+<h2 id="sec-inputs">前置与输入</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th scope="col">输入</th>
+<th scope="col">用来做什么</th>
+<th scope="col">缺失时</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>录音/音频（已获授权）</td>
+<td>转写，产出 A02-02</td>
+<td>先补 A00-04，不要用未授权的录音</td>
+</tr>
+<tr>
+<td>A02-03 术语与说话人表</td>
+<td>把错词改对，统一业务词</td>
+<td>先建表，否则错词带进文档</td>
+</tr>
+<tr>
+<td>工具目录</td>
+<td>提供转写、Word、HTML 验收脚本</td>
+<td>从团队工具包复制，并确认运行时齐全</td>
+</tr>
+</tbody>
+</table></div>
+<p>先确认命令真的存在：</p>
+<pre><code class="language-bash">python --version
+ffmpeg -version
+pandoc --version
+</code></pre>
+<p>Chrome 不一定在 PATH 里。Windows 常见位置是 <code>C:/Program Files/Google/Chrome/Application/chrome.exe</code>，macOS 在应用包内。找不到就用 <code>CHROME</code> 环境变量指定。</p>
+<h2 id="sec-steps">八步操作</h2>
+<h3 id="step-01">第 1 步：复制工具并冻结版本（10 分钟）</h3>
+<p>把工具目录复制到<strong>新项目根目录下</strong>，不要从旧项目路径直接运行。记下 Python、ffmpeg、pandoc、Chrome 的版本。<code>venv/</code> 和 <code>models/</code> 不要跨项目共用。</p>
+<h3 id="step-02">第 2 步：跑通转写最小链路（25 分钟）</h3>
+<p>先把音频转成 16k 单声道 wav，再转写。以团队 <code>_asr/</code> 为例：</p>
+<pre><code class="language-bash">ffmpeg -i 录音/第一段.m4a -ar 16000 -ac 1 -c:a pcm_s16le _asr/wav/第一段.wav
+_asr/venv/Scripts/python.exe _asr/asr.py run --seg 第一段 --slice 180
+_asr/venv/Scripts/python.exe _asr/asr.py run --seg 第一段
+_asr/venv/Scripts/python.exe _asr/asr.py align
+_asr/venv/Scripts/python.exe _asr/asr.py export
+</code></pre>
+<p>先跑 180 秒验管线，再跑全段。<code>align</code> 不能省，否则各段说话人编号互不相干。热词表只放已核实的词，否则等于让引擎替你“确认”。</p>
+<p>产出写到 A02-02，字段至少有时间戳、说话人、原文、置信度、备注。</p>
+<h3 id="step-03">第 3 步：校正术语（15 分钟）</h3>
+<p>拿 A02-03 对照逐字稿，改同音词、业务缩写、人名。只改词，不改语气和停顿；改完在备注写“已按术语表校正”，保留原稿。</p>
+<h3 id="step-04">第 4 步：生成 Word 并验收（20 分钟）</h3>
+<pre><code class="language-bash">pandoc 03_方案.md -f markdown -t docx \
+  --reference-doc=reference.docx --toc -o 03_方案.docx
+python 工具/docx-pipeline/verify_docx.py 03_方案.md 03_方案.docx
+</code></pre>
+<p><code>verify_docx.py</code> 把源 Markdown 的正文逐行拿到 docx 里找，找不到就报“内容丢失”。pandoc 会吞紧跟段落、中间没有空行的列表。验收看三样：正文行齐全、表格数量对得上、目录能更新。</p>
+<h3 id="step-05">第 5 步：跑 HTML 验收（20 分钟）</h3>
+<p>用无头 Chrome 截图并导出渲染后的 DOM：</p>
+<pre><code class="language-bash">CHROME=&quot;/c/Program Files/Google/Chrome/Application/chrome.exe&quot;
+&quot;$CHROME&quot; --headless=new --disable-gpu --hide-scrollbars \
+  --virtual-time-budget=5000 --window-size=1680,1150 \
+  --screenshot=&quot;D:/qa/index.png&quot; &quot;file:///D:/qa/index.html&quot;
+&quot;$CHROME&quot; --headless=new --disable-gpu --dump-dom \
+  &quot;file:///D:/qa/index.html&quot; &gt; &quot;D:/qa/index.dom.html&quot;
+</code></pre>
+<p>验收三点：截图不是空白、DOM 开头是 <code>&lt;!DOCTYPE html&gt;</code>、关键数字能在 DOM 里搜到。两个坑：输出路径用纯 ASCII 绝对路径；URL 不能多空格，否则 Chrome 会把字符串当目录，截出目录列表还照样存成 <code>.html</code>。</p>
+<h3 id="step-06">第 6 步：找出硬编码（25 分钟）</h3>
+<p>先搜绝对路径和旧项目名：</p>
+<pre><code class="language-bash">rg -n &quot;[A-Za-z]:[\\/]|/Users/|/home/|file:///|localhost&quot; \
+  --glob &quot;*.py&quot; --glob &quot;*.sh&quot; --glob &quot;*.js&quot; --glob &quot;*.ps1&quot; .
+rg -n &quot;^\s*(ROOT|BASE|OUT|SRC|DATA|CHROME|PAGES|BUILD)\s*=&quot; \
+  --glob &quot;*.py&quot; --glob &quot;*.sh&quot; .
+</code></pre>
+<p>第二条搜配置常量：很多脚本把 <code>ROOT</code>、<code>OUT</code>、<code>PAGES</code> 写死在文件顶部。最后搜旧项目名、旧客户名和注释里的旧目录。命中分四类：</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th scope="col">类型</th>
+<th scope="col">例子</th>
+<th scope="col">处理</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>项目绑定</td>
+<td><code>d:/旧项目/_build</code></td>
+<td>必须改成从脚本位置推导</td>
+</tr>
+<tr>
+<td>机器绑定</td>
+<td>Chrome、Python 安装路径</td>
+<td>用环境变量或参数，给默认值</td>
+</tr>
+<tr>
+<td>相对路径</td>
+<td><code>_asr/wav</code></td>
+<td>可以保留，但必须相对项目根</td>
+</tr>
+<tr>
+<td>密钥</td>
+<td>API Key、口令</td>
+<td>移到 <code>.env</code>，不提交</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="step-07">第 7 步：改成一个入口（20 分钟）</h3>
+<p>Python 用脚本位置推导根目录：</p>
+<pre><code class="language-python">from pathlib import Path
+ROOT = Path(__file__).resolve().parents[1]
+OUT = ROOT / &quot;out&quot;
+</code></pre>
+<p>Shell 同理：</p>
+<pre><code class="language-bash">HERE=&quot;$(cd &quot;$(dirname &quot;$0&quot;)&quot; &amp;&amp; pwd)&quot;
+ROOT=&quot;$(dirname &quot;$HERE&quot;)&quot;
+OUT=&quot;${OUT:-$ROOT/out}&quot;
+</code></pre>
+<p>原则三条：<strong>一个地方配置根目录；能推导就不要记；机器相关的值走环境变量。</strong></p>
+<h3 id="step-08">第 8 步：换项目验证（25 分钟）</h3>
+<p>把项目复制到带中文和空格的目录，如 <code>D:/qa/换项目 测试/</code>。然后：</p>
+<ol>
+<li>从别的工作目录运行：<code>cd /tmp &amp;&amp; python "D:/qa/换项目 测试/工具/export.py" --input ...</code>；</li>
+<li>确认输出只落在新项目目录，旧项目没被写入；</li>
+<li>再跑第 6 步的搜索，旧路径命中应为 0；</li>
+<li>重跑 Word 和 HTML 验收，正文、表格、关键数字都在。</li>
+</ol>
+<p>脚本从 <code>__file__</code> 推导根目录，换工作目录也能跑；如果仍依赖“当前目录”，这一步就会失败。失败说明你找到了最后一个绑死点。</p>
+<h2 id="sec-output">输出与验收</h2>
+<p>转写链路产出的是 A02-02 的原始转写稿（<code>02_现场记录/02-02_逐字稿/</code>），说话人校正与术语统一在 work-03 完成后才算定稿；检查记录本身没有 artifact ID，放在 <code>00_项目章程/工具链检查记录.md</code>。</p>
+<p>记录覆盖三条链路的入口命令、输入、输出、写死的值、改法和验证结果。</p>
+<p>工具链本身不设独立阶段门；它服务的 A02-02 逐字稿、A02-03 术语与说话人表，在 G2 现场记录门被检查。工具跑通只说明文件生成了，产物是否过关仍看“每句能否回到录音时间点、每个术语是否有说话人确认”。</p>
+<p><strong>通过标准</strong>：</p>
+<ul>
+<li>三条链路各跑通一次，命令可复制；</li>
+<li>旧路径命中为 0，从另一个工作目录运行仍成功；</li>
+<li>输出只写在新项目内，记录每行有结果和负责人。</li>
+</ul>
+<p><strong>不通过时</strong>：不要删掉报错继续跑。把失败命令、报错和当前目录写进记录，再修路径。</p>
+<h2 id="sec-template">模板：检查记录怎么填</h2>
+<div class="template-block">
+<div class="template-title">工具链检查记录 <span>无 artifact ID，可直接复制</span></div>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th scope="col">检查项</th>
+<th scope="col">命令或位置</th>
+<th scope="col">期望</th>
+<th scope="col">实际</th>
+<th scope="col">结论</th>
+<th scope="col">负责人</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>转写</td>
+<td><code>asr.py run</code> + <code>align</code></td>
+<td>生成 raw.json 与 speakers.json</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Word</td>
+<td><code>verify_docx.py</code></td>
+<td>无内容丢失</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>HTML</td>
+<td>截图 + dump-dom</td>
+<td>非空、有 DOCTYPE</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>硬编码</td>
+<td><code>rg</code> 两条命令</td>
+<td>0 命中</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>填写说明</strong>：一行一个可观察结果；“实际”栏贴关键输出，不写“正常”。</p>
+</div>
+<h2 id="sec-case">排班案例：换项目时先改哪里</h2>
+<p>排班项目里，这一页接在 work-03 之后：录音进 A02-02，术语表进 A02-03。假设你从上一个医院项目复制了 <code>_asr/</code>，直接跑 <code>asr.py list</code>，显示“0 段待转写”。</p>
+<p>先别怀疑录音。看脚本顶部的输入目录是不是还指着旧项目。把 <code>ROOT</code> 改成从 <code>__file__</code> 推导，默认输入改成 <code>ROOT / "录音"</code>，再跑 <code>list</code>，应该能看到“第一段”。</p>
+<p>Word 和 HTML 同理。docx 少一行，先跑 <code>verify_docx.py</code>；HTML 截图只有目录列表，先查 URL 有没有空格。这一页只改参数，不改证据内容。</p>
+<h2 id="sec-failures">常见失败</h2>
+<div class="pitfalls">
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th scope="col">现象</th>
+<th scope="col">原因</th>
+<th scope="col">处理</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>报“找不到文件”，文件确实存在</td>
+<td>路径写死到旧项目</td>
+<td>搜绝对路径，改成项目根推导</td>
+</tr>
+<tr>
+<td>输出跑到旧项目</td>
+<td>输出目录是常量</td>
+<td>改成 <code>ROOT / "out"</code>，查写入位置</td>
+</tr>
+<tr>
+<td>截图成功，打开是目录列表</td>
+<td>URL 多了空格</td>
+<td>检查引号，确认 URL 以 <code>.html</code> 结尾</td>
+</tr>
+<tr>
+<td>Word 少了一段</td>
+<td>pandoc 吞了列表</td>
+<td>列表前补空行，跑校验脚本</td>
+</tr>
+<tr>
+<td>换机器后 Chrome 找不到</td>
+<td>浏览器路径写死</td>
+<td>用 <code>CHROME</code> 环境变量</td>
+</tr>
+<tr>
+<td>跨段说话人编号对不上</td>
+<td>没跑 <code>align</code></td>
+<td>转完后补跑 <code>align</code></td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="hands-on">
+<p><strong>动手 20 分钟</strong>：做一次工具链审计。</p>
+<ol>
+<li>在你的项目根目录跑第 6 步的两条 <code>rg</code> 命令；</li>
+<li>挑出 3 条命中，按“项目绑定 / 机器绑定 / 相对路径 / 密钥”分类；</li>
+<li>改掉其中 1 条项目绑定路径，从另一个工作目录重跑；</li>
+<li>把命令、实际输出和结论写进检查记录。</li>
+</ol>
+<p><strong>自检</strong>：旧路径搜索为 0；从 <code>/tmp</code> 运行仍成功；输出没有写回旧项目。</p>
+</div>
+<h2 id="sec-checklist">自检清单</h2>
+<ul>
+<li>[ ] 工具目录已复制到新项目根，没有从旧路径运行；</li>
+<li>[ ] 转写先试跑 180 秒再跑全段，且跑过 <code>align</code>；</li>
+<li>[ ] 术语校正只改词，不改语气；</li>
+<li>[ ] Word 验收检查了正文行、表格数量和目录；</li>
+<li>[ ] HTML 验收看了截图、DOM 开头和关键数字；</li>
+<li>[ ] 两条 <code>rg</code> 覆盖绝对路径与常量，旧路径命中为 0；</li>
+<li>[ ] 从另一工作目录能跑通，输出只在新项目内；</li>
+<li>[ ] 检查记录每行有实际结果和负责人。</li>
+</ul>
+<div class="self-test">
+<p><strong>三问自测</strong></p>
+<details>
+<summary>1. 为什么“终端没报错”不等于工具跑成功？</summary>
+
+很多失败是静默的：输出写到旧目录、Chrome 存下目录列表、pandoc 吞了一段。必须查文件存在、内容可读、位置正确。
+
+</details>
+<details>
+<summary>2. 为什么根目录要从脚本位置推导，而不是靠当前目录？</summary>
+
+当前目录由调用者决定，从别处运行时相对路径会指错。`__file__` 指向脚本自身，推导出的根目录才稳。
+
+</details>
+<details>
+<summary>3. 哪些路径可以保留，哪些必须改？</summary>
+
+相对项目根的可以保留；项目绑定的必须改；机器绑定的走环境变量；密钥移到 `.env`。
+
+</details>
+</div>
+<div class="recap">
+<p><strong>本章带走</strong></p>
+<ol>
+<li>三条链路都要“文件存在、内容可读、写对位置”才算成功。</li>
+<li>硬编码审计先搜绝对路径和配置常量，再按四类处理。</li>
+<li>改完必须换目录、换工作目录重跑；旧路径命中为 0 才算解绑。</li>
+</ol>
+</div>
+      </div>
+
+      <section class="term-cards" aria-label="本页术语卡"><p class="eyebrow">本页术语</p><div class="term-grid"><article class="term-card" id="term-transcript"><h3 id="term-title-transcript">逐字稿 <span class="term-en">Transcript</span></h3><p>带时间戳和说话人标记的访谈原文；是证据链的底层材料，不是结论。</p><a class="term-first" href="work-03-record.html" target="_blank" rel="noopener">首次解释</a></article></div></section>
+      <section class="artifact-box" aria-label="本页产物"><div class="artifact-block"><h3 id="artifacts-in">开始前应已具备</h3><p class="muted"><code>A02-02</code> 逐字稿、<code>A02-03</code> 术语与说话人表</p></div></section>
+      <section class="sources" aria-label="来源"><h2 id="sec-sources">来源与证据等级</h2><ol class="source-list"><li><span class="src-id">S16</span> <strong>GR-FDE-01-014 D1 客户工具包（国润 Skill 工具包）</strong> <span class="badge badge-实践">实践</span><div class="muted">国润项目组 · 抓取 2026-10-19 · MIT；`grilling` 上游署名 Matt Pocock；包内文件不随教程分发</div><div class="src-url"><span class="muted">无公开链接</span></div></li><li><span class="src-id">S17</span> <strong>FDE 方法论沉淀</strong> <span class="badge badge-实践">实践</span><div class="muted">本子项目 · 抓取 2026-09-23 · 内部方法沉淀</div><div class="src-url"><span class="muted">无公开链接</span></div></li><li><span class="src-id">S18</span> <strong>流程与范围模板</strong> <span class="badge badge-实践">实践</span><div class="muted">本子项目 · 抓取 2026-09-23 · 内部方法沉淀</div><div class="src-url"><span class="muted">无公开链接</span></div></li></ol></section>
+      <nav class="pager" aria-label="翻页"><a class="pager-prev" data-same-tab href="work-08-retro.html"><span>上一页</span><strong>复盘与回流</strong></a><span class="pager-empty"></span></nav>
+
+      <footer class="page-foot">
+        <p>本教程为内部方法研究。案例已匿名化，数字标注【示例】。Palantir 官方资料版权归 Palantir Technologies，仅作改写与链接。</p>
+        <p class="muted">发现断链或事实错误？回到 <a href="appendix-sources.html" target="_blank" rel="noopener">来源与版权</a> 核对出处。</p>
+      </footer>
+    </article>
+  </main>
+
+  <aside class="toc" id="toc" aria-label="页内目录">
+    <p class="toc-title">本页目录</p><ol class="toc-list"><li class="toc-h2"><a href="#sec-when">何时用</a></li><li class="toc-h2"><a href="#sec-inputs">前置与输入</a></li><li class="toc-h2"><a href="#sec-steps">八步操作</a><ul class="toc-sub"><li class="toc-h3"><a href="#step-01">第 1 步：复制工具并冻结版本（10 分钟）</a></li><li class="toc-h3"><a href="#step-02">第 2 步：跑通转写最小链路（25 分钟）</a></li><li class="toc-h3"><a href="#step-03">第 3 步：校正术语（15 分钟）</a></li><li class="toc-h3"><a href="#step-04">第 4 步：生成 Word 并验收（20 分钟）</a></li><li class="toc-h3"><a href="#step-05">第 5 步：跑 HTML 验收（20 分钟）</a></li><li class="toc-h3"><a href="#step-06">第 6 步：找出硬编码（25 分钟）</a></li><li class="toc-h3"><a href="#step-07">第 7 步：改成一个入口（20 分钟）</a></li><li class="toc-h3"><a href="#step-08">第 8 步：换项目验证（25 分钟）</a></li></ul></li><li class="toc-h2"><a href="#sec-output">输出与验收</a></li><li class="toc-h2"><a href="#sec-template">模板：检查记录怎么填</a></li><li class="toc-h2"><a href="#sec-case">排班案例：换项目时先改哪里</a></li><li class="toc-h2"><a href="#sec-failures">常见失败</a></li><li class="toc-h2"><a href="#sec-checklist">自检清单</a></li></ol>
+  </aside>
+</div>
+
+<div class="tpl-modal" id="tpl-modal" hidden>
+  <div class="tpl-panel" role="dialog" aria-modal="true" aria-labelledby="tpl-title">
+    <header class="tpl-head">
+      <div class="tpl-heading">
+        <p class="tpl-kicker">模板阅读视图</p>
+        <h2 id="tpl-title">模板</h2>
+      </div>
+      <div class="tpl-actions">
+        <a class="tpl-open" id="tpl-open" href="#" target="_blank" rel="noopener">在新标签打开 ↗</a>
+        <button class="icon-btn" id="tpl-close" type="button" aria-label="关闭模板">✕</button>
+      </div>
+    </header>
+    <div class="tpl-body">
+      <iframe id="tpl-frame" title="模板内容" loading="lazy"></iframe>
+    </div>
+  </div>
+</div>
+
+<div class="search-modal" id="search-modal" hidden>
+  <div class="search-panel" role="dialog" aria-modal="true" aria-labelledby="search-title">
+    <div class="search-head">
+      <label id="search-title" class="sr-only" for="search-input">搜索教程</label>
+      <input id="search-input" type="search" placeholder="搜索概念、产物、模板、方法卡…" autocomplete="off">
+      <button class="icon-btn" id="search-close" type="button" aria-label="关闭搜索">✕</button>
+    </div>
+    <div id="search-results" class="search-results" aria-live="polite"></div>
+    <p class="search-hint">按 <kbd>/</kbd> 或 <kbd>Ctrl</kbd>+<kbd>K</kbd> 打开，<kbd>Esc</kbd> 关闭。索引完全离线。</p>
+  </div>
+</div>
+
+<noscript><p class="noscript-note">搜索与阅读进度需要 JavaScript；正文、目录和翻页仍可正常使用。可用浏览器查找（Ctrl+F）。</p></noscript>
+
+<script src="assets/search-index.js"></script>
+<script src="assets/viz-data.js"></script>
+<script src="assets/app.js"></script>
+<script src="assets/viz.js"></script>
+
+</body>
+</html>

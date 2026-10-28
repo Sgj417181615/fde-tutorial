@@ -1,0 +1,487 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<title>一小时压出评审包 · FDE 零基础教程</title>
+<meta name="description" content="把 one-pager、FR、对象模型、生命周期、界面、MVP 范围和 KPI 拼成可评审包。">
+<link rel="stylesheet" href="assets/course.css">
+<script>
+(function () {
+  try {
+    var saved = localStorage.getItem('fde-theme');
+    var theme = saved || (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+    document.documentElement.dataset.theme = theme;
+  } catch (e) {}
+})();
+</script>
+</head>
+<body class="track-workbench page-work-05-spec">
+<a class="skip-link" href="#main">跳到正文</a>
+
+<header class="topbar">
+  <button class="icon-btn nav-toggle" id="nav-toggle" type="button" aria-expanded="false" aria-controls="sidebar" aria-label="打开课程目录">
+    <span aria-hidden="true">☰</span>
+  </button>
+  <a class="brand" data-same-tab href="index.html"><span class="brand-mark">FDE</span><span class="brand-text">零基础教程</span></a>
+  <nav class="track-switch" aria-label="模块切换"><a class="track-link" data-same-tab href="index.html" title="从零建立完整心智模型">主线</a><span class="track-link active" aria-current="true" title="现场查用：输入、步骤、输出、阶段门">工作台</span><a class="track-link" data-same-tab href="day1-00-overview.html" title="六步链路：简报 → 访谈 → 证据 → 底稿 → 门">Day1</a><a class="track-link" data-same-tab href="appendix-methods.html" title="一卡一问，按阶段、产物、角色查">方法库</a><a class="track-link" data-same-tab href="appendix-templates.html" title="模板、产物链、术语与来源">附录</a></nav>
+  <div class="top-actions">
+    <button class="search-open" id="search-open" type="button" aria-haspopup="dialog">
+      <span aria-hidden="true">⌕</span><span class="search-label">搜索</span><kbd>/</kbd>
+    </button>
+    <button class="icon-btn" id="theme-toggle" type="button" aria-label="切换深浅色">◐</button>
+  </div>
+  <div class="read-progress" aria-hidden="true"><span id="read-progress"></span></div>
+</header>
+
+<div class="layout">
+  <aside class="sidebar" id="sidebar">
+    <nav class="course-tree" aria-label="课程目录"><header class="side-head"><p class="side-eyebrow">当前模块</p><p class="side-title">实操工作台</p><p class="side-caption">现场查用：输入、步骤、输出、阶段门</p><p class="side-meta">9 页<span class="dot">·</span>按需查</p></header><section class="nav-group"><p class="nav-group-title"><span class="nav-group-num">01</span>调研与记录</p><a class="nav-link" data-same-tab href="work-01-prep.html">调研前 7 天</a><a class="nav-link" data-same-tab href="work-02-interview.html">现场 60 分钟</a><a class="nav-link" data-same-tab href="work-03-record.html">记录：把现场变成证据</a><a class="nav-link" data-same-tab href="work-04-model.html">从证据到模型</a></section><section class="nav-group"><p class="nav-group-title"><span class="nav-group-num">02</span>交付与 Demo</p><span class="nav-link nav-current" aria-current="page">一小时压出评审包</span><a class="nav-link" data-same-tab href="work-06-demo.html">Demo 脚本、数据与环境</a><a class="nav-link" data-same-tab href="work-07-run.html">五天执行与阶段门</a><a class="nav-link" data-same-tab href="work-08-retro.html">复盘与回流</a><a class="nav-link" data-same-tab href="work-09-toolchain.html">工具链与硬编码路径</a></section></nav>
+  </aside>
+  <button class="scrim" id="scrim" type="button" aria-label="关闭目录" hidden></button>
+
+  <main class="main" id="main">
+    <nav class="crumb" aria-label="面包屑"><a data-same-tab href="index.html">教程</a><span class="sep">/</span><span>实操工作台</span><span class="sep">/</span><span>交付与 Demo</span><span class="sep">/</span><span aria-current="page">一小时压出评审包</span></nav>
+    <article class="article">
+      <header class="page-head">
+        <div class="badges"><span class="badge badge-workbench">查用</span><span class="badge badge-time">18 分钟</span></div>
+        <h1>一小时压出评审包</h1>
+        <p class="lede">把 one-pager、FR、对象模型、生命周期、界面、MVP 范围和 KPI 拼成可评审包。</p>
+        <p class="page-question"><span class="eyebrow">本页要回答</span>怎样在一小时内凑齐一份能被业务和技术同时评审的材料？</p>
+        <div class="page-meta">
+          <section class="meta-block">
+            <h2 class="meta-title" id="meta-objectives">读完你能</h2>
+            <ul class="objective-list"><li>按顺序拼出八件套并检查互相一致；</li><li>用控制矩阵标出人机分工；</li><li>写出 MVP 范围与非范围。</li></ul>
+          </section>
+          <section class="meta-block">
+            <h2 class="meta-title" id="meta-prereq">前置</h2>
+            <p>先读：<a href="work-04-model.html" target="_blank" rel="noopener">从证据到模型</a></p>
+          </section>
+        </div>
+      </header>
+
+      <div class="prose">
+        <dl class="runbook-head">
+<div><dt>何时用</dt><dd>D1 收口或 D2 方案设计结束、G4 评审之前</dd></div>
+<div><dt>前置</dt><dd>切片已选定，A03-01～04 可互相追溯，规则有确认人</dd></div>
+<div><dt>输入</dt><dd>As-is、决策清单、规则库、one-pager 草稿、证据台账</dd></div>
+<div><dt>输出</dt><dd>A03-05 one-pager、A04-01～06、A05-05 KPI 基线与验证标准</dd></div>
+<div><dt>阶段门与耗时</dt><dd>G4 方案设计门；装配约 60 分钟，评审前检查 10 分钟</dd></div>
+</dl>
+
+<p>16:10，17:00 评审。one-pager 是上周的，FR 是昨天的，对象模型画了一半。业务方看 one-pager，技术方看 FR，放一起却打架——封面写“不自动替人做决定”，FR-02 写“系统自动分配”；对象模型里没有“冲突”，界面上却要显示冲突面板。</p>
+<p>材料不少，是没装配成<strong>评审包</strong>（Spec Package）：围绕同一决策、同一版本、能互相对上的一组产物。评审者要在半小时内判断“做不做、做到哪、还缺什么”。本页给装配顺序、交叉检查和评审前检查。</p>
+<h2 id="sec-when">何时用</h2>
+<p><strong>该用</strong>：</p>
+<ul>
+<li>D1 收口，把现状、切片和 one-pager 交给业务方确认；</li>
+<li>D2 结束，让业务和技术同场评审 FR、对象、生命周期和范围；</li>
+<li>进 Demo 前，冻结一版可追溯基线。</li>
+</ul>
+<p><strong>不该用</strong>：</p>
+<ul>
+<li>切片没选定。先回 <a class="page-link" href="work-04-model.html" target="_blank" rel="noopener">从证据到模型</a> 做 A03-03；</li>
+<li>只有一位评审人、只问一个问题。发一页 one-pager 就够；</li>
+<li>只想汇报进度，不准备接受修改。</li>
+</ul>
+<div class="checkpoint">
+<p><strong>停一下</strong>：把包内文件摊开，你能指出哪份是主文件、其余几份分别验证它的什么吗？指不出来，它们只是同一文件夹里的八份文档，还不是评审包。</p>
+</div>
+<h2 id="sec-prereq">前置</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th scope="col">前置</th>
+<th scope="col">判断标准</th>
+<th scope="col">没做到会怎样</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>切片已选定</td>
+<td>A03-03 只有一个“选中”，A03-05 草稿六段都有内容</td>
+<td>重新吵“做哪个”，版本对不上</td>
+</tr>
+<tr>
+<td>现状可追溯</td>
+<td>A03-01、A03-02 的判断有证据 ID</td>
+<td>FR 被质疑“凭什么”</td>
+</tr>
+<tr>
+<td>规则已分层</td>
+<td>硬约束有确认人，优化目标没混层</td>
+<td>该拦的只提示</td>
+</tr>
+<tr>
+<td>评审角色已定</td>
+<td>业务、技术、数据权限人各至少一位</td>
+<td>只剩“总体不错”</td>
+</tr>
+</tbody>
+</table></div>
+<p>最常见的失败，是装配时不断加“这个也得写”，最后交出没人读完的材料。</p>
+<h2 id="sec-inputs">输入</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th scope="col">输入</th>
+<th scope="col">取什么</th>
+<th scope="col">用在哪</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A03-01、A03-02、A03-05</td>
+<td>角色、判断、决策、封面六段</td>
+<td>封面、FR 场景、决策清单</td>
+</tr>
+<tr>
+<td>A03-03、A03-04</td>
+<td>选中切片、规则分层</td>
+<td>固定边界、FR 校验、控制矩阵</td>
+</tr>
+<tr>
+<td>A02-04 证据台账</td>
+<td>证据 ID、状态、权威性</td>
+<td>给 FR 挂依据</td>
+</tr>
+<tr>
+<td>A03-06～A03-08（走了 Day1 路线时）</td>
+<td>D1 工作底稿、阶段门记录、D2 输入清单</td>
+<td>直接作为评审包的现状与未决项来源</td>
+</tr>
+</tbody>
+</table></div>
+<p>不要在这 60 分钟里重新访谈或重选切片。输入不够就标“待确认”，写清负责人和截止日期。</p>
+<h2 id="sec-steps">一小时的装配顺序</h2>
+<p>顺序不能反：先定边界，再放封面，再逐层向下展开。先写对象模型再补 one-pager，通常会把范围撑大。</p>
+<h3 id="step-package">第 1 步：定包内清单与版本（5 分钟）</h3>
+<p>在文件夹根部放 <code>00_评审包索引.md</code>，列八件产物、版本、切片、月份和三个评审问题。八件是：A03-05 one-pager、A04-01 决策清单、A04-02 FR、A04-03 对象模型、A04-04 生命周期、A04-05 界面、A04-06 MVP 范围、A05-05 KPI。</p>
+<p><code>00_评审包索引.md</code> 是<strong>工作文件</strong>，不属于 42 个 artifact，不占档案编号；它只服务于这一次评审，评审结束后可以归档或删除。</p>
+<p>纪律：<strong>同切片、同月份、同版本号</strong>；旧稿移入 <code>_archive/</code>；索引写三个“必须今天决定”的问题，例如决策选对没有、硬约束是否阻断、MVP 砍得是否合理。</p>
+<p>八件和索引不用自己拼，可以整包拿走：</p>
+<div class="viz-embed"><div class="download-grid" role="list"><a class="download-card" role="listitem" href="downloads/fde-review-pack.zip" target="_blank" rel="noopener"><span class="download-count">8 份</span><strong>八件评审包</strong><span class="download-desc">one-pager、决策清单、FR、对象模型、生命周期、界面、MVP 与 KPI，外加索引。</span><span class="download-file">fde-review-pack.zip</span></a></div><p class="download-note">全部为离线 zip：解压即用，不联网、不需要安装。模板是 Markdown 文件，用任意文本编辑器或 Obsidian 打开。工具包下载在 <a href="day1-00-overview.html#sec-toolkit" target="_blank" rel="noopener">Day1 总览</a>。</p></div>
+
+<h3 id="step-one-pager">第 2 步：把 one-pager 放成封面（8 分钟）</h3>
+<p>A03-05 是评审者最先读、也可能只读的一页。按 <a class="case-link" href="case-a-one-pager.html#cb-one-pager" target="_blank" rel="noopener">案例 CB-04</a> 检查六段：用户、决策、输入、动作、价值、不做什么。</p>
+<p>判断只有一条：读完这页，评审者能说出“谁在什么时候做一个什么决定，这次不做什么”。说不出来，先改封面。CB-04 明确排除个人排班（S2）、住院总轮转（S3）和自动替人决定，后面的 FR 才有围栏。</p>
+<h3 id="step-fr">第 3 步：对齐决策清单并写 FR（14 分钟）</h3>
+<p>先把 A03-02 的决策搬进 A04-01，补决策人、时点、输入、动作、频率、影响对象；只留本次切片，区分最终、中间和审批动作。</p>
+<p>再写 FR：<strong>谁，在哪个界面，依据什么输入，判断什么条件，做什么决定，通过什么动作写回，验收看到什么。</strong> 一条只装一个决定。</p>
+<p><a class="case-link" href="case-b-solution.html#cb-fr" target="_blank" rel="noopener">案例 CB-07</a> 可对照：FR-02 王芳可用 9 天、填 10 天被阻止并说明超出 1 天【示例】；FR-05 批准后状态变为已发布、额度与剩余同步变化。每条 FR 指回一行决策和一条证据。</p>
+<h3 id="step-objects">第 4 步：搭对象模型与生命周期（12 分钟）</h3>
+<p>把 FR 里的名词圈出来。core = 源系统直接有；derived = 需要算出来；use case = 用户创建或修改。</p>
+<p><a class="case-link" href="case-b-solution.html#cb-objects" target="_blank" rel="noopener">案例 CB-05</a> 的分法：人员、亚专科、班型、额度是 core；分配、调整记录是 use case；冲突是 derived。每个对象补属性、关系、基数、来源、负责人。检查：每个名词有对象；每个对象至少被一条 FR 使用。</p>
+<p>再画生命周期。<a class="case-link" href="case-b-solution.html#cb-lifecycle" target="_blank" rel="noopener">案例 CB-06</a> 的分配对象走“建议 → 已确认 → 已发布 → 调整中 → 已归档”，每个 Action 写迁移后状态、写回字段、权限、校验。判断标准：<strong>关掉再打开，变化还在。</strong> 只弹提示不算写回；批准至少改 <code>Allocation.status</code> 并同步 <code>Quota.used</code>。</p>
+<h3 id="step-control">第 5 步：补界面与人机控制矩阵（8 分钟）</h3>
+<p>A04-05 放支撑决策的计算和提示：剩余额度、缺口、冲突严重度、建议动作。每项写类型、输入、来源、输出、界面区域、交互、失败处理。数据缺失显示什么？冲突算不出时阻断还是提示？</p>
+<p><span class="term-link" title="Control Matrix：把流程每一步分成完全自主、人在回路、纯人工，并写清验证者、审批者和回滚方式。">人机控制矩阵</span> 把每步分成完全自主、人在回路、纯人工，并写清验证者、审批者和回滚方式。排班案例：冲突检测完全自主；额度分配人在回路，陈静决定、系统校验；最终审批纯人工。</p>
+<p>三条纪律：每步只选一个级别；人在回路必须有验证者，完全自主必须有回滚；纯人工也要留记录。“系统自动分配”要么降成建议，要么补规则、确认人和回滚。</p>
+<h3 id="step-scope">第 6 步：收 MVP 范围与 KPI（7 分钟）</h3>
+<p>A04-06 写五栏：包含、不包含、待确认、演示必需、可延后。<a class="case-link" href="main-07-gates.html#cb-scope" target="_blank" rel="noopener">案例 CB-09</a> 的边界：一个月、三个亚专科、四个人的脱敏数据；额度全景、分配到人、C1/C2 识别、组长确认、主任审批、写回可重开。不做自动优化算法、工资绩效和移动端。</p>
+<p>A05-05 至少写指标、基线、目标、测量方式、反指标。<a class="case-link" href="main-08-five-days.html#cb-kpi" target="_blank" rel="noopener">案例 CB-08</a> 的“约 3 小时”是回忆值，必须保留“约”并注明复测；没有实测，不能对外说“下降 X%”。</p>
+<h2 id="sec-crosscheck">交叉检查：对不上就退回</h2>
+<p>装配完不要从头读，按四条连线检查。连不上就退回对应产物，不要在会上口头解释。</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th scope="col">检查</th>
+<th scope="col">连什么</th>
+<th scope="col">对不上时</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>范围一致</td>
+<td>封面“不做什么” ↔ FR 列表 ↔ MVP 演示必需</td>
+<td>删越界 FR，或砍范围</td>
+</tr>
+<tr>
+<td>决策可追溯</td>
+<td>每条 FR ↔ A04-01 的一行决策</td>
+<td>补决策，或删 FR</td>
+</tr>
+<tr>
+<td>对象有写回</td>
+<td>FR 名词 ↔ 对象；FR 动作 ↔ 状态与字段</td>
+<td>补对象、补写回</td>
+</tr>
+<tr>
+<td>规则与权限</td>
+<td>硬约束 ↔ 阻断；Action ↔ 操作者、审批者</td>
+<td>改校验，或补角色</td>
+</tr>
+</tbody>
+</table></div>
+<p>最常断的是“对象有写回”。生命周期图很漂亮，却没有写回字段；建设时才发现最后一步存不下来。</p>
+<h2 id="sec-precheck">评审前 10 分钟</h2>
+<p>按顺序做完五项，不要临场发挥：</p>
+<ol>
+<li>从文件夹根部打开索引，确认八份文件都在；</li>
+<li>用 60 秒读封面，说得出一个决策和三条“不做什么”；</li>
+<li>核对切片名、月份、版本号，以及额度、缺口、可用天数三个数字和三个人名；</li>
+<li>检查每个“待确认”都有负责人和截止日期；</li>
+<li>走一遍演示主路径，确认五步内没有死路；断网打开一次，写下三个评审问题。</li>
+</ol>
+<p>第 3 项最伤信任：同一个额度在两张表里差 2 人天，业务方会怀疑整包材料。</p>
+<h2 id="sec-output">输出</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th scope="col">输出（路径）</th>
+<th scope="col">最小内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A03-05 one-pager <code>03_现状与切片/03-05_use-case-one-pager.md</code></td>
+<td>六段齐全，明确不做什么</td>
+</tr>
+<tr>
+<td>A04-01 决策清单 <code>04_方案设计/04-01_决策清单.md</code></td>
+<td>一行一决策，有决策人和时点</td>
+</tr>
+<tr>
+<td>A04-02 FR <code>04_方案设计/04-02_功能需求FR.md</code></td>
+<td>固定句、验收、证据 ID</td>
+</tr>
+<tr>
+<td>A04-03 对象模型 <code>04_方案设计/04-03_对象模型.md</code></td>
+<td>core/derived/use case 齐全</td>
+</tr>
+<tr>
+<td>A04-04 生命周期 <code>04_方案设计/04-04_生命周期与写回.md</code></td>
+<td>状态、Action、写回、权限</td>
+</tr>
+<tr>
+<td>A04-05 增强与界面 <code>04_方案设计/04-05_增强与界面.md</code></td>
+<td>计算、区域、失败处理</td>
+</tr>
+<tr>
+<td>A04-06 MVP 范围 <code>04_方案设计/04-06_MVP范围与非范围.md</code></td>
+<td>包含、不包含、待确认、演示必需、可延后</td>
+</tr>
+<tr>
+<td>A05-05 KPI <code>05_五天验证/05-05_KPI基线与验证标准.md</code></td>
+<td>基线、目标、测量、反指标</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="sec-gate">阶段门</h2>
+<div class="gate-panel">
+<p><strong>G4 通过</strong>：六件方案产物与 KPI 同切片、同版本；每条 FR 追到决策、对象、写回和证据；对象三类齐全；生命周期有写回；控制矩阵每步有级别、验证者和回滚；MVP 有非范围。KPI 这一轮只要起草到“有基线口径”，它的门在 G5。</p>
+<p><strong>有条件通过</strong>：只缺一项非关键数据或权限，已标“待确认”，有负责人和日期，不在演示主路径上。</p>
+<p><strong>不通过</strong>：FR 是功能清单；生命周期没有写回；控制矩阵缺步骤或把“自动”当默认；MVP 含未验证算法；方案承诺降幅却拿不出基线指标。</p>
+</div>
+<h2 id="sec-template">模板</h2>
+<p>控制矩阵最容易漏，先用这张骨架。其余模板在 <code>templates/blank/</code> 下按编号对应。</p>
+<div class="template-block">
+<div class="template-title">A04-05 配套：人机控制矩阵 <span>可直接复制</span></div>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th scope="col">步骤</th>
+<th scope="col">自主级别</th>
+<th scope="col">系统动作</th>
+<th scope="col">验证者</th>
+<th scope="col">审批者</th>
+<th scope="col">回滚方式</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>冲突检测</td>
+<td>完全自主</td>
+<td>计算超排、缺口</td>
+<td>陈静抽查</td>
+<td>无</td>
+<td>回退人工核对</td>
+</tr>
+<tr>
+<td>额度分配</td>
+<td>人在回路</td>
+<td>校验可用天数与额度</td>
+<td>陈静</td>
+<td>周主任</td>
+<td>恢复上一版</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>填写说明</strong>：级别三选一；人在回路写验证者；完全自主写回滚；纯人工留记录。没有验证者或回滚的“自动”，不算控制。</p>
+<p>控制矩阵还要能审计：每个动作记录操作人、时间、改前/改后值、依据的规则版本。没有审计字段的“人在回路”，事后回答不了“是谁批准了这次例外”。审计字段可以落在界面事件日志里，不必都加进矩阵本身，但必须在 A04-05 里写明存放在哪。</p>
+</div>
+<h2 id="sec-case">排班案例</h2>
+<p>评审时，每份文件只看最关键的一句：</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th scope="col">产物</th>
+<th scope="col">案例片段</th>
+<th scope="col">看哪一句</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A03-05</td>
+<td><a class="case-link" href="case-a-one-pager.html#cb-one-pager" target="_blank" rel="noopener">案例 CB-04</a></td>
+<td>只承诺额度分配一个决策，不做 S2、S3 和自动替人决定</td>
+</tr>
+<tr>
+<td>A04-02</td>
+<td><a class="case-link" href="case-b-solution.html#cb-fr" target="_blank" rel="noopener">案例 CB-07</a></td>
+<td>王芳可用 9 天，填 10 天时保存被阻止并说明超出 1 天【示例】</td>
+</tr>
+<tr>
+<td>A04-03、A04-04</td>
+<td><a class="case-link" href="case-b-solution.html#cb-objects" target="_blank" rel="noopener">案例 CB-05</a> <a class="case-link" href="case-b-solution.html#cb-lifecycle" target="_blank" rel="noopener">案例 CB-06</a></td>
+<td>冲突是 derived 对象；批准后 <code>Allocation.status</code> 和 <code>Quota.used</code> 真的变化</td>
+</tr>
+<tr>
+<td>A04-06、A05-05</td>
+<td><a class="case-link" href="main-07-gates.html#cb-scope" target="_blank" rel="noopener">案例 CB-09</a> <a class="case-link" href="main-08-five-days.html#cb-kpi" target="_blank" rel="noopener">案例 CB-08</a></td>
+<td>不做自动优化算法；约 3 小时是回忆值，必须复测</td>
+</tr>
+</tbody>
+</table></div>
+<p>这张表也是交叉检查的缩影：one-pager 约束 FR，FR 落到对象和生命周期，MVP 决定哪些进演示，KPI 决定演示时测什么。</p>
+<h2 id="sec-failures">常见失败</h2>
+<div class="pitfalls">
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th scope="col">现象</th>
+<th scope="col">原因</th>
+<th scope="col">处理</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>封面写“不自动决定”，FR 写“自动分配”</td>
+<td>两份材料分开写</td>
+<td>以封面为准，自动降为建议，或补规则与审批</td>
+</tr>
+<tr>
+<td>FR 每条都以“系统应该支持”开头</td>
+<td>功能清单当需求</td>
+<td>用固定句重写，补角色、判断、写回和验收</td>
+</tr>
+<tr>
+<td>对象不全，生命周期没有写回</td>
+<td>只建已有表，状态图当流程说明</td>
+<td>补 derived/use case 对象和写回字段</td>
+</tr>
+<tr>
+<td>MVP 全量演示，KPI 没基线</td>
+<td>把“真实”当“全量”，把愿望当指标</td>
+<td>收到一个月、三个亚专科、四个人</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="hands-on">
+<p><strong>动手 20 分钟</strong>：拿现有材料做最小装配。</p>
+<ol>
+<li>列出包内文件，写版本号和切片；</li>
+<li>抽三条 FR，连线到决策、对象、写回，标“通”“断”“缺”；</li>
+<li>把“断”和“缺”改成具体动作：补哪份、找谁、何时补。</li>
+</ol>
+<p><strong>自检</strong>：三条 FR 都能指到决策；至少一个动作落到写回字段；缺口都有人名和日期。</p>
+</div>
+<div class="self-test">
+<p><strong>三问自测</strong></p>
+<details>
+<summary>1. 为什么先放 one-pager，而不是先写 FR？</summary>
+
+one-pager 先固定边界：一个决策、一个用户、一组“不做什么”。边界定了，FR 才知道写什么；先写 FR 容易越写越多。
+
+</details>
+<details>
+<summary>2. 生命周期图为什么必须有写回字段？</summary>
+
+状态图说明“可以怎么变”，写回字段说明“变了之后存在哪里”。没有写回，关掉页面就恢复原状，无法证明决策真的发生。
+
+</details>
+<details>
+<summary>3. 人机控制矩阵主要防什么？</summary>
+
+防“自动”成为没人负责的默认选项。写不出级别、验证者、审批者和回滚方式，就说明这一步还不该自动化。
+
+</details>
+</div>
+<h2 id="sec-checklist">自检清单</h2>
+<ul>
+<li>[ ] 八件产物同切片、同月份、同版本号；</li>
+<li>[ ] one-pager 只承诺一个最终决策，写明不做什么；</li>
+<li>[ ] 每条 FR 追到决策、对象、写回和证据；</li>
+<li>[ ] 对象覆盖三类，每个 Action 有状态迁移和写回；</li>
+<li>[ ] 控制矩阵每步有级别、验证者、审批者、回滚；</li>
+<li>[ ] MVP 包含／不包含／待确认写满，演示项可走通；</li>
+<li>[ ] KPI 有基线、目标、测量、来源和反指标。</li>
+</ul>
+<div class="recap">
+<p><strong>本章带走</strong></p>
+<ol>
+<li>评审包是同一决策、同一版本、能互相对上的产物组，不是八份文档。</li>
+<li>装配先边界后细节：索引、封面、决策与 FR、对象与生命周期、界面与控制矩阵、MVP 与 KPI。</li>
+<li>评审前用交叉检查找断点，再用 10 分钟查版本、数字、角色和演示路径。</li>
+</ol>
+</div>
+      </div>
+
+      <section class="term-cards" aria-label="本页术语卡"><p class="eyebrow">本页术语</p><div class="term-grid"><article class="term-card" id="term-solution-design"><h3 id="term-title-solution-design">Solution Design（方案设计） <span class="term-en">Solution Design</span></h3><p>把功能需求拆成对象模型、生命周期、数据增强和界面意图四件产物的过程。</p><a class="term-first" href="main-06-solution.html" target="_blank" rel="noopener">首次解释</a></article><article class="term-card" id="term-control-matrix"><h3 id="term-title-control-matrix">人机控制矩阵 <span class="term-en">Control Matrix</span></h3><p>把流程每一步分成完全自主、人在回路、纯人工，并写清验证者、审批者和回滚方式。</p></article></div></section>
+      <section class="artifact-box" aria-label="本页产物"><div class="artifact-block"><h3 id="artifacts-out">本页要写出的产物</h3><ul><li><code>A03-05</code> use-case one-pager <span class="muted">→ 03_现状与切片/03-05_use-case-one-pager.md</span> <span class="gate-tag">G3</span> <a href="templates/blank/03-05_use-case-one-pager.html" data-template-view data-template-title="A03-05 use-case one-pager模板" title="A03-05 use-case one-pager模板 ｜ 当前页弹窗预览">模板</a> <a href="templates/golden/03-05_use-case-one-pager_排班案例.html" data-template-view data-template-title="A03-05 use-case one-pager黄金样例" title="A03-05 use-case one-pager黄金样例 ｜ 当前页弹窗预览">黄金样例</a></li><li><code>A04-01</code> 决策清单 <span class="muted">→ 04_方案设计/04-01_决策清单.md</span> <span class="gate-tag">G4</span> <a href="templates/blank/04-01_决策清单.html" data-template-view data-template-title="A04-01 决策清单模板" title="A04-01 决策清单模板 ｜ 当前页弹窗预览">模板</a> <a href="templates/golden/04-01_决策清单_排班案例.html" data-template-view data-template-title="A04-01 决策清单黄金样例" title="A04-01 决策清单黄金样例 ｜ 当前页弹窗预览">黄金样例</a></li><li><code>A04-02</code> 功能需求FR <span class="muted">→ 04_方案设计/04-02_功能需求FR.md</span> <span class="gate-tag">G4</span> <a href="templates/blank/04-02_功能需求FR.html" data-template-view data-template-title="A04-02 功能需求FR模板" title="A04-02 功能需求FR模板 ｜ 当前页弹窗预览">模板</a> <a href="templates/golden/04-02_功能需求FR_排班案例.html" data-template-view data-template-title="A04-02 功能需求FR黄金样例" title="A04-02 功能需求FR黄金样例 ｜ 当前页弹窗预览">黄金样例</a></li><li><code>A04-03</code> 对象模型 <span class="muted">→ 04_方案设计/04-03_对象模型.md</span> <span class="gate-tag">G4</span> <a href="templates/blank/04-03_对象模型.html" data-template-view data-template-title="A04-03 对象模型模板" title="A04-03 对象模型模板 ｜ 当前页弹窗预览">模板</a> <a href="templates/golden/04-03_对象模型_排班案例.html" data-template-view data-template-title="A04-03 对象模型黄金样例" title="A04-03 对象模型黄金样例 ｜ 当前页弹窗预览">黄金样例</a></li><li><code>A04-04</code> 生命周期与写回 <span class="muted">→ 04_方案设计/04-04_生命周期与写回.md</span> <span class="gate-tag">G4</span> <a href="templates/blank/04-04_生命周期与写回.html" data-template-view data-template-title="A04-04 生命周期与写回模板" title="A04-04 生命周期与写回模板 ｜ 当前页弹窗预览">模板</a> <a href="templates/golden/04-04_生命周期与写回_排班案例.html" data-template-view data-template-title="A04-04 生命周期与写回黄金样例" title="A04-04 生命周期与写回黄金样例 ｜ 当前页弹窗预览">黄金样例</a></li><li><code>A04-05</code> 增强与界面 <span class="muted">→ 04_方案设计/04-05_增强与界面.md</span> <span class="gate-tag">G4</span> <a href="templates/blank/04-05_增强与界面.html" data-template-view data-template-title="A04-05 增强与界面模板" title="A04-05 增强与界面模板 ｜ 当前页弹窗预览">模板</a> <a href="templates/golden/04-05_增强与界面_排班案例.html" data-template-view data-template-title="A04-05 增强与界面黄金样例" title="A04-05 增强与界面黄金样例 ｜ 当前页弹窗预览">黄金样例</a></li><li><code>A04-06</code> MVP范围与非范围 <span class="muted">→ 04_方案设计/04-06_MVP范围与非范围.md</span> <span class="gate-tag">G4</span> <a href="templates/blank/04-06_MVP范围与非范围.html" data-template-view data-template-title="A04-06 MVP范围与非范围模板" title="A04-06 MVP范围与非范围模板 ｜ 当前页弹窗预览">模板</a> <a href="templates/golden/04-06_MVP范围与非范围_排班案例.html" data-template-view data-template-title="A04-06 MVP范围与非范围黄金样例" title="A04-06 MVP范围与非范围黄金样例 ｜ 当前页弹窗预览">黄金样例</a></li><li><code>A05-05</code> KPI基线与验证标准 <span class="muted">→ 05_五天验证/05-05_KPI基线与验证标准.md</span> <span class="gate-tag">G5</span> <a href="templates/blank/05-05_KPI基线与验证标准.html" data-template-view data-template-title="A05-05 KPI基线与验证标准模板" title="A05-05 KPI基线与验证标准模板 ｜ 当前页弹窗预览">模板</a> <a href="templates/golden/05-05_KPI基线与验证标准_排班案例.html" data-template-view data-template-title="A05-05 KPI基线与验证标准黄金样例" title="A05-05 KPI基线与验证标准黄金样例 ｜ 当前页弹窗预览">黄金样例</a></li></ul></div><div class="artifact-block"><h3 id="artifacts-in">开始前应已具备</h3><p class="muted"><code>A00-03</code> 范围与非范围、<code>A01-04</code> 基线数据清单、<code>A03-01</code> As-is决策流、<code>A03-02</code> 用户-决策-动作清单、<code>A03-03</code> 候选切片与打分、<code>A03-04</code> 规则库（四层）、<code>A03-06</code> D1工作底稿、<code>A03-07</code> D1阶段门记录、<code>A03-08</code> D2输入清单、<code>A02-04</code> 证据台账</p></div></section>
+      <section class="sources" aria-label="来源"><h2 id="sec-sources">来源与证据等级</h2><ol class="source-list"><li><span class="src-id">S01</span> <strong>Use case lifecycle · Overview</strong> <span class="badge badge-官方">官方</span><div class="muted">Palantir Technologies · 抓取 2026-10-19 · 版权归 Palantir Technologies；仅内部研究，不对外分发原文</div><div class="src-url"><a href="https://www.palantir.com/docs/foundry/use-case-life-cycle/overview/" rel="noreferrer" target="_blank">https://www.palantir.com/docs/foundry/use-case-life-cycle/overview/</a></div></li><li><span class="src-id">S02</span> <strong>Distilling functional requirements</strong> <span class="badge badge-官方">官方</span><div class="muted">Palantir Technologies · 抓取 2026-10-19 · 版权归 Palantir Technologies；仅内部研究，不对外分发原文</div><div class="src-url"><a href="https://www.palantir.com/docs/foundry/use-case-life-cycle/distilling-functional-requirements/" rel="noreferrer" target="_blank">https://www.palantir.com/docs/foundry/use-case-life-cycle/distilling-functional-requirements/</a></div></li><li><span class="src-id">S03</span> <strong>Solution design</strong> <span class="badge badge-官方">官方</span><div class="muted">Palantir Technologies · 抓取 2026-10-19 · 版权归 Palantir Technologies；仅内部研究，不对外分发原文</div><div class="src-url"><a href="https://www.palantir.com/docs/foundry/use-case-life-cycle/solution-design/" rel="noreferrer" target="_blank">https://www.palantir.com/docs/foundry/use-case-life-cycle/solution-design/</a></div></li><li><span class="src-id">S17</span> <strong>FDE 方法论沉淀</strong> <span class="badge badge-实践">实践</span><div class="muted">本子项目 · 抓取 2026-09-23 · 内部方法沉淀</div><div class="src-url"><span class="muted">无公开链接</span></div></li><li><span class="src-id">S18</span> <strong>流程与范围模板</strong> <span class="badge badge-实践">实践</span><div class="muted">本子项目 · 抓取 2026-09-23 · 内部方法沉淀</div><div class="src-url"><span class="muted">无公开链接</span></div></li></ol></section>
+      <nav class="pager" aria-label="翻页"><a class="pager-prev" data-same-tab href="work-04-model.html"><span>上一页</span><strong>从证据到模型</strong></a><a class="pager-next" data-same-tab href="work-06-demo.html"><span>下一页</span><strong>Demo 脚本、数据与环境</strong></a></nav>
+
+      <footer class="page-foot">
+        <p>本教程为内部方法研究。案例已匿名化，数字标注【示例】。Palantir 官方资料版权归 Palantir Technologies，仅作改写与链接。</p>
+        <p class="muted">发现断链或事实错误？回到 <a href="appendix-sources.html" target="_blank" rel="noopener">来源与版权</a> 核对出处。</p>
+      </footer>
+    </article>
+  </main>
+
+  <aside class="toc" id="toc" aria-label="页内目录">
+    <p class="toc-title">本页目录</p><ol class="toc-list"><li class="toc-h2"><a href="#sec-when">何时用</a></li><li class="toc-h2"><a href="#sec-prereq">前置</a></li><li class="toc-h2"><a href="#sec-inputs">输入</a></li><li class="toc-h2"><a href="#sec-steps">一小时的装配顺序</a><ul class="toc-sub"><li class="toc-h3"><a href="#step-package">第 1 步：定包内清单与版本（5 分钟）</a></li><li class="toc-h3"><a href="#step-one-pager">第 2 步：把 one-pager 放成封面（8 分钟）</a></li><li class="toc-h3"><a href="#step-fr">第 3 步：对齐决策清单并写 FR（14 分钟）</a></li><li class="toc-h3"><a href="#step-objects">第 4 步：搭对象模型与生命周期（12 分钟）</a></li><li class="toc-h3"><a href="#step-control">第 5 步：补界面与人机控制矩阵（8 分钟）</a></li><li class="toc-h3"><a href="#step-scope">第 6 步：收 MVP 范围与 KPI（7 分钟）</a></li></ul></li><li class="toc-h2"><a href="#sec-crosscheck">交叉检查：对不上就退回</a></li><li class="toc-h2"><a href="#sec-precheck">评审前 10 分钟</a></li><li class="toc-h2"><a href="#sec-output">输出</a></li><li class="toc-h2"><a href="#sec-gate">阶段门</a></li><li class="toc-h2"><a href="#sec-template">模板</a></li><li class="toc-h2"><a href="#sec-case">排班案例</a></li><li class="toc-h2"><a href="#sec-failures">常见失败</a></li><li class="toc-h2"><a href="#sec-checklist">自检清单</a></li></ol>
+  </aside>
+</div>
+
+<div class="tpl-modal" id="tpl-modal" hidden>
+  <div class="tpl-panel" role="dialog" aria-modal="true" aria-labelledby="tpl-title">
+    <header class="tpl-head">
+      <div class="tpl-heading">
+        <p class="tpl-kicker">模板阅读视图</p>
+        <h2 id="tpl-title">模板</h2>
+      </div>
+      <div class="tpl-actions">
+        <a class="tpl-open" id="tpl-open" href="#" target="_blank" rel="noopener">在新标签打开 ↗</a>
+        <button class="icon-btn" id="tpl-close" type="button" aria-label="关闭模板">✕</button>
+      </div>
+    </header>
+    <div class="tpl-body">
+      <iframe id="tpl-frame" title="模板内容" loading="lazy"></iframe>
+    </div>
+  </div>
+</div>
+
+<div class="search-modal" id="search-modal" hidden>
+  <div class="search-panel" role="dialog" aria-modal="true" aria-labelledby="search-title">
+    <div class="search-head">
+      <label id="search-title" class="sr-only" for="search-input">搜索教程</label>
+      <input id="search-input" type="search" placeholder="搜索概念、产物、模板、方法卡…" autocomplete="off">
+      <button class="icon-btn" id="search-close" type="button" aria-label="关闭搜索">✕</button>
+    </div>
+    <div id="search-results" class="search-results" aria-live="polite"></div>
+    <p class="search-hint">按 <kbd>/</kbd> 或 <kbd>Ctrl</kbd>+<kbd>K</kbd> 打开，<kbd>Esc</kbd> 关闭。索引完全离线。</p>
+  </div>
+</div>
+
+<noscript><p class="noscript-note">搜索与阅读进度需要 JavaScript；正文、目录和翻页仍可正常使用。可用浏览器查找（Ctrl+F）。</p></noscript>
+
+<script src="assets/search-index.js"></script>
+<script src="assets/viz-data.js"></script>
+<script src="assets/app.js"></script>
+<script src="assets/viz.js"></script>
+
+</body>
+</html>

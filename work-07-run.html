@@ -1,0 +1,481 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<title>五天执行与阶段门 · FDE 零基础教程</title>
+<meta name="description" content="每日日志、问题与决策日志、阶段门记录：让五天可追踪、可停下。">
+<link rel="stylesheet" href="assets/course.css">
+<script>
+(function () {
+  try {
+    var saved = localStorage.getItem('fde-theme');
+    var theme = saved || (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+    document.documentElement.dataset.theme = theme;
+  } catch (e) {}
+})();
+</script>
+</head>
+<body class="track-workbench page-work-07-run">
+<a class="skip-link" href="#main">跳到正文</a>
+
+<header class="topbar">
+  <button class="icon-btn nav-toggle" id="nav-toggle" type="button" aria-expanded="false" aria-controls="sidebar" aria-label="打开课程目录">
+    <span aria-hidden="true">☰</span>
+  </button>
+  <a class="brand" data-same-tab href="index.html"><span class="brand-mark">FDE</span><span class="brand-text">零基础教程</span></a>
+  <nav class="track-switch" aria-label="模块切换"><a class="track-link" data-same-tab href="index.html" title="从零建立完整心智模型">主线</a><span class="track-link active" aria-current="true" title="现场查用：输入、步骤、输出、阶段门">工作台</span><a class="track-link" data-same-tab href="day1-00-overview.html" title="六步链路：简报 → 访谈 → 证据 → 底稿 → 门">Day1</a><a class="track-link" data-same-tab href="appendix-methods.html" title="一卡一问，按阶段、产物、角色查">方法库</a><a class="track-link" data-same-tab href="appendix-templates.html" title="模板、产物链、术语与来源">附录</a></nav>
+  <div class="top-actions">
+    <button class="search-open" id="search-open" type="button" aria-haspopup="dialog">
+      <span aria-hidden="true">⌕</span><span class="search-label">搜索</span><kbd>/</kbd>
+    </button>
+    <button class="icon-btn" id="theme-toggle" type="button" aria-label="切换深浅色">◐</button>
+  </div>
+  <div class="read-progress" aria-hidden="true"><span id="read-progress"></span></div>
+</header>
+
+<div class="layout">
+  <aside class="sidebar" id="sidebar">
+    <nav class="course-tree" aria-label="课程目录"><header class="side-head"><p class="side-eyebrow">当前模块</p><p class="side-title">实操工作台</p><p class="side-caption">现场查用：输入、步骤、输出、阶段门</p><p class="side-meta">9 页<span class="dot">·</span>按需查</p></header><section class="nav-group"><p class="nav-group-title"><span class="nav-group-num">01</span>调研与记录</p><a class="nav-link" data-same-tab href="work-01-prep.html">调研前 7 天</a><a class="nav-link" data-same-tab href="work-02-interview.html">现场 60 分钟</a><a class="nav-link" data-same-tab href="work-03-record.html">记录：把现场变成证据</a><a class="nav-link" data-same-tab href="work-04-model.html">从证据到模型</a></section><section class="nav-group"><p class="nav-group-title"><span class="nav-group-num">02</span>交付与 Demo</p><a class="nav-link" data-same-tab href="work-05-spec.html">一小时压出评审包</a><a class="nav-link" data-same-tab href="work-06-demo.html">Demo 脚本、数据与环境</a><span class="nav-link nav-current" aria-current="page">五天执行与阶段门</span><a class="nav-link" data-same-tab href="work-08-retro.html">复盘与回流</a><a class="nav-link" data-same-tab href="work-09-toolchain.html">工具链与硬编码路径</a></section></nav>
+  </aside>
+  <button class="scrim" id="scrim" type="button" aria-label="关闭目录" hidden></button>
+
+  <main class="main" id="main">
+    <nav class="crumb" aria-label="面包屑"><a data-same-tab href="index.html">教程</a><span class="sep">/</span><span>实操工作台</span><span class="sep">/</span><span>交付与 Demo</span><span class="sep">/</span><span aria-current="page">五天执行与阶段门</span></nav>
+    <article class="article">
+      <header class="page-head">
+        <div class="badges"><span class="badge badge-workbench">查用</span><span class="badge badge-time">16 分钟</span></div>
+        <h1>五天执行与阶段门</h1>
+        <p class="lede">每日日志、问题与决策日志、阶段门记录：让五天可追踪、可停下。</p>
+        <p class="page-question"><span class="eyebrow">本页要回答</span>五天跑到一半，怎么知道该继续、缩小范围还是停？</p>
+        <div class="page-meta">
+          <section class="meta-block">
+            <h2 class="meta-title" id="meta-objectives">读完你能</h2>
+            <ul class="objective-list"><li>每天记录完成、阻塞、决策和证据变化；</li><li>把问题与决策分开记账；</li><li>用阶段门结论决定下一步。</li></ul>
+          </section>
+          <section class="meta-block">
+            <h2 class="meta-title" id="meta-prereq">前置</h2>
+            <p>先读：<a href="main-08-five-days.html" target="_blank" rel="noopener">Day1–5 每天做什么</a>、<a href="work-06-demo.html" target="_blank" rel="noopener">Demo 脚本、数据与环境</a></p>
+          </section>
+        </div>
+      </header>
+
+      <div class="prose">
+        <dl class="runbook-head">
+<div><dt>何时用</dt><dd>五天验证期间每天站会与收工；Day 3 中检、Day 5 阶段门</dd></div>
+<div><dt>前置</dt><dd>A05-02 五天计划、A05-05 KPI、A05-06 Demo 脚本已就位</dd></div>
+<div><dt>输入</dt><dd>每日增量、17:00 展示反馈、阻塞与待拍板的取舍</dd></div>
+<div><dt>输出</dt><dd>A05-03 每日日志、A05-04 问题与决策日志、A05-09 阶段门记录</dd></div>
+<div><dt>阶段门与耗时</dt><dd>G5 验证执行门；每天约 25 分钟，阶段门约 45 分钟</dd></div>
+</dl>
+
+<p>Day 3 下午，你问：“昨天说借调的那 1 天，谁去落实了？”大家沉默。群里翻出三条消息：一条说“先问问”，一条说“应该可以”，没有负责人，也没有截止。陈静问：“所以我们今天到底变了什么？”</p>
+<p>五天验证最怕的不是做不出来，是做到一半没人知道该继续、缩小还是停。这一页给你每天 25 分钟的节奏。</p>
+<h2 id="sec-when">何时用</h2>
+<p><strong>该用</strong>：</p>
+<ul>
+<li>每天 09:30 站会（15 分钟）和 17:30 收工（10 分钟）；</li>
+<li>每天 17:00 展示后，记录用户反馈与证据变化；</li>
+<li>出现跨人阻塞或需要拍板时，立即记问题或决策；</li>
+<li>Day 3 中检、Day 5 阶段门。</li>
+</ul>
+<p><strong>不该用</strong>：</p>
+<ul>
+<li>把日志写成会议纪要或工作汇报，它们不回答“决定了什么”；</li>
+<li>用日志追责个人，一旦变成考核材料，大家只会写安全的话；</li>
+<li>阶段门只写“进展顺利”，没有结论的记录不算记录。</li>
+</ul>
+<div class="checkpoint">
+<p><strong>停一下</strong>：如果团队今晚解散，明天换一个人接手，他能否从三份记录里知道：做到哪、卡在哪、决定了什么、下一步做什么？</p>
+<p>有一个答不上来，今天就没有真正收工。</p>
+</div>
+<h2 id="sec-prereq">前置</h2>
+<p>开始当天的节奏前，桌上应该有五份东西：</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th scope="col">前置</th>
+<th scope="col">用来做什么</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A05-02 五天计划</td>
+<td>今天的上午/下午目标、参与人、产出、展示时点、风险</td>
+</tr>
+<tr>
+<td>A05-05 KPI 与验证标准</td>
+<td>今天测哪个指标、怎么测、反指标是什么</td>
+</tr>
+<tr>
+<td>A05-06 Demo 脚本</td>
+<td>今天 17:00 演示哪一段、谁操作</td>
+</tr>
+<tr>
+<td>A05-07 Demo 数据清单</td>
+<td>今天的数据是否就绪，缺失时用什么替代</td>
+</tr>
+<tr>
+<td>A05-08 反馈记录</td>
+<td>昨天的用户原话与待确认项</td>
+</tr>
+</tbody>
+</table></div>
+<p>再加两个固定时间：站会和每日展示。<a class="case-link" href="main-07-gates.html#cb-gates" target="_blank" rel="noopener">案例 CB-16</a> 里写的是每天 17:00 给陈静看，日历已约。</p>
+<h2 id="sec-inputs">输入</h2>
+<p>每天进日志的信息只有六类，不要写成一整天的流水账：</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th scope="col">输入</th>
+<th scope="col">取什么</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>昨日 A05-03</td>
+<td>未完成项、昨日阻塞、昨日决定的执行情况</td>
+</tr>
+<tr>
+<td>今日 A05-02</td>
+<td>今天承诺的增量与展示时点</td>
+</tr>
+<tr>
+<td>展示现场</td>
+<td>用户原话、操作停顿、哪条假设被证实或推翻</td>
+</tr>
+<tr>
+<td>A05-05</td>
+<td>今天的 KPI 测量值与反指标</td>
+</tr>
+<tr>
+<td>站会口述</td>
+<td>新阻塞、需要谁拍板、跨组依赖</td>
+</tr>
+<tr>
+<td>数据与权限变化</td>
+<td>新拿到的数据、被拒的权限、替代方案</td>
+</tr>
+</tbody>
+</table></div>
+<p>“证据变化”最容易被漏。它不是“今天做了什么”，而是“哪条判断比昨天更可信，或被推翻了”。</p>
+<h2 id="sec-steps">步骤</h2>
+<h3 id="step-standup">第 1 步：09:30 站会，每人三句话（15 分钟）</h3>
+<p>每人只说三句：昨天完成了什么、今天承诺什么、卡在哪里需要谁。</p>
+<p>站会只同步，不解决问题。新问题记 I-xx，新决定记 D-xx，会后单独处理。超过 15 分钟还在讨论技术细节，就转到问题日志。</p>
+<h3 id="step-openlog">第 2 步：站会后 10 分钟开日志（10 分钟）</h3>
+<p><span class="term-link" title="Daily Log：每天记录完成事项、阻塞、决策、证据变化和明日计划的短日志。">每日日志</span>每天六格：日期、完成、阻塞、决策、证据变化、明日计划。</p>
+<p>早上先填日期、今日目标和已知阻塞。完成、决策、证据变化留到收工补，避免早上就写成“计划”。</p>
+<h3 id="step-issues">第 3 步：白天随时记问题与决策（各 2 分钟/条）</h3>
+<p><span class="term-link" title="Issue Log：记录问题的现象、影响、当前绕行、负责人和截止日期；不把问题藏在聊天记录里。">问题日志</span>和<span class="term-link" title="Decision Log：记录决策内容、决策人、依据、备选方案和复审时间的日志。">决策日志</span>必须分开。混在一条里，三天后无法判断“这事定了没有”。</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th scope="col">维度</th>
+<th scope="col">问题日志</th>
+<th scope="col">决策日志</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>记什么</td>
+<td>现象、影响、当前绕行、负责人、截止</td>
+<td>决定了什么、谁定的、依据、备选、复审时间</td>
+</tr>
+<tr>
+<td>编号</td>
+<td>I-01 起</td>
+<td>DR-01 起</td>
+</tr>
+<tr>
+<td>关闭条件</td>
+<td>问题消失，或有绕行且负责人确认</td>
+<td>到复审时间且未被推翻</td>
+</tr>
+</tbody>
+</table></div>
+<p>问题必须有负责人和日期，否则只是抱怨；决策必须有依据和备选，否则通常还没想清楚。</p>
+<h3 id="step-show">第 4 步：17:00 每日展示，只演今天的增量（15 分钟）</h3>
+<p>用户操作，FDE 不代点。只演示今天新增或修复的部分，不重演昨天看过的全流程。</p>
+<p>展示后 10 分钟做两件事：把用户原话写进 A05-08，不转述成“用户满意”；在 A05-03 的“证据变化”里写清哪条假设被证实、被推翻或仍待验证。</p>
+<p>展示不是汇报进度，是给当天的判断补一次证据。</p>
+<h3 id="step-closelog">第 5 步：17:30 收工，补完日志（10 分钟）</h3>
+<p>补完当天六格，并做三件事：给每个未关闭的阻塞写“明日第一动作”，不写“继续跟进”；把新决定同步进 A05-04，写清复审时间；只改 A05-02 的明天安排，不改历史。历史失真，阶段门就没有依据。</p>
+<h3 id="step-midgate">第 6 步：Day 3 中检，判断要不要缩范围（30 分钟）</h3>
+<p>中检只问四个问题：</p>
+<ol>
+<li>范围是否仍然只包一个最终决策？</li>
+<li>真实数据与权限是否够支撑演示？</li>
+<li>用户能否自己完成核心动作？</li>
+<li>前两天是否每天都有可展示的增量？</li>
+</ol>
+<p>四个都“是”，继续。任何一个“否”，按“什么时候停”处理，并把结论写进 A05-09。</p>
+<h3 id="step-freeze">第 7 步：Day 4 冻结，只修阻塞（20 分钟）</h3>
+<p>Day 4 冻结后，不加功能，不改范围，只修“不修就演不下去”的缺陷。</p>
+<p>同时确认 Day 5 的参与者，按 A05-06 完整跑一遍，把未完成项转入待补清单或下一轮，不塞进 Demo。冻结不是停止工作，是停止扩张。</p>
+<h3 id="step-final">第 8 步：Day 5 正式 Demo 与阶段门（45 分钟）</h3>
+<p>按 A05-06 执行，用户操作。结束后写 A05-09：每道门的检查项、结论、依据、待补、负责人、日期。</p>
+<p><span class="term-link" title="Stage Gate：G0–G6，进入下一阶段前必须同时满足的检查点；结论通常是通过、有条件继续或待补证。">阶段门</span>的结论只能三选一：<strong>通过</strong>、<strong>有条件继续</strong>、<strong>待补证</strong>。“停”不是一个结论，而是你根据结论做出的行动：待补证补不上，就在冻结前缩小范围或结束本轮。</p>
+<h2 id="sec-output">输出</h2>
+<ul>
+<li><strong>A05-03 每日日志</strong> → <code>05_五天验证/05-03_每日日志.md</code>：日期、完成、阻塞、决策、证据变化、明日计划；</li>
+<li><strong>A05-04 问题与决策日志</strong> → <code>05_五天验证/05-04_问题与决策日志.md</code>：编号、类型、内容、提出人、影响、决定、负责人、截止日期、状态；</li>
+<li><strong>A05-09 阶段门记录</strong> → <code>05_五天验证/05-09_阶段门记录.md</code>：门、检查项、结论、依据、待补、负责人、日期；</li>
+<li><strong>A05-02 五天计划</strong>（每日更新）→ <code>05_五天验证/05-02_五天计划.md</code>：只改明天，不改历史；</li>
+<li><strong>A05-01 五道门检查表</strong> → 在 G5 前逐项填证据，不写口头确认。</li>
+</ul>
+<h2 id="sec-gate">阶段门</h2>
+<p>G5 的通过条件：五道门全过；Demo 能由用户自己操作；每天有展示；阶段门有结论。</p>
+<p>每天的最小标准是四条：至少一条可展示的增量；每日日志六格齐全；每条问题与决策都有负责人和截止日期；17:00 展示由用户操作，证据变化写清“证实、推翻或待验证”。</p>
+<h3 id="stop-rules">什么时候停</h3>
+<p>出现下面任一情况，不要硬撑：</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th scope="col">触发条件</th>
+<th scope="col">动作</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>连续两天没有可展示增量</td>
+<td>停，缩到最小决策，重排后两天</td>
+</tr>
+<tr>
+<td>Day 3 前数据或权限仍拿不到</td>
+<td>换脱敏快照；换不到就停</td>
+</tr>
+<tr>
+<td>用户两次无法自己完成核心动作</td>
+<td>回退界面或范围，不让 FDE 代操作</td>
+</tr>
+<tr>
+<td>Day 4 审批人仍未确认</td>
+<td>有条件继续，明确“次日补审批”</td>
+</tr>
+<tr>
+<td>讨论从“决策是否被验证”变成“再加一个功能”</td>
+<td>停，回到决策清单</td>
+</tr>
+</tbody>
+</table></div>
+<p>停不是失败，是把剩余时间留给还能被验证的那一部分。</p>
+<h2 id="sec-template">模板</h2>
+<p>空白模板在 <code>templates/blank/</code> 下。先抄这张：</p>
+<div class="template-block">
+<div class="template-title">A05-03 每日日志 <span>每天六格</span></div>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th scope="col">日期</th>
+<th scope="col">完成</th>
+<th scope="col">阻塞</th>
+<th scope="col">决策</th>
+<th scope="col">证据变化</th>
+<th scope="col">明日计划</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>填写说明</strong>：完成写可展示的结果；阻塞写现象和负责人；决策写编号；证据变化写假设状态；明日计划写第一动作。</p>
+</div>
+<p>问题与决策日志用同一张表，靠“类型”列区分 I 与 D：编号、类型、内容、提出人、影响、决定、负责人、截止日期、状态。状态只用“打开、绕行、关闭”三种。</p>
+<h2 id="sec-case">排班案例：有条件继续怎么落地</h2>
+<p><span id="cb-gates"></span><span id="cb-kpi"></span></p>
+<p><a class="case-link" href="main-07-gates.html#cb-gates" target="_blank" rel="noopener">案例 CB-16</a> 的结论是<strong>有条件继续</strong>：可演示底座一项为“有条件”，条件是 Day 1 前确认写回权限；若院内系统不能写，就写回本地对象并说明边界。</p>
+<p>这句话只留在记录里，第二天就会消失。落地方式是当天写两条：</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th scope="col">编号</th>
+<th scope="col">类型</th>
+<th scope="col">内容</th>
+<th scope="col">负责人</th>
+<th scope="col">截止</th>
+<th scope="col">状态</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>I-01</td>
+<td>问题</td>
+<td>院内系统写回权限未确认，影响 Demo 最后一步</td>
+<td>刘工</td>
+<td>Day 1</td>
+<td>打开</td>
+</tr>
+<tr>
+<td>DR-01</td>
+<td>决策</td>
+<td>先写回本地对象；演示时明确说明边界；Day 4 复审是否拿到权限</td>
+<td>FDE</td>
+<td>Day 4</td>
+<td>打开</td>
+</tr>
+</tbody>
+</table></div>
+<p>决策日志编号用 DR（Decision Record），不要用 D-01：D1–D5 留给“第几天”，DC-1 起是 A04-01 的决策清单。</p>
+<p>【示例】“有条件”由此变成可跟踪的问题和有复审时间的决定。</p>
+<p>每天 17:00 顺手测 <a class="case-link" href="main-08-five-days.html#cb-kpi" target="_blank" rel="noopener">案例 CB-08</a> 的四个指标：额度分配耗时、冲突发现时点、方案版本数、返工轮次。基线是回忆值，不是系统实测；没有现场计时，就不能说“下降了多少”。反指标也要看：返工增加、把冲突藏起来不报，都是“数字变好但事情变坏”的信号。</p>
+<h2 id="sec-failures">常见失败</h2>
+<div class="pitfalls">
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th scope="col">现象</th>
+<th scope="col">原因</th>
+<th scope="col">处理</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>日志像流水账</td>
+<td>只记做了什么</td>
+<td>固定六格，必须有决策和证据变化</td>
+</tr>
+<tr>
+<td>问题和决策混在一条</td>
+<td>图省事</td>
+<td>I/D 分开编号，决策写备选与复审时间</td>
+</tr>
+<tr>
+<td>阻塞项一直“跟进中”</td>
+<td>没有负责人和截止</td>
+<td>每条必须有人名和日期，否则升级为停触发</td>
+</tr>
+<tr>
+<td>每日展示变成 FDE 汇报</td>
+<td>用户没上手</td>
+<td>鼠标交给用户，FDE 只提问</td>
+</tr>
+<tr>
+<td>阶段门只写“进展顺利”</td>
+<td>没有对照检查项</td>
+<td>逐门写证据、结论、待补、负责人</td>
+</tr>
+<tr>
+<td>决策没有备选</td>
+<td>没想清就拍板</td>
+<td>至少写一个备选和放弃理由</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="hands-on">
+<p><strong>动手 15 分钟</strong>：用今天的实际进展写一页日志。</p>
+<ol>
+<li>填六格：完成、阻塞、决策、证据变化、明日计划；</li>
+<li>把其中一个阻塞改写成 I-xx，补负责人和截止；</li>
+<li>把今天的一个取舍写成 D-xx，补依据、备选和复审时间。</li>
+</ol>
+<p><strong>自检</strong>：明天接手的人能看懂；阻塞有人名和日期；决策能回答“为什么不选另一个”。</p>
+</div>
+<div class="self-test">
+<p><strong>三问自测</strong></p>
+<details>
+<summary>1. 问题和决策为什么要分开记？</summary>
+
+问题回答“什么挡住了”，决策回答“我们选了什么”。混在一起，无法判断是否已拍板，也无法找回备选方案。
+
+</details>
+<details>
+<summary>2. 阶段门结论为什么不能写“进展顺利”？</summary>
+
+因为它不是结论，只是感受。阶段门要对照证据给出通过、有条件继续或待补证，并写明条件和负责人。
+
+</details>
+<details>
+<summary>3. 什么时候应该停？</summary>
+
+连续两天没有增量、Day 3 前数据仍拿不到、用户两次无法自己完成核心动作、Day 4 审批人仍未确认，或讨论变成加功能。停的动作是缩范围、换数据或结束本轮。
+
+</details>
+</div>
+<h2 id="sec-checklist">自检清单</h2>
+<p>每天收工前逐项打勾：</p>
+<ul>
+<li>[ ] 今天至少有一条可展示增量；</li>
+<li>[ ] 每日日志六格齐全，没有“推进中”；</li>
+<li>[ ] 每条问题有现象、影响、负责人和截止；</li>
+<li>[ ] 每条决策有依据、备选和复审时间；</li>
+<li>[ ] 17:00 展示由用户操作，原话已进 A05-08；</li>
+<li>[ ] 证据变化写清证实、推翻或待验证；</li>
+<li>[ ] 明天第一动作已写，不是“继续跟进”；</li>
+<li>[ ] 阶段门有结论、依据和待补。</li>
+</ul>
+<div class="recap">
+<p><strong>本章带走</strong></p>
+<ol>
+<li>每天固定节奏：站会同步、日志留痕、展示补证据、收工写明天。</li>
+<li>问题记现象和负责人，决策记依据和备选，两者分开编号。</li>
+<li>阶段门只给通过、有条件继续或待补证；触发停规则时，缩范围比硬撑更负责。</li>
+</ol>
+</div>
+      </div>
+
+      <section class="term-cards" aria-label="本页术语卡"><p class="eyebrow">本页术语</p><div class="term-grid"><article class="term-card" id="term-stage-gate"><h3 id="term-title-stage-gate">阶段门 <span class="term-en">Stage Gate</span></h3><p>G0–G6，进入下一阶段前必须同时满足的检查点；结论通常是通过、有条件继续或待补证。</p></article><article class="term-card" id="term-daily-log"><h3 id="term-title-daily-log">每日日志 <span class="term-en">Daily Log</span></h3><p>每天记录完成事项、阻塞、决策、证据变化和明日计划的短日志。</p></article><article class="term-card" id="term-issue-log"><h3 id="term-title-issue-log">问题日志 <span class="term-en">Issue Log</span></h3><p>记录问题的现象、影响、当前绕行、负责人和截止日期；不把问题藏在聊天记录里。</p></article><article class="term-card" id="term-decision-log"><h3 id="term-title-decision-log">决策日志 <span class="term-en">Decision Log</span></h3><p>记录决策内容、决策人、依据、备选方案和复审时间的日志。</p></article></div></section>
+      <section class="artifact-box" aria-label="本页产物"><div class="artifact-block"><h3 id="artifacts-out">本页要写出的产物</h3><ul><li><code>A05-01</code> 五道门检查表 <span class="muted">→ 05_五天验证/05-01_五道门检查表.md</span> <span class="gate-tag">G5</span> <a href="templates/blank/05-01_五道门检查表.html" data-template-view data-template-title="A05-01 五道门检查表模板" title="A05-01 五道门检查表模板 ｜ 当前页弹窗预览">模板</a> <a href="templates/golden/05-01_五道门检查表_排班案例.html" data-template-view data-template-title="A05-01 五道门检查表黄金样例" title="A05-01 五道门检查表黄金样例 ｜ 当前页弹窗预览">黄金样例</a></li><li><code>A05-02</code> 五天计划 <span class="muted">→ 05_五天验证/05-02_五天计划.md</span> <span class="gate-tag">G5</span> <a href="templates/blank/05-02_五天计划.html" data-template-view data-template-title="A05-02 五天计划模板" title="A05-02 五天计划模板 ｜ 当前页弹窗预览">模板</a> <a href="templates/golden/05-02_五天计划_排班案例.html" data-template-view data-template-title="A05-02 五天计划黄金样例" title="A05-02 五天计划黄金样例 ｜ 当前页弹窗预览">黄金样例</a></li><li><code>A05-03</code> 每日日志 <span class="muted">→ 05_五天验证/05-03_每日日志.md</span> <span class="gate-tag">G5</span> <a href="templates/blank/05-03_每日日志.html" data-template-view data-template-title="A05-03 每日日志模板" title="A05-03 每日日志模板 ｜ 当前页弹窗预览">模板</a> <a href="templates/golden/05-03_每日日志_排班案例.html" data-template-view data-template-title="A05-03 每日日志黄金样例" title="A05-03 每日日志黄金样例 ｜ 当前页弹窗预览">黄金样例</a></li><li><code>A05-04</code> 问题与决策日志 <span class="muted">→ 05_五天验证/05-04_问题与决策日志.md</span> <span class="gate-tag">G5</span> <a href="templates/blank/05-04_问题与决策日志.html" data-template-view data-template-title="A05-04 问题与决策日志模板" title="A05-04 问题与决策日志模板 ｜ 当前页弹窗预览">模板</a> <a href="templates/golden/05-04_问题与决策日志_排班案例.html" data-template-view data-template-title="A05-04 问题与决策日志黄金样例" title="A05-04 问题与决策日志黄金样例 ｜ 当前页弹窗预览">黄金样例</a></li><li><code>A05-09</code> 阶段门记录 <span class="muted">→ 05_五天验证/05-09_阶段门记录.md</span> <span class="gate-tag">G5</span> <a href="templates/blank/05-09_阶段门记录.html" data-template-view data-template-title="A05-09 阶段门记录模板" title="A05-09 阶段门记录模板 ｜ 当前页弹窗预览">模板</a> <a href="templates/golden/05-09_阶段门记录_排班案例.html" data-template-view data-template-title="A05-09 阶段门记录黄金样例" title="A05-09 阶段门记录黄金样例 ｜ 当前页弹窗预览">黄金样例</a></li></ul></div><div class="artifact-block"><h3 id="artifacts-in">开始前应已具备</h3><p class="muted"><code>A05-05</code> KPI基线与验证标准、<code>A05-06</code> Demo脚本、<code>A05-07</code> Demo数据清单、<code>A05-08</code> 反馈记录</p></div></section>
+      <section class="sources" aria-label="来源"><h2 id="sec-sources">来源与证据等级</h2><ol class="source-list"><li><span class="src-id">S01</span> <strong>Use case lifecycle · Overview</strong> <span class="badge badge-官方">官方</span><div class="muted">Palantir Technologies · 抓取 2026-10-19 · 版权归 Palantir Technologies；仅内部研究，不对外分发原文</div><div class="src-url"><a href="https://www.palantir.com/docs/foundry/use-case-life-cycle/overview/" rel="noreferrer" target="_blank">https://www.palantir.com/docs/foundry/use-case-life-cycle/overview/</a></div></li><li><span class="src-id">S04</span> <strong>Sequencing development</strong> <span class="badge badge-官方">官方</span><div class="muted">Palantir Technologies · 抓取 2026-10-19 · 版权归 Palantir Technologies；仅内部研究，不对外分发原文</div><div class="src-url"><a href="https://www.palantir.com/docs/foundry/use-case-life-cycle/sequencing-development/" rel="noreferrer" target="_blank">https://www.palantir.com/docs/foundry/use-case-life-cycle/sequencing-development/</a></div></li><li><span class="src-id">S17</span> <strong>FDE 方法论沉淀</strong> <span class="badge badge-实践">实践</span><div class="muted">本子项目 · 抓取 2026-09-23 · 内部方法沉淀</div><div class="src-url"><span class="muted">无公开链接</span></div></li><li><span class="src-id">S18</span> <strong>流程与范围模板</strong> <span class="badge badge-实践">实践</span><div class="muted">本子项目 · 抓取 2026-09-23 · 内部方法沉淀</div><div class="src-url"><span class="muted">无公开链接</span></div></li></ol></section>
+      <nav class="pager" aria-label="翻页"><a class="pager-prev" data-same-tab href="work-06-demo.html"><span>上一页</span><strong>Demo 脚本、数据与环境</strong></a><a class="pager-next" data-same-tab href="work-08-retro.html"><span>下一页</span><strong>复盘与回流</strong></a></nav>
+
+      <footer class="page-foot">
+        <p>本教程为内部方法研究。案例已匿名化，数字标注【示例】。Palantir 官方资料版权归 Palantir Technologies，仅作改写与链接。</p>
+        <p class="muted">发现断链或事实错误？回到 <a href="appendix-sources.html" target="_blank" rel="noopener">来源与版权</a> 核对出处。</p>
+      </footer>
+    </article>
+  </main>
+
+  <aside class="toc" id="toc" aria-label="页内目录">
+    <p class="toc-title">本页目录</p><ol class="toc-list"><li class="toc-h2"><a href="#sec-when">何时用</a></li><li class="toc-h2"><a href="#sec-prereq">前置</a></li><li class="toc-h2"><a href="#sec-inputs">输入</a></li><li class="toc-h2"><a href="#sec-steps">步骤</a><ul class="toc-sub"><li class="toc-h3"><a href="#step-standup">第 1 步：09:30 站会，每人三句话（15 分钟）</a></li><li class="toc-h3"><a href="#step-openlog">第 2 步：站会后 10 分钟开日志（10 分钟）</a></li><li class="toc-h3"><a href="#step-issues">第 3 步：白天随时记问题与决策（各 2 分钟/条）</a></li><li class="toc-h3"><a href="#step-show">第 4 步：17:00 每日展示，只演今天的增量（15 分钟）</a></li><li class="toc-h3"><a href="#step-closelog">第 5 步：17:30 收工，补完日志（10 分钟）</a></li><li class="toc-h3"><a href="#step-midgate">第 6 步：Day 3 中检，判断要不要缩范围（30 分钟）</a></li><li class="toc-h3"><a href="#step-freeze">第 7 步：Day 4 冻结，只修阻塞（20 分钟）</a></li><li class="toc-h3"><a href="#step-final">第 8 步：Day 5 正式 Demo 与阶段门（45 分钟）</a></li></ul></li><li class="toc-h2"><a href="#sec-output">输出</a></li><li class="toc-h2"><a href="#sec-gate">阶段门</a><ul class="toc-sub"><li class="toc-h3"><a href="#stop-rules">什么时候停</a></li></ul></li><li class="toc-h2"><a href="#sec-template">模板</a></li><li class="toc-h2"><a href="#sec-case">排班案例：有条件继续怎么落地</a></li><li class="toc-h2"><a href="#sec-failures">常见失败</a></li><li class="toc-h2"><a href="#sec-checklist">自检清单</a></li></ol>
+  </aside>
+</div>
+
+<div class="tpl-modal" id="tpl-modal" hidden>
+  <div class="tpl-panel" role="dialog" aria-modal="true" aria-labelledby="tpl-title">
+    <header class="tpl-head">
+      <div class="tpl-heading">
+        <p class="tpl-kicker">模板阅读视图</p>
+        <h2 id="tpl-title">模板</h2>
+      </div>
+      <div class="tpl-actions">
+        <a class="tpl-open" id="tpl-open" href="#" target="_blank" rel="noopener">在新标签打开 ↗</a>
+        <button class="icon-btn" id="tpl-close" type="button" aria-label="关闭模板">✕</button>
+      </div>
+    </header>
+    <div class="tpl-body">
+      <iframe id="tpl-frame" title="模板内容" loading="lazy"></iframe>
+    </div>
+  </div>
+</div>
+
+<div class="search-modal" id="search-modal" hidden>
+  <div class="search-panel" role="dialog" aria-modal="true" aria-labelledby="search-title">
+    <div class="search-head">
+      <label id="search-title" class="sr-only" for="search-input">搜索教程</label>
+      <input id="search-input" type="search" placeholder="搜索概念、产物、模板、方法卡…" autocomplete="off">
+      <button class="icon-btn" id="search-close" type="button" aria-label="关闭搜索">✕</button>
+    </div>
+    <div id="search-results" class="search-results" aria-live="polite"></div>
+    <p class="search-hint">按 <kbd>/</kbd> 或 <kbd>Ctrl</kbd>+<kbd>K</kbd> 打开，<kbd>Esc</kbd> 关闭。索引完全离线。</p>
+  </div>
+</div>
+
+<noscript><p class="noscript-note">搜索与阅读进度需要 JavaScript；正文、目录和翻页仍可正常使用。可用浏览器查找（Ctrl+F）。</p></noscript>
+
+<script src="assets/search-index.js"></script>
+<script src="assets/viz-data.js"></script>
+<script src="assets/app.js"></script>
+<script src="assets/viz.js"></script>
+
+</body>
+</html>

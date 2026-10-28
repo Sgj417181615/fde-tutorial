@@ -1,0 +1,550 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<title>从项目到组织能力 · FDE 零基础教程</title>
+<meta name="description" content="组织落地三阶段、四块所有权、从第一个用例到可复制能力的路径。">
+<link rel="stylesheet" href="assets/course.css">
+<script>
+(function () {
+  try {
+    var saved = localStorage.getItem('fde-theme');
+    var theme = saved || (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+    document.documentElement.dataset.theme = theme;
+  } catch (e) {}
+})();
+</script>
+</head>
+<body class="track-main page-main-09-adoption">
+<a class="skip-link" href="#main">跳到正文</a>
+
+<header class="topbar">
+  <button class="icon-btn nav-toggle" id="nav-toggle" type="button" aria-expanded="false" aria-controls="sidebar" aria-label="打开课程目录">
+    <span aria-hidden="true">☰</span>
+  </button>
+  <a class="brand" data-same-tab href="index.html"><span class="brand-mark">FDE</span><span class="brand-text">零基础教程</span></a>
+  <nav class="track-switch" aria-label="模块切换"><span class="track-link active" aria-current="true" title="从零建立完整心智模型">主线</span><a class="track-link" data-same-tab href="work-01-prep.html" title="现场查用：输入、步骤、输出、阶段门">工作台</a><a class="track-link" data-same-tab href="day1-00-overview.html" title="六步链路：简报 → 访谈 → 证据 → 底稿 → 门">Day1</a><a class="track-link" data-same-tab href="appendix-methods.html" title="一卡一问，按阶段、产物、角色查">方法库</a><a class="track-link" data-same-tab href="appendix-templates.html" title="模板、产物链、术语与来源">附录</a></nav>
+  <div class="top-actions">
+    <button class="search-open" id="search-open" type="button" aria-haspopup="dialog">
+      <span aria-hidden="true">⌕</span><span class="search-label">搜索</span><kbd>/</kbd>
+    </button>
+    <button class="icon-btn" id="theme-toggle" type="button" aria-label="切换深浅色">◐</button>
+  </div>
+  <div class="read-progress" aria-hidden="true"><span id="read-progress"></span></div>
+</header>
+
+<div class="layout">
+  <aside class="sidebar" id="sidebar">
+    <nav class="course-tree" aria-label="课程目录"><header class="side-head"><p class="side-eyebrow">当前模块</p><p class="side-title">主线</p><p class="side-caption">从零建立完整心智模型</p><p class="side-meta">16 页<span class="dot">·</span>约 4 小时</p></header><section class="nav-group"><p class="nav-group-title"><span class="nav-group-num">01</span>开始</p><a class="nav-link" data-same-tab href="index.html">开始：这份教程怎么用</a></section><section class="nav-group"><p class="nav-group-title"><span class="nav-group-num">02</span>看懂 FDE</p><a class="nav-link" data-same-tab href="main-01-fde.html">FDE 是什么，不是什么</a><a class="nav-link" data-same-tab href="main-02-slicing.html">把“系统”切成可验证的决策</a><a class="nav-link" data-same-tab href="lab-slicing.html">实验室：切三个模糊需求</a></section><section class="nav-group"><p class="nav-group-title"><span class="nav-group-num">03</span>看清现状</p><a class="nav-link" data-same-tab href="main-03-as-is.html">看清今天实际怎么运转</a><a class="nav-link" data-same-tab href="main-04-one-pager.html">一页纸对齐范围</a><a class="nav-link" data-same-tab href="case-a-one-pager.html">案例 A：S1 如何被选中</a><a class="nav-link" data-same-tab href="lab-one-pager.html">实验室：20 分钟拼一页纸</a></section><section class="nav-group"><p class="nav-group-title"><span class="nav-group-num">04</span>设计验证</p><a class="nav-link" data-same-tab href="main-05-fr.html">把决策写成一句可验收的 FR</a><a class="nav-link" data-same-tab href="main-06-solution.html">方案设计四件套</a><a class="nav-link" data-same-tab href="case-b-solution.html">案例 B：从一页纸到 Demo</a></section><section class="nav-group"><p class="nav-group-title"><span class="nav-group-num">05</span>跑起来</p><a class="nav-link" data-same-tab href="main-07-gates.html">开始前的五道门</a><a class="nav-link" data-same-tab href="main-08-five-days.html">Day1–5 每天做什么</a><span class="nav-link nav-current" aria-current="page">从项目到组织能力</span></section><section class="nav-group"><p class="nav-group-title"><span class="nav-group-num">06</span>选读</p><a class="nav-link" data-same-tab href="main-10-patterns.html">五种实施模式<span class="nav-optional">选读</span></a><a class="nav-link" data-same-tab href="main-11-lessons.html">一线八堂课<span class="nav-optional">选读</span></a></section></nav>
+  </aside>
+  <button class="scrim" id="scrim" type="button" aria-label="关闭目录" hidden></button>
+
+  <main class="main" id="main">
+    <nav class="crumb" aria-label="面包屑"><a data-same-tab href="index.html">教程</a><span class="sep">/</span><span>主线</span><span class="sep">/</span><span>跑起来</span><span class="sep">/</span><span aria-current="page">从项目到组织能力</span></nav>
+    <article class="article">
+      <header class="page-head">
+        <div class="badges"><span class="badge badge-main">必读</span><span class="badge badge-time">15 分钟</span></div>
+        <h1>从项目到组织能力</h1>
+        <p class="lede">组织落地三阶段、四块所有权、从第一个用例到可复制能力的路径。</p>
+        <p class="page-question"><span class="eyebrow">本页要回答</span>第一个用例成功后，怎样不把它变成一次性的演示？</p>
+        <div class="page-meta">
+          <section class="meta-block">
+            <h2 class="meta-title" id="meta-objectives">读完你能</h2>
+            <ul class="objective-list"><li>说出组织落地三阶段各自的重点；</li><li>判断一个组织缺哪块所有权；</li><li>写出下一轮切片与落地计划。</li></ul>
+          </section>
+          <section class="meta-block">
+            <h2 class="meta-title" id="meta-prereq">前置</h2>
+            <p>先读：<a href="main-08-five-days.html" target="_blank" rel="noopener">Day1–5 每天做什么</a></p>
+          </section>
+        </div>
+      </header>
+
+      <div class="prose">
+        <p>第五天，周主任在演示会上批准，说“继续做 S2”。团队觉得项目成功了。</p>
+<p>三个月后你再去，陈静还在用那三个 Excel。系统还在，但只有 FDE 会跑；第二个科室想做一个类似的东西，从零开始；支持问题没人接，因为“那是项目组的事”。</p>
+<p>这不是技术失败，是<strong>组织没有接住</strong>。一个用例成功，只证明这件事值得做；它不自动变成组织能力。</p>
+<h2 id="sec-gap">一个用例成功，不等于组织接住了</h2>
+<p><span class="term-link" title="Adoption：从第一个用例成功，走到组织能持续复制、治理和扩展能力的阶段。">组织落地</span>是：从第一个用例成功，走到组织能持续复制和扩展能力。</p>
+<p>反面不是“项目失败”，而是四种状态：</p>
+<ul>
+<li>只有原班人马会用，换人就停摆；</li>
+<li>每个新科室重做一遍，数据界面不复用；</li>
+<li>出问题找不到负责人，最后又回到供应商；</li>
+<li>演示后没有下一轮，也没人决定做什么。</li>
+</ul>
+<p>共同点是<strong>所有权没有落地</strong>：没有人被明确为“这块归你”。</p>
+<h2 id="sec-phases">组织落地三阶段</h2>
+<p>Palantir 的 Foundry adoption 文档把组织落地分成三个阶段。【官方】<span class="cite" title="Foundry adoption · Program overview">[S06]</span><span class="cite" title="Foundry adoption · Phase 1：Focus on use cases">[S07]</span><span class="cite" title="Foundry adoption · Phase 2：Develop infrastructure to unlock scaling">[S08]</span><span class="cite" title="Foundry adoption · Phase 3：Platform growth through autonomy">[S09]</span></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th scope="col">阶段</th>
+<th scope="col">组织状态</th>
+<th scope="col">重点</th>
+<th scope="col">关键角色</th>
+<th scope="col">最大风险</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Phase 1 聚焦用例</td>
+<td>1–2 个用例在生产；用户和开发者都少</td>
+<td>证明价值，找到能扛事的人</td>
+<td>Head of Program（计划负责人）</td>
+<td>过早建制度</td>
+</tr>
+<tr>
+<td>Phase 2 建基础设施</td>
+<td>多个用例在生产或并行开发；用户多到需要集中管理</td>
+<td>建可复用底座、正式 intake（用例入口）</td>
+<td>Ontology Manager（本体管理员）</td>
+<td>用例间重复建设</td>
+</tr>
+<tr>
+<td>Phase 3 平台自治</td>
+<td>用例跨业务域；数百名常规用户；治理正式化</td>
+<td>平台运营、支持与培训内部化</td>
+<td>Head of Platform（平台负责人）</td>
+<td>成本失控、支持跟不上</td>
+</tr>
+</tbody>
+</table></div>
+<p>Foundry 是 Palantir 的数据与本体平台；Program team 是承接平台治理的常设团队。</p>
+<p>三阶段按<strong>组织状态</strong>推进：</p>
+<ul>
+<li>第二个用例出现才抽共享层；</li>
+<li>第三个才建正式治理；</li>
+<li>平台管理转入 Program team 且有专职资源，才算 Phase 3。</li>
+</ul>
+<p>排班案例：S1 跑通后，S2、S3、S4 同时冒出来。没有 intake 看谁催得紧；有了它，按依赖、证据强度、负责人排队。</p>
+<p>顺序反了：先建治理，没有项目可治理，治理变成形式。【实践】<span class="cite" title="FDE 方法论沉淀">[S17]</span> Phase 1 最常见的错误是“过早制度化”；先把第二个用例跑通，让制度从重复动作里长出来。</p>
+<div class="checkpoint">
+<p><strong>停一下</strong>：你的组织有几个用例在生产、被真实使用？如果只有一个，你最该做的下一件事是“建治理”，还是“跑通第二个”？</p>
+<p>通常是后者。没有第二个用例，治理没有对象。</p>
+</div>
+<h2 id="sec-nine-gates">九道关口不是第九套流程</h2>
+<p>九道关口为一次部署设置产物和责任人。【第三方】<span class="cite" title="《FDE 入门到精通》（FDE: From Fundamentals to Mastery）">[S15]</span> 它们不是新增审批，而是检查现有页面的落点。</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th scope="col">关口</th>
+<th scope="col">要产出的东西</th>
+<th scope="col">本教程已有落点</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1 选择客户</td>
+<td>客户选择简报：价值、开放度、可复制性</td>
+<td><a href="main-01-fde.html" target="_blank" rel="noopener">《FDE 是什么，不是什么》</a> / A00-01；当前只判项目适配，需补“客户为什么值得做”</td>
+</tr>
+<tr>
+<td>2 利益相关者</td>
+<td>利益相关者表：目标、权限、担忧、成功指标</td>
+<td><a href="work-01-prep.html" target="_blank" rel="noopener">《调研前 7 天》</a> / A00-02</td>
+</tr>
+<tr>
+<td>3 真实流程</td>
+<td>现状地图：输入、负责人、系统、失败方式</td>
+<td><a href="main-03-as-is.html" target="_blank" rel="noopener">《看清今天实际怎么运转》</a> / A03-01、A03-02</td>
+</tr>
+<tr>
+<td>4 结果合同</td>
+<td>对象、行为、基线、目标、时间、边界、反指标</td>
+<td><a href="work-01-prep.html" target="_blank" rel="noopener">《调研前 7 天》</a> / A00-03</td>
+</tr>
+<tr>
+<td>5 最短行动闭环</td>
+<td>首个价值计划：首位用户、首条路径、首项指标、最迟反馈日、停止条件</td>
+<td><a href="main-02-slicing.html" target="_blank" rel="noopener">《把“系统”切成可验证的决策》</a>、<a href="main-08-five-days.html" target="_blank" rel="noopener">《Day1–5 每天做什么》</a></td>
+</tr>
+<tr>
+<td>6 人机控制面</td>
+<td>控制矩阵：自动化等级、验证器、审批者、回滚</td>
+<td><a href="work-05-spec.html" target="_blank" rel="noopener">《一小时压出评审包》</a> / A04-05</td>
+</tr>
+<tr>
+<td>7 生产就绪</td>
+<td>生产就绪清单，每项有负责人和证据</td>
+<td>本页新增（真空白）</td>
+</tr>
+<tr>
+<td>8 分类回流</td>
+<td>回流账本：出现次数、去向类别、所有者</td>
+<td>本页回流账本 / A06-03</td>
+</tr>
+<tr>
+<td>9 复利指标</td>
+<td>四组指标与一个跨轮次问题</td>
+<td>本页新增（真空白）</td>
+</tr>
+</tbody>
+</table></div>
+<p>九道关口不是又一套审批：五道门与 G0–G6 阶段门负责单个五天项目的 Go/No-Go；九道关口是组织持续部署的能力工作面。</p>
+<h2 id="sec-ownership">四块所有权：缺一块，第二个用例就会出事</h2>
+<p><span class="term-link" title="Four Ownership Areas：业务、数据、应用、治理四块能力各有所有者；落地失败常因某块没人负责。">四块所有权</span>是一句记忆口诀：<strong>业务、数据、应用、治理，四块都要有人。</strong></p>
+<p>官方列的是数据管理、本体与技术管理、项目管理、用例开发；这四个词是本教程的压缩。【官方】<span class="cite" title="Foundry adoption · Program overview">[S06]</span></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th scope="col">所有权</th>
+<th scope="col">要回答的问题</th>
+<th scope="col">常见归属</th>
+<th scope="col">缺了会怎样</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>业务</td>
+<td>谁对用例价值、范围和采用负责</td>
+<td>PMO / 业务运营</td>
+<td>做出来没人用，也没人敢停</td>
+</tr>
+<tr>
+<td>数据</td>
+<td>权限、接入、管道健康、质量谁负责</td>
+<td>数据平台 / 信息科</td>
+<td>Day 1 卡在权限，真实数据进不来</td>
+</tr>
+<tr>
+<td>应用</td>
+<td>本体/模型、应用设计发布、技术架构谁负责</td>
+<td>平台工程 / 交付团队</td>
+<td>第二个用例从零重做</td>
+</tr>
+<tr>
+<td>治理</td>
+<td>intake、优先级、培训、支持、成本谁负责</td>
+<td>Program team / 指导委员会</td>
+<td>谁嗓门大做谁，支持没人接</td>
+</tr>
+</tbody>
+</table></div>
+<div class="checkpoint">
+<p><strong>停一下</strong>：在你这四块里，哪一块的负责人名字你说不出来？</p>
+<p>说不出来的那一块，就是第二个用例最可能卡住的地方。</p>
+</div>
+<h2 id="sec-assets">从第一个用例到可复用资产</h2>
+<p>A06-01 六段与完整操作在<a href="work-08-retro.html#sec-steps" target="_blank" rel="noopener">复盘工作台</a>；这里只取组织视角。</p>
+<p>CB-18 的关键不是“五天做完”，而是事实与判断分开：事实是“S1 闭环、C1 被拦住、本地写回成功”；判断是“卡点是缺一份实时额度视图”。【示例】结果只能写“可能缩短”，因为基线是回忆值、未复测。</p>
+<h3 id="sec-reuse">可复用资产要写清位置和限制</h3>
+<p>CB-18 沉淀四样：额度分配对象模型与冲突规则、三栏界面、双轴证据台账、五道门检查表。每样补三件事：<strong>放在哪、什么条件下能复用、已知限制是什么。</strong> 只写“已沉淀”，别人找不到也用不了。</p>
+<h3 id="sec-backfill">回流账本：两次试点，三次产品化</h3>
+<p><a class="term-link" href="work-08-retro.html#term-backfill-ledger" title="Backfill Ledger：记录每次客户定制、出现次数、通用化方案和所有者的账本；同一模式出现三次以上才考虑产品化。" target="_blank" rel="noopener">回流账本</a>记录每次客户定制、出现次数、通用化方案和所有者。同一模式出现两次，做成可配置方案、在一个客户试点；三次以上才考虑进入通用产品。这是实践阈值，不是官方规定。</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th scope="col">定制项</th>
+<th scope="col">出现次数</th>
+<th scope="col">通用化方案</th>
+<th scope="col">所有者</th>
+<th scope="col">状态</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>妇科特殊借调规则</td>
+<td>1</td>
+<td>暂不产品化，记为配置</td>
+<td>陈静</td>
+<td>观察</td>
+</tr>
+<tr>
+<td>资质认定口径</td>
+<td>2</td>
+<td>做成可配置的资质表</td>
+<td>赵岚</td>
+<td>试点</td>
+</tr>
+<tr>
+<td>额度跨月结转</td>
+<td>1</td>
+<td>先不做，列为待确认</td>
+<td>孙老师</td>
+<td>待定</td>
+</tr>
+</tbody>
+</table></div>
+<div class="checkpoint">
+<p><strong>停一下</strong>：你手上那个“所有客户都需要”的定制，出现过几次？一次，还是三次？</p>
+<p>一次就产品化，是把一个客户的例外写成了产品的主干。</p>
+</div>
+<h2 id="sec-baskets">四类回流篮子</h2>
+<p>A06-03 不要只写“定制项”。每条在“通用化方案”里标去向类别，回流才有出口：</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th scope="col">篮子</th>
+<th scope="col">放什么</th>
+<th scope="col">去向与判断</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>客户特有配置</td>
+<td>只对这家客户成立的规则、字段、界面</td>
+<td>留在客户空间，有版本和测试</td>
+</tr>
+<tr>
+<td>行业模式</td>
+<td>同一行业反复出现的模板、数据模型、评测集、方法</td>
+<td>先做模板，在两个客户验证</td>
+</tr>
+<tr>
+<td>平台共性</td>
+<td>多个行业都要的<span class="term-link" title="Primitive：平台提供、可重复组合的基础能力，如认证、连接器、权限、评测。">原语</span>，如权限、连接器、评测</td>
+<td>进产品路线图，成为原语、界面或接口</td>
+</tr>
+<tr>
+<td>交付系统</td>
+<td>FDE 自己的工具、知识库、rubric、自动化</td>
+<td>改交付方式，不改客户系统</td>
+</tr>
+</tbody>
+</table></div>
+<p>平台共性做多了，<span class="term-link" title="Custom to Self-serve：把反复由工程师手工完成的配置或集成，逐步变成客户可自行完成的产品能力。">从定制到自助</span>才可能实现；去向类别写不清，回流账本就退化成定制清单。</p>
+<h2 id="sec-production">第七道：进入生产，而不是停在演示</h2>
+<p>演示看一次顺利，生产看每天顺利。每条要有负责人和证据：</p>
+<ul>
+<li><strong>身份与权限</strong>：每个角色有账号清单，每个操作能对到人。</li>
+<li><strong>数据来源</strong>：每个字段能追到源系统与最近同步时间。</li>
+<li><strong>版本</strong>：代码、提示词、对象模型有版本号，能回退。</li>
+<li><strong>可观测性</strong>：关键路径有日志、指标，告警有接收人。</li>
+<li><strong>评测</strong>：有一组固定用例，变更前后能对比。</li>
+<li><strong>错误预算</strong>：写明可接受错误率，越线后谁做什么。</li>
+<li><strong>回滚</strong>：演练过一次回到上一版本。</li>
+<li><strong>人工接管</strong>：任何自动步骤都能被人暂停并接手。</li>
+<li><strong>支持时段</strong>：写明谁在什么时段接电话或工单。</li>
+<li><strong>owner</strong>：生产环境有唯一负责人姓名。</li>
+<li><strong>变更流程</strong>：上线前谁审、上线后通知谁。</li>
+<li><strong>Agent 任务轨迹</strong>：每次任务留工具调用与关键决策依据；未达成项写进 A06-04 风险列。</li>
+</ul>
+<p>“模型偶尔会错”不是豁免理由；概率系统更需要清楚的风险边界。</p>
+<h2 id="sec-compounding">第九道：用复利指标审视团队</h2>
+<p>不要只报签约额、工单数或代码行。至少同时看四组：</p>
+<ul>
+<li><strong>客户结果</strong>：采用、业务指标、稳定性、风险、满意度；客户能自己说出变化。</li>
+<li><strong>交付速度</strong>：问题确认到首个价值、首版到生产各用了多久。</li>
+<li><strong>产品回流</strong>：多少重复需求变成了平台、自助或标准评测。</li>
+<li><strong>组织韧性</strong>：一名成员离开后，别人能否接手；知识是否成对共享。</li>
+</ul>
+<p>用<a class="term-link" href="main-08-five-days.html#term-activity-vs-outcome" title="Activity vs Outcome：session、token、生成行数是活动量；采用、周期、合并 PR、业务变化才是结果。" target="_blank" rel="noopener">活动指标与结果指标</a>校准：会话数、token 数、工时、合并 PR 数是活动指标；业务变化才是结果。活动指标能解释过程，不能替代结果。</p>
+<p><span class="term-link" title="Outcome Pricing：按已定义并确认的业务结果收费，而不是按席位或调用量收费；它把定义与解释结果的责任推回供应商。">结果定价</span>把压力推回供应商：按结果收费，就得定义、测量并解释结果。</p>
+<p>总问题只有一句：<strong>第十次部署是否比第一次更快、更稳、更少依赖特殊人物？</strong> 如果长期是否定的，增长只是项目数量增加，不是能力复利。</p>
+<h2 id="sec-team-shapes">三种团队形态</h2>
+<p>不同阶段可以选择不同形态。【第三方】<span class="cite" title="《FDE 入门到精通》（FDE: From Fundamentals to Mastery）">[S15]</span></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th scope="col">形态</th>
+<th scope="col">何时适合</th>
+<th scope="col">优势</th>
+<th scope="col">特有失败模式</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>创始人型</td>
+<td>客户少、产品未定型</td>
+<td>学习极快，决策链最短</td>
+<td>英雄依赖、无边界承诺</td>
+</tr>
+<tr>
+<td>专门 FDE 团队</td>
+<td>客户与模式增多，需要明确负责人和方法</td>
+<td>连续责任，经验能积累</td>
+<td>与产品工程分裂成“接需求”和“做正事”</td>
+</tr>
+<tr>
+<td>全工程前向化</td>
+<td>自助能力成熟，产品工程师能直接进客户</td>
+<td>产品反馈直接</td>
+<td>普通路线图被高声量客户绑架</td>
+</tr>
+</tbody>
+</table></div>
+<p>创始人型不是创业期专属：<span class="term-link" title="Design Partnership：供应商与少数客户共同发现产品形态的深度合作，不只发生在创业早期。">设计合作</span>可以持续到产品有多个客户之后。</p>
+<p>形态之间可以移动，标准不是潮流，而是产品成熟度、客户复杂度、知识回流速度。</p>
+<h2 id="sec-hiring">招什么人</h2>
+<p>理想画像有五项能力【第三方】<span class="cite" title="《FDE 入门到精通》（FDE: From Fundamentals to Mastery）">[S15]</span>：</p>
+<ol>
+<li>能写生产代码，不只是演示脚本；</li>
+<li>能把模糊问题拆成最小结果；</li>
+<li>能跟技术和非技术的人把同一件事说清；</li>
+<li>能在压力下承担端到端责任，不把问题退回“产品组”；</li>
+<li>能从单个案例看出可复用模式。</li>
+</ol>
+<p>没人需要五项都满分。搭配工程、产品、行业、客户四类尖峰，用<span class="term-link" title="Pairing：重要会议、架构与决策至少有第二人理解，防止知识被一个人垄断。">结对</span>让重要决策至少有第二人理解，再用统一工程门槛兜住质量。</p>
+<p>最危险的招聘描述，是列一长串“十年经验独角兽”，却不解释平台、流程和团队怎么支撑他。招进来的人很快发现，支撑都得自己造。</p>
+<h2 id="sec-enablement">用户赋能：支持与培训决定有没有人用</h2>
+<p>系统上线只是开始。用户遇到问题找谁、多久有回应、谁来教，决定它三个月后还在不在工作流里。</p>
+<p><strong>支持团队分阶段内部化。</strong>【官方】<span class="cite" title="Foundry adoption · Program overview">[S06]</span> Phase 1/2 可由 Program team 兼做；进入 Phase 2 之后，建议建立专职内部支持团队，负责一线分诊、调查、解决，并把问题带回数据与实现团队。外部供应商不可能 7×24 理解每个业务流程，而且支持请求本身就是最便宜的需求来源。</p>
+<p><strong>培训不是教按钮。</strong> Phase 2 之后建议设教育培训负责人。内容至少包括：每个用例的数据血缘与本体组件文档、核心应用教程、录播与线下培训。通用培训资源可以借，但组织要开发针对自己用例的课程——否则用户学会的是产品，不是自己的工作。</p>
+<p><strong>两条治理前提要在规划阶段定。</strong>【官方】<span class="cite" title="Foundry adoption · Program overview">[S06]</span></p>
+<ul>
+<li>每个流程都要有明确的 owner 和 decision maker；没有所有权的流程，规模化时几乎不会成功。</li>
+<li>隐私与公民自由问题在规划阶段处理，不要等上线后补：上线前容易改，上线后很难改。</li>
+</ul>
+<p>排班案例里，S1 上线前至少要写清三件事：额度规则变更找谁确认、写回失败找谁、新来的组长怎么学。三条都要落到具体人名和时段，而不是“项目组支持”。缺了它们，支持会退化成“找那个 FDE”；那个人一休假，系统就跟着停摆。</p>
+<h2 id="sec-next">下一轮切片与落地计划</h2>
+<p>演示结束后，不管结论是扩大、修改还是停止，都要留下一个明确的下一步。A06-04 有七列：切片、决策、价值、依赖、里程碑、负责人、风险。</p>
+<p>CB-18 的下一轮是 <strong>S2 个人排班与换班</strong>，决策是“某天某班谁上”；前置是 S1 的分配结果已经稳定写回。【示例】</p>
+<p>判断切片是否合格：是否仍只有一个最终决策？能否复用 S1 的对象模型或界面？有没有明确所有者，而不是“项目组继续跟”？三个都“是”才写进计划。</p>
+<h3 id="sec-g6">G6 复盘与回流门</h3>
+<p>G6 的通过条件是可观察的：</p>
+<ul>
+<li>复盘区分事实与判断；</li>
+<li>可复用资产标明了位置、复用条件和已知限制；</li>
+<li>回流账本每条都有所有者；</li>
+<li>下一轮切片仍然是一个可验证的决策路径。</li>
+</ul>
+<p>本页输入是 A05-09、A06-01，以及 work-08 产出的 A06-02、A06-03；输出是 A06-04。<a class="term-link" href="work-07-run.html#term-stage-gate" title="Stage Gate：G0–G6，进入下一阶段前必须同时满足的检查点；结论通常是通过、有条件继续或待补证。" target="_blank" rel="noopener">阶段门</a>不通过，就不要急着开下一个用例。</p>
+<h2 id="sec-template">一张可抄的落地计划</h2>
+<p><a class="template-link" href="templates/blank/06-04_下一轮切片与落地计划.html" data-template-view data-template-title="A06-04 下一轮切片与落地计划模板" title="A06-04 下一轮切片与落地计划模板 ｜ 当前页弹窗预览">A06-04 下一轮切片与落地计划模板</a> 放在 <code>06_复盘与回流/06-04_下一轮切片与落地计划.md</code>。以 S2 为例【示例】：</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th scope="col">切片</th>
+<th scope="col">决策</th>
+<th scope="col">价值</th>
+<th scope="col">依赖</th>
+<th scope="col">里程碑</th>
+<th scope="col">负责人</th>
+<th scope="col">风险</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>S2 个人排班与换班</td>
+<td>某天某班谁上</td>
+<td>把额度分配落到具体班次</td>
+<td>S1 写回稳定；资质与班型规则</td>
+<td>两周内完成一次真实排班</td>
+<td>陈静 / 赵岚 / FDE</td>
+<td>换班例外多，范围膨胀</td>
+</tr>
+</tbody>
+</table></div>
+<p>落地计划不是功能路线图：每行都要回答谁在何时做什么决定、依赖谁、谁负责。</p>
+<div class="hands-on">
+<p><strong>动手 20 分钟</strong>：写出下一轮切片与落地计划。</p>
+<ol>
+<li>在 <code>06_复盘与回流/06-04_下一轮切片与落地计划.md</code> 里填一行，七列都要有内容。</li>
+<li>切片仍只有一个最终决策；写不出就继续切。</li>
+<li>“依赖”写清复用哪份资产；“负责人”写具体的人。</li>
+</ol>
+<p><strong>三条自检</strong>：</p>
+<ul>
+<li>这一轮切片是在复用上一轮的资产，还是从零重做？</li>
+<li>负责人是一个人名，还是“项目组”？</li>
+<li>如果这一轮失败，停止条件是什么？</li>
+</ul>
+<p><strong>参考答案（S2）</strong>：</p>
+<blockquote>
+<p>切片：S2 个人排班与换班。决策：某天某班谁上。依赖：S1 写回稳定、资质与班型规则。负责人：陈静（业务）、赵岚（规则）、FDE（交付）。风险：换班例外多；停止条件：连续两天真实排班走不通。</p>
+</blockquote>
+</div>
+<h2 id="sec-pitfalls">常见坑</h2>
+<div class="pitfalls">
+<p><strong>坑 1：把 Demo 成功当组织落地。</strong>
+表现：演示会结束就开庆功会。后果：三个月后系统没人维护，也没人用。
+处理：Demo 只证明价值；接着写复盘、所有权和下一轮计划。</p>
+<p><strong>坑 2：所有权写成“大家一起”。</strong>
+表现：问谁负责数据，回答“信息科和项目组都会管”。后果：出事时互相等。
+处理：四块各写一个具体人名；写不出来，就是缺口。</p>
+<p><strong>坑 3：一个定制就产品化。</strong>
+表现：第一个客户提出特殊规则，立刻写进通用产品。后果：产品被一个例外绑死。
+处理：记账本、数次数；两次先做配置化试点，三次以上再考虑产品化。</p>
+<p><strong>坑 4：生产就绪靠口头。</strong>
+表现：演示通过就直接上线，没有回滚、接管和支持时段。后果：第一次故障就退回供应商。
+处理：逐条过生产就绪清单；未达成项写进 A06-04 的风险列。</p>
+</div>
+<div class="self-test">
+<p><strong>三问自测</strong></p>
+<details>
+<summary>1. 九道关口和五道门、阶段门是什么关系？</summary>
+
+九道关口检查组织持续部署的产物；五道门与 G0–G6 阶段门管单个五天项目的 Go/No-Go。检查对象不同，不是重复审批。
+
+</details>
+<details>
+<summary>2. 四块所有权里，缺一块会怎样？</summary>
+
+缺业务没人用；缺数据卡权限；缺应用要重做；缺治理没人排优先级和支持。四块各问一个负责人姓名。
+
+</details>
+<details>
+<summary>3. 为什么两次只做试点，三次以上才产品化？</summary>
+
+一次是个案，两次可能重复但还没跨够客户，三次才像模式。两次做可配置试点，三次以上再产品化，避免把例外写成主干。
+
+</details>
+</div>
+<div class="recap">
+<p><strong>本章带走</strong></p>
+<ol>
+<li>用例成功不等于组织接住；关键是所有权、可复用资产和下一轮决策。</li>
+<li>九道关口是能力工作面，不是审批；第七道生产就绪和第九道复利指标最易跳过。</li>
+<li>复盘分开事实与判断，账本记次数与去向，下一轮仍只做一个决策。</li>
+</ol>
+</div>
+      </div>
+
+      <section class="term-cards" aria-label="本页术语卡"><p class="eyebrow">本页术语</p><div class="term-grid"><article class="term-card" id="term-backfill-ledger"><h3 id="term-title-backfill-ledger">回流账本 <span class="term-en">Backfill Ledger</span></h3><p>记录每次客户定制、出现次数、通用化方案和所有者的账本；同一模式出现三次以上才考虑产品化。</p><a class="term-first" href="work-08-retro.html" target="_blank" rel="noopener">首次解释</a></article><article class="term-card" id="term-adoption"><h3 id="term-title-adoption">组织落地 <span class="term-en">Adoption</span></h3><p>从第一个用例成功，走到组织能持续复制、治理和扩展能力的阶段。</p></article><article class="term-card" id="term-role-split"><h3 id="term-title-role-split">四块所有权 <span class="term-en">Four Ownership Areas</span></h3><p>业务、数据、应用、治理四块能力各有所有者；落地失败常因某块没人负责。</p></article><article class="term-card" id="term-primitive"><h3 id="term-title-primitive">原语 <span class="term-en">Primitive</span></h3><p>平台提供、可重复组合的基础能力，如认证、连接器、权限、评测。</p></article><article class="term-card" id="term-design-partnership"><h3 id="term-title-design-partnership">设计合作 <span class="term-en">Design Partnership</span></h3><p>供应商与少数客户共同发现产品形态的深度合作，不只发生在创业早期。</p></article><article class="term-card" id="term-pairing"><h3 id="term-title-pairing">结对 <span class="term-en">Pairing</span></h3><p>重要会议、架构与决策至少有第二人理解，防止知识被一个人垄断。</p></article><article class="term-card" id="term-custom-to-self-serve"><h3 id="term-title-custom-to-self-serve">从定制到自助 <span class="term-en">Custom to Self-serve</span></h3><p>把反复由工程师手工完成的配置或集成，逐步变成客户可自行完成的产品能力。</p></article><article class="term-card" id="term-outcome-pricing"><h3 id="term-title-outcome-pricing">结果定价 <span class="term-en">Outcome Pricing</span></h3><p>按已定义并确认的业务结果收费，而不是按席位或调用量收费；它把定义与解释结果的责任推回供应商。</p></article></div></section>
+      <section class="artifact-box" aria-label="本页产物"><div class="artifact-block"><h3 id="artifacts-out">本页要写出的产物</h3><ul><li><code>A06-04</code> 下一轮切片与落地计划 <span class="muted">→ 06_复盘与回流/06-04_下一轮切片与落地计划.md</span> <span class="gate-tag">G6</span> <a href="templates/blank/06-04_下一轮切片与落地计划.html" data-template-view data-template-title="A06-04 下一轮切片与落地计划模板" title="A06-04 下一轮切片与落地计划模板 ｜ 当前页弹窗预览">模板</a> <a href="templates/golden/06-04_下一轮切片与落地计划_排班案例.html" data-template-view data-template-title="A06-04 下一轮切片与落地计划黄金样例" title="A06-04 下一轮切片与落地计划黄金样例 ｜ 当前页弹窗预览">黄金样例</a></li></ul></div><div class="artifact-block"><h3 id="artifacts-in">开始前应已具备</h3><p class="muted"><code>A05-04</code> 问题与决策日志、<code>A05-09</code> 阶段门记录、<code>A06-01</code> 复盘、<code>A06-02</code> 可复用资产清单、<code>A06-03</code> 回流账本</p></div></section>
+      <section class="sources" aria-label="来源"><h2 id="sec-sources">来源与证据等级</h2><ol class="source-list"><li><span class="src-id">S06</span> <strong>Foundry adoption · Program overview</strong> <span class="badge badge-官方">官方</span><div class="muted">Palantir Technologies · 抓取 2026-10-19 · 版权归 Palantir Technologies；仅内部研究，不对外分发原文</div><div class="src-url"><a href="https://www.palantir.com/docs/foundry/foundry-adoption/" rel="noreferrer" target="_blank">https://www.palantir.com/docs/foundry/foundry-adoption/</a></div></li><li><span class="src-id">S07</span> <strong>Foundry adoption · Phase 1：Focus on use cases</strong> <span class="badge badge-官方">官方</span><div class="muted">Palantir Technologies · 抓取 2026-10-19 · 版权归 Palantir Technologies；仅内部研究，不对外分发原文</div><div class="src-url"><a href="https://www.palantir.com/docs/foundry/foundry-adoption/phase-1/" rel="noreferrer" target="_blank">https://www.palantir.com/docs/foundry/foundry-adoption/phase-1/</a></div></li><li><span class="src-id">S08</span> <strong>Foundry adoption · Phase 2：Develop infrastructure to unlock scaling</strong> <span class="badge badge-官方">官方</span><div class="muted">Palantir Technologies · 抓取 2026-10-19 · 版权归 Palantir Technologies；仅内部研究，不对外分发原文</div><div class="src-url"><a href="https://www.palantir.com/docs/foundry/foundry-adoption/phase-2/" rel="noreferrer" target="_blank">https://www.palantir.com/docs/foundry/foundry-adoption/phase-2/</a></div></li><li><span class="src-id">S09</span> <strong>Foundry adoption · Phase 3：Platform growth through autonomy</strong> <span class="badge badge-官方">官方</span><div class="muted">Palantir Technologies · 抓取 2026-10-19 · 版权归 Palantir Technologies；仅内部研究，不对外分发原文</div><div class="src-url"><a href="https://www.palantir.com/docs/foundry/foundry-adoption/phase-3/" rel="noreferrer" target="_blank">https://www.palantir.com/docs/foundry/foundry-adoption/phase-3/</a></div></li><li><span class="src-id">S10</span> <strong>Foundry adoption · Phase 1 roles</strong> <span class="badge badge-官方">官方</span><div class="muted">Palantir Technologies · 抓取 2026-10-19 · 版权归 Palantir Technologies；仅内部研究，不对外分发原文</div><div class="src-url"><a href="https://www.palantir.com/docs/foundry/foundry-adoption/phase-1-roles/" rel="noreferrer" target="_blank">https://www.palantir.com/docs/foundry/foundry-adoption/phase-1-roles/</a></div></li><li><span class="src-id">S17</span> <strong>FDE 方法论沉淀</strong> <span class="badge badge-实践">实践</span><div class="muted">本子项目 · 抓取 2026-09-23 · 内部方法沉淀</div><div class="src-url"><span class="muted">无公开链接</span></div></li><li><span class="src-id">S15</span> <strong>《FDE 入门到精通》（FDE: From Fundamentals to Mastery）</strong> <span class="badge badge-第三方">第三方</span><div class="muted">高飞 / feigaobox10 · 抓取 2026-10-19 · CC BY-NC-SA 4.0；非官方，未获讲者或公司背书</div><div class="src-url"><a href="https://github.com/feigaobox10/fde-reader" rel="noreferrer" target="_blank">https://github.com/feigaobox10/fde-reader</a></div></li></ol></section>
+      <nav class="pager" aria-label="翻页"><a class="pager-prev" data-same-tab href="main-08-five-days.html"><span>上一页</span><strong>Day1–5 每天做什么</strong></a><a class="pager-next" data-same-tab href="main-10-patterns.html"><span>下一页</span><strong>五种实施模式</strong></a></nav>
+
+      <footer class="page-foot">
+        <p>本教程为内部方法研究。案例已匿名化，数字标注【示例】。Palantir 官方资料版权归 Palantir Technologies，仅作改写与链接。</p>
+        <p class="muted">发现断链或事实错误？回到 <a href="appendix-sources.html" target="_blank" rel="noopener">来源与版权</a> 核对出处。</p>
+      </footer>
+    </article>
+  </main>
+
+  <aside class="toc" id="toc" aria-label="页内目录">
+    <p class="toc-title">本页目录</p><ol class="toc-list"><li class="toc-h2"><a href="#sec-gap">一个用例成功，不等于组织接住了</a></li><li class="toc-h2"><a href="#sec-phases">组织落地三阶段</a></li><li class="toc-h2"><a href="#sec-nine-gates">九道关口不是第九套流程</a></li><li class="toc-h2"><a href="#sec-ownership">四块所有权：缺一块，第二个用例就会出事</a></li><li class="toc-h2"><a href="#sec-assets">从第一个用例到可复用资产</a><ul class="toc-sub"><li class="toc-h3"><a href="#sec-reuse">可复用资产要写清位置和限制</a></li><li class="toc-h3"><a href="#sec-backfill">回流账本：两次试点，三次产品化</a></li></ul></li><li class="toc-h2"><a href="#sec-baskets">四类回流篮子</a></li><li class="toc-h2"><a href="#sec-production">第七道：进入生产，而不是停在演示</a></li><li class="toc-h2"><a href="#sec-compounding">第九道：用复利指标审视团队</a></li><li class="toc-h2"><a href="#sec-team-shapes">三种团队形态</a></li><li class="toc-h2"><a href="#sec-hiring">招什么人</a></li><li class="toc-h2"><a href="#sec-enablement">用户赋能：支持与培训决定有没有人用</a></li><li class="toc-h2"><a href="#sec-next">下一轮切片与落地计划</a><ul class="toc-sub"><li class="toc-h3"><a href="#sec-g6">G6 复盘与回流门</a></li></ul></li><li class="toc-h2"><a href="#sec-template">一张可抄的落地计划</a></li><li class="toc-h2"><a href="#sec-pitfalls">常见坑</a></li></ol>
+  </aside>
+</div>
+
+<div class="tpl-modal" id="tpl-modal" hidden>
+  <div class="tpl-panel" role="dialog" aria-modal="true" aria-labelledby="tpl-title">
+    <header class="tpl-head">
+      <div class="tpl-heading">
+        <p class="tpl-kicker">模板阅读视图</p>
+        <h2 id="tpl-title">模板</h2>
+      </div>
+      <div class="tpl-actions">
+        <a class="tpl-open" id="tpl-open" href="#" target="_blank" rel="noopener">在新标签打开 ↗</a>
+        <button class="icon-btn" id="tpl-close" type="button" aria-label="关闭模板">✕</button>
+      </div>
+    </header>
+    <div class="tpl-body">
+      <iframe id="tpl-frame" title="模板内容" loading="lazy"></iframe>
+    </div>
+  </div>
+</div>
+
+<div class="search-modal" id="search-modal" hidden>
+  <div class="search-panel" role="dialog" aria-modal="true" aria-labelledby="search-title">
+    <div class="search-head">
+      <label id="search-title" class="sr-only" for="search-input">搜索教程</label>
+      <input id="search-input" type="search" placeholder="搜索概念、产物、模板、方法卡…" autocomplete="off">
+      <button class="icon-btn" id="search-close" type="button" aria-label="关闭搜索">✕</button>
+    </div>
+    <div id="search-results" class="search-results" aria-live="polite"></div>
+    <p class="search-hint">按 <kbd>/</kbd> 或 <kbd>Ctrl</kbd>+<kbd>K</kbd> 打开，<kbd>Esc</kbd> 关闭。索引完全离线。</p>
+  </div>
+</div>
+
+<noscript><p class="noscript-note">搜索与阅读进度需要 JavaScript；正文、目录和翻页仍可正常使用。可用浏览器查找（Ctrl+F）。</p></noscript>
+
+<script src="assets/search-index.js"></script>
+<script src="assets/viz-data.js"></script>
+<script src="assets/app.js"></script>
+<script src="assets/viz.js"></script>
+
+</body>
+</html>

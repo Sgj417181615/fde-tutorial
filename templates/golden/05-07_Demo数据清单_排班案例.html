@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>A05-07 Demo数据清单（排班案例） · FDE 模板库</title>
+<link rel="stylesheet" href="../../assets/course.css">
+</head>
+<body>
+<a class="skip-link" href="#main">跳到正文</a>
+<main class="main" id="main">
+<article class="article">
+<nav class="crumb" aria-label="面包屑">
+<a href="../../index.html">教程首页</a><span class="sep">/</span>
+<a href="../../appendix-templates.html">模板库</a><span class="sep">/</span>
+<span>黄金样例</span>
+</nav>
+<header class="page-head">
+<div class="badges">
+<span class="badge badge-main">A05-07</span>
+<span class="badge">黄金样例</span>
+<span class="badge badge-time">Markdown 阅读视图</span>
+</div>
+<h1>A05-07 Demo数据清单（排班案例）</h1>
+<p class="page-question">这是模板的阅读视图，源文件是 <code>05-07_Demo数据清单_排班案例.md</code>。
+<a href="05-07_Demo数据清单_排班案例.md">下载 / 编辑 Markdown</a> · <a href="../../appendix-templates.html">返回模板库</a></p>
+</header>
+<div class="prose">
+<blockquote>
+<p>【示例】匿名化案例，数字均为示例；人名与机构均为化名。</p>
+</blockquote>
+<p>本清单列出 Demo 用到的全部数据源、快照时间、字段级脱敏与缺失替代。数据范围取自 <code>_canon/case-bible.md</code> 的 CB-12、CB-17：一个月、三个亚专科、四个人。所有数据只用于本次五天验证，不进入教程、不上传公网。</p>
+<h2 id="tpl-sec-1">一、数据源清单</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th scope="col">数据源</th>
+<th scope="col">内容</th>
+<th scope="col">脱敏</th>
+<th scope="col">快照时间</th>
+<th scope="col">装载方式</th>
+<th scope="col">缺失替代</th>
+<th scope="col">负责人</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>人事表（HR 花名册）</td>
+<td>4 人：王芳、李强、周敏、陈卓；岗位、资质、可上班型</td>
+<td>姓名替换为化名；删除身份证号、手机号、住址、工号、紧急联系人；保留岗位、资质、班型</td>
+<td>2026-09-30 18:00</td>
+<td>CSV 导入本地库</td>
+<td>手工录入 4 行，陈静逐条确认</td>
+<td>刘工</td>
+</tr>
+<tr>
+<td>额度表（人力资源）</td>
+<td>2026-10 月度额度：妇科 10、乳腺 22、消化 22，合计 54 人天；发放月份、版本号</td>
+<td>删除审批人签名、内部邮件正文与发件人；保留亚专科、额度人天、月份</td>
+<td>2026-09-30 18:00</td>
+<td>CSV 导入</td>
+<td>额度截图 + 手工录入，孙老师口述核对</td>
+<td>孙老师</td>
+</tr>
+<tr>
+<td>排班本（科室 Excel 与纸质本）</td>
+<td>4 人可用天数 9/20/18/12，合计 59；已扣年假、门诊、外出会诊</td>
+<td>姓名化名；请假事由归并为“年假/门诊/会诊”三类；删除联系方式与备注中的患者信息</td>
+<td>2026-09-30 18:00</td>
+<td>手工录入</td>
+<td>访谈确认值（陈静），逐人核对</td>
+<td>陈静</td>
+</tr>
+<tr>
+<td>需求记录（微信群 + 口头）</td>
+<td>妇科 12、乳腺 22、消化 22，合计 56 人天；提出人、提出日期、“含夜班”口径</td>
+<td>删除群名、群头像、手机号与聊天上下文；只保留人天、日期与口径；转写为表格</td>
+<td>2026-09-30 18:00</td>
+<td>手工转写</td>
+<td>赵岚 D2 确认值，组长逐项确认</td>
+<td>赵岚</td>
+</tr>
+<tr>
+<td>资质与班型配置</td>
+<td>资质类别（妇科病理、乳腺病理、消化病理）、可上班型（白班/夜班/周末班）、亚专科负责人</td>
+<td>删除证书编号、发证机构个人编号、身份证后四位；保留资质类别与班型</td>
+<td>2026-09-30 18:00</td>
+<td>手工录入</td>
+<td>组长口述，标注“待备案核对”</td>
+<td>赵岚</td>
+</tr>
+<tr>
+<td>分配记录（空表）</td>
+<td>Allocation、Adjustment 两张空表，字段按 A04-03 对象模型</td>
+<td>无真实数据；演示只使用化名；不写入工资、绩效、患者信息</td>
+<td>2026-09-30 18:00</td>
+<td>系统内创建 + 初始化脚本</td>
+<td>Excel 空模板兜底，现场手工填</td>
+<td>FDE</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="tpl-sec-2">二、字段级脱敏</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th scope="col">数据源</th>
+<th scope="col">字段</th>
+<th scope="col">原值示例</th>
+<th scope="col">处理</th>
+<th scope="col">理由</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>人事表</td>
+<td>姓名</td>
+<td>真实姓名（不入库）</td>
+<td>替换为化名“王芳、李强、周敏、陈卓”</td>
+<td>避免个人识别</td>
+</tr>
+<tr>
+<td>人事表</td>
+<td>身份证号</td>
+<td>18 位号码</td>
+<td>整列删除，不进入快照</td>
+<td>高敏感，无分析价值</td>
+</tr>
+<tr>
+<td>人事表</td>
+<td>手机号</td>
+<td>11 位号码</td>
+<td>整列删除</td>
+<td>联系用途，不是决策输入</td>
+</tr>
+<tr>
+<td>人事表</td>
+<td>工号</td>
+<td>院内工号</td>
+<td>删除，改用内部行号 1–4</td>
+<td>防止反查到人</td>
+</tr>
+<tr>
+<td>人事表</td>
+<td>住址、紧急联系人</td>
+<td>文本</td>
+<td>整列删除</td>
+<td>与额度分配无关</td>
+</tr>
+<tr>
+<td>人事表</td>
+<td>岗位、资质、可上班型</td>
+<td>原文</td>
+<td>保留</td>
+<td>FR-02 校验需要</td>
+</tr>
+<tr>
+<td>排班本</td>
+<td>月度可用天数</td>
+<td>9/20/18/12</td>
+<td>保留，附口径“已扣年假、门诊、会诊”</td>
+<td>冲突识别的核心字段</td>
+</tr>
+<tr>
+<td>额度表</td>
+<td>审批人签名</td>
+<td>手写签名图片</td>
+<td>删除图片，仅保留“已审批”状态</td>
+<td>签名可识别个人</td>
+</tr>
+<tr>
+<td>额度表</td>
+<td>内部邮件正文</td>
+<td>邮件文本</td>
+<td>删除，仅保留额度数字与月份</td>
+<td>可能含未公开口径</td>
+</tr>
+<tr>
+<td>排班本</td>
+<td>请假事由</td>
+<td>“孩子发烧”等</td>
+<td>归并为“年假/门诊/会诊”三类</td>
+<td>事由属于个人隐私</td>
+</tr>
+<tr>
+<td>排班本</td>
+<td>联系方式</td>
+<td>手机、微信</td>
+<td>删除</td>
+<td>与决策无关</td>
+</tr>
+<tr>
+<td>需求记录</td>
+<td>群名、群头像</td>
+<td>微信群信息</td>
+<td>删除，改为“妇科需求-赵岚”</td>
+<td>防止定位到具体群</td>
+</tr>
+<tr>
+<td>需求记录</td>
+<td>聊天上下文</td>
+<td>对话文本</td>
+<td>只保留“12 人天、含夜班、D2 确认”</td>
+<td>避免无关个人信息</td>
+</tr>
+<tr>
+<td>资质与班型配置</td>
+<td>证书编号</td>
+<td>编号字符串</td>
+<td>删除，保留资质类别</td>
+<td>可反查个人</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="tpl-sec-3">三、快照与校验</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th scope="col">项目</th>
+<th scope="col">内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>快照时点</td>
+<td>2026-09-30 18:00，全表统一口径</td>
+</tr>
+<tr>
+<td>覆盖月份</td>
+<td>2026-10</td>
+</tr>
+<tr>
+<td>版本</td>
+<td>v1.0，冻结后不再改数；如需改，升 v1.1 并重跑校验</td>
+</tr>
+<tr>
+<td>行数</td>
+<td>人事 4 行、额度 3 行、排班 4 行、需求 3 行</td>
+</tr>
+<tr>
+<td>合计核对</td>
+<td>额度 54 = 10+22+22；需求 56 = 12+22+22；可用 59 = 9+20+18+12</td>
+</tr>
+<tr>
+<td>冲突核对</td>
+<td>C1：王芳可用 9，预排 10，超 1 天；C2：妇科需求 12，额度 10，缺 2 人天</td>
+</tr>
+<tr>
+<td>存储位置</td>
+<td>客户内网指定目录 <code>/demo/2026-10/</code>，离线 SQLite + CSV 副本</td>
+</tr>
+<tr>
+<td>校验码</td>
+<td>快照包 SHA-256 前 8 位记为 <code>a1b2c3d4</code>（示例值，现场重新生成）</td>
+</tr>
+<tr>
+<td>复现方式</td>
+<td>断网打开，导入脚本 3 分钟内完成；不依赖现场网络与院内系统</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>校验纪律</strong>：</p>
+<ul>
+<li>合计对不上时先停下核对，不带着错数排练；</li>
+<li>C1、C2 必须在导入后就能看到，不能靠演示时临时改数制造；</li>
+<li>快照只读，演示中的修改写入新的分配记录，不改原始快照；</li>
+<li>若现场数据与快照不一致，以快照为准并在 Demo 中说明“这是 9 月 30 日的口径”。</li>
+</ul>
+<h2 id="tpl-sec-4">四、权限与销毁</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th scope="col">项目</th>
+<th scope="col">内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>授权人</td>
+<td>周主任</td>
+</tr>
+<tr>
+<td>授权时间</td>
+<td>进场前书面确认（D1 前）</td>
+</tr>
+<tr>
+<td>用途</td>
+<td>仅本次 Demo 与五天验证，不用于其他项目</td>
+</tr>
+<tr>
+<td>访问人</td>
+<td>FDE 两人、陈静、刘工</td>
+</tr>
+<tr>
+<td>存储</td>
+<td>客户内网指定目录，不上传公网、不进入代码仓库</td>
+</tr>
+<tr>
+<td>禁止用途</td>
+<td>不用于模型训练、不写入教程、不作为对外案例素材</td>
+</tr>
+<tr>
+<td>销毁</td>
+<td>验证结束后 30 天内删除原始副本，仅保留脱敏汇总</td>
+</tr>
+<tr>
+<td>特殊说明</td>
+<td>不含患者数据、不含工资绩效、不使用真实姓名与机构名</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="tpl-sec-5">五、交接检查</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th scope="col">检查项</th>
+<th scope="col">结论</th>
+<th scope="col">确认人</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>六个数据源均已冻结在同一快照时点</td>
+<td>通过</td>
+<td>刘工</td>
+</tr>
+<tr>
+<td>脱敏已到字段级，未只写“已脱敏”</td>
+<td>通过</td>
+<td>刘工</td>
+</tr>
+<tr>
+<td>合计与冲突核对可复现</td>
+<td>通过</td>
+<td>陈静</td>
+</tr>
+<tr>
+<td>每个数据源都有缺失替代方案</td>
+<td>通过</td>
+<td>FDE</td>
+</tr>
+<tr>
+<td>数据权限记录覆盖本次用途</td>
+<td>通过</td>
+<td>周主任</td>
+</tr>
+<tr>
+<td>快照可离线打开，不依赖院内系统</td>
+<td>通过</td>
+<td>FDE</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<footer class="page-foot">
+<p class="muted">本页由 <code>_tools/build.py</code> 从 Markdown 自动生成，请改源文件而不是改这里。</p>
+</footer>
+</article>
+</main>
+</body>
+</html>

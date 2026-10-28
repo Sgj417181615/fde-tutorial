@@ -1,0 +1,389 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<title>FDE 是什么，不是什么 · FDE 零基础教程</title>
+<meta name="description" content="从角色、现场工作方式和“5 天”误解讲清 FDE，并给出是否适用的判断框架。">
+<link rel="stylesheet" href="assets/course.css">
+<script>
+(function () {
+  try {
+    var saved = localStorage.getItem('fde-theme');
+    var theme = saved || (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+    document.documentElement.dataset.theme = theme;
+  } catch (e) {}
+})();
+</script>
+</head>
+<body class="track-main page-main-01-fde">
+<a class="skip-link" href="#main">跳到正文</a>
+
+<header class="topbar">
+  <button class="icon-btn nav-toggle" id="nav-toggle" type="button" aria-expanded="false" aria-controls="sidebar" aria-label="打开课程目录">
+    <span aria-hidden="true">☰</span>
+  </button>
+  <a class="brand" data-same-tab href="index.html"><span class="brand-mark">FDE</span><span class="brand-text">零基础教程</span></a>
+  <nav class="track-switch" aria-label="模块切换"><span class="track-link active" aria-current="true" title="从零建立完整心智模型">主线</span><a class="track-link" data-same-tab href="work-01-prep.html" title="现场查用：输入、步骤、输出、阶段门">工作台</a><a class="track-link" data-same-tab href="day1-00-overview.html" title="六步链路：简报 → 访谈 → 证据 → 底稿 → 门">Day1</a><a class="track-link" data-same-tab href="appendix-methods.html" title="一卡一问，按阶段、产物、角色查">方法库</a><a class="track-link" data-same-tab href="appendix-templates.html" title="模板、产物链、术语与来源">附录</a></nav>
+  <div class="top-actions">
+    <button class="search-open" id="search-open" type="button" aria-haspopup="dialog">
+      <span aria-hidden="true">⌕</span><span class="search-label">搜索</span><kbd>/</kbd>
+    </button>
+    <button class="icon-btn" id="theme-toggle" type="button" aria-label="切换深浅色">◐</button>
+  </div>
+  <div class="read-progress" aria-hidden="true"><span id="read-progress"></span></div>
+</header>
+
+<div class="layout">
+  <aside class="sidebar" id="sidebar">
+    <nav class="course-tree" aria-label="课程目录"><header class="side-head"><p class="side-eyebrow">当前模块</p><p class="side-title">主线</p><p class="side-caption">从零建立完整心智模型</p><p class="side-meta">16 页<span class="dot">·</span>约 4 小时</p></header><section class="nav-group"><p class="nav-group-title"><span class="nav-group-num">01</span>开始</p><a class="nav-link" data-same-tab href="index.html">开始：这份教程怎么用</a></section><section class="nav-group"><p class="nav-group-title"><span class="nav-group-num">02</span>看懂 FDE</p><span class="nav-link nav-current" aria-current="page">FDE 是什么，不是什么</span><a class="nav-link" data-same-tab href="main-02-slicing.html">把“系统”切成可验证的决策</a><a class="nav-link" data-same-tab href="lab-slicing.html">实验室：切三个模糊需求</a></section><section class="nav-group"><p class="nav-group-title"><span class="nav-group-num">03</span>看清现状</p><a class="nav-link" data-same-tab href="main-03-as-is.html">看清今天实际怎么运转</a><a class="nav-link" data-same-tab href="main-04-one-pager.html">一页纸对齐范围</a><a class="nav-link" data-same-tab href="case-a-one-pager.html">案例 A：S1 如何被选中</a><a class="nav-link" data-same-tab href="lab-one-pager.html">实验室：20 分钟拼一页纸</a></section><section class="nav-group"><p class="nav-group-title"><span class="nav-group-num">04</span>设计验证</p><a class="nav-link" data-same-tab href="main-05-fr.html">把决策写成一句可验收的 FR</a><a class="nav-link" data-same-tab href="main-06-solution.html">方案设计四件套</a><a class="nav-link" data-same-tab href="case-b-solution.html">案例 B：从一页纸到 Demo</a></section><section class="nav-group"><p class="nav-group-title"><span class="nav-group-num">05</span>跑起来</p><a class="nav-link" data-same-tab href="main-07-gates.html">开始前的五道门</a><a class="nav-link" data-same-tab href="main-08-five-days.html">Day1–5 每天做什么</a><a class="nav-link" data-same-tab href="main-09-adoption.html">从项目到组织能力</a></section><section class="nav-group"><p class="nav-group-title"><span class="nav-group-num">06</span>选读</p><a class="nav-link" data-same-tab href="main-10-patterns.html">五种实施模式<span class="nav-optional">选读</span></a><a class="nav-link" data-same-tab href="main-11-lessons.html">一线八堂课<span class="nav-optional">选读</span></a></section></nav>
+  </aside>
+  <button class="scrim" id="scrim" type="button" aria-label="关闭目录" hidden></button>
+
+  <main class="main" id="main">
+    <nav class="crumb" aria-label="面包屑"><a data-same-tab href="index.html">教程</a><span class="sep">/</span><span>主线</span><span class="sep">/</span><span>看懂 FDE</span><span class="sep">/</span><span aria-current="page">FDE 是什么，不是什么</span></nav>
+    <article class="article">
+      <header class="page-head">
+        <div class="badges"><span class="badge badge-main">必读</span><span class="badge badge-time">18 分钟</span></div>
+        <h1>FDE 是什么，不是什么</h1>
+        <p class="lede">从角色、现场工作方式和“5 天”误解讲清 FDE，并给出是否适用的判断框架。</p>
+        <p class="page-question"><span class="eyebrow">本页要回答</span>FDE 到底做什么？我们这个问题适合用 FDE 方式做吗？</p>
+        <div class="page-meta">
+          <section class="meta-block">
+            <h2 class="meta-title" id="meta-objectives">读完你能</h2>
+            <ul class="objective-list"><li>用自己的话解释 FDE 与需求分析师、平台工程师的区别；</li><li>指出“官方 5 天日程”这一说法的错误并说明正确用法；</li><li>用 2×2 框架判断一个场景是否适合 FDE。</li></ul>
+          </section>
+          <section class="meta-block">
+            <h2 class="meta-title" id="meta-prereq">前置</h2>
+            <p>先读：<a href="index.html" target="_blank" rel="noopener">开始：这份教程怎么用</a></p>
+          </section>
+        </div>
+      </header>
+
+      <div class="prose">
+        <p>“我们买了 Palantir，五天能上线吗？”</p>
+<p>这是 FDE 进场时最常听到的一句话。问的人不一定在刁难你，他只是在用自己的经验理解这件事：买软件、实施、上线，应该有一个确定的工期。</p>
+<p>但 FDE 不是“实施一套已经想清楚的软件”。它更像：<strong>先到现场，把没想清楚的问题变成一个可以运行的东西，再决定要不要扩大。</strong></p>
+<p>这一页要解决三个问题：FDE 到底做什么；“5 天”这个说法哪里对、哪里错；以及你手上的问题，值不值得用 FDE 方式做。</p>
+<h2 id="sec-scene">一个现场，三种角色</h2>
+<p>先看一个真实感强的场景（案例已匿名化，数字均为【示例】）。</p>
+<p>某三甲医院病理科，12 个亚专科、3 种班型（白班、夜班、周末班）。每月 20 日左右，人力资源的孙老师把各亚专科的“外部人员额度”发到微信群，再附一份 Excel。排班员陈静要在月底前决定：<strong>每个亚专科用多少额度、分给谁、哪些人不够、哪里要协调。</strong></p>
+<p>她现在怎么做？打开三个 Excel 对版本，翻纸质排班本，看微信群，凭记忆估算每个人下月能上几天，发现冲突后打电话协调，改两三版，最后请周主任签字录入。</p>
+<p>【实践】这段现状不是编的，它来自现场观察。完整片段见 <a class="case-link" href="case-a-one-pager.html#cb-as-is" target="_blank" rel="noopener">案例 CB-01</a>。</p>
+<p>现在，三个人同时被派到这个现场，他们会做完全不同的事：</p>
+<ul>
+<li><strong>需求分析师</strong>会问清楚“你们要什么功能”，写一份需求文档，让客户签字。</li>
+<li><strong>平台工程师</strong>会判断“这个能力产品里有没有”，如果有，配置；如果没有，提产品需求。</li>
+<li><strong>FDE</strong> 会坐下来，跟陈静一起把这个月的额度分一遍，用真实数据做出一个能跑的东西，然后看她会不会用、哪里不对。</li>
+</ul>
+<p>三者的差别不在技术，而在<strong>谁承担“问题被解决”的责任</strong>。需求分析师交付文档，平台工程师交付能力，FDE 交付一个在客户环境里真实发生的行为改变。</p>
+<div class="checkpoint">
+<p><strong>停一下</strong>：回想你手上那个“做个系统”的需求。如果明天不写任何文档，只允许你做出一个能点、能改、能让业务方当场判断“对/不对”的东西，你会先做哪一部分？</p>
+<p>想不出来，通常说明问题还没被切到可验证的大小。这正是第 2 页要做的事。</p>
+</div>
+<h2 id="sec-what">FDE 到底做什么</h2>
+<p>FDE 是 Forward Deployed Engineer 的缩写，直译“前置部署工程师”。这个译名很别扭，但“前置”和“部署”两个词都关键。</p>
+<p><strong>前置</strong>：人不在总部，在客户现场。不是远程开个会、收一份需求，而是坐在使用者的工位旁边，看她打开哪几个文件、在哪里皱眉、打电话时说了什么。</p>
+<p><strong>部署</strong>：交付的不是 PPT，是一个真的能运行、能写回、能被拒绝的东西。它可以很薄，但必须端到端。</p>
+<p>合起来，FDE 的工作可以压成一句话：</p>
+<blockquote>
+<p>在客户的真实环境里，用真实数据，做出一个能改变某个具体决策的最小系统，并证明它值得继续。</p>
+</blockquote>
+<p>这句话里有四个限定，缺一个就会变形：</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th scope="col">限定</th>
+<th scope="col">缺了会怎样</th>
+<th scope="col">怎么检查</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>真实环境</strong></td>
+<td>在演示环境里跑得很顺，一进客户内网就处处不通</td>
+<td>数据、权限、账号是不是客户的</td>
+</tr>
+<tr>
+<td><strong>真实数据</strong></td>
+<td>用干净样例做出漂亮结果，真实数据一塌糊涂</td>
+<td>有没有处理过脏数据、缺字段、版本冲突</td>
+</tr>
+<tr>
+<td><strong>具体决策</strong></td>
+<td>做了一堆功能，没人改变任何动作</td>
+<td>能不能说出“谁在什么时候做了什么决定”</td>
+</tr>
+<tr>
+<td><strong>值得继续</strong></td>
+<td>做出一个 demo，但没人愿意为下一步投入</td>
+<td>有没有可观察的采用信号和下一步承诺</td>
+</tr>
+</tbody>
+</table></div>
+<p>这也是 FDE 和“外包开发”最根本的区别。外包的验收标准是“按需求做完”，FDE 的验收标准是“决策变了没有”。</p>
+<h3 id="sec-four-layers">四层责任，是叠加不是替代</h3>
+<p>FDE 不是某一年被“发明”出来的职位，而是四层责任依次压上来：</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th scope="col">阶段</th>
+<th scope="col">当时最痛的问题</th>
+<th scope="col">现场工程师要扛的事</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2008 前后</td>
+<td>系统装不进、稳不住</td>
+<td>平台部署、发布、凌晨排障</td>
+</tr>
+<tr>
+<td>2012 前后</td>
+<td>平台能跑，里面没数据</td>
+<td>数据集成，把表和字段组织成本体</td>
+</tr>
+<tr>
+<td>2016 前后</td>
+<td>有数据，用户还是不动</td>
+<td>搭定制应用，把数据变成具体决策</td>
+</tr>
+<tr>
+<td>2020 前后</td>
+<td>少数人包不动所有客户</td>
+<td>培训、模板，让客户自己建</td>
+</tr>
+</tbody>
+</table></div>
+<p>四层是叠加，不是替代。数据接进来了，平台照样要稳；应用做出来了，数据照样要对；教客户自己建了，前三个责任也没消失。所以“FDE 是做什么的”没有唯一答案——看你在哪一层，以及下面几层有没有人兜住。</p>
+<p>真正不该消失的是<span class="term-link" title="Continuity of Accountability：同一个人或团队持续理解客户为何买、系统怎么搭、用户为何不用，并把信息带回产品。">客户责任连续性</span>：同一个人或同一支小队，记得客户当初为什么买、系统怎么搭起来、用户为什么还是不用，并把这些带回产品团队。</p>
+<p>职位名称一直在变，从 FDE 到部署策略师，再到 Agent Engineer。<strong>名称变了不要紧，交接的缝隙才是责任真正死掉的地方。</strong></p>
+<h3 id="sec-roles">Delta、Echo、Dev：三个常见代号</h3>
+<p>在 Palantir 的语境里，你会听到三个角色代号。它们不是三个职级，而是三种能力组合：</p>
+<ul>
+<li><strong><span class="term-link" title="Palantir 内部对 FDE/FDSE 的代号，偏重现场写代码、接数据、建模和做应用。">Delta</span></strong>：偏现场，写代码、接数据、搭模型、做应用。能一个人把薄切片跑通。</li>
+<li><strong><span class="term-link" title="Deployment Strategist：Palantir 内部对部署策略师的代号，偏重吸收业务、定义问题、框定价值；技术能力同样是必备项。">Echo</span></strong>：偏业务，懂领域、定义问题、锁定价值、推动采用。通常由 Deployment Strategist 承担。</li>
+<li><strong><span class="term-link" title="Platform Engineer：做通用平台能力的工程师，服务多个客户，而不是扎在一个客户现场。">Dev</span></strong>：偏平台，把客户现场反复出现的问题做成产品能力。</li>
+</ul>
+<p>一个成熟的 FDE 团队通常不是“三个专家各管一段”，而是每个人都有一点另外两块的能力，能在现场互相补位。你不需要一进场就三样精通，但你必须知道<strong>现在缺的是哪一块</strong>。</p>
+<div class="checkpoint">
+<p><strong>停一下</strong>：你现在的项目，最缺的是 Delta（做出来）、Echo（问对问题、推动使用）还是 Dev（产品化）？如果只能补一个，补哪个？</p>
+<p>多数失败项目缺的不是 Delta，而是 Echo：东西做出来了，但没人定义“做成什么样算成功”，也没人负责让业务方真的用起来。</p>
+</div>
+<h2 id="sec-five-days">“5 天”是什么，不是什么</h2>
+<p>这是最容易被讲错的一段，必须说清楚。</p>
+<p>你在网上会看到“FDE 五天工作法”“Palantir 官方五天流程”之类的说法。<strong>Palantir 并没有发布过一份“FDE 五天逐日日程”。</strong> 官方公开材料里能确认的是：<span class="term-link" title="Palantir 的 1–5 天售前工作坊，目标是“from zero to use case”；不是 FDE 的常设方法论。">AIP Bootcamp</span> 是一个 1–5 天的前置训练/共创项目，目标是“from zero to use case”，让参与者在几天内走完一个用例的发现、设计和原型。【官方】<span class="cite" title="AIP Bootcamp · 官方产品页">[S22]</span></p>
+<p>“Bootcamp 可以是 1–5 天”和“FDE 项目必须五天”是两件事。前者是训练形式，后者是被误传成官方方法的项目节奏。</p>
+<p>那这份教程为什么还讲“五天验证”？</p>
+<p>因为它是我们主动选择的一个<strong>验证节拍</strong>，不是官方教条：</p>
+<ul>
+<li>五天足够长，能做出一个端到端薄切片；</li>
+<li>五天足够短，短到业务方愿意把时间留给你，也短到失败不致命；</li>
+<li>五天迫使你砍范围。如果一件事五天做不完，通常不是工期问题，是切片没切好。</li>
+</ul>
+<p>所以正确的说法是：</p>
+<blockquote>
+<p><strong>“五天”是我们给一个薄切片设定的验证窗口，不是 Palantir 官方的 FDE 项目工期。</strong></p>
+</blockquote>
+<p>【推断】这个节拍来自实践归纳，不是官方原文。你可以根据项目改成三天、十天或两周，但必须满足两个条件：有一个明确的验证问题，有一个明确的停止条件。</p>
+<div class="checkpoint">
+<p><strong>停一下</strong>：如果有人拿“官方五天流程”做汇报，你会怎么纠正，既不显得抬杠，又能把讨论拉回正题？</p>
+<p>一个可用的说法：“官方公开的是 1–5 天的 Bootcamp，不是固定项目工期。我们这里用五天，是为了在可控成本内验证一个切片，验证问题是什么、停下来的标准是什么，先定这两个。”</p>
+</div>
+<h2 id="sec-fit">什么时候不该用 FDE</h2>
+<p>FDE 不是万能方法。用错场景，它会变成“高成本的定制外包”。</p>
+<h3 id="sec-two-level-fit">先判断客户，再判断项目</h3>
+<p>进场前有两个判断，常被混成一个。先看公司层面：<strong>这家客户、这个产品，本来就该由 FDE 来交付吗？</strong> 用<span class="term-link" title="Product Complexity Fit：用“产品复杂度 × 用户技术能力”判断该用 FDE、DevRel、传统实施还是自助。">产品复杂度适配</span>看两个轴——产品复杂度和用户的技术能力。</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th scope="col"></th>
+<th scope="col"><strong>用户技术能力低</strong></th>
+<th scope="col"><strong>用户技术能力高</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>产品复杂度高</strong></td>
+<td>FDE 核心区：产品很强，客户却没能力自己把它变成业务结果</td>
+<td>DevRel / 平台团队 / 联合开发：用户本行就吃这套复杂度</td>
+</tr>
+<tr>
+<td><strong>产品复杂度低</strong></td>
+<td>自助或标准实施：配置一下就能用</td>
+<td>标准开发工具：文档和示例足够</td>
+</tr>
+</tbody>
+</table></div>
+<p>FDE 真正值钱的是左上格。右上的人自己能吸收复杂度；左下和右下，根本不需要工程师常驻。</p>
+<p>这里有个常被忽略的成本：“培训税”。客户买下平台之后，还得再花钱培养会用平台的人。FDE 是借来的工程师，卖的是结果，不是人头，也不是先收一笔学费让客户自己摸索。</p>
+<p>还有一个经济前提：平台得有<a class="term-link" href="main-09-adoption.html#term-primitive" title="Primitive：平台提供、可重复组合的基础能力，如认证、连接器、权限、评测。" target="_blank" rel="noopener">原语</a>，比如认证、连接器、权限、评测。原语越完整，FDE 组装得越快；没有原语，每来一个客户都从空白代码库写起，团队就会退化成定制外包公司。</p>
+<p>这是<strong>公司/产品组合层面</strong>的判断，回答“这类客户要不要用 FDE”。项目层面还要再判：这一件事的主要风险在哪。</p>
+<h3 id="sec-fit-project">项目层面：问题模糊度 × 现场依赖度</h3>
+<p>下面这个 2×2 用来做项目层面的第一轮判断。两个轴不是“技术难度”，而是两个更现实的问题：</p>
+<ul>
+<li><strong>横轴：问题有多模糊？</strong> 业务方能不能一句话说清“谁在什么时候做什么决定”？还是只能说出“想要一个系统”？</li>
+<li><strong>纵轴：现场依赖有多重？</strong> 答案是否高度依赖客户自己的数据、权限、Excel、微信群、口头规则和人的判断？</li>
+</ul>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th scope="col"></th>
+<th scope="col"><strong>现场依赖低</strong></th>
+<th scope="col"><strong>现场依赖高</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>问题清晰</strong></td>
+<td><strong>标准产品/配置</strong>：直接用现成能力，别派 FDE</td>
+<td><strong>数据集成/实施项目</strong>：重点是接数据、通权限、做迁移</td>
+</tr>
+<tr>
+<td><strong>问题模糊</strong></td>
+<td><strong>研究/咨询/原型</strong>：先做问题定义，不一定马上写生产代码</td>
+<td><strong>FDE 的主场</strong>：高模糊 × 高现场依赖，必须边做边问</td>
+</tr>
+</tbody>
+</table></div>
+<p>四个格子的用法：</p>
+<ol>
+<li><strong>左上（清晰 × 低依赖）</strong>：不要用 FDE。客户要的是标准报表、标准审批流，产品配置就能解决，派人去现场是浪费。</li>
+<li><strong>右上（清晰 × 高依赖）</strong>：更像数据工程/实施项目。问题已经清楚，难在数据源、权限、历史系统。FDE 可以做，但主要工作量是集成，不是发现。</li>
+<li><strong>左下（模糊 × 低依赖）</strong>：先做研究、咨询或纸面原型。问题还没定义，急着写代码会把错误假设固化。</li>
+<li><strong>右下（模糊 × 高依赖）</strong>：FDE 的主场。你必须在现场，因为答案不在会议室里，而在陈静的 Excel、微信群和她的记忆里。</li>
+</ol>
+<p>这个框架不是给你一个“能不能做”的二元答案，而是告诉你<strong>主要风险在哪</strong>：左上怕过度定制，右上怕集成失控，左下怕自嗨，右下怕范围膨胀。</p>
+<h3 id="sec-case">回到排班案例</h3>
+<p>用这个框架看“给病理科做排班系统”：</p>
+<ul>
+<li><strong>问题模糊度高</strong>： “排班”至少包含额度分配、个人排班、换班、住院总轮转、报表五件事。业务方一开始说不清先做哪个。</li>
+<li><strong>现场依赖度高</strong>： 额度在微信群、可用天数在纸质本和记忆里、冲突靠电话协调、审批要签字。这些都不在任何一个系统里。</li>
+</ul>
+<p>所以它在右下格，适合 FDE。但“适合 FDE”不等于“做一个排班系统”。</p>
+<p><a class="case-link" href="case-a-one-pager.html#cb-slices" target="_blank" rel="noopener">案例 CB-02</a> 里有四个候选切片：S1 外部人员额度分配、S2 个人排班与换班、S3 住院总轮转、S4 报表与统计。案例最终选 S1，理由是：它是一条<strong>最短的端到端决策链</strong>——陈静有明确的输入（需求、额度、可用天数）、明确的决定（分多少、分给谁）、明确的动作（写回、提交确认）、明确的痛苦（3 小时、返工 2–3 轮）。S2 更大、更诱人，但五天验证不了。</p>
+<p>这就是 FDE 的判断顺序：<strong>先找一条能验证的决策链，再谈系统。</strong> 不是先画架构图，再找地方落地。</p>
+<div class="hands-on">
+<p><strong>动手 10 分钟</strong>：把你的项目放进 2×2，并写出第一版决策句。</p>
+<ol>
+<li>在 <code>00_项目章程/00-01_项目一页纸.md</code> 里补三行：
+   - 业务问题（一句话，不许出现“系统应该支持”）；
+   - 问题模糊度：高 / 低，理由一句；
+   - 现场依赖度：高 / 低，理由一句。</li>
+<li>写出决策句：<code>____（角色）在____（时点），根据____（输入），决定____（决定），并触发____（动作）。</code></li>
+<li>在 <code>00_项目章程/00-02_干系人地图.md</code> 里先列四个人：最终签字人、实际使用者、被影响者、数据/权限把关人。每人写一句“他关心什么”。</li>
+</ol>
+<p><strong>三条自检</strong>：</p>
+<ul>
+<li>决策句里有没有一个<strong>具体角色</strong>，而不是“业务部门”？</li>
+<li>有没有一个<strong>时点</strong>，而不是“及时”？</li>
+<li>如果你的项目落在右上格，你敢不敢建议“不用 FDE，直接配置产品”？</li>
+</ul>
+<p><strong>参考答案（排班案例）</strong>：</p>
+<blockquote>
+<p>陈静（排班员）在每月 25 日前，根据各亚专科需求、外部人员额度和人员可用天数，决定本月每个亚专科用多少额度、分给谁，并把结果写回排班表、提交赵岚确认、周主任审批。</p>
+</blockquote>
+</div>
+<h2 id="sec-pitfalls">常见坑</h2>
+<div class="pitfalls">
+<p><strong>坑 1：把 FDE 当成“高级外包”。</strong>
+表现：客户列需求，你报价、排期、交付。后果：你交完功能就走，没人对“决策有没有变”负责。
+处理：合同里写结果，不写功能清单；至少留一个采用指标和一次复盘。</p>
+<p><strong>坑 2：把“5 天”当官方承诺。</strong>
+表现：对客户说“Palantir 官方就是五天上线”。后果：一旦延期，信任崩塌；而且这个说法本身不准确。
+处理：说清“五天是我们的验证窗口”，并给出验证问题和停止条件。</p>
+<p><strong>坑 3：在右上格硬做 FDE。</strong>
+表现：问题很清楚、现场依赖很低，但为了“方法论完整”派一个团队进场。后果：成本高、周期长，客户真正需要的是配置一个标准产品。
+处理：先用 2×2 判断，敢说“这不该用 FDE”。</p>
+<p><strong>坑 4：一进场就接数据。</strong>
+表现：第一天拉数据、对字段，两周后才发现真正的问题是谁在什么时候做决定。后果：数据工程吞掉全部时间，问题定义被跳过。
+处理：先做决策句和切片，再列数据需求；数据只接切片需要的那部分。</p>
+</div>
+<div class="self-test">
+<p><strong>三问自测</strong></p>
+<details>
+<summary>1. 用一句话说明 FDE 与需求分析师的区别。</summary>
+
+需求分析师交付“被签字的文档”，FDE 交付“在客户真实环境里改变了某个具体决策的可用东西”。前者对需求完整性负责，后者对问题是否被解决负责。
+
+</details>
+<details>
+<summary>2. “Palantir 官方 FDE 五天流程”这个说法错在哪？</summary>
+
+官方公开的是 1–5 天的 AIP Bootcamp（训练/共创），不是固定的 FDE 项目工期。五天可以作为我们主动选择的验证窗口，但不能说成官方日程。
+
+</details>
+<details>
+<summary>3. 一个场景“问题模糊、现场依赖高”，主要风险是什么？该怎么控？</summary>
+
+主要风险是范围膨胀：每条线索都值得追，五天做不完。控制方法是先选一条最短的端到端决策链做薄切片，明确不做什么，并用停止条件约束。
+
+</details>
+</div>
+<div class="recap">
+<p><strong>本章带走</strong></p>
+<ol>
+<li>FDE 是在客户真实环境里，用真实数据做出一个能改变具体决策的最小系统，并对“值得继续”负责。</li>
+<li>官方没有“FDE 五天逐日日程”；1–5 天是 Bootcamp 的形式，五天是我们自己设定的验证窗口。</li>
+<li>用“问题模糊度 × 现场依赖度”判断：右下格是 FDE 主场，左上格该用标准产品，右上格更像数据集成项目，左下格先做问题定义。</li>
+</ol>
+</div>
+      </div>
+
+      <section class="term-cards" aria-label="本页术语卡"><p class="eyebrow">本页术语</p><div class="term-grid"><article class="term-card" id="term-bootcamp"><h3 id="term-title-bootcamp">AIP Bootcamp <span class="term-en">AIP Bootcamp</span></h3><p>Palantir 的 1–5 天售前工作坊，目标是“from zero to use case”；不是 FDE 的常设方法论。</p></article><article class="term-card" id="term-delta"><h3 id="term-title-delta">Delta <span class="term-en">Delta</span></h3><p>Palantir 内部对 FDE/FDSE 的代号，偏重现场写代码、接数据、建模和做应用。</p></article><article class="term-card" id="term-echo"><h3 id="term-title-echo">Echo <span class="term-en">Deployment Strategist</span></h3><p>Palantir 内部对部署策略师的代号，偏重吸收业务、定义问题、框定价值；技术能力同样是必备项。</p></article><article class="term-card" id="term-dev"><h3 id="term-title-dev">Dev <span class="term-en">Platform Engineer</span></h3><p>做通用平台能力的工程师，服务多个客户，而不是扎在一个客户现场。</p></article><article class="term-card" id="term-fde"><h3 id="term-title-fde">FDE <span class="term-en">Forward Deployed Engineer</span></h3><p>扎在客户现场、用工程手段解决业务问题，并对业务结果负责的角色。</p></article><article class="term-card" id="term-aip"><h3 id="term-title-aip">AIP <span class="term-en">Artificial Intelligence Platform</span></h3><p>Palantir 的 AI 平台；教程只在解释 Bootcamp 和官方背景时提到它。</p></article><article class="term-card" id="term-continuity-accountability"><h3 id="term-title-continuity-accountability">客户责任连续性 <span class="term-en">Continuity of Accountability</span></h3><p>同一个人或团队持续理解客户为何买、系统怎么搭、用户为何不用，并把信息带回产品。</p></article><article class="term-card" id="term-product-complexity-fit"><h3 id="term-title-product-complexity-fit">产品复杂度适配 <span class="term-en">Product Complexity Fit</span></h3><p>用“产品复杂度 × 用户技术能力”判断该用 FDE、DevRel、传统实施还是自助。</p></article></div></section>
+      <section class="artifact-box" aria-label="本页产物"><div class="artifact-block"><h3 id="artifacts-out">本页要写出的产物</h3><ul><li><code>A00-01</code> 项目一页纸 <span class="muted">→ 00_项目章程/00-01_项目一页纸.md</span> <span class="gate-tag">G0</span> <a href="templates/blank/00-01_项目一页纸.html" data-template-view data-template-title="A00-01 项目一页纸模板" title="A00-01 项目一页纸模板 ｜ 当前页弹窗预览">模板</a> <a href="templates/golden/00-01_项目一页纸_排班案例.html" data-template-view data-template-title="A00-01 项目一页纸黄金样例" title="A00-01 项目一页纸黄金样例 ｜ 当前页弹窗预览">黄金样例</a></li><li><code>A00-02</code> 干系人地图 <span class="muted">→ 00_项目章程/00-02_干系人地图.md</span> <span class="gate-tag">G0</span> <a href="templates/blank/00-02_干系人地图.html" data-template-view data-template-title="A00-02 干系人地图模板" title="A00-02 干系人地图模板 ｜ 当前页弹窗预览">模板</a> <a href="templates/golden/00-02_干系人地图_排班案例.html" data-template-view data-template-title="A00-02 干系人地图黄金样例" title="A00-02 干系人地图黄金样例 ｜ 当前页弹窗预览">黄金样例</a></li></ul></div><div class="artifact-block"><h3 id="artifacts-in">开始前应已具备</h3><p class="muted"><code>A00-01</code> 项目一页纸</p></div></section>
+      <section class="sources" aria-label="来源"><h2 id="sec-sources">来源与证据等级</h2><ol class="source-list"><li><span class="src-id">S01</span> <strong>Use case lifecycle · Overview</strong> <span class="badge badge-官方">官方</span><div class="muted">Palantir Technologies · 抓取 2026-10-19 · 版权归 Palantir Technologies；仅内部研究，不对外分发原文</div><div class="src-url"><a href="https://www.palantir.com/docs/foundry/use-case-life-cycle/overview/" rel="noreferrer" target="_blank">https://www.palantir.com/docs/foundry/use-case-life-cycle/overview/</a></div></li><li><span class="src-id">S05</span> <strong>Use case roles</strong> <span class="badge badge-官方">官方</span><div class="muted">Palantir Technologies · 抓取 2026-10-19 · 版权归 Palantir Technologies；仅内部研究，不对外分发原文</div><div class="src-url"><a href="https://www.palantir.com/docs/foundry/use-case-life-cycle/use-case-roles/" rel="noreferrer" target="_blank">https://www.palantir.com/docs/foundry/use-case-life-cycle/use-case-roles/</a></div></li><li><span class="src-id">S17</span> <strong>FDE 方法论沉淀</strong> <span class="badge badge-实践">实践</span><div class="muted">本子项目 · 抓取 2026-09-23 · 内部方法沉淀</div><div class="src-url"><span class="muted">无公开链接</span></div></li><li><span class="src-id">S20</span> <strong>FDE 实施手册 v1（9 章整合读本）</strong> <span class="badge badge-实践">实践</span><div class="muted">本子项目 · 抓取 2026-10-19 · 内部方法沉淀；官方事实另注出处</div><div class="src-url"><span class="muted">无公开链接</span></div></li><li><span class="src-id">S22</span> <strong>AIP Bootcamp · 官方产品页</strong> <span class="badge badge-官方">官方</span><div class="muted">Palantir Technologies · 抓取 2026-10-19 · 版权归 Palantir Technologies；仅内部研究，不对外分发原文</div><div class="src-url"><a href="https://www.palantir.com/platforms/aip/bootcamp/" rel="noreferrer" target="_blank">https://www.palantir.com/platforms/aip/bootcamp/</a></div></li><li><span class="src-id">S15</span> <strong>《FDE 入门到精通》（FDE: From Fundamentals to Mastery）</strong> <span class="badge badge-第三方">第三方</span><div class="muted">高飞 / feigaobox10 · 抓取 2026-10-19 · CC BY-NC-SA 4.0；非官方，未获讲者或公司背书</div><div class="src-url"><a href="https://github.com/feigaobox10/fde-reader" rel="noreferrer" target="_blank">https://github.com/feigaobox10/fde-reader</a></div></li></ol></section>
+      <nav class="pager" aria-label="翻页"><a class="pager-prev" data-same-tab href="index.html"><span>上一页</span><strong>开始：这份教程怎么用</strong></a><a class="pager-next" data-same-tab href="main-02-slicing.html"><span>下一页</span><strong>把“系统”切成可验证的决策</strong></a></nav>
+
+      <footer class="page-foot">
+        <p>本教程为内部方法研究。案例已匿名化，数字标注【示例】。Palantir 官方资料版权归 Palantir Technologies，仅作改写与链接。</p>
+        <p class="muted">发现断链或事实错误？回到 <a href="appendix-sources.html" target="_blank" rel="noopener">来源与版权</a> 核对出处。</p>
+      </footer>
+    </article>
+  </main>
+
+  <aside class="toc" id="toc" aria-label="页内目录">
+    <p class="toc-title">本页目录</p><ol class="toc-list"><li class="toc-h2"><a href="#sec-scene">一个现场，三种角色</a></li><li class="toc-h2"><a href="#sec-what">FDE 到底做什么</a><ul class="toc-sub"><li class="toc-h3"><a href="#sec-four-layers">四层责任，是叠加不是替代</a></li><li class="toc-h3"><a href="#sec-roles">Delta、Echo、Dev：三个常见代号</a></li></ul></li><li class="toc-h2"><a href="#sec-five-days">“5 天”是什么，不是什么</a></li><li class="toc-h2"><a href="#sec-fit">什么时候不该用 FDE</a><ul class="toc-sub"><li class="toc-h3"><a href="#sec-two-level-fit">先判断客户，再判断项目</a></li><li class="toc-h3"><a href="#sec-fit-project">项目层面：问题模糊度 × 现场依赖度</a></li><li class="toc-h3"><a href="#sec-case">回到排班案例</a></li></ul></li><li class="toc-h2"><a href="#sec-pitfalls">常见坑</a></li></ol>
+  </aside>
+</div>
+
+<div class="tpl-modal" id="tpl-modal" hidden>
+  <div class="tpl-panel" role="dialog" aria-modal="true" aria-labelledby="tpl-title">
+    <header class="tpl-head">
+      <div class="tpl-heading">
+        <p class="tpl-kicker">模板阅读视图</p>
+        <h2 id="tpl-title">模板</h2>
+      </div>
+      <div class="tpl-actions">
+        <a class="tpl-open" id="tpl-open" href="#" target="_blank" rel="noopener">在新标签打开 ↗</a>
+        <button class="icon-btn" id="tpl-close" type="button" aria-label="关闭模板">✕</button>
+      </div>
+    </header>
+    <div class="tpl-body">
+      <iframe id="tpl-frame" title="模板内容" loading="lazy"></iframe>
+    </div>
+  </div>
+</div>
+
+<div class="search-modal" id="search-modal" hidden>
+  <div class="search-panel" role="dialog" aria-modal="true" aria-labelledby="search-title">
+    <div class="search-head">
+      <label id="search-title" class="sr-only" for="search-input">搜索教程</label>
+      <input id="search-input" type="search" placeholder="搜索概念、产物、模板、方法卡…" autocomplete="off">
+      <button class="icon-btn" id="search-close" type="button" aria-label="关闭搜索">✕</button>
+    </div>
+    <div id="search-results" class="search-results" aria-live="polite"></div>
+    <p class="search-hint">按 <kbd>/</kbd> 或 <kbd>Ctrl</kbd>+<kbd>K</kbd> 打开，<kbd>Esc</kbd> 关闭。索引完全离线。</p>
+  </div>
+</div>
+
+<noscript><p class="noscript-note">搜索与阅读进度需要 JavaScript；正文、目录和翻页仍可正常使用。可用浏览器查找（Ctrl+F）。</p></noscript>
+
+<script src="assets/search-index.js"></script>
+<script src="assets/viz-data.js"></script>
+<script src="assets/app.js"></script>
+<script src="assets/viz.js"></script>
+
+</body>
+</html>

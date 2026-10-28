@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>A04-05 增强与界面 · FDE 模板库</title>
+<link rel="stylesheet" href="../../assets/course.css">
+</head>
+<body>
+<a class="skip-link" href="#main">跳到正文</a>
+<main class="main" id="main">
+<article class="article">
+<nav class="crumb" aria-label="面包屑">
+<a href="../../index.html">教程首页</a><span class="sep">/</span>
+<a href="../../appendix-templates.html">模板库</a><span class="sep">/</span>
+<span>空白模板</span>
+</nav>
+<header class="page-head">
+<div class="badges">
+<span class="badge badge-main">A04-05</span>
+<span class="badge">空白模板</span>
+<span class="badge badge-time">Markdown 阅读视图</span>
+</div>
+<h1>A04-05 增强与界面</h1>
+<p class="page-question">这是模板的阅读视图，源文件是 <code>04-05_增强与界面.md</code>。
+<a href="04-05_增强与界面.md">下载 / 编辑 Markdown</a> · <a href="../../appendix-templates.html">返回模板库</a></p>
+</header>
+<div class="prose">
+<blockquote>
+<p>产物路径：<code>04_方案设计/04-05_增强与界面.md</code> ｜ 所属阶段：04_方案设计 ｜ 阶段门：G4</p>
+</blockquote>
+<h2 id="tpl-sec-1">用途</h2>
+<p>记录超出基础增删改查的增强项，例如校验、计算、提示、推荐与展示方式，并说明它们落在哪个界面区域。目的是让“智能”可解释、可验收，而不是黑盒。</p>
+<h2 id="tpl-sec-2">何时用</h2>
+<ul>
+<li>FR 与对象模型确定后，设计界面交互时；</li>
+<li>需要加自动校验、缺口提示、建议动作、汇总指标时；</li>
+<li>评审“这个增强到底在数据层还是应用层做”时；</li>
+<li>发现增强项在偷偷扩大 MVP 范围时。</li>
+</ul>
+<h2 id="tpl-sec-3">填写说明</h2>
+<ol>
+<li>一个增强项一行，用业务语言命名，不写技术框架名。</li>
+<li>类型填“数据层”“应用层”或“界面层”，便于判断实现成本。</li>
+<li>输入写增强项依赖的数据；计算或来源写清规则、公式或数据出处。</li>
+<li>输出写用户看到的结果，例如“缺口 2 人天”“资质不符提示”。</li>
+<li>界面区域写具体屏幕与区块，不写“在系统里”。</li>
+<li>交互写触发方式与反馈，例如“保存时校验，失败则阻止并说明原因”。</li>
+<li>失败处理写数据缺失、计算失败或网络中断时的降级方式。</li>
+<li>增强项不能替代用户的最终决策；建议与自动执行要分开写。</li>
+</ol>
+<h2 id="tpl-sec-4">字段</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th scope="col">增强项</th>
+<th scope="col">类型</th>
+<th scope="col">输入</th>
+<th scope="col">计算或来源</th>
+<th scope="col">输出</th>
+<th scope="col">界面区域</th>
+<th scope="col">交互</th>
+<th scope="col">失败处理</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="tpl-sec-5">质量门自检（G4）</h2>
+<ul>
+<li>[ ] 每个增强项标明类型，能看出是数据层、应用层还是界面层。</li>
+<li>[ ] 输入与计算来源可追溯，没有“黑盒智能”。</li>
+<li>[ ] 输出能对应到某个决策或 FR，不是纯装饰。</li>
+<li>[ ] 界面区域与交互能落到具体屏幕和区块。</li>
+<li>[ ] 失败处理写明降级方式，不假设数据和网络永远可用。</li>
+<li>[ ] 增强项没有偷偷扩大 MVP 范围。</li>
+<li>[ ] 没有把优化算法写成必需项，除非已验证数据足够。</li>
+</ul>
+</div>
+<footer class="page-foot">
+<p class="muted">本页由 <code>_tools/build.py</code> 从 Markdown 自动生成，请改源文件而不是改这里。</p>
+</footer>
+</article>
+</main>
+</body>
+</html>

@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<title>分轮追问 · FDE 零基础教程</title>
+<meta name="description" content="一轮访谈问几个问题、什么时候该停？">
+<link rel="stylesheet" href="../assets/course.css">
+<script>
+(function () {
+  try {
+    var saved = localStorage.getItem('fde-theme');
+    var theme = saved || (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+    document.documentElement.dataset.theme = theme;
+  } catch (e) {}
+})();
+</script>
+</head>
+<body class="track-methods page-mc-07">
+<a class="skip-link" href="#main">跳到正文</a>
+
+<header class="topbar">
+  <button class="icon-btn nav-toggle" id="nav-toggle" type="button" aria-expanded="false" aria-controls="sidebar" aria-label="打开课程目录">
+    <span aria-hidden="true">☰</span>
+  </button>
+  <a class="brand" data-same-tab href="../index.html"><span class="brand-mark">FDE</span><span class="brand-text">零基础教程</span></a>
+  <nav class="track-switch" aria-label="模块切换"><a class="track-link" data-same-tab href="../index.html" title="从零建立完整心智模型">主线</a><a class="track-link" data-same-tab href="../work-01-prep.html" title="现场查用：输入、步骤、输出、阶段门">工作台</a><a class="track-link" data-same-tab href="../day1-00-overview.html" title="六步链路：简报 → 访谈 → 证据 → 底稿 → 门">Day1</a><span class="track-link active" aria-current="true" title="一卡一问，按阶段、产物、角色查">方法库</span><a class="track-link" data-same-tab href="../appendix-templates.html" title="模板、产物链、术语与来源">附录</a></nav>
+  <div class="top-actions">
+    <button class="search-open" id="search-open" type="button" aria-haspopup="dialog">
+      <span aria-hidden="true">⌕</span><span class="search-label">搜索</span><kbd>/</kbd>
+    </button>
+    <button class="icon-btn" id="theme-toggle" type="button" aria-label="切换深浅色">◐</button>
+  </div>
+  <div class="read-progress" aria-hidden="true"><span id="read-progress"></span></div>
+</header>
+
+<div class="layout">
+  <aside class="sidebar" id="sidebar">
+    <nav class="course-tree" aria-label="课程目录"><header class="side-head"><p class="side-eyebrow">当前模块</p><p class="side-title">方法库</p><p class="side-caption">一卡一问，按阶段、产物、角色查</p><p class="side-meta">11 页<span class="dot">·</span>持续积累</p></header><section class="nav-group"><a class="nav-link nav-index" data-same-tab href="../appendix-methods.html">方法库索引 <span class="nav-hint">先看这张表</span></a><a class="nav-link nav-method" data-same-tab href="../methods/mc-01.html"><span class="nav-id">mc-01</span>四类规则分层</a><a class="nav-link nav-method" data-same-tab href="../methods/mc-02.html"><span class="nav-id">mc-02</span>最短行动闭环</a><a class="nav-link nav-method" data-same-tab href="../methods/mc-03.html"><span class="nav-id">mc-03</span>结果合同</a><a class="nav-link nav-method" data-same-tab href="../methods/mc-04.html"><span class="nav-id">mc-04</span>控制矩阵</a><a class="nav-link nav-method" data-same-tab href="../methods/mc-05.html"><span class="nav-id">mc-05</span>切片打分卡</a><a class="nav-link nav-method" data-same-tab href="../methods/mc-06.html"><span class="nav-id">mc-06</span>证据分级与双轴标注</a><span class="nav-link nav-method nav-current" aria-current="page"><span class="nav-id">mc-07</span>分轮追问</span><a class="nav-link nav-method" data-same-tab href="../methods/mc-08.html"><span class="nav-id">mc-08</span>五道门检查</a><a class="nav-link nav-method" data-same-tab href="../methods/mc-09.html"><span class="nav-id">mc-09</span>Demo 前置检查</a><a class="nav-link nav-method" data-same-tab href="../methods/mc-10.html"><span class="nav-id">mc-10</span>回流账本</a></section></nav>
+  </aside>
+  <button class="scrim" id="scrim" type="button" aria-label="关闭目录" hidden></button>
+
+  <main class="main" id="main">
+    <nav class="crumb" aria-label="面包屑"><a data-same-tab href="../index.html">教程</a><span class="sep">/</span><a data-same-tab href="../appendix-methods.html">方法库</a><span class="sep">/</span><span aria-current="page">分轮追问</span></nav>
+    <article class="article">
+      <header class="page-head">
+        <div class="badges"><span class="badge badge-method">方法卡</span></div>
+        <h1>分轮追问</h1>
+        <p class="lede">一轮访谈问几个问题、什么时候该停？</p>
+        <p class="page-question"><span class="eyebrow">本页要回答</span>一轮访谈问几个问题、什么时候该停？</p>
+        <div class="page-meta">
+          <section class="meta-block">
+            <h2 class="meta-title" id="meta-objectives">读完你能</h2>
+            <ul class="objective-list"><li>判断这个方法是否适用于你的场景；</li><li>按步骤执行并产出关联 artifact；</li><li>用检查清单自检，避开反模式。</li></ul>
+          </section>
+          <section class="meta-block">
+            <h2 class="meta-title" id="meta-prereq">前置</h2>
+            <p><span class="muted">无前置，从本页开始。</span></p>
+          </section>
+        </div>
+      </header>
+
+      <div class="prose">
+        <h2 id="answer">一句话回答</h2>
+<p>每轮只问 <strong>2–4 个问题</strong>，每个问题都要带“为什么问”和“期望拿到什么证据”；一轮结束先让业务方确认，再决定下一轮。停的条件有两个：最终决策、例外和边界已经能复述；或者新增信息已经不影响任何决定。</p>
+<p><a class="term-link" href="../day1-02-grill.html#term-grilling" title="Grilling：按决策树分轮追问，每轮只问当前可回答的 2–4 个问题，等人回答后再推进。" target="_blank" rel="noopener">Grilling（追问）</a> 的节奏是“问一小轮、停一下、确认”，不是一次把清单念完。<a class="term-link" href="../day1-02-grill.html#term-round" title="Round：一次只问 2–4 个问题、等对方回答后再重画问题树的访谈单元。" target="_blank" rel="noopener">一轮</a> 是确认的单位，不是问题的数量单位。</p>
+<h2 id="when">什么时候用</h2>
+<p><strong>用</strong>：</p>
+<ul>
+<li>Day1 或现场访谈，手里已有假设，需要逐条验证；</li>
+<li>上一轮出现“应该”“一般”“看情况”，需要追问边界；</li>
+<li>待确认清单里有一条会影响决策，必须当面问清。</li>
+</ul>
+<p><strong>不用</strong>：</p>
+<ul>
+<li>还在广泛探索，不知道要验证什么。先写需求定向简报；</li>
+<li>做的是大规模问卷或满意度调查，不针对单个决策；</li>
+<li>你想说服对方接受你的方案。那是汇报，不是追问。</li>
+</ul>
+<h2 id="steps">怎么做</h2>
+<ol>
+<li><strong>写假设</strong>：本轮只挑 1–3 条会影响切片的假设，写清“如果错了会怎样”。</li>
+<li><strong>选问题</strong>：每条假设配 1–2 个问题，整轮不超过 4 个。</li>
+<li><strong>配理由</strong>：每个问题后面写“为什么问”和“期望证据”，方便对方理解，也方便你自检。</li>
+<li><strong>给中性选项</strong>：准备“是 / 否 / 看情况，具体看什么”，避免二选一逼出答案。</li>
+<li><strong>一轮一确认</strong>：问完先复述你听到的，请对方点头或纠正；纠正的内容就是本轮产物。</li>
+<li><strong>记原话</strong>：确认记录里保留原话、说话人和仍未确认项，不要只写结论。</li>
+<li><strong>判断去留</strong>：能复述清决策与例外就停；否则只带 1–2 个新问题进下一轮。</li>
+</ol>
+<h2 id="case">排班案例片段</h2>
+<p><a class="case-link" href="../work-02-interview.html#cb-observe" target="_blank" rel="noopener">案例 CB-13</a> 的现场顺序能看出分轮推进：09:12 先确认“三个 Excel 哪个最新”，09:26 追问可用天数从哪来，09:41 才看到王芳超排，10:05 赵岚提出 12 人天需求，10:22 陈静电话协调改版【示例】。每一段都只解决一个不确定点。</p>
+<p><a class="case-link" href="../work-03-record.html#cb-evidence" target="_blank" rel="noopener">案例 CB-14</a> 的 E-05 是“额度应该不能跨月”，标为工作假设。正确做法不是当场把它写成结论，而是在下一轮问孙老师额度口径；在得到确认前，缺口计算只能按假设处理。</p>
+<h2 id="checklist">检查清单</h2>
+<ul>
+<li>[ ] 每轮不超过 4 个问题。</li>
+<li>[ ] 每个问题都有“为什么问”和“期望证据”。</li>
+<li>[ ] 问题里没有预设答案，也没有“你是不是也觉得……”。</li>
+<li>[ ] 一轮结束有确认记录，包含对方原话。</li>
+<li>[ ] 待确认项有负责人和截止时间。</li>
+<li>[ ] 停止条件可观察，不是“感觉问得差不多了”。</li>
+</ul>
+<h2 id="anti">反模式</h2>
+<ul>
+<li><strong>一次抛出二十个问题</strong>：对方会挑好答的答，关键问题反而被淹没。</li>
+<li><strong>把假设包装成问题</strong>：“你们是不是经常超排？”只会得到附和。</li>
+<li><strong>追问变成辩论</strong>：你要的是对方的规则，不是证明自己判断对。</li>
+<li><strong>没确认就进下一轮</strong>：误差会累积，最后整份工作底稿都不可信。</li>
+<li><strong>只记自己想要的答案</strong>：反例和例外往往才是方案真正要处理的地方。</li>
+</ul>
+<h2 id="related">关联</h2>
+<ul>
+<li>产物：A01-02 分轮访谈提纲（<a class="template-link" href="../templates/blank/01-02_分轮访谈提纲.html" data-template-view data-template-title="A01-02 分轮访谈提纲模板" title="A01-02 分轮访谈提纲模板 ｜ 当前页弹窗预览">A01-02 分轮访谈提纲模板</a>）</li>
+<li>上游页面：<a class="page-link" href="../day1-02-grill.html" target="_blank" rel="noopener">分轮访谈</a></li>
+<li>相邻方法：<a class="page-link" href="../methods/mc-06.html" target="_blank" rel="noopener">证据分级与双轴标注</a>（证据分级）、<a class="page-link" href="../methods/mc-03.html" target="_blank" rel="noopener">结果合同</a>（结果合同）</li>
+<li>案例：<a class="case-link" href="../work-02-interview.html#cb-observe" target="_blank" rel="noopener">案例 CB-13</a>、<a class="case-link" href="../work-03-record.html#cb-evidence" target="_blank" rel="noopener">案例 CB-14</a></li>
+</ul>
+      </div>
+
+      
+      
+      <section class="sources" aria-label="来源"><h2 id="sec-sources">来源与证据等级</h2><ol class="source-list"><li><span class="src-id">S16</span> <strong>GR-FDE-01-014 D1 客户工具包（国润 Skill 工具包）</strong> <span class="badge badge-实践">实践</span><div class="muted">国润项目组 · 抓取 2026-10-19 · MIT；`grilling` 上游署名 Matt Pocock；包内文件不随教程分发</div><div class="src-url"><span class="muted">无公开链接</span></div></li><li><span class="src-id">S21</span> <strong>Matt Pocock · grilling skill</strong> <span class="badge badge-第三方">第三方</span><div class="muted">Matt Pocock · 抓取 2026-10-19 · MIT；随 GR-FDE-01-014 分发，上游作者署名 Matt Pocock</div><div class="src-url"><span class="muted">无公开链接</span></div></li></ol></section>
+      <nav class="pager" aria-label="翻页"><a class="pager-prev" data-same-tab href="../methods/mc-06.html"><span>上一页</span><strong>证据分级与双轴标注</strong></a><a class="pager-next" data-same-tab href="../methods/mc-08.html"><span>下一页</span><strong>五道门检查</strong></a></nav>
+
+      <footer class="page-foot">
+        <p>本教程为内部方法研究。案例已匿名化，数字标注【示例】。Palantir 官方资料版权归 Palantir Technologies，仅作改写与链接。</p>
+        <p class="muted">发现断链或事实错误？回到 <a href="../appendix-sources.html" target="_blank" rel="noopener">来源与版权</a> 核对出处。</p>
+      </footer>
+    </article>
+  </main>
+
+  <aside class="toc" id="toc" aria-label="页内目录">
+    <p class="toc-title">本页目录</p><ol class="toc-list"><li class="toc-h2"><a href="#answer">一句话回答</a></li><li class="toc-h2"><a href="#when">什么时候用</a></li><li class="toc-h2"><a href="#steps">怎么做</a></li><li class="toc-h2"><a href="#case">排班案例片段</a></li><li class="toc-h2"><a href="#checklist">检查清单</a></li><li class="toc-h2"><a href="#anti">反模式</a></li><li class="toc-h2"><a href="#related">关联</a></li></ol>
+  </aside>
+</div>
+
+<div class="tpl-modal" id="tpl-modal" hidden>
+  <div class="tpl-panel" role="dialog" aria-modal="true" aria-labelledby="tpl-title">
+    <header class="tpl-head">
+      <div class="tpl-heading">
+        <p class="tpl-kicker">模板阅读视图</p>
+        <h2 id="tpl-title">模板</h2>
+      </div>
+      <div class="tpl-actions">
+        <a class="tpl-open" id="tpl-open" href="#" target="_blank" rel="noopener">在新标签打开 ↗</a>
+        <button class="icon-btn" id="tpl-close" type="button" aria-label="关闭模板">✕</button>
+      </div>
+    </header>
+    <div class="tpl-body">
+      <iframe id="tpl-frame" title="模板内容" loading="lazy"></iframe>
+    </div>
+  </div>
+</div>
+
+<div class="search-modal" id="search-modal" hidden>
+  <div class="search-panel" role="dialog" aria-modal="true" aria-labelledby="search-title">
+    <div class="search-head">
+      <label id="search-title" class="sr-only" for="search-input">搜索教程</label>
+      <input id="search-input" type="search" placeholder="搜索概念、产物、模板、方法卡…" autocomplete="off">
+      <button class="icon-btn" id="search-close" type="button" aria-label="关闭搜索">✕</button>
+    </div>
+    <div id="search-results" class="search-results" aria-live="polite"></div>
+    <p class="search-hint">按 <kbd>/</kbd> 或 <kbd>Ctrl</kbd>+<kbd>K</kbd> 打开，<kbd>Esc</kbd> 关闭。索引完全离线。</p>
+  </div>
+</div>
+
+<noscript><p class="noscript-note">搜索与阅读进度需要 JavaScript；正文、目录和翻页仍可正常使用。可用浏览器查找（Ctrl+F）。</p></noscript>
+
+<script src="../assets/search-index.js"></script>
+<script src="../assets/viz-data.js"></script>
+<script src="../assets/app.js"></script>
+<script src="../assets/viz.js"></script>
+
+</body>
+</html>

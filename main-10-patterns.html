@@ -1,0 +1,285 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<title>五种实施模式 · FDE 零基础教程</title>
+<meta name="description" content="告警工作流、调查与分群、多组织协同、流程协同、资源分配，各自适合什么决策。">
+<link rel="stylesheet" href="assets/course.css">
+<script>
+(function () {
+  try {
+    var saved = localStorage.getItem('fde-theme');
+    var theme = saved || (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+    document.documentElement.dataset.theme = theme;
+  } catch (e) {}
+})();
+</script>
+</head>
+<body class="track-main page-main-10-patterns">
+<a class="skip-link" href="#main">跳到正文</a>
+
+<header class="topbar">
+  <button class="icon-btn nav-toggle" id="nav-toggle" type="button" aria-expanded="false" aria-controls="sidebar" aria-label="打开课程目录">
+    <span aria-hidden="true">☰</span>
+  </button>
+  <a class="brand" data-same-tab href="index.html"><span class="brand-mark">FDE</span><span class="brand-text">零基础教程</span></a>
+  <nav class="track-switch" aria-label="模块切换"><span class="track-link active" aria-current="true" title="从零建立完整心智模型">主线</span><a class="track-link" data-same-tab href="work-01-prep.html" title="现场查用：输入、步骤、输出、阶段门">工作台</a><a class="track-link" data-same-tab href="day1-00-overview.html" title="六步链路：简报 → 访谈 → 证据 → 底稿 → 门">Day1</a><a class="track-link" data-same-tab href="appendix-methods.html" title="一卡一问，按阶段、产物、角色查">方法库</a><a class="track-link" data-same-tab href="appendix-templates.html" title="模板、产物链、术语与来源">附录</a></nav>
+  <div class="top-actions">
+    <button class="search-open" id="search-open" type="button" aria-haspopup="dialog">
+      <span aria-hidden="true">⌕</span><span class="search-label">搜索</span><kbd>/</kbd>
+    </button>
+    <button class="icon-btn" id="theme-toggle" type="button" aria-label="切换深浅色">◐</button>
+  </div>
+  <div class="read-progress" aria-hidden="true"><span id="read-progress"></span></div>
+</header>
+
+<div class="layout">
+  <aside class="sidebar" id="sidebar">
+    <nav class="course-tree" aria-label="课程目录"><header class="side-head"><p class="side-eyebrow">当前模块</p><p class="side-title">主线</p><p class="side-caption">从零建立完整心智模型</p><p class="side-meta">16 页<span class="dot">·</span>约 4 小时</p></header><section class="nav-group"><p class="nav-group-title"><span class="nav-group-num">01</span>开始</p><a class="nav-link" data-same-tab href="index.html">开始：这份教程怎么用</a></section><section class="nav-group"><p class="nav-group-title"><span class="nav-group-num">02</span>看懂 FDE</p><a class="nav-link" data-same-tab href="main-01-fde.html">FDE 是什么，不是什么</a><a class="nav-link" data-same-tab href="main-02-slicing.html">把“系统”切成可验证的决策</a><a class="nav-link" data-same-tab href="lab-slicing.html">实验室：切三个模糊需求</a></section><section class="nav-group"><p class="nav-group-title"><span class="nav-group-num">03</span>看清现状</p><a class="nav-link" data-same-tab href="main-03-as-is.html">看清今天实际怎么运转</a><a class="nav-link" data-same-tab href="main-04-one-pager.html">一页纸对齐范围</a><a class="nav-link" data-same-tab href="case-a-one-pager.html">案例 A：S1 如何被选中</a><a class="nav-link" data-same-tab href="lab-one-pager.html">实验室：20 分钟拼一页纸</a></section><section class="nav-group"><p class="nav-group-title"><span class="nav-group-num">04</span>设计验证</p><a class="nav-link" data-same-tab href="main-05-fr.html">把决策写成一句可验收的 FR</a><a class="nav-link" data-same-tab href="main-06-solution.html">方案设计四件套</a><a class="nav-link" data-same-tab href="case-b-solution.html">案例 B：从一页纸到 Demo</a></section><section class="nav-group"><p class="nav-group-title"><span class="nav-group-num">05</span>跑起来</p><a class="nav-link" data-same-tab href="main-07-gates.html">开始前的五道门</a><a class="nav-link" data-same-tab href="main-08-five-days.html">Day1–5 每天做什么</a><a class="nav-link" data-same-tab href="main-09-adoption.html">从项目到组织能力</a></section><section class="nav-group"><p class="nav-group-title"><span class="nav-group-num">06</span>选读</p><span class="nav-link nav-current" aria-current="page">五种实施模式<span class="nav-optional">选读</span></span><a class="nav-link" data-same-tab href="main-11-lessons.html">一线八堂课<span class="nav-optional">选读</span></a></section></nav>
+  </aside>
+  <button class="scrim" id="scrim" type="button" aria-label="关闭目录" hidden></button>
+
+  <main class="main" id="main">
+    <nav class="crumb" aria-label="面包屑"><a data-same-tab href="index.html">教程</a><span class="sep">/</span><span>主线</span><span class="sep">/</span><span>选读</span><span class="sep">/</span><span aria-current="page">五种实施模式</span></nav>
+    <article class="article">
+      <header class="page-head">
+        <div class="badges"><span class="badge badge-main">选读</span><span class="badge badge-time">15 分钟</span></div>
+        <h1>五种实施模式</h1>
+        <p class="lede">告警工作流、调查与分群、多组织协同、流程协同、资源分配，各自适合什么决策。</p>
+        <p class="page-question"><span class="eyebrow">本页要回答</span>我的场景更像哪一种实施模式，能复用哪些构件？</p>
+        <div class="page-meta">
+          <section class="meta-block">
+            <h2 class="meta-title" id="meta-objectives">读完你能</h2>
+            <ul class="objective-list"><li>把排班 S1 归到资源分配模式；</li><li>说出五种模式各自的核心对象；</li><li>用官方短案例对照自己的场景。</li></ul>
+          </section>
+          <section class="meta-block">
+            <h2 class="meta-title" id="meta-prereq">前置</h2>
+            <p>先读：<a href="main-08-five-days.html" target="_blank" rel="noopener">Day1–5 每天做什么</a></p>
+          </section>
+        </div>
+      </header>
+
+      <div class="prose">
+        <p>你已经把问题切成 S1，也写出了一页纸。接下来最容易犯的错，是一头扎进界面和字段。</p>
+<p>先退一步问：你面对的是哪一种反复出现的决策形状？<span class="ev-official">【官方】</span> Palantir 把常见形状整理成五种实施模式。它们不是产品，也不是必抄模板，而是可复用的实施蓝图：核心对象、数据要求、常见风险。<span class="cite" title="Use case patterns（5 页）">[S11]</span></p>
+<h2 id="sec-decision-first">先看决策，不看功能</h2>
+<p><span class="term-link" title="Use Case Pattern：可复用的实施蓝图，例如告警工作流、调查与分群、资源分配与优化。">实施模式</span>不是行业模板，也不是页面布局。骨架只有三件事：谁对什么对象做什么判断；判断时哪些信息必须同时出现；结果写回哪里。</p>
+<p>同样是“做一个看板”：逐条决定查不查是告警；先圈一批再找原因是调查；把额度分给科室是资源分配。界面可能一样，对象、数据、写回和风险完全不同。</p>
+<p>模式服务的是一个 <a class="term-link" href="main-02-slicing.html#term-use-case" title="Use Case：由专职团队在限定时间内、为一组明确用户交付新能力的一次努力；它不是“接一个系统”或“上一个算法”。" target="_blank" rel="noopener">Use Case（用例）</a>，不是永久平台。顺序是：先定决策，再看对象，最后看界面。</p>
+<div class="checkpoint">
+<p><strong>停一下</strong>：只看 one-pager 的“决策”那一行。它更像“逐条判断”“圈一批再查”“分资源”，还是“推进一张单”？说不清，说明你还在描述功能。</p>
+</div>
+<h2 id="sec-overview">五种模式一张表</h2>
+<p>下表是改写后的对照，不是官方表格的复制。<span class="cite" title="Use case patterns（5 页）">[S11]</span></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th scope="col">模式</th>
+<th scope="col">一句话</th>
+<th scope="col">核心对象</th>
+<th scope="col">最适合的决策</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>告警工作流</strong></td>
+<td>系统把异常推给人，逐条判断</td>
+<td>告警、案件、机会</td>
+<td>这一条要不要处理、怎么处理</td>
+</tr>
+<tr>
+<td><strong>调查与分群</strong></td>
+<td>先分组，再下钻找原因</td>
+<td>群体、案件、主体</td>
+<td>先查哪一群、根因在哪</td>
+</tr>
+<tr>
+<td><strong>多组织协同</strong></td>
+<td>多组织在受控空间共享数据与应用</td>
+<td>共享空间、共同对象模型</td>
+<td>共享什么、与谁共享、边界在哪</td>
+</tr>
+<tr>
+<td><strong>流程协同</strong></td>
+<td>跨系统、跨角色分派任务并留痕</td>
+<td>任务、工单、流程</td>
+<td>谁在何时处理哪一步</td>
+</tr>
+<tr>
+<td><strong>资源分配与优化</strong></td>
+<td>在约束下把有限资源分给对象</td>
+<td>资源、分配、约束</td>
+<td>分多少、分给谁、怎么权衡</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="sec-five">每一种适合什么</h2>
+<h3 id="p-alerting">告警工作流：把“漏看”变成“逐条判断”</h3>
+<p>适合量大、逐条、标准相对清楚的判断：看到一条告警，决定处理、不处理或转给谁。</p>
+<p>数据不只是异常本身，还要有触发对象、历史记录、相关字段和上次判断。少了上下文，用户还得翻系统。风险有两个：规则太松造成告警疲劳，太严埋掉真问题；只提示不写回，决策等于没发生。</p>
+<p>S12 的医疗网络供应商绩效案例：分析师从告警收件箱看到机会，下钻理赔明细，再记录是否采纳。<span class="cite" title="Use case examples（精选 7 页）">[S12]</span> 可复用的是告警收件箱、判断按钮和效果看板。</p>
+<p>走一遍：输入是一条告警加触发对象的历史记录；规则先命中、模型再排先后；中间结果是去重后按优先级排好的收件箱；分析师在“确认 / 转调查 / 非欺诈”里选一个，写回用户、时间、告警对象、决定和理由。典型误报来自规则太宽——同一类告警成批被否时，抽样复核后改规则版本，别直接放宽全局阈值。</p>
+<h3 id="p-investigation">调查与分群：先缩小范围，再找原因</h3>
+<p>适合“先查哪一群、为什么”，而不是“这一条怎么办”。用户要先分群、比较、下钻，才能形成假设。</p>
+<p>数据更宽：可探索的大数据资产、分群逻辑、历史对比和专家线索；分析结果还要能保存和复现。风险是开放式调查没有终点、把相关当因果、结论不可复现。</p>
+<p>S12 的生产良率案例：工厂每周挑出表现最差的材料，再下钻找改进机会。<span class="cite" title="Use case examples（精选 7 页）">[S12]</span> 告警给你一条待办，调查给你一张工作台。</p>
+<p>走一遍：输入是一批对象及其属性、关系，不是待办；先按“批次 × 班组 × 位置”分组，算每组发生率并与对照组比；中间结果是一张可疑簇清单加排除依据；分析师决定结案、扩大检查还是移交，写回结论、置信度和队列定义。常见例外是样本太小或混杂因素污染分组，此时标成“疑似”、留复查入口，比给确定答案稳妥。</p>
+<h3 id="p-ecosystem">多组织协同：共享之前，先定边界</h3>
+<p>适合跨组织的治理决定：共享什么、和谁共享、到什么粒度、谁对权限负责。</p>
+<p>数据包括多组织数据、共同口径、共享与私有空间、可审计的权限。最难的不是接数据，而是让各方相信自己的数据不会被越界使用。风险是权限与治理失控，以及把“多部门”当成“多组织”。</p>
+<p>S11 的航空公司与制造商、药企联合研究都是例子。<span class="cite" title="Use case patterns（5 页）">[S11]</span> <span class="ev-infer">【推断】</span> 在 S12 的七个案例里，它不是第一版的主模式；第一次切片先别默认用它。</p>
+<p>走一遍：输入是各方的源数据和一套共同口径；规则不是算法而是共享边界——谁的数据进共享空间、到什么粒度、谁审批；中间结果是一张“共享对象 + 安全标记 + 成员”清单，各方先确认数据被怎么用；决策点是共享什么、与谁共享、哪条不共享，写回空间成员、安全标记和授权记录。误报少见，失败多是越界：把同一组织的两个部门当成两个组织。</p>
+<h3 id="p-process">流程协同：让一张单知道下一步去哪</h3>
+<p>适合任务级的路由与推进：谁在处理、下一步是谁、卡了多久、什么证据能关闭。</p>
+<p>数据包括任务、负责人、状态、时限、上下游系统和动作留痕。它通常要写回多个系统，所以必须先确定“哪个系统是记录系统”。风险是照着制度流程建模、而不是真实流程；以及状态漂移：系统显示已完成，实际还在等回复。</p>
+<p>S12 的发票争议案例：客服跨 10 多个系统看合同、账单和历史，再把结果写回业务系统。<span class="cite" title="Use case examples（精选 7 页）">[S12]</span> 全球航运任务管理也是：上千客服、100 多个国家，核心是分对、排好、跟住。<span class="cite" title="Use case examples（精选 7 页）">[S12]</span></p>
+<p>走一遍：输入是一张单散在多个系统里的碎片字段；规则是路由和状态机——谁能接、下一步去哪、多久算超时；中间结果是一条任务加当前状态和阻塞原因；处理人决定归属、优先级和关闭，写回流程对象（状态、负责人、时间）和业务对象，必要时回写源系统。典型例外是状态漂移：系统显示已完成，实际还在等对方回邮件，所以写回要带证据，不能只改状态。</p>
+<h3 id="p-allocation">资源分配与优化：在约束下做取舍</h3>
+<p>适合把有限资源分给谁、分多少，并且有明确的约束和目标。流程协同问“这张单下一步去哪”，资源分配问“这点资源给谁更值”。</p>
+<p>数据包括需求、供给、约束、成本收益和历史结果。数据不完整时，你得到的不是最优解，只是一个看起来很精确的错误答案。风险有三：目标函数写错、约束漏项、结果不可解释。</p>
+<p>S12 的供应链案例：把 7 个以上企业资源计划（ERP）系统接成业务镜像，再在原材料采购和生产方案之间取舍。<span class="cite" title="Use case examples（精选 7 页）">[S12]</span> 铁路养护案例也同时用到流程协同和资源分配：先识别高风险道岔，再把检修资源排到最需要的地方。<span class="cite" title="Use case examples（精选 7 页）">[S12]</span></p>
+<p>走一遍：输入是需求、供给、约束三张表；规则先用硬约束拦住不可行（资质、工时、额度），再谈目标函数；中间结果是一版初始分配加一串冲突项——超排、缺口、资质不符；排班员决定接受、手工调整还是申请例外，写回要带版本、修改前后值、原因和审批人。典型失败是软偏好被写成硬约束，或数据不全却求“最优”：方案精确，却排不出来。</p>
+<h2 id="sec-s1">排班 S1 属于哪一种</h2>
+<p>答案很清楚：<strong>主模式是资源分配与优化</strong>。核心对象是人员、亚专科、额度、分配和冲突；决策是本月每个亚专科用多少额度、分给谁；约束是需求、额度、可用天数、资质和班型。<a class="case-link" href="case-a-one-pager.html#cb-one-pager" target="_blank" rel="noopener">案例 CB-04</a> 和 <a class="case-link" href="case-b-solution.html#cb-objects" target="_blank" rel="noopener">案例 CB-05</a> 已经把图展开过。</p>
+<p>但属于资源分配，不等于第一版要做优化器。第一版只需三件事：把额度、需求、可用天数放在同一张表上；用规则标出超排和缺口；让陈静调整后写回并提交审批。不需要复杂数学模型。</p>
+<p><span class="ev-practice">【实践】</span> 先跑通“可解释的分配 + 冲突提示”，再考虑自动寻优。顺序反了，用户不会信任一个说不清理由的方案。<span class="cite" title="FDE 方法论沉淀">[S17]</span></p>
+<p>审批看起来像流程协同，但主模式看最痛的决策。S1 最痛的是“额度怎么分”，审批只是分配之后的动作。<a class="case-link" href="case-a-one-pager.html#cb-scene" target="_blank" rel="noopener">案例 CB-00</a> 的四个候选切片也说明：S1 被选中，是因为它有一条最短的端到端决策链。</p>
+<h2 id="sec-case-questions">读官方用例案例的六个问题</h2>
+<p>读官方案例，先别看结果，按顺序问六句：</p>
+<ol>
+<li><strong>这个案例的最终决策是什么？</strong> 一句话、动词开头；写成“建了一个平台”就是没读懂。</li>
+<li><strong>谁在什么时候做？</strong> 角色加时点；答不出时点，说明它还不是周期性运营决策。</li>
+<li><strong>输入从哪来？</strong> 哪几个源系统、哪条规则、哪部分靠人的经验。</li>
+<li><strong>写回哪个系统？</strong> 写回的对象与字段，以及谁有权限改。</li>
+<li><strong>失败或例外怎么处理？</strong> 数据缺了、名单错了、人联系不上，走哪条替代路径。</li>
+<li><strong>哪些构件可以复用？</strong> 收件箱、分群工作台、共享空间、任务对象、分配与冲突面板。</li>
+</ol>
+<p>六个问题答完，手上应该是一张“构件清单”，不是一段成功故事。案例不是模板：同一个模式换到另一个行业，对象和规则都会变——告警模式在交易里判断“这笔要不要拦”，在设备上判断“这台要不要停机”，误报代价和写回字段完全不同。只抄构件，不抄结论。</p>
+<h2 id="sec-combine">模式会组合，但第一版只选一个主模式</h2>
+<p>真实项目会组合：停电预警同时用告警和流程协同；铁路养护同时用流程协同和资源分配；发票争议以流程协同为主。<span class="cite" title="Use case patterns（5 页）">[S11]</span><span class="cite" title="Use case examples（精选 7 页）">[S12]</span></p>
+<p>组合不是问题，第一版全做才是问题。选一个主模式，它决定核心对象和主界面；其他写成副模式，只登记“以后可能需要”；每加一个副模式就问：它会不会让五天验证的核心决策变得不可观察？</p>
+<div class="checkpoint">
+<p><strong>停一下</strong>：如果项目同时像“流程协同”和“资源分配”，哪一个决策更痛、更可验证？把另一个放进“以后”，不是“本期”。</p>
+</div>
+<h2 id="sec-pitfalls">常见坑</h2>
+<div class="pitfalls">
+<p><strong>坑 1：把模式当模板照抄。</strong>
+表现：对象、界面、规则全部照搬。后果：业务对象不一样，越抄越重。
+处理：只复用决策形状和核心对象类型，字段与界面回到现场重新长。</p>
+<p><strong>坑 2：看到“优化”就上算法。</strong>
+表现：第一版做多目标求解，用户看不懂分配理由。后果：方案被拒，退回 Excel。
+处理：先用规则和冲突提示跑通，再逐步引入优化，每一步都能解释“为什么这么分”。</p>
+<p><strong>坑 3：把“多部门”当“多组织”。</strong>
+表现：同一家医院的两个科室，也按跨组织生态设计权限。后果：治理成本高于收益。
+处理：先问各方是否拥有独立数据治理权；答案是否，就优先考虑流程协同。</p>
+<p><strong>坑 4：一个切片塞进五种模式。</strong>
+表现：主界面没跑通，就规划告警、分群、优化和跨组织共享。后果：范围膨胀。
+处理：只选一个主模式，副模式写进“以后”并给出触发条件。</p>
+</div>
+<div class="hands-on">
+<p><strong>动手 12 分钟</strong>：给你的 one-pager 加一张“模式标注”，不新增产物。</p>
+<ol>
+<li>打开 <code>03_现状与切片/03-05_use-case-one-pager.md</code>，在标题下写：<code>主模式 = ____；理由 = ____</code>。</li>
+<li>补五行：核心对象（一个）；一次决策（谁、何时、决定什么）；必须同时看到的数据（最多三项）；最大风险（一个）；可能的副模式（只登记）。</li>
+<li>读给没参加调研的同事，请他复述“你要做什么”。如果他复述的是功能名而不是决策，重写。</li>
+</ol>
+<p><strong>三条自检</strong>：</p>
+<ul>
+<li>能用一句话说明“为什么是它，不是相邻那一种”？</li>
+<li>核心对象是用户真的会操作的东西，而不是数据库表？</li>
+<li>副模式有没有被误写进本期范围？</li>
+</ul>
+<p><strong>参考答案（排班 S1）</strong>：</p>
+<blockquote>
+<p>主模式 = 资源分配与优化。理由：在额度、可用天数、资质约束下，把有限额度分到亚专科和个人。核心对象 = 分配。一次决策 = 陈静每月决定每个亚专科用多少额度、分给谁。必须同时看到 = 需求、额度、可用天数。最大风险 = 约束漏项。副模式 = 流程协同（审批），只登记。</p>
+</blockquote>
+</div>
+<div class="self-test">
+<p><strong>三问自测</strong></p>
+<details>
+<summary>1. 告警工作流和调查与分群，最核心的区别是什么？</summary>
+
+告警把异常变成一条条待办，用户逐条判断“处理/不处理”；调查先提供可探索的数据和分群工具，用户先决定“查哪一群、为什么”。前者是队列，后者是工作台。
+
+</details>
+<details>
+<summary>2. 排班 S1 为什么归到资源分配，而不是流程协同？</summary>
+
+最痛的决策是“有限额度怎么分、分给谁”，受需求、额度、可用天数和资质约束；审批只是分配之后的动作。主模式看最痛的决策，不看全部流程。
+
+</details>
+<details>
+<summary>3. 什么情况下不该用多组织协同模式？</summary>
+
+当“多方”只是同一组织内的多个部门，没有各自独立的数据治理权时，不该用。此时优先考虑流程协同；跨组织生态的前提是各方真的拥有自己的空间、数据和共享边界。
+
+</details>
+</div>
+<div class="recap">
+<p><strong>本章带走</strong></p>
+<ol>
+<li>实施模式不是模板，而是“谁对什么对象做什么判断、需要哪些信息、写回哪里”的可复用骨架。</li>
+<li>五种模式分别对应逐条判断、探索分群、跨组织共享、任务推进和约束下的资源取舍；真实项目会组合，但第一版只选一个主模式。</li>
+<li>排班 S1 是资源分配模式，但第一版只需“可解释的分配 + 冲突提示 + 写回”，不需要先做优化器。</li>
+</ol>
+</div>
+      </div>
+
+      <section class="term-cards" aria-label="本页术语卡"><p class="eyebrow">本页术语</p><div class="term-grid"><article class="term-card" id="term-use-case"><h3 id="term-title-use-case">Use Case（用例） <span class="term-en">Use Case</span></h3><p>由专职团队在限定时间内、为一组明确用户交付新能力的一次努力；它不是“接一个系统”或“上一个算法”。</p><a class="term-first" href="main-02-slicing.html" target="_blank" rel="noopener">首次解释</a></article><article class="term-card" id="term-pattern"><h3 id="term-title-pattern">实施模式 <span class="term-en">Use Case Pattern</span></h3><p>可复用的实施蓝图，例如告警工作流、调查与分群、资源分配与优化。</p></article></div></section>
+      <section class="artifact-box" aria-label="本页产物"><div class="artifact-block"><h3 id="artifacts-in">开始前应已具备</h3><p class="muted"><code>A03-05</code> use-case one-pager</p></div></section>
+      <section class="sources" aria-label="来源"><h2 id="sec-sources">来源与证据等级</h2><ol class="source-list"><li><span class="src-id">S11</span> <strong>Use case patterns（5 页）</strong> <span class="badge badge-官方">官方</span><div class="muted">Palantir Technologies · 抓取 2026-10-19 · 版权归 Palantir Technologies；仅内部研究，不对外分发原文</div><div class="src-url"><a href="https://www.palantir.com/docs/foundry/use-case-patterns/alerting-workflow/" rel="noreferrer" target="_blank">https://www.palantir.com/docs/foundry/use-case-patterns/alerting-workflow/</a></div></li><li><span class="src-id">S12</span> <strong>Use case examples（精选 7 页）</strong> <span class="badge badge-官方">官方</span><div class="muted">Palantir Technologies · 抓取 2026-10-19 · 版权归 Palantir Technologies；仅内部研究，不对外分发原文</div><div class="src-url"><a href="https://www.palantir.com/docs/foundry/use-case-examples/reducing-cost-from-health-network-providers-through-alerting-and-understanding-provider-performance/" rel="noreferrer" target="_blank">https://www.palantir.com/docs/foundry/use-case-examples/reducing-cost-from-health-network-providers-through-alerting-and-understanding-provider-performance/</a></div></li><li><span class="src-id">S17</span> <strong>FDE 方法论沉淀</strong> <span class="badge badge-实践">实践</span><div class="muted">本子项目 · 抓取 2026-09-23 · 内部方法沉淀</div><div class="src-url"><span class="muted">无公开链接</span></div></li></ol></section>
+      <nav class="pager" aria-label="翻页"><a class="pager-prev" data-same-tab href="main-09-adoption.html"><span>上一页</span><strong>从项目到组织能力</strong></a><a class="pager-next" data-same-tab href="main-11-lessons.html"><span>下一页</span><strong>一线八堂课</strong></a></nav>
+
+      <footer class="page-foot">
+        <p>本教程为内部方法研究。案例已匿名化，数字标注【示例】。Palantir 官方资料版权归 Palantir Technologies，仅作改写与链接。</p>
+        <p class="muted">发现断链或事实错误？回到 <a href="appendix-sources.html" target="_blank" rel="noopener">来源与版权</a> 核对出处。</p>
+      </footer>
+    </article>
+  </main>
+
+  <aside class="toc" id="toc" aria-label="页内目录">
+    <p class="toc-title">本页目录</p><ol class="toc-list"><li class="toc-h2"><a href="#sec-decision-first">先看决策，不看功能</a></li><li class="toc-h2"><a href="#sec-overview">五种模式一张表</a></li><li class="toc-h2"><a href="#sec-five">每一种适合什么</a><ul class="toc-sub"><li class="toc-h3"><a href="#p-alerting">告警工作流：把“漏看”变成“逐条判断”</a></li><li class="toc-h3"><a href="#p-investigation">调查与分群：先缩小范围，再找原因</a></li><li class="toc-h3"><a href="#p-ecosystem">多组织协同：共享之前，先定边界</a></li><li class="toc-h3"><a href="#p-process">流程协同：让一张单知道下一步去哪</a></li><li class="toc-h3"><a href="#p-allocation">资源分配与优化：在约束下做取舍</a></li></ul></li><li class="toc-h2"><a href="#sec-s1">排班 S1 属于哪一种</a></li><li class="toc-h2"><a href="#sec-case-questions">读官方用例案例的六个问题</a></li><li class="toc-h2"><a href="#sec-combine">模式会组合，但第一版只选一个主模式</a></li><li class="toc-h2"><a href="#sec-pitfalls">常见坑</a></li></ol>
+  </aside>
+</div>
+
+<div class="tpl-modal" id="tpl-modal" hidden>
+  <div class="tpl-panel" role="dialog" aria-modal="true" aria-labelledby="tpl-title">
+    <header class="tpl-head">
+      <div class="tpl-heading">
+        <p class="tpl-kicker">模板阅读视图</p>
+        <h2 id="tpl-title">模板</h2>
+      </div>
+      <div class="tpl-actions">
+        <a class="tpl-open" id="tpl-open" href="#" target="_blank" rel="noopener">在新标签打开 ↗</a>
+        <button class="icon-btn" id="tpl-close" type="button" aria-label="关闭模板">✕</button>
+      </div>
+    </header>
+    <div class="tpl-body">
+      <iframe id="tpl-frame" title="模板内容" loading="lazy"></iframe>
+    </div>
+  </div>
+</div>
+
+<div class="search-modal" id="search-modal" hidden>
+  <div class="search-panel" role="dialog" aria-modal="true" aria-labelledby="search-title">
+    <div class="search-head">
+      <label id="search-title" class="sr-only" for="search-input">搜索教程</label>
+      <input id="search-input" type="search" placeholder="搜索概念、产物、模板、方法卡…" autocomplete="off">
+      <button class="icon-btn" id="search-close" type="button" aria-label="关闭搜索">✕</button>
+    </div>
+    <div id="search-results" class="search-results" aria-live="polite"></div>
+    <p class="search-hint">按 <kbd>/</kbd> 或 <kbd>Ctrl</kbd>+<kbd>K</kbd> 打开，<kbd>Esc</kbd> 关闭。索引完全离线。</p>
+  </div>
+</div>
+
+<noscript><p class="noscript-note">搜索与阅读进度需要 JavaScript；正文、目录和翻页仍可正常使用。可用浏览器查找（Ctrl+F）。</p></noscript>
+
+<script src="assets/search-index.js"></script>
+<script src="assets/viz-data.js"></script>
+<script src="assets/app.js"></script>
+<script src="assets/viz.js"></script>
+
+</body>
+</html>

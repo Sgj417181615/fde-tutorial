@@ -1,0 +1,868 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<title>开始前的五道门 · FDE 零基础教程</title>
+<meta name="description" content="五道门、合作约定、切片约定、Demo Readiness Card：什么情况下不该开始。">
+<link rel="stylesheet" href="assets/course.css">
+<script>
+(function () {
+  try {
+    var saved = localStorage.getItem('fde-theme');
+    var theme = saved || (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+    document.documentElement.dataset.theme = theme;
+  } catch (e) {}
+})();
+</script>
+</head>
+<body class="track-main page-main-07-gates">
+<a class="skip-link" href="#main">跳到正文</a>
+
+<header class="topbar">
+  <button class="icon-btn nav-toggle" id="nav-toggle" type="button" aria-expanded="false" aria-controls="sidebar" aria-label="打开课程目录">
+    <span aria-hidden="true">☰</span>
+  </button>
+  <a class="brand" data-same-tab href="index.html"><span class="brand-mark">FDE</span><span class="brand-text">零基础教程</span></a>
+  <nav class="track-switch" aria-label="模块切换"><span class="track-link active" aria-current="true" title="从零建立完整心智模型">主线</span><a class="track-link" data-same-tab href="work-01-prep.html" title="现场查用：输入、步骤、输出、阶段门">工作台</a><a class="track-link" data-same-tab href="day1-00-overview.html" title="六步链路：简报 → 访谈 → 证据 → 底稿 → 门">Day1</a><a class="track-link" data-same-tab href="appendix-methods.html" title="一卡一问，按阶段、产物、角色查">方法库</a><a class="track-link" data-same-tab href="appendix-templates.html" title="模板、产物链、术语与来源">附录</a></nav>
+  <div class="top-actions">
+    <button class="search-open" id="search-open" type="button" aria-haspopup="dialog">
+      <span aria-hidden="true">⌕</span><span class="search-label">搜索</span><kbd>/</kbd>
+    </button>
+    <button class="icon-btn" id="theme-toggle" type="button" aria-label="切换深浅色">◐</button>
+  </div>
+  <div class="read-progress" aria-hidden="true"><span id="read-progress"></span></div>
+</header>
+
+<div class="layout">
+  <aside class="sidebar" id="sidebar">
+    <nav class="course-tree" aria-label="课程目录"><header class="side-head"><p class="side-eyebrow">当前模块</p><p class="side-title">主线</p><p class="side-caption">从零建立完整心智模型</p><p class="side-meta">16 页<span class="dot">·</span>约 4 小时</p></header><section class="nav-group"><p class="nav-group-title"><span class="nav-group-num">01</span>开始</p><a class="nav-link" data-same-tab href="index.html">开始：这份教程怎么用</a></section><section class="nav-group"><p class="nav-group-title"><span class="nav-group-num">02</span>看懂 FDE</p><a class="nav-link" data-same-tab href="main-01-fde.html">FDE 是什么，不是什么</a><a class="nav-link" data-same-tab href="main-02-slicing.html">把“系统”切成可验证的决策</a><a class="nav-link" data-same-tab href="lab-slicing.html">实验室：切三个模糊需求</a></section><section class="nav-group"><p class="nav-group-title"><span class="nav-group-num">03</span>看清现状</p><a class="nav-link" data-same-tab href="main-03-as-is.html">看清今天实际怎么运转</a><a class="nav-link" data-same-tab href="main-04-one-pager.html">一页纸对齐范围</a><a class="nav-link" data-same-tab href="case-a-one-pager.html">案例 A：S1 如何被选中</a><a class="nav-link" data-same-tab href="lab-one-pager.html">实验室：20 分钟拼一页纸</a></section><section class="nav-group"><p class="nav-group-title"><span class="nav-group-num">04</span>设计验证</p><a class="nav-link" data-same-tab href="main-05-fr.html">把决策写成一句可验收的 FR</a><a class="nav-link" data-same-tab href="main-06-solution.html">方案设计四件套</a><a class="nav-link" data-same-tab href="case-b-solution.html">案例 B：从一页纸到 Demo</a></section><section class="nav-group"><p class="nav-group-title"><span class="nav-group-num">05</span>跑起来</p><span class="nav-link nav-current" aria-current="page">开始前的五道门</span><a class="nav-link" data-same-tab href="main-08-five-days.html">Day1–5 每天做什么</a><a class="nav-link" data-same-tab href="main-09-adoption.html">从项目到组织能力</a></section><section class="nav-group"><p class="nav-group-title"><span class="nav-group-num">06</span>选读</p><a class="nav-link" data-same-tab href="main-10-patterns.html">五种实施模式<span class="nav-optional">选读</span></a><a class="nav-link" data-same-tab href="main-11-lessons.html">一线八堂课<span class="nav-optional">选读</span></a></section></nav>
+  </aside>
+  <button class="scrim" id="scrim" type="button" aria-label="关闭目录" hidden></button>
+
+  <main class="main" id="main">
+    <nav class="crumb" aria-label="面包屑"><a data-same-tab href="index.html">教程</a><span class="sep">/</span><span>主线</span><span class="sep">/</span><span>跑起来</span><span class="sep">/</span><span aria-current="page">开始前的五道门</span></nav>
+    <article class="article">
+      <header class="page-head">
+        <div class="badges"><span class="badge badge-main">必读</span><span class="badge badge-time">15 分钟</span></div>
+        <h1>开始前的五道门</h1>
+        <p class="lede">五道门、合作约定、切片约定、Demo Readiness Card：什么情况下不该开始。</p>
+        <p class="page-question"><span class="eyebrow">本页要回答</span>五天验证开始前，哪些条件不满足就必须停？</p>
+        <div class="page-meta">
+          <section class="meta-block">
+            <h2 class="meta-title" id="meta-objectives">读完你能</h2>
+            <ul class="objective-list"><li>逐条判断五道门是否通过；</li><li>写出一页合作约定与切片约定；</li><li>用 Demo Readiness Card 做 Go/No-Go。</li></ul>
+          </section>
+          <section class="meta-block">
+            <h2 class="meta-title" id="meta-prereq">前置</h2>
+            <p>先读：<a href="main-06-solution.html" target="_blank" rel="noopener">方案设计四件套</a></p>
+          </section>
+        </div>
+      </header>
+
+      <div class="prose">
+        <p>明天就是 Day 1，对象模型和生命周期已经有了草图，团队说“按计划启动”。你倒推七天却发现：数据权限还在走流程，能拍板的周主任第五天出差，每日展示时间没人确认。</p>
+<p>这些事不写进代码，却决定五天之后你有没有东西可演示。<strong>五天验证最容易失败的地方，不是技术，而是开始得太早。</strong></p>
+<p>这一页解决三件事：阶段门和五道门差在哪；D-7 到 D-1 准备什么；哪些情况必须停。</p>
+<h2 id="sec-two-kinds">先分清：阶段门不是五道门</h2>
+<p><strong><a class="term-link" href="work-07-run.html#term-stage-gate" title="Stage Gate：G0–G6，进入下一阶段前必须同时满足的检查点；结论通常是通过、有条件继续或待补证。" target="_blank" rel="noopener">阶段门</a></strong> 是每走完一个阶段后的检查点。本教程用 G0–G6 组织项目档案：G0 项目章程门、G1 调研准备门、G2 现场记录门、G3 现状与切片门、G4 方案设计门、G5 验证执行门、G6 复盘与回流门。它问的是：<strong>上一阶段的产物齐不齐，能不能进入下一阶段。</strong></p>
+<p><strong>五道门</strong> 是启动五天验证前的五个条件：窄决策、三方人马、真实数据权限、可演示底座、每日展示节奏。它问的是：<strong>现在能不能按下开始键。</strong></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th scope="col"></th>
+<th scope="col">阶段门</th>
+<th scope="col">五道门</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>问什么</td>
+<td>上一阶段产物是否齐全、可追溯</td>
+<td>现在能不能启动五天验证</td>
+</tr>
+<tr>
+<td>覆盖范围</td>
+<td>G0–G6 整个项目周期</td>
+<td>只在 Day 1 之前</td>
+</tr>
+<tr>
+<td>证据来自</td>
+<td>各阶段 artifact</td>
+<td>决策句、人员日历、授权、环境、展示安排</td>
+</tr>
+<tr>
+<td>结论</td>
+<td>通过 / 有条件继续 / 待补证</td>
+<td>通过 / 有条件 / 不通过</td>
+</tr>
+</tbody>
+</table></div>
+<p>开始五天验证前，G0–G4 应该已有结论。G5 是五天验证本身的阶段门，通过条件里明确写着“五道门全过”。G6 在演示和复盘之后，不在这页范围内。</p>
+<p>这套编号是档案链，不是 Palantir 官方发布的“七道门”；官方公开的是 use case lifecycle 与 adoption 阶段。【实践】<span class="cite" title="FDE 方法论沉淀">[S17]</span><span class="cite" title="FDE 实施手册 v1（9 章整合读本）">[S20]</span></p>
+<div class="checkpoint">
+<p><strong>停一下</strong>：G0–G4 里，哪一道门其实没有真正通过，只是“大家觉得差不多了”？</p>
+<p>有一道是这种感觉，就别定 Day 1。</p>
+</div>
+<h2 id="sec-gate-map">G0–G6 逐门看：问什么、看什么、怎么判</h2>
+<p>每道门都走同三步：<strong>先看产物在不在，再看证据能不能回查，最后看条件能不能执行。</strong> 三步任一失败，就不要写“通过”。</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th scope="col">门</th>
+<th scope="col">这一门要回答</th>
+<th scope="col">必查产物</th>
+<th scope="col">通过判据（可观察）</th>
+<th scope="col">用什么判</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>G0 项目章程门</td>
+<td>为什么做、为谁做、不做什么、数据能不能碰</td>
+<td><a class="template-link tpl-id" href="templates/blank/00-01_项目一页纸.html" data-template-view data-template-title="A00-01 项目一页纸模板" title="A00-01 项目一页纸模板 ｜ 当前页弹窗预览">A00-01</a>、<a class="template-link tpl-id" href="templates/blank/00-02_干系人地图.html" data-template-view data-template-title="A00-02 干系人地图模板" title="A00-02 干系人地图模板 ｜ 当前页弹窗预览">A00-02</a>、<a class="template-link tpl-id" href="templates/blank/00-03_范围与非范围.html" data-template-view data-template-title="A00-03 范围与非范围模板" title="A00-03 范围与非范围模板 ｜ 当前页弹窗预览">A00-03</a>、<a class="template-link tpl-id" href="templates/blank/00-04_知情同意与数据权限.html" data-template-view data-template-title="A00-04 知情同意与数据权限模板" title="A00-04 知情同意与数据权限模板 ｜ 当前页弹窗预览">A00-04</a></td>
+<td>一页纸能被业务方用自己的话复述；干系人标出决策人与可能反对者；范围与非范围各至少三条；权限有书面授权人、用途、脱敏、存储与销毁方式</td>
+<td>四份模板末尾的「质量门自检（G0）」</td>
+</tr>
+<tr>
+<td>G1 调研准备门</td>
+<td>到现场问谁、问什么、记什么、拿什么基线</td>
+<td><a class="template-link tpl-id" href="templates/blank/00-05_需求定向简报.html" data-template-view data-template-title="A00-05 需求定向简报模板" title="A00-05 需求定向简报模板 ｜ 当前页弹窗预览">A00-05</a>、<a class="template-link tpl-id" href="templates/blank/01-01_调研计划与排期.html" data-template-view data-template-title="A01-01 调研计划与排期模板" title="A01-01 调研计划与排期模板 ｜ 当前页弹窗预览">A01-01</a>、<a class="template-link tpl-id" href="templates/blank/01-02_分轮访谈提纲.html" data-template-view data-template-title="A01-02 分轮访谈提纲模板" title="A01-02 分轮访谈提纲模板 ｜ 当前页弹窗预览">A01-02</a>、<a class="template-link tpl-id" href="templates/blank/01-03_现场观察记录表.html" data-template-view data-template-title="A01-03 现场观察记录表模板" title="A01-03 现场观察记录表模板 ｜ 当前页弹窗预览">A01-03</a>、<a class="template-link tpl-id" href="templates/blank/01-04_基线数据清单.html" data-template-view data-template-title="A01-04 基线数据清单模板" title="A01-04 基线数据清单模板 ｜ 当前页弹窗预览">A01-04</a></td>
+<td>计划有对象、时段、主题、材料；每轮 2–4 问且写明为什么；观察表能记角色与动作；至少一个基线有来源与口径；已约到真正决策人</td>
+<td>01-01～01-04、00-05 的「质量门自检（G1）」</td>
+</tr>
+<tr>
+<td>G2 现场记录门</td>
+<td>三天后回看，还能说清每条结论从哪来、验证到哪</td>
+<td><a class="template-link tpl-id" href="templates/blank/02-01_现场观察记录.html" data-template-view data-template-title="A02-01 现场观察记录模板" title="A02-01 现场观察记录模板 ｜ 当前页弹窗预览">A02-01</a>、<a class="template-link tpl-id" href="templates/blank/02-02_逐字稿.html" data-template-view data-template-title="A02-02 逐字稿模板" title="A02-02 逐字稿模板 ｜ 当前页弹窗预览">A02-02</a>、<a class="template-link tpl-id" href="templates/blank/02-03_术语与说话人表.html" data-template-view data-template-title="A02-03 术语与说话人表模板" title="A02-03 术语与说话人表模板 ｜ 当前页弹窗预览">A02-03</a>、<a class="template-link tpl-id" href="templates/blank/02-04_证据台账.html" data-template-view data-template-title="A02-04 证据台账模板" title="A02-04 证据台账模板 ｜ 当前页弹窗预览">A02-04</a>、<a class="template-link tpl-id" href="templates/blank/02-05_待确认与问题清单.html" data-template-view data-template-title="A02-05 待确认与问题清单模板" title="A02-05 待确认与问题清单模板 ｜ 当前页弹窗预览">A02-05</a>、<a class="template-link tpl-id" href="templates/blank/02-06_D1确认记录.html" data-template-view data-template-title="A02-06 D1确认记录模板" title="A02-06 D1确认记录模板 ｜ 当前页弹窗预览">A02-06</a></td>
+<td>每条关键结论有证据 ID；原文与推断分开；未决项有验证方式、负责人、日期；D1 确认记的是原话</td>
+<td>02-01～02-06 的「质量门自检（G2）」；work-03 第 6 步四问</td>
+</tr>
+<tr>
+<td>G3 现状与切片门</td>
+<td>切片是否窄到五天内能验证，又真实到值得做</td>
+<td><a class="template-link tpl-id" href="templates/blank/03-01_As-is决策流.html" data-template-view data-template-title="A03-01 As-is决策流模板" title="A03-01 As-is决策流模板 ｜ 当前页弹窗预览">A03-01</a>、<a class="template-link tpl-id" href="templates/blank/03-02_用户-决策-动作清单.html" data-template-view data-template-title="A03-02 用户-决策-动作清单模板" title="A03-02 用户-决策-动作清单模板 ｜ 当前页弹窗预览">A03-02</a>、<a class="template-link tpl-id" href="templates/blank/03-03_候选切片与打分.html" data-template-view data-template-title="A03-03 候选切片与打分模板" title="A03-03 候选切片与打分模板 ｜ 当前页弹窗预览">A03-03</a>、<a class="template-link tpl-id" href="templates/blank/03-04_规则库.html" data-template-view data-template-title="A03-04 规则库（四层）模板" title="A03-04 规则库（四层）模板 ｜ 当前页弹窗预览">A03-04</a>、<a class="template-link tpl-id" href="templates/blank/03-05_use-case-one-pager.html" data-template-view data-template-title="A03-05 use-case one-pager模板" title="A03-05 use-case one-pager模板 ｜ 当前页弹窗预览">A03-05</a>、<a class="template-link tpl-id" href="templates/blank/03-06_D1工作底稿.html" data-template-view data-template-title="A03-06 D1工作底稿模板" title="A03-06 D1工作底稿模板 ｜ 当前页弹窗预览">A03-06</a>、<a class="template-link tpl-id" href="templates/blank/03-07_D1阶段门记录.html" data-template-view data-template-title="A03-07 D1阶段门记录模板" title="A03-07 D1阶段门记录模板 ｜ 当前页弹窗预览">A03-07</a>、<a class="template-link tpl-id" href="templates/blank/03-08_D2输入清单.html" data-template-view data-template-title="A03-08 D2输入清单模板" title="A03-08 D2输入清单模板 ｜ 当前页弹窗预览">A03-08</a></td>
+<td>一个切片、一个最终决策、一条端到端路径；one-pager 六段齐全；五项产出咬合；结论为通过或有条件；D2 输入写清</td>
+<td><strong>12 分 rubric</strong>（day1-05）+ <strong><a class="template-link tpl-id" href="templates/blank/03-07_D1阶段门记录.html" data-template-view data-template-title="A03-07 D1阶段门记录模板" title="A03-07 D1阶段门记录模板 ｜ 当前页弹窗预览">A03-07</a></strong> 六列记录</td>
+</tr>
+<tr>
+<td>G4 方案设计门</td>
+<td>方案是否真的支撑那个决策，而不是好看的页面</td>
+<td><a class="template-link tpl-id" href="templates/blank/04-01_决策清单.html" data-template-view data-template-title="A04-01 决策清单模板" title="A04-01 决策清单模板 ｜ 当前页弹窗预览">A04-01</a>、<a class="template-link tpl-id" href="templates/blank/04-02_功能需求FR.html" data-template-view data-template-title="A04-02 功能需求FR模板" title="A04-02 功能需求FR模板 ｜ 当前页弹窗预览">A04-02</a>、<a class="template-link tpl-id" href="templates/blank/04-03_对象模型.html" data-template-view data-template-title="A04-03 对象模型模板" title="A04-03 对象模型模板 ｜ 当前页弹窗预览">A04-03</a>、<a class="template-link tpl-id" href="templates/blank/04-04_生命周期与写回.html" data-template-view data-template-title="A04-04 生命周期与写回模板" title="A04-04 生命周期与写回模板 ｜ 当前页弹窗预览">A04-04</a>、<a class="template-link tpl-id" href="templates/blank/04-05_增强与界面.html" data-template-view data-template-title="A04-05 增强与界面模板" title="A04-05 增强与界面模板 ｜ 当前页弹窗预览">A04-05</a>、<a class="template-link tpl-id" href="templates/blank/04-06_MVP范围与非范围.html" data-template-view data-template-title="A04-06 MVP范围与非范围模板" title="A04-06 MVP范围与非范围模板 ｜ 当前页弹窗预览">A04-06</a></td>
+<td>每条 FR 可验收；对象分 core/derived/use case；生命周期有 Action 与写回；控制矩阵每步有级别、验证者、回滚；MVP 有非范围</td>
+<td>04-01～04-06 的「质量门自检（G4）」；work-05 的 G4 清单</td>
+</tr>
+<tr>
+<td>G5 验证执行门</td>
+<td>五天后要展示的决策，今天能否由真实用户完成</td>
+<td><a class="template-link tpl-id" href="templates/blank/05-01_五道门检查表.html" data-template-view data-template-title="A05-01 五道门检查表模板" title="A05-01 五道门检查表模板 ｜ 当前页弹窗预览">A05-01</a>、<a class="template-link tpl-id" href="templates/blank/05-02_五天计划.html" data-template-view data-template-title="A05-02 五天计划模板" title="A05-02 五天计划模板 ｜ 当前页弹窗预览">A05-02</a>、<a class="template-link tpl-id" href="templates/blank/05-03_每日日志.html" data-template-view data-template-title="A05-03 每日日志模板" title="A05-03 每日日志模板 ｜ 当前页弹窗预览">A05-03</a>、<a class="template-link tpl-id" href="templates/blank/05-04_问题与决策日志.html" data-template-view data-template-title="A05-04 问题与决策日志模板" title="A05-04 问题与决策日志模板 ｜ 当前页弹窗预览">A05-04</a>、<a class="template-link tpl-id" href="templates/blank/05-05_KPI基线与验证标准.html" data-template-view data-template-title="A05-05 KPI基线与验证标准模板" title="A05-05 KPI基线与验证标准模板 ｜ 当前页弹窗预览">A05-05</a>、<a class="template-link tpl-id" href="templates/blank/05-06_Demo脚本.html" data-template-view data-template-title="A05-06 Demo脚本模板" title="A05-06 Demo脚本模板 ｜ 当前页弹窗预览">A05-06</a>、<a class="template-link tpl-id" href="templates/blank/05-07_Demo数据清单.html" data-template-view data-template-title="A05-07 Demo数据清单模板" title="A05-07 Demo数据清单模板 ｜ 当前页弹窗预览">A05-07</a>、<a class="template-link tpl-id" href="templates/blank/05-08_反馈记录.html" data-template-view data-template-title="A05-08 反馈记录模板" title="A05-08 反馈记录模板 ｜ 当前页弹窗预览">A05-08</a>、<a class="template-link tpl-id" href="templates/blank/05-09_阶段门记录.html" data-template-view data-template-title="A05-09 阶段门记录模板" title="A05-09 阶段门记录模板 ｜ 当前页弹窗预览">A05-09</a></td>
+<td>五道门全过且有证据；Demo 由用户本人操作；每天有展示；KPI 有基线、目标、测法、反指标；阶段门有结论</td>
+<td><strong><a class="template-link tpl-id" href="templates/blank/05-01_五道门检查表.html" data-template-view data-template-title="A05-01 五道门检查表模板" title="A05-01 五道门检查表模板 ｜ 当前页弹窗预览">A05-01</a></strong> 五道门检查表 + <strong><a class="template-link tpl-id" href="templates/blank/05-09_阶段门记录.html" data-template-view data-template-title="A05-09 阶段门记录模板" title="A05-09 阶段门记录模板 ｜ 当前页弹窗预览">A05-09</a></strong> 阶段门记录表</td>
+</tr>
+<tr>
+<td>G6 复盘与回流门</td>
+<td>这一轮留下什么可复用资产，下一轮凭什么更好</td>
+<td><a class="template-link tpl-id" href="templates/blank/06-01_复盘.html" data-template-view data-template-title="A06-01 复盘模板" title="A06-01 复盘模板 ｜ 当前页弹窗预览">A06-01</a>、<a class="template-link tpl-id" href="templates/blank/06-02_可复用资产清单.html" data-template-view data-template-title="A06-02 可复用资产清单模板" title="A06-02 可复用资产清单模板 ｜ 当前页弹窗预览">A06-02</a>、<a class="template-link tpl-id" href="templates/blank/06-03_回流账本.html" data-template-view data-template-title="A06-03 回流账本模板" title="A06-03 回流账本模板 ｜ 当前页弹窗预览">A06-03</a>、<a class="template-link tpl-id" href="templates/blank/06-04_下一轮切片与落地计划.html" data-template-view data-template-title="A06-04 下一轮切片与落地计划模板" title="A06-04 下一轮切片与落地计划模板 ｜ 当前页弹窗预览">A06-04</a></td>
+<td>复盘区分事实与判断；资产标明位置、复用条件、已知限制；回流账本有出现次数与所有者；下一轮仍是可验证的决策</td>
+<td>06-01～06-04 的「质量门自检（G6）」；work-08 的 G6 清单</td>
+</tr>
+</tbody>
+</table></div>
+<p>七道门也可以点开看。每道门给出要回答的问题、必查产物、通过判据和不该放行的情形；下表是同一组判据的完整文本，便于打印时逐条对照。</p>
+<div class="viz-embed"><figure class="viz viz-gates" data-viz="gate-ladder"><figcaption class="viz-head"><span class="viz-kicker">交互图</span><h3 id="viz-gates-title">七道阶段门，逐门打开</h3><p>门不是审批仪式，而是保护下一阶段输入的质量。点一道门，看它检查哪些产物、什么算通过、不过时怎么办。</p></figcaption><ol class="viz-gate-list"><li><button type="button" class="viz-gate-card" data-gate="G0" aria-pressed="false"><span class="viz-gate-id">G0</span><strong>项目章程门</strong><span class="viz-gate-q">这次到底为什么做、为谁做、不做什么、数据能不能碰？</span></button></li><li><button type="button" class="viz-gate-card" data-gate="G1" aria-pressed="false"><span class="viz-gate-id">G1</span><strong>调研准备门</strong><span class="viz-gate-q">到了现场，我是否知道问谁、问什么、记什么、拿什么基线？</span></button></li><li><button type="button" class="viz-gate-card" data-gate="G2" aria-pressed="false"><span class="viz-gate-id">G2</span><strong>现场记录门</strong><span class="viz-gate-q">三天后回看，我还能说清每条结论从哪来、被验证到什么程度吗？</span></button></li><li><button type="button" class="viz-gate-card" data-gate="G3" aria-pressed="false"><span class="viz-gate-id">G3</span><strong>现状与切片门</strong><span class="viz-gate-q">我们选中的切片是否窄到五天内能验证，又真实到值得做？</span></button></li><li><button type="button" class="viz-gate-card" data-gate="G4" aria-pressed="false"><span class="viz-gate-id">G4</span><strong>方案设计门</strong><span class="viz-gate-q">这个方案是否真的支撑那个决策，而不是一堆好看的页面？</span></button></li><li><button type="button" class="viz-gate-card" data-gate="G5" aria-pressed="false"><span class="viz-gate-id">G5</span><strong>验证执行门</strong><span class="viz-gate-q">五天结束时要展示的那个决策，今天是否已经能被真实用户完成？</span></button></li><li><button type="button" class="viz-gate-card" data-gate="G6" aria-pressed="false"><span class="viz-gate-id">G6</span><strong>复盘与回流门</strong><span class="viz-gate-q">这一轮留下了什么可复用资产，下一轮凭什么会更好？</span></button></li></ol><div class="viz-detail viz-gate-detail" aria-live="polite"><p class="viz-placeholder">先点一道门。G3 现状与切片门决定“这一片值不值得做”，通常是项目里最容易被含糊过去的一道。</p></div></figure></div>
+
+<p><strong>判据从哪来。</strong> 上表的通过判据来自本教程的档案契约（每道门的通过条件与检查项），不是 Palantir 官方门禁。【实践】<span class="cite" title="FDE 方法论沉淀">[S17]</span><span class="cite" title="FDE 实施手册 v1（9 章整合读本）">[S20]</span> 每道门的逐项检查项，写在对应产物模板末尾的「质量门自检（Gx）」里；产物归哪道门，见<a href="appendix-artifacts.html#sec-by-stage" target="_blank" rel="noopener">附录：产物链</a>。</p>
+<p><strong>三种结论，一个写法。</strong> 通过：全部判据有证据，没有未关闭条件。有条件继续：最多两个条件，每个条件必须有<strong>负责人、截止日期、失败后的替代方案</strong>。不通过 / 待补证：任一必查产物缺失、关键结论回不到证据、或条件写不全。不要把“有条件”改写成“基本通过”。</p>
+<p><strong>哪些门有正式记录表。</strong> 只有 G3 有 A03-07、G5 有 A05-09。G0、G1、G2、G4、G6 目前靠“产物自检 + 一条结论记录”过关，没有独立打分表；这是本教程的简化，不是官方要求。需要审计时，把结论、依据、待补项写进阶段目录的 README 或项目档案首页，模板仍是那几份产物。</p>
+<p><strong>G3 的 12 分 rubric 有否决权。</strong> 五项产出各 0–2 分，证据可追溯与阶段门依据各 0–1 分。任何一项产出 0 分、证据 0 分、门依据 0 分，或存在会改变数据模型/规则/验收标准的未决项，直接判“待补证”，总分再高也不放行。</p>
+<p><strong>五道门是 G5 的启动前子集，不是第八道门。</strong> G5 的通过条件第一句就是“五道门全过”；五道门检查的是“能不能开始”，G5 检查的是“五天跑完有没有结果”。两张表都要有，不能互相替代。</p>
+<h2 id="sec-d7">D-7 到 D-1：七天筹备窗口</h2>
+<p>D-7 是 Day 1 前的第七天，D-1 是前一天。这七天只做消灭不确定性的事，不写功能代码。</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th scope="col">事项</th>
+<th scope="col">完成标志</th>
+<th scope="col">没完成就……</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>锁场景</td>
+<td>一句话决策读给三方听，三方点头</td>
+<td>回到切片，继续切窄</td>
+</tr>
+<tr>
+<td>定指标与基线</td>
+<td>有定义、基线、目标、测量方式</td>
+<td>现场补测，不用印象值对外声称提升</td>
+</tr>
+<tr>
+<td>拿数据权限</td>
+<td>书面授权、脱敏方案、近期真实数据可读</td>
+<td>权限未通，不启动计时</td>
+</tr>
+<tr>
+<td>定三方人马</td>
+<td>能拍板、懂规则、知道数据在哪，具体到人名</td>
+<td>换时间或换人，不用接口人代替</td>
+</tr>
+<tr>
+<td>备环境</td>
+<td>环境可访问、账号可用、能写回一次</td>
+<td>降级到本地对象，并写明边界</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="sec-contract">合作约定：把“不”和“停”提前写好</h3>
+<p><span class="term-link" title="Engagement Contract：一页纸写清这次验证做什么、不做什么、什么算成功、什么情况立刻停；不是正式 SOW。">Engagement Contract（合作约定）</span>不是正式 SOW（Statement of Work，工作说明书），也不是采购合同。它是一页纸，写清这次验证<strong>做什么、不做什么、什么算成功、什么情况立刻停</strong>。</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th scope="col">段落</th>
+<th scope="col">写什么</th>
+<th scope="col">不合格的样子</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>一句话决策</td>
+<td>谁、何时、决定什么、改善什么</td>
+<td>“做一个排班系统”</td>
+</tr>
+<tr>
+<td>In scope</td>
+<td>本次只做，最多 3 条</td>
+<td>列了 10 个功能</td>
+</tr>
+<tr>
+<td>Out of scope</td>
+<td>明确不做，至少 3 条</td>
+<td>空着，或写“其他”</td>
+</tr>
+<tr>
+<td>成功判据</td>
+<td>指标 + 基线 + 目标 + 测量方式</td>
+<td>“提升效率”</td>
+</tr>
+<tr>
+<td>停止条件</td>
+<td>出现即停，不延期；到期评估，不“再给两周”</td>
+<td>“视情况而定”</td>
+</tr>
+</tbody>
+</table></div>
+<p>没有 out-of-scope，范围一定在 Day 3 膨胀。</p>
+<h3 id="sec-contract-template">合作约定模板</h3>
+<div class="template-block">
+<div class="template-title">合作约定 · 一页纸 <span>可直接复制</span></div>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th scope="col">字段</th>
+<th scope="col">填什么</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>本轮目标</td>
+<td>一句话决策：谁、何时、决定什么、改善什么</td>
+</tr>
+<tr>
+<td>客户方 owner</td>
+<td>能拍板并签字的人</td>
+</tr>
+<tr>
+<td>FDE owner</td>
+<td>交付负责人</td>
+</tr>
+<tr>
+<td>数据与权限</td>
+<td>类别、脱敏、存储、访问、授权</td>
+</tr>
+<tr>
+<td>双方投入</td>
+<td>双方到场人</td>
+</tr>
+<tr>
+<td>明确不做</td>
+<td>至少三条，逐条可核对</td>
+</tr>
+<tr>
+<td>停止条件</td>
+<td>出现即停的触发点</td>
+</tr>
+<tr>
+<td>争议怎么升级</td>
+<td>先谁、再谁、谁裁决</td>
+</tr>
+<tr>
+<td>签字与日期</td>
+<td>双方签字与日期</td>
+</tr>
+<tr>
+<td>毕业条件</td>
+<td>谁接手、FDE 何时退出</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="template-block">
+<div class="template-title">合作约定 · 填好的示例 <span>CB-16【示例】</span></div>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th scope="col">字段</th>
+<th scope="col">示例填法</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>本轮目标</td>
+<td>陈静每月收额度后，决定各亚专科额度与人选</td>
+</tr>
+<tr>
+<td>客户方 owner</td>
+<td>周主任，日常对接陈静</td>
+</tr>
+<tr>
+<td>FDE owner</td>
+<td>交付方 FDE</td>
+</tr>
+<tr>
+<td>数据与权限</td>
+<td>人员、额度、可用天数；脱敏存内网；周主任授权（CB-12）</td>
+</tr>
+<tr>
+<td>双方投入</td>
+<td>陈静全程、刘工按需、审批人 Day 5 到场；FDE 两人</td>
+</tr>
+<tr>
+<td>明确不做</td>
+<td>S2 日期班型、自动优化、工资绩效、实时同步、移动端</td>
+</tr>
+<tr>
+<td>停止条件</td>
+<td>D1 前写回未确认；审批人缺席无代理；决策超两个</td>
+</tr>
+<tr>
+<td>争议怎么升级</td>
+<td>分配找陈静，数据权限找刘工，周主任裁决</td>
+</tr>
+<tr>
+<td>签字与日期</td>
+<td>周主任 / FDE / 进场前书面确认</td>
+</tr>
+<tr>
+<td>毕业条件</td>
+<td>达标由陈静与刘工接手、FDE 退出；未达标复盘重立</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<h3 id="sec-slice-contract">切片约定：把最薄一片的边界写成可核对的话</h3>
+<p><span class="term-link" title="Thin-slice Contract：把最薄一片的边界写成可核对的约定：包含什么、不包含什么、吃什么数据、什么算通过、谁负责、何时冻结。">Thin-slice Contract（切片约定）</span>管的是<strong>这一片端到端路径</strong>。它在筹备周起稿，Day 2 建模确认后定稿。</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th scope="col">段落</th>
+<th scope="col">写什么</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>包含什么</td>
+<td>这条路径经过的输入、判断、动作、写回</td>
+</tr>
+<tr>
+<td>不包含什么</td>
+<td>明确排除的日期落位、换班、移动端</td>
+</tr>
+<tr>
+<td>吃什么数据</td>
+<td>数据源、时间范围、关键字段、缺失替代</td>
+</tr>
+<tr>
+<td>什么算通过</td>
+<td>第五天可观察的结果，谁来判断对错</td>
+</tr>
+<tr>
+<td>谁负责</td>
+<td>业务、数据、交付各一名负责人</td>
+</tr>
+<tr>
+<td>何时冻结</td>
+<td>冻结后只修 bug，不加功能</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="sec-slice-template">切片约定模板</h3>
+<div class="template-block">
+<div class="template-title">切片约定 · 一页纸 <span>可直接复制</span></div>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th scope="col">字段</th>
+<th scope="col">填什么</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>切片名</td>
+<td>一句范围：科室、对象、周期</td>
+</tr>
+<tr>
+<td>唯一最终决策</td>
+<td>只写一个；出现“并且”就再切</td>
+</tr>
+<tr>
+<td>用户与场景</td>
+<td>具体角色、时点、触发</td>
+</tr>
+<tr>
+<td>输入</td>
+<td>数据源、范围、字段、缺失替代</td>
+</tr>
+<tr>
+<td>动作与写回</td>
+<td>点什么、改哪个对象、写回什么</td>
+</tr>
+<tr>
+<td>成功标准</td>
+<td>第五天可观察，谁判断</td>
+</tr>
+<tr>
+<td>不做什么</td>
+<td>至少三条，逐条可核对</td>
+</tr>
+<tr>
+<td>依赖</td>
+<td>上游切片、数据、权限</td>
+</tr>
+<tr>
+<td>停止条件</td>
+<td>出现即停的触发点</td>
+</tr>
+<tr>
+<td>谁验收</td>
+<td>操作者与审批人</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="template-block">
+<div class="template-title">切片约定 · 填好的示例 <span>CB-09【示例】</span></div>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th scope="col">字段</th>
+<th scope="col">示例填法</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>切片名</td>
+<td>病理科月度外部人员额度分配</td>
+</tr>
+<tr>
+<td>唯一最终决策</td>
+<td>各亚专科额度与人选（DC-1/DC-2 合并）</td>
+</tr>
+<tr>
+<td>用户与场景</td>
+<td>陈静，每月收额度后、月底提交前</td>
+</tr>
+<tr>
+<td>输入</td>
+<td>需求、额度、可用天数、资质；一个月脱敏数据</td>
+</tr>
+<tr>
+<td>动作与写回</td>
+<td>分配界面调整保存；Allocation 与 Quota 已用/剩余写回</td>
+</tr>
+<tr>
+<td>成功标准</td>
+<td>完成一次真实分配；C1、C2 至少解决一个；组长确认、主任审批；可重开</td>
+</tr>
+<tr>
+<td>不做什么</td>
+<td>日期班型（S2）、自动优化、工资绩效、实时同步、移动端</td>
+</tr>
+<tr>
+<td>依赖</td>
+<td>额度表、人事表、排班本、需求记录；写回先本地</td>
+</tr>
+<tr>
+<td>停止条件</td>
+<td>D1 前数据不可读；写回未确认且本地方案未被接受</td>
+</tr>
+<tr>
+<td>谁验收</td>
+<td>陈静（操作）、周主任（审批与裁决）</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<p><strong>合同不是法务文件。</strong> 它的作用只有一个：让“不做什么、什么时候停、谁签字”在开工前就有答案。没有签字栏和停止条件的合同，只是会议纪要。</p>
+<div class="checkpoint">
+<p><strong>停一下</strong>：你的合作约定里，“停止条件”写了几条？一条都写不出来，说明还没想清楚什么算失败。</p>
+</div>
+<h2 id="sec-five-gates">五道门逐条过</h2>
+<p><span class="term-link" title="Five Gates：开始五天验证前必须通过的五个条件：窄决策、三方人马、真实数据权限、可演示底座、每日展示节奏。">五道门</span>不是五个“有没有”的问题，而是五个“证据在哪”的问题。</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th scope="col">门</th>
+<th scope="col">通过标准</th>
+<th scope="col">可观察证据</th>
+<th scope="col">不过就……</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1 窄决策</td>
+<td>一句话只有一个“决定”，能指出决策人和时点</td>
+<td>决策句；最终决策只有一行</td>
+<td>回到切片，继续切窄</td>
+</tr>
+<tr>
+<td>2 三方人马</td>
+<td>能拍板、懂规则、懂数据的人各出现一次，Day 5 能到场</td>
+<td>具体人名和日历邀请</td>
+<td>换时间或换人</td>
+</tr>
+<tr>
+<td>3 真实数据权限</td>
+<td>有书面授权与脱敏方案，真实数据可读</td>
+<td>授权文件、样本、字段清单</td>
+<td>权限未通不启动计时</td>
+</tr>
+<tr>
+<td>4 可演示底座</td>
+<td>能装快照、记录操作、写回；本地写回也算</td>
+<td>环境地址、账号、一次成功写回</td>
+<td>降级并写明边界</td>
+</tr>
+<tr>
+<td>5 每日展示</td>
+<td>每天固定 15–30 分钟给真实用户看</td>
+<td>日历邀请、参与人确认</td>
+<td>只能最后看一次就是闭门开发</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="cb-gates">用 CB-16 看一次真实判断</h3>
+<p><span class="case-link">案例 CB-16</span> 是一次做完的检查，数字均为【示例】：</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th scope="col">门</th>
+<th scope="col">检查项</th>
+<th scope="col">证据</th>
+<th scope="col">结论</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1 窄决策</td>
+<td>只做一个最终决策</td>
+<td>决策清单：DC-1/DC-2 合并</td>
+<td>通过</td>
+</tr>
+<tr>
+<td>2 三方人马</td>
+<td>业务、数据、应用都有人</td>
+<td>陈静 + 刘工 + FDE</td>
+<td>通过</td>
+</tr>
+<tr>
+<td>3 真实数据权限</td>
+<td>有书面授权与脱敏方案</td>
+<td>调研前简报与数据权限</td>
+<td>通过</td>
+</tr>
+<tr>
+<td>4 可演示底座</td>
+<td>能装快照、能写回</td>
+<td>本地对象 + 手工写回</td>
+<td>有条件</td>
+</tr>
+<tr>
+<td>5 每日展示</td>
+<td>每天 17:00 给陈静看</td>
+<td>日历已约</td>
+<td>通过</td>
+</tr>
+</tbody>
+</table></div>
+<p>结论是<strong>有条件继续</strong>：D1 前确认写回权限；如果院内系统不能写，就写回本地对象，并在演示中说明边界。</p>
+<p>“有条件”不是“通过”。条件必须带三样：<strong>负责人、截止时间、失败后的替代方案</strong>。缺一样，就按不通过处理。</p>
+<h3 id="cb-scope">范围证据：CB-09【示例】</h3>
+<p><span class="case-link">案例 CB-09</span> 用表分开“必须包含”和“明确不做”，这是门 1 的证据：</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th scope="col">五天 Demo 必须包含</th>
+<th scope="col">明确不做</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>一个月、3 个亚专科、4 人的真实脱敏数据</td>
+<td>具体日期与班型（S2）</td>
+</tr>
+<tr>
+<td>额度全景、缺口、人员分配</td>
+<td>自动优化算法、工资绩效</td>
+</tr>
+<tr>
+<td>C1、C2 的识别与至少一个解决</td>
+<td>与院内系统实时双向同步</td>
+</tr>
+<tr>
+<td>组长确认、主任审批、写回后可见</td>
+<td>移动端</td>
+</tr>
+</tbody>
+</table></div>
+<p>范围表里没有“其他”“视情况”。凡是说不清做不做的，都先放进“不做”。</p>
+<h3 id="cb-open">待确认证据：CB-11【示例】</h3>
+<p><span class="case-link">案例 CB-11</span> 把没确认的事写成可验证条目，这是门 3、4 的依据：</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th scope="col">问题</th>
+<th scope="col">当前假设</th>
+<th scope="col">验证方式</th>
+<th scope="col">负责人</th>
+<th scope="col">截止</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>额度能否跨月结转</td>
+<td>不能结转</td>
+<td>问孙老师并看制度</td>
+<td>陈静</td>
+<td>D2</td>
+</tr>
+<tr>
+<td>资质由谁认定</td>
+<td>由组长认定</td>
+<td>访谈赵岚</td>
+<td>陈静</td>
+<td>D2</td>
+</tr>
+<tr>
+<td>临时调整是否同审批链</td>
+<td>走简化审批</td>
+<td>问周主任</td>
+<td>FDE</td>
+<td>D3</td>
+</tr>
+<tr>
+<td>写回院内系统权限</td>
+<td>先写回本地对象</td>
+<td>问刘工</td>
+<td>刘工</td>
+<td>D1</td>
+</tr>
+</tbody>
+</table></div>
+<p>每条都要有验证方式、负责人和截止日期，否则它会变成 Day 5 的意外。</p>
+<div class="checkpoint">
+<p><strong>停一下</strong>：CB-16 第 4 门是“有条件”。如果没人认领“D1 前确认写回权限”，它算通过还是不通过？</p>
+<p>算不通过。没有负责人和截止时间的条件，等于没有条件。</p>
+</div>
+<h2 id="sec-no-go">什么情况必须停</h2>
+<p>下面这些是明确的 No-Go：</p>
+<ul>
+<li>一句话决策说不清，或需要两个以上最终决策才有价值。</li>
+<li>能拍板的人 Day 5 不能到场，也没有明确授权的代理人。</li>
+<li>到 D-1 还没有书面授权或只有玩具数据；没有稳定演示环境与降级方案。</li>
+<li>没有每天 15–30 分钟的展示窗口。</li>
+</ul>
+<p>遇到 No-Go，不要说“这个项目做不了”，而要说：<strong>“现在不启动；补上哪一个条件、到哪一天，再重新判断。”</strong> 开始前停下来的成本，远低于 Day 5 停下来。</p>
+<div class="gate-panel">
+<p><strong>No-Go 判断句</strong>：只要有一道门没有“证据 + 负责人 + 日期”，就不定 Day 1。不要用“应该没问题”代替证据。</p>
+</div>
+<h3 id="sec-readiness">演示就绪卡不是第六道门</h3>
+<p><span class="term-link" title="Demo Readiness Card：演示前的 Go/No-Go 检查单；六项缺一项就不开演示会。">Demo Readiness Card（演示就绪卡）</span>是 Day 4 的 Go/No-Go 检查单，检查六件事：真实数据、用户本人操作、决策可完成、写回可见、失败替代、业务方在场。缺一项就改内部彩排；谁讲解、谁操作、谁喊停，属于 Demo 脚本，不在这张卡上。</p>
+<h2 id="sec-template">一张可抄的检查表</h2>
+<p><a class="template-link" href="templates/blank/05-01_五道门检查表.html" data-template-view data-template-title="A05-01 五道门检查表模板" title="A05-01 五道门检查表模板 ｜ 当前页弹窗预览">A05-01 五道门检查表模板</a> 放在 <code>05_五天验证/05-01_五道门检查表.md</code>，六列：</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th scope="col">门</th>
+<th scope="col">检查项</th>
+<th scope="col">证据</th>
+<th scope="col">结论</th>
+<th scope="col">负责人</th>
+<th scope="col">日期</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1 窄决策</td>
+<td>只做一个最终决策</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>2 三方人马</td>
+<td>业务、数据、应用都有人</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>3 真实数据权限</td>
+<td>有书面授权与脱敏方案</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>4 可演示底座</td>
+<td>能装快照、能写回</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>5 每日展示</td>
+<td>每天固定时点给真实用户看</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table></div>
+<p>“证据”一列写文件编号、原话、日期或一次成功写回，不写“已确认”。<strong>没有证据的通过，都是口头通过。</strong></p>
+<div class="hands-on">
+<p><strong>动手 20 分钟</strong>：把你的项目逐条过一遍五道门。</p>
+<ol>
+<li>填 <code>05_五天验证/05-01_五道门检查表.md</code> 六列，五行都有结论。</li>
+<li>每个“通过”写证据 ID；没有证据的改“待补”。</li>
+<li>每个“有条件”写负责人、截止、替代；写不全改“不通过”。</li>
+</ol>
+<p><strong>三条自检</strong>：</p>
+<ul>
+<li>有没有哪道门的证据只是“某人说可以”？</li>
+<li>“有条件”的负责人是具体的人，而不是“项目组”？</li>
+<li>如果今天就是 D-1，你敢不敢按下开始键？</li>
+</ul>
+<p><strong>参考答案（排班案例）</strong>：</p>
+<blockquote>
+<p>第 1、2、3、5 门通过；第 4 门有条件：刘工在 D1 上午前确认，否则写回本地对象并说明边界；仍不确认则改判不通过。</p>
+</blockquote>
+</div>
+<h2 id="sec-pitfalls">常见坑</h2>
+<div class="pitfalls">
+<p><strong>坑 1：把阶段门和五道门混着汇报。</strong>
+表现：“G4 过了，所以可以开始。”后果：方案齐了，权限和人没到位，Day 1 空转。
+处理：G0–G4 是产物门，五道门是启动条件；两张表都过，才定 Day 1。</p>
+<p><strong>坑 2：把“有条件”当“通过”。</strong>
+表现：第 4 门写了⚠️，会上说“基本没问题”。后果：Day 5 写回不了。
+处理：条件必须带负责人、截止时间、替代方案；缺一项就按不通过。</p>
+<p><strong>坑 3：数据权限“还在走流程”就先开始。</strong>
+表现：Day 1 用样例数据做界面，等权限。后果：真实数据一进来，字段和口径全部推翻。
+处理：权限未通不启动计时；先用真实样本验证可读。</p>
+<p><strong>坑 4：每天没有展示，最后一天憋大招。</strong>
+表现：客户说“第五天一起看”。后果：方向错了四天。
+处理：Day 1 起每天固定 15–30 分钟；日历没有邀请，就视为第五道门未通过。</p>
+</div>
+<div class="self-test">
+<p><strong>三问自测</strong></p>
+<details>
+<summary>1. 阶段门和五道门，各自回答什么问题？</summary>
+
+阶段门管上一阶段产物齐不齐，覆盖 G0–G6；五道门管现在能不能启动，只看 Day 1 前。阶段门过了，不代表五道门能过。
+
+</details>
+<details>
+<summary>2. “有条件继续”要满足什么，才算真的可以继续？</summary>
+
+谁负责、何时完成、完不成用什么替代。缺一样就按不通过处理。
+
+</details>
+<details>
+<summary>3. 客户说“数据权限还在走流程，先开始吧”，你怎么处理？</summary>
+
+不启动。先拿书面授权和真实样本，再定 Day 1；如果业务方坚持，就把“权限未通”写成停止条件。
+
+</details>
+</div>
+<div class="recap">
+<p><strong>本章带走</strong></p>
+<ol>
+<li>阶段门是“上一阶段产物齐不齐”，五道门是“现在能不能启动”；G0–G4 在开始前应有结论，G5 的通过条件包含五道门全过。</li>
+<li>D-7 到 D-1 只做五件事：锁场景、定指标与基线、拿数据权限、定三方人马、备环境；产出合作约定与切片约定。</li>
+<li>五道门只要有一道缺“证据 + 负责人 + 日期”，就不定 Day 1；“有条件”不等于“通过”。</li>
+</ol>
+</div>
+      </div>
+
+      <section class="term-cards" aria-label="本页术语卡"><p class="eyebrow">本页术语</p><div class="term-grid"><article class="term-card" id="term-engagement-contract"><h3 id="term-title-engagement-contract">Engagement Contract（合作约定） <span class="term-en">Engagement Contract</span></h3><p>一页纸写清这次验证做什么、不做什么、什么算成功、什么情况立刻停；不是正式 SOW。</p></article><article class="term-card" id="term-thin-slice-contract"><h3 id="term-title-thin-slice-contract">Thin-slice Contract（切片约定） <span class="term-en">Thin-slice Contract</span></h3><p>把最薄一片的边界写成可核对的约定：包含什么、不包含什么、吃什么数据、什么算通过、谁负责、何时冻结。</p></article><article class="term-card" id="term-demo-readiness-card"><h3 id="term-title-demo-readiness-card">Demo Readiness Card（演示就绪卡） <span class="term-en">Demo Readiness Card</span></h3><p>演示前的 Go/No-Go 检查单；六项缺一项就不开演示会。</p></article><article class="term-card" id="term-mvd"><h3 id="term-title-mvd">MVD（最小可行演示） <span class="term-en">Minimum Viable Demo</span></h3><p>只为第五天一次真实决策演示服务的最小版本；不能把它当 MVP 对外承诺。</p><a class="term-first" href="main-08-five-days.html" target="_blank" rel="noopener">首次解释</a></article><article class="term-card" id="term-kpi"><h3 id="term-title-kpi">KPI（关键绩效指标） <span class="term-en">Key Performance Indicator</span></h3><p>能用一个数字衡量“有没有变好”的指标，必须有定义、基线、目标和测量方式。</p></article><article class="term-card" id="term-five-gates"><h3 id="term-title-five-gates">五道门 <span class="term-en">Five Gates</span></h3><p>开始五天验证前必须通过的五个条件：窄决策、三方人马、真实数据权限、可演示底座、每日展示节奏。</p></article></div></section>
+      <section class="artifact-box" aria-label="本页产物"><div class="artifact-block"><h3 id="artifacts-out">本页要写出的产物</h3><ul><li><code>A05-01</code> 五道门检查表 <span class="muted">→ 05_五天验证/05-01_五道门检查表.md</span> <span class="gate-tag">G5</span> <a href="templates/blank/05-01_五道门检查表.html" data-template-view data-template-title="A05-01 五道门检查表模板" title="A05-01 五道门检查表模板 ｜ 当前页弹窗预览">模板</a> <a href="templates/golden/05-01_五道门检查表_排班案例.html" data-template-view data-template-title="A05-01 五道门检查表黄金样例" title="A05-01 五道门检查表黄金样例 ｜ 当前页弹窗预览">黄金样例</a></li></ul></div><div class="artifact-block"><h3 id="artifacts-in">开始前应已具备</h3><p class="muted"><code>A02-04</code> 证据台账、<code>A02-05</code> 待确认与问题清单、<code>A01-04</code> 基线数据清单、<code>A03-03</code> 候选切片与打分、<code>A03-05</code> use-case one-pager、<code>A03-07</code> D1阶段门记录、<code>A03-08</code> D2输入清单、<code>A04-01</code> 决策清单、<code>A04-02</code> 功能需求FR、<code>A04-03</code> 对象模型、<code>A04-04</code> 生命周期与写回、<code>A04-05</code> 增强与界面、<code>A04-06</code> MVP范围与非范围</p></div></section>
+      <section class="sources" aria-label="来源"><h2 id="sec-sources">来源与证据等级</h2><ol class="source-list"><li><span class="src-id">S04</span> <strong>Sequencing development</strong> <span class="badge badge-官方">官方</span><div class="muted">Palantir Technologies · 抓取 2026-10-19 · 版权归 Palantir Technologies；仅内部研究，不对外分发原文</div><div class="src-url"><a href="https://www.palantir.com/docs/foundry/use-case-life-cycle/sequencing-development/" rel="noreferrer" target="_blank">https://www.palantir.com/docs/foundry/use-case-life-cycle/sequencing-development/</a></div></li><li><span class="src-id">S17</span> <strong>FDE 方法论沉淀</strong> <span class="badge badge-实践">实践</span><div class="muted">本子项目 · 抓取 2026-09-23 · 内部方法沉淀</div><div class="src-url"><span class="muted">无公开链接</span></div></li><li><span class="src-id">S18</span> <strong>流程与范围模板</strong> <span class="badge badge-实践">实践</span><div class="muted">本子项目 · 抓取 2026-09-23 · 内部方法沉淀</div><div class="src-url"><span class="muted">无公开链接</span></div></li><li><span class="src-id">S20</span> <strong>FDE 实施手册 v1（9 章整合读本）</strong> <span class="badge badge-实践">实践</span><div class="muted">本子项目 · 抓取 2026-10-19 · 内部方法沉淀；官方事实另注出处</div><div class="src-url"><span class="muted">无公开链接</span></div></li></ol></section>
+      <nav class="pager" aria-label="翻页"><a class="pager-prev" data-same-tab href="case-b-solution.html"><span>上一页</span><strong>案例 B：从一页纸到 Demo</strong></a><a class="pager-next" data-same-tab href="main-08-five-days.html"><span>下一页</span><strong>Day1–5 每天做什么</strong></a></nav>
+
+      <footer class="page-foot">
+        <p>本教程为内部方法研究。案例已匿名化，数字标注【示例】。Palantir 官方资料版权归 Palantir Technologies，仅作改写与链接。</p>
+        <p class="muted">发现断链或事实错误？回到 <a href="appendix-sources.html" target="_blank" rel="noopener">来源与版权</a> 核对出处。</p>
+      </footer>
+    </article>
+  </main>
+
+  <aside class="toc" id="toc" aria-label="页内目录">
+    <p class="toc-title">本页目录</p><ol class="toc-list"><li class="toc-h2"><a href="#sec-two-kinds">先分清：阶段门不是五道门</a></li><li class="toc-h2"><a href="#sec-gate-map">G0–G6 逐门看：问什么、看什么、怎么判</a></li><li class="toc-h2"><a href="#sec-d7">D-7 到 D-1：七天筹备窗口</a><ul class="toc-sub"><li class="toc-h3"><a href="#sec-contract">合作约定：把“不”和“停”提前写好</a></li><li class="toc-h3"><a href="#sec-contract-template">合作约定模板</a></li><li class="toc-h3"><a href="#sec-slice-contract">切片约定：把最薄一片的边界写成可核对的话</a></li><li class="toc-h3"><a href="#sec-slice-template">切片约定模板</a></li></ul></li><li class="toc-h2"><a href="#sec-five-gates">五道门逐条过</a><ul class="toc-sub"><li class="toc-h3"><a href="#cb-gates">用 CB-16 看一次真实判断</a></li><li class="toc-h3"><a href="#cb-scope">范围证据：CB-09【示例】</a></li><li class="toc-h3"><a href="#cb-open">待确认证据：CB-11【示例】</a></li></ul></li><li class="toc-h2"><a href="#sec-no-go">什么情况必须停</a><ul class="toc-sub"><li class="toc-h3"><a href="#sec-readiness">演示就绪卡不是第六道门</a></li></ul></li><li class="toc-h2"><a href="#sec-template">一张可抄的检查表</a></li><li class="toc-h2"><a href="#sec-pitfalls">常见坑</a></li></ol>
+  </aside>
+</div>
+
+<div class="tpl-modal" id="tpl-modal" hidden>
+  <div class="tpl-panel" role="dialog" aria-modal="true" aria-labelledby="tpl-title">
+    <header class="tpl-head">
+      <div class="tpl-heading">
+        <p class="tpl-kicker">模板阅读视图</p>
+        <h2 id="tpl-title">模板</h2>
+      </div>
+      <div class="tpl-actions">
+        <a class="tpl-open" id="tpl-open" href="#" target="_blank" rel="noopener">在新标签打开 ↗</a>
+        <button class="icon-btn" id="tpl-close" type="button" aria-label="关闭模板">✕</button>
+      </div>
+    </header>
+    <div class="tpl-body">
+      <iframe id="tpl-frame" title="模板内容" loading="lazy"></iframe>
+    </div>
+  </div>
+</div>
+
+<div class="search-modal" id="search-modal" hidden>
+  <div class="search-panel" role="dialog" aria-modal="true" aria-labelledby="search-title">
+    <div class="search-head">
+      <label id="search-title" class="sr-only" for="search-input">搜索教程</label>
+      <input id="search-input" type="search" placeholder="搜索概念、产物、模板、方法卡…" autocomplete="off">
+      <button class="icon-btn" id="search-close" type="button" aria-label="关闭搜索">✕</button>
+    </div>
+    <div id="search-results" class="search-results" aria-live="polite"></div>
+    <p class="search-hint">按 <kbd>/</kbd> 或 <kbd>Ctrl</kbd>+<kbd>K</kbd> 打开，<kbd>Esc</kbd> 关闭。索引完全离线。</p>
+  </div>
+</div>
+
+<noscript><p class="noscript-note">搜索与阅读进度需要 JavaScript；正文、目录和翻页仍可正常使用。可用浏览器查找（Ctrl+F）。</p></noscript>
+
+<script src="assets/search-index.js"></script>
+<script src="assets/viz-data.js"></script>
+<script src="assets/app.js"></script>
+<script src="assets/viz.js"></script>
+
+</body>
+</html>

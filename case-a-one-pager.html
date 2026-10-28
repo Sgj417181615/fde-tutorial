@@ -1,0 +1,396 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<title>案例 A：S1 如何被选中 · FDE 零基础教程</title>
+<meta name="description" content="完整走查排班案例：四个候选、打分、决策清单、六段式 one-pager 和两个冲突。">
+<link rel="stylesheet" href="assets/course.css">
+<script>
+(function () {
+  try {
+    var saved = localStorage.getItem('fde-theme');
+    var theme = saved || (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+    document.documentElement.dataset.theme = theme;
+  } catch (e) {}
+})();
+</script>
+</head>
+<body class="track-main page-case-a-one-pager">
+<a class="skip-link" href="#main">跳到正文</a>
+
+<header class="topbar">
+  <button class="icon-btn nav-toggle" id="nav-toggle" type="button" aria-expanded="false" aria-controls="sidebar" aria-label="打开课程目录">
+    <span aria-hidden="true">☰</span>
+  </button>
+  <a class="brand" data-same-tab href="index.html"><span class="brand-mark">FDE</span><span class="brand-text">零基础教程</span></a>
+  <nav class="track-switch" aria-label="模块切换"><span class="track-link active" aria-current="true" title="从零建立完整心智模型">主线</span><a class="track-link" data-same-tab href="work-01-prep.html" title="现场查用：输入、步骤、输出、阶段门">工作台</a><a class="track-link" data-same-tab href="day1-00-overview.html" title="六步链路：简报 → 访谈 → 证据 → 底稿 → 门">Day1</a><a class="track-link" data-same-tab href="appendix-methods.html" title="一卡一问，按阶段、产物、角色查">方法库</a><a class="track-link" data-same-tab href="appendix-templates.html" title="模板、产物链、术语与来源">附录</a></nav>
+  <div class="top-actions">
+    <button class="search-open" id="search-open" type="button" aria-haspopup="dialog">
+      <span aria-hidden="true">⌕</span><span class="search-label">搜索</span><kbd>/</kbd>
+    </button>
+    <button class="icon-btn" id="theme-toggle" type="button" aria-label="切换深浅色">◐</button>
+  </div>
+  <div class="read-progress" aria-hidden="true"><span id="read-progress"></span></div>
+</header>
+
+<div class="layout">
+  <aside class="sidebar" id="sidebar">
+    <nav class="course-tree" aria-label="课程目录"><header class="side-head"><p class="side-eyebrow">当前模块</p><p class="side-title">主线</p><p class="side-caption">从零建立完整心智模型</p><p class="side-meta">16 页<span class="dot">·</span>约 4 小时</p></header><section class="nav-group"><p class="nav-group-title"><span class="nav-group-num">01</span>开始</p><a class="nav-link" data-same-tab href="index.html">开始：这份教程怎么用</a></section><section class="nav-group"><p class="nav-group-title"><span class="nav-group-num">02</span>看懂 FDE</p><a class="nav-link" data-same-tab href="main-01-fde.html">FDE 是什么，不是什么</a><a class="nav-link" data-same-tab href="main-02-slicing.html">把“系统”切成可验证的决策</a><a class="nav-link" data-same-tab href="lab-slicing.html">实验室：切三个模糊需求</a></section><section class="nav-group"><p class="nav-group-title"><span class="nav-group-num">03</span>看清现状</p><a class="nav-link" data-same-tab href="main-03-as-is.html">看清今天实际怎么运转</a><a class="nav-link" data-same-tab href="main-04-one-pager.html">一页纸对齐范围</a><span class="nav-link nav-current" aria-current="page">案例 A：S1 如何被选中</span><a class="nav-link" data-same-tab href="lab-one-pager.html">实验室：20 分钟拼一页纸</a></section><section class="nav-group"><p class="nav-group-title"><span class="nav-group-num">04</span>设计验证</p><a class="nav-link" data-same-tab href="main-05-fr.html">把决策写成一句可验收的 FR</a><a class="nav-link" data-same-tab href="main-06-solution.html">方案设计四件套</a><a class="nav-link" data-same-tab href="case-b-solution.html">案例 B：从一页纸到 Demo</a></section><section class="nav-group"><p class="nav-group-title"><span class="nav-group-num">05</span>跑起来</p><a class="nav-link" data-same-tab href="main-07-gates.html">开始前的五道门</a><a class="nav-link" data-same-tab href="main-08-five-days.html">Day1–5 每天做什么</a><a class="nav-link" data-same-tab href="main-09-adoption.html">从项目到组织能力</a></section><section class="nav-group"><p class="nav-group-title"><span class="nav-group-num">06</span>选读</p><a class="nav-link" data-same-tab href="main-10-patterns.html">五种实施模式<span class="nav-optional">选读</span></a><a class="nav-link" data-same-tab href="main-11-lessons.html">一线八堂课<span class="nav-optional">选读</span></a></section></nav>
+  </aside>
+  <button class="scrim" id="scrim" type="button" aria-label="关闭目录" hidden></button>
+
+  <main class="main" id="main">
+    <nav class="crumb" aria-label="面包屑"><a data-same-tab href="index.html">教程</a><span class="sep">/</span><span>主线</span><span class="sep">/</span><span>看清现状</span><span class="sep">/</span><span aria-current="page">案例 A：S1 如何被选中</span></nav>
+    <article class="article">
+      <header class="page-head">
+        <div class="badges"><span class="badge badge-main">必读</span><span class="badge badge-time">15 分钟</span></div>
+        <h1>案例 A：S1 如何被选中</h1>
+        <p class="lede">完整走查排班案例：四个候选、打分、决策清单、六段式 one-pager 和两个冲突。</p>
+        <p class="page-question"><span class="eyebrow">本页要回答</span>一个真实的切片是怎样从模糊需求走到可评审一页纸的？</p>
+        <div class="page-meta">
+          <section class="meta-block">
+            <h2 class="meta-title" id="meta-objectives">读完你能</h2>
+            <ul class="objective-list"><li>复述 S1 被选中的三条理由；</li><li>把 CB-04 的六段对应到 one-pager 结构；</li><li>指出 C1、C2 分别违反哪条规则。</li></ul>
+          </section>
+          <section class="meta-block">
+            <h2 class="meta-title" id="meta-prereq">前置</h2>
+            <p>先读：<a href="main-04-one-pager.html" target="_blank" rel="noopener">一页纸对齐范围</a></p>
+          </section>
+        </div>
+      </header>
+
+      <div class="prose">
+        <p>这一页把排班案例从头走到尾：四个候选切片怎么比，为什么最后选 S1，决策清单怎么压成一条，以及 CB-04 的一页纸里哪些已经能评审、哪些还只是【示例】。</p>
+<p>读之前，你应先看过<a href="main-04-one-pager.html" target="_blank" rel="noopener">《一页纸：决策与范围》</a>的六段结构。本页不重新解释一页纸，只演示它怎么从材料里长出来。</p>
+<p><span id="cb-as-is"></span></p>
+<h2 id="cb-scene">场景：三个亚专科、四个人</h2>
+<p><span class="case-link">案例 CB-00</span> 的设定是：某三甲医院病理科，12 个亚专科、3 种班型，每月要把一笔外部协作人员额度分到亚专科，再落到人 <span class="cite" title="医院排班场景映射">[S19]</span>。教程只保留三个亚专科、四个人。</p>
+<p>数字均为【示例】：</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th scope="col">项目</th>
+<th scope="col">数值</th>
+<th scope="col">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>总需求</td>
+<td>56 人天</td>
+<td>三个亚专科合计</td>
+</tr>
+<tr>
+<td>外部额度</td>
+<td>54 人天</td>
+<td>比需求少 2 人天</td>
+</tr>
+<tr>
+<td>人员可上班天数合计</td>
+<td>59 天</td>
+<td>总量其实够</td>
+</tr>
+</tbody>
+</table></div>
+<p>总量 59 大于需求 56，却仍然出问题。这正是 S1 值得做的原因：<strong>总量够，不等于结构对。</strong></p>
+<p>两个冲突：</p>
+<ul>
+<li><strong>C1（超排）</strong>：王芳可上班 9 天，却被预排 10 天，超出 1 天。【示例】它违反“个人分配总量不得超过可上班天数”。</li>
+<li><strong>C2（缺口）</strong>：妇科病理需求 12 人天、额度 10 人天，结构性短缺 2 人天。【示例】它违反“亚专科分配总量不得超过外部额度”；缺口必须被标出，不能静默超分。</li>
+</ul>
+<p>C1 是个人容量约束，系统可即时拦住；C2 是额度与需求的结构性矛盾，系统不能凭空补人天，只能把缺口暴露给陈静、赵岚和周主任，由他们决定借调、改派或申请额度。两种冲突的处理方式不同，也决定 one-pager 的成功标准。</p>
+<h2 id="cb-slices">四个候选：为什么是 S1</h2>
+<p><span class="case-link">案例 CB-02</span> 把“排班系统”拆成四个候选：</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th scope="col">切片</th>
+<th scope="col">一句话</th>
+<th scope="col">最终决策</th>
+<th scope="col">结论</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>S1 外部人员额度分配</strong></td>
+<td>把月度额度分到亚专科并落到人</td>
+<td>本月每个亚专科用多少、分给谁</td>
+<td><strong>选中</strong></td>
+</tr>
+<tr>
+<td>S2 个人排班与换班</td>
+<td>把已分配的人排到具体日期与班型</td>
+<td>某天某班谁上</td>
+<td>第二轮</td>
+</tr>
+<tr>
+<td>S3 住院总轮转</td>
+<td>住院总医师的轮转与替班</td>
+<td>下月谁做住院总</td>
+<td>暂缓</td>
+</tr>
+<tr>
+<td>S4 报表与统计</td>
+<td>自动生成月度工时与额度报表</td>
+<td>无（查看为主）</td>
+<td>不做</td>
+</tr>
+</tbody>
+</table></div>
+<p>打分看价值、可行性、证据强度、风险，各 1–3 分，总分只用于比较。S1 不是“满分选手”，但它是四个里最短的端到端决策链：</p>
+<ol>
+<li><strong>只有一个最终决策</strong>，且每月真实发生；</li>
+<li><strong>输入基本已有</strong>：需求、额度、可用天数，缺的现场补；</li>
+<li><strong>结果能写回</strong>，演示看得见；</li>
+<li><strong>它在 S2 的上游</strong>：S1 的分配结果就是 S2 的输入。</li>
+</ol>
+<h3 id="why-not-s2">为什么不是 S2</h3>
+<p>S2 更诱人：直接回答“某天某班谁上”，业务方一听就懂。但它不适合作为第一刀：</p>
+<ul>
+<li><strong>依赖上游</strong>：S2 要把人排到日期和班型，前提是 S1 已决定“每个人分到哪个亚专科”。S1 不稳定，S2 就会被上游反复卡住。</li>
+<li><strong>规则更多</strong>：日期、班型、换班、连班限制、资质匹配、临时请假，每条都要单独定义，五天验证不完。</li>
+<li><strong>证据更弱</strong>：现有材料对“额度怎么分”有五步现状和两个具体冲突；对“某天某班谁上”的换班规则、例外处理，证据还不足以支撑可评审的 one-pager。</li>
+</ul>
+<p>不是 S2 不好，是顺序不对：先跑通 S1，S2 才有稳定输入。<strong>先做上游能产生干净输入的决策，再做下游更显眼的决策。</strong></p>
+<h3 id="why-not-s3-s4">S3 和 S4 为什么排后</h3>
+<p>S3 价值中等、证据弱，轮转和替班例外都没摸清，更像独立的人事流程，不适合塞进 S1。</p>
+<p>S4 更有迷惑性：可行性高、证据强、风险低，看起来最容易做。但它<strong>没有决策</strong>，主要是查看和统计；先做报表，等于先固化一堆没被验证的字段。可行性高不等于该先做。</p>
+<h2 id="cb-decisions">决策清单：从四行压成一条</h2>
+<p><span class="case-link">案例 CB-03</span> 把 S1 内部的决策拆成四行：</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th scope="col">#</th>
+<th scope="col">决策</th>
+<th scope="col">决策人</th>
+<th scope="col">时点</th>
+<th scope="col">动作</th>
+<th scope="col">类型</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>DC-1</td>
+<td>各亚专科本月额度怎么分</td>
+<td>周主任（陈静提方案）</td>
+<td>每月 25 日前</td>
+<td>确认/调整分配方案</td>
+<td>最终决策的一部分</td>
+</tr>
+<tr>
+<td>DC-2</td>
+<td>某个人分到哪个亚专科</td>
+<td>陈静</td>
+<td>分配时</td>
+<td>把人拖入亚专科并保存</td>
+<td>最终决策的一部分</td>
+</tr>
+<tr>
+<td>DC-3</td>
+<td>出现缺口时怎么办</td>
+<td>陈静 + 赵岚</td>
+<td>发现冲突时</td>
+<td>借调/改派/申请额外额度</td>
+<td>中间决策</td>
+</tr>
+<tr>
+<td>DC-4</td>
+<td>最终方案是否发布</td>
+<td>周主任</td>
+<td>每月 27 日</td>
+<td>审批并写回</td>
+<td>审批动作</td>
+</tr>
+</tbody>
+</table></div>
+<p>编号用 DC（Decision），避免和 Day1 工具包的 D1（第一天）混在一起。</p>
+<p>压缩要分清三类：</p>
+<ul>
+<li><strong>DC-1 + DC-2</strong> 是同一业务动作的两面，合并成“额度分配方案”的确认，成为 one-pager 的那<strong>一个</strong>最终决策。</li>
+<li><strong>DC-3</strong> 是缺口出现后才触发的中间决策，依赖借调规则、额度能否跨月、谁有权批，不该写进五天的主承诺。</li>
+<li><strong>DC-4</strong> 是审批动作，可做最小确认按钮或状态迁移，不需要完整审批流。</li>
+</ul>
+<p>CB-04 只承诺 DC-1/DC-2，主动把例外处理留在边界外，保证主链路端到端跑通。</p>
+<h2 id="cb-one-pager">一页纸：CB-04 怎么读</h2>
+<p><span class="case-link">案例 CB-04</span> 的六段可以逐段对照：</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th scope="col">段落</th>
+<th scope="col">CB-04 的写法</th>
+<th scope="col">评审时看什么</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>用户</td>
+<td>陈静主操作；赵岚等组长提需求并确认；周主任审批</td>
+<td>操作者、提出者、审批者是否分开</td>
+</tr>
+<tr>
+<td>决策</td>
+<td>本月每个亚专科用多少额度、分给谁</td>
+<td>是否只有一个最终决定</td>
+</tr>
+<tr>
+<td>输入</td>
+<td>需求、额度、可用天数、资质、结转与借用规则</td>
+<td>每条输入是否真的影响决定</td>
+</tr>
+<tr>
+<td>动作</td>
+<td>调整、即时显示缺口与冲突、保存写回、提交确认与审批</td>
+<td>是否有写回和人的确认</td>
+</tr>
+<tr>
+<td>价值</td>
+<td>3 小时降到 1 小时以内【示例】；冲突提前暴露；记录可追溯</td>
+<td>是否有基线、目标和测法</td>
+</tr>
+<tr>
+<td>不做什么</td>
+<td>不做 S2、S3、工资绩效、自动替人决定</td>
+<td>边界是否具体、能否挡住加需求</td>
+</tr>
+</tbody>
+</table></div>
+<p>成功标准写的是五天验证，不是长期 KPI：</p>
+<ul>
+<li>陈静能用真实一个月的数据完成一次分配；</li>
+<li>C1、C2 在界面上被识别，并至少解决一个；</li>
+<li>周主任能在界面上完成审批；</li>
+<li>分配结果写回后可再次打开核对。</li>
+</ul>
+<p>四条把“演示成功”翻译成可观察动作。注意“至少解决一个”：C1 可由系统拦住超排，C2 可能需要人借调或申请额度，系统只能暴露缺口。承诺“两条都自动解决”，Demo 时会露馅。</p>
+<p>相关方和现状也别省：相关方写清审批、操作、需求、额度口径、数据权限；现状一句话说清“Excel + 微信 + 记忆 + 纸质草表，版本分散，冲突发现晚”。</p>
+<p>还要再往前一步：<strong>谁可能反对，反对什么。</strong> S1 至少有三处会有人不舒服：</p>
+<ul>
+<li>周主任可能反对“系统先给分配建议”——他担心审批变成盖章，责任却仍在他身上。应对是把建议和批准分开，界面保留他的否决动作。</li>
+<li>赵岚可能反对“按总量平均分”——妇科是结构性缺口，平均分会让她的缺口继续被抹平。应对是把 C2 缺口显式暴露，而不是用总量够来掩盖。</li>
+<li>陈静可能反对“多一步写回”——如果新流程没有比 Excel 快，她会在忙的时候退回旧办法。应对是让写回成为提交动作的一部分，而不是额外录一遍。</li>
+</ul>
+<p>把这三条写进相关方表，比在演示会上第一次听到“这里不行”要好。反对不是阻力，是范围里还没写清的部分。</p>
+<div class="checkpoint">
+<p><strong>停一下</strong>：如果业务方在评审时说“S2 也一起做了吧，反正人都在”，你会用哪一句话把范围挡回去？</p>
+<p>可用回答：“S1 的分配结果就是 S2 的输入。S1 还没稳定，S2 排出来会被上游反复改。先跑通 S1，S2 下一轮用真实分配结果做输入。”既没否定 S2 的价值，也没放开范围。</p>
+</div>
+<h2 id="sec-pending">哪些仍是【示例】或待确认</h2>
+<p>这一页最重要的纪律，是分清“已经能评审”和“还不能当结论”。</p>
+<p><strong>仍然是【示例】的：</strong></p>
+<ul>
+<li>所有额度、需求、可用天数、冲突数字都是教学示例，不是实测或行业统计。</li>
+<li>3 小时基线来自回忆，不是系统计时；引用时说“约”，并现场复测。</li>
+<li>演示只保留三个亚专科、四个人，为了让五天跑通，不代表真实科室只有这些。</li>
+</ul>
+<p><strong>仍然待确认的：</strong></p>
+<ul>
+<li>王芳可上班 9 天来自排班本照片，需本人或人事确认；确认前 C1 只能写“疑似超排”。</li>
+<li>妇科 12 人天需求是否含夜班，口径未定，直接影响 C2 的缺口计算。</li>
+<li>额度能否跨月、外部人员资质由谁认定，都会改变分配规则，不能靠猜。</li>
+<li>写回院内系统需要什么权限，决定 Demo 写回本地对象还是真实系统。</li>
+<li>C2 是否已有内部调配方案，材料没有结论；系统暴露缺口，不等于缺口能填上。</li>
+</ul>
+<p>这些待确认项不需要在 one-pager 里全部解决，但必须在评审时被点名。把“待确认”写成“已确认”，是案例页最常见的失真。</p>
+<div class="pitfalls">
+<p><strong>坑 1：把 S1 说成“最好的切片”。</strong>
+表现：用“价值最高”证明选 S1。后果：S2 的价值可能更高，论证站不住。
+处理：说清 S1 是“最短的可验证链路”和“S2 的上游”，不是所有维度都最优。</p>
+<p><strong>坑 2：把 DC-3、DC-4 悄悄写进承诺。</strong>
+表现：一页纸写“自动处理缺口、完整审批流”。后果：五天做不完，Demo 失焦。
+处理：只承诺 DC-1/DC-2；DC-4 做最小确认，DC-3 留到下一轮。</p>
+<p><strong>坑 3：把示例数字当实测。</strong>
+表现：“3 小时降到 1 小时”说成已验证。后果：现场计时不同，信任受损。
+处理：数字标【示例】，基线写“约”并注明待复测。</p>
+<p><strong>坑 4：把 C1、C2 混成一种冲突。</strong>
+表现：以为系统能同时“自动解决”两个冲突。后果：C2 是结构性缺口，系统无法凭空补人天。
+处理：C1 用容量规则拦截；C2 暴露缺口，交给借调、改派或额外额度。</p>
+</div>
+<div class="self-test">
+<p><strong>三问自测</strong></p>
+<details>
+<summary>1. 复述 S1 被选中的三条理由。</summary>
+
+它只有一个每月真实发生的最终决策；输入基本已有、结果能写回，五天可验证；它在 S2 上游，先做 S1 才能给 S2 稳定输入。核心判断是“最短的可验证链路”，不是“所有维度最高分”。
+
+</details>
+<details>
+<summary>2. CB-04 的六段分别对应什么？</summary>
+
+用户：陈静操作、赵岚提需求并确认、周主任审批；决策：每个亚专科用多少额度、分给谁；输入：需求、额度、可用天数、资质、结转规则；动作：调整、提示、写回、提交确认与审批；价值：3 小时降到 1 小时以内【示例】、冲突提前暴露；不做什么：S2、S3、工资绩效、自动替人决定。
+
+</details>
+<details>
+<summary>3. C1、C2 分别违反哪条规则？</summary>
+
+C1 违反“个人分配总量不得超过可上班天数”，王芳可上班 9 天却被预排 10 天【示例】。C2 违反“亚专科分配总量不得超过外部额度”，妇科需求 12 人天、额度 10 人天，结构性短缺 2 人天【示例】。前者可由系统拦截，后者只能暴露缺口、由人决定怎么补。
+
+</details>
+</div>
+<div class="recap">
+<p><strong>本章带走</strong></p>
+<ol>
+<li>选切片不是选“最诱人的”，而是选“最短的可验证链路”；S1 胜出，是因为它在上游、输入已有、结果能写回。</li>
+<li>S2 不是不重要，而是依赖 S1 的输出；先做上游，后做下游，顺序比单项分数更重要。</li>
+<li>一页纸只承诺 DC-1/DC-2；C1 可以由容量规则拦截，C2 只能暴露缺口；所有数字标【示例】，待确认项必须在评审时点名。</li>
+</ol>
+</div>
+      </div>
+
+      
+      <section class="artifact-box" aria-label="本页产物"><div class="artifact-block"><h3 id="artifacts-in">开始前应已具备</h3><p class="muted"><code>A03-03</code> 候选切片与打分、<code>A03-05</code> use-case one-pager</p></div></section>
+      <section class="sources" aria-label="来源"><h2 id="sec-sources">来源与证据等级</h2><ol class="source-list"><li><span class="src-id">S01</span> <strong>Use case lifecycle · Overview</strong> <span class="badge badge-官方">官方</span><div class="muted">Palantir Technologies · 抓取 2026-10-19 · 版权归 Palantir Technologies；仅内部研究，不对外分发原文</div><div class="src-url"><a href="https://www.palantir.com/docs/foundry/use-case-life-cycle/overview/" rel="noreferrer" target="_blank">https://www.palantir.com/docs/foundry/use-case-life-cycle/overview/</a></div></li><li><span class="src-id">S17</span> <strong>FDE 方法论沉淀</strong> <span class="badge badge-实践">实践</span><div class="muted">本子项目 · 抓取 2026-09-23 · 内部方法沉淀</div><div class="src-url"><span class="muted">无公开链接</span></div></li><li><span class="src-id">S18</span> <strong>流程与范围模板</strong> <span class="badge badge-实践">实践</span><div class="muted">本子项目 · 抓取 2026-09-23 · 内部方法沉淀</div><div class="src-url"><span class="muted">无公开链接</span></div></li><li><span class="src-id">S19</span> <strong>医院排班场景映射</strong> <span class="badge badge-实践">实践</span><div class="muted">本子项目 · 抓取 2026-10-19 · 内部方法沉淀；案例已匿名化</div><div class="src-url"><span class="muted">无公开链接</span></div></li></ol></section>
+      <nav class="pager" aria-label="翻页"><a class="pager-prev" data-same-tab href="main-04-one-pager.html"><span>上一页</span><strong>一页纸对齐范围</strong></a><a class="pager-next" data-same-tab href="lab-one-pager.html"><span>下一页</span><strong>实验室：20 分钟拼一页纸</strong></a></nav>
+
+      <footer class="page-foot">
+        <p>本教程为内部方法研究。案例已匿名化，数字标注【示例】。Palantir 官方资料版权归 Palantir Technologies，仅作改写与链接。</p>
+        <p class="muted">发现断链或事实错误？回到 <a href="appendix-sources.html" target="_blank" rel="noopener">来源与版权</a> 核对出处。</p>
+      </footer>
+    </article>
+  </main>
+
+  <aside class="toc" id="toc" aria-label="页内目录">
+    <p class="toc-title">本页目录</p><ol class="toc-list"><li class="toc-h2"><a href="#cb-scene">场景：三个亚专科、四个人</a></li><li class="toc-h2"><a href="#cb-slices">四个候选：为什么是 S1</a><ul class="toc-sub"><li class="toc-h3"><a href="#why-not-s2">为什么不是 S2</a></li><li class="toc-h3"><a href="#why-not-s3-s4">S3 和 S4 为什么排后</a></li></ul></li><li class="toc-h2"><a href="#cb-decisions">决策清单：从四行压成一条</a></li><li class="toc-h2"><a href="#cb-one-pager">一页纸：CB-04 怎么读</a></li><li class="toc-h2"><a href="#sec-pending">哪些仍是【示例】或待确认</a></li></ol>
+  </aside>
+</div>
+
+<div class="tpl-modal" id="tpl-modal" hidden>
+  <div class="tpl-panel" role="dialog" aria-modal="true" aria-labelledby="tpl-title">
+    <header class="tpl-head">
+      <div class="tpl-heading">
+        <p class="tpl-kicker">模板阅读视图</p>
+        <h2 id="tpl-title">模板</h2>
+      </div>
+      <div class="tpl-actions">
+        <a class="tpl-open" id="tpl-open" href="#" target="_blank" rel="noopener">在新标签打开 ↗</a>
+        <button class="icon-btn" id="tpl-close" type="button" aria-label="关闭模板">✕</button>
+      </div>
+    </header>
+    <div class="tpl-body">
+      <iframe id="tpl-frame" title="模板内容" loading="lazy"></iframe>
+    </div>
+  </div>
+</div>
+
+<div class="search-modal" id="search-modal" hidden>
+  <div class="search-panel" role="dialog" aria-modal="true" aria-labelledby="search-title">
+    <div class="search-head">
+      <label id="search-title" class="sr-only" for="search-input">搜索教程</label>
+      <input id="search-input" type="search" placeholder="搜索概念、产物、模板、方法卡…" autocomplete="off">
+      <button class="icon-btn" id="search-close" type="button" aria-label="关闭搜索">✕</button>
+    </div>
+    <div id="search-results" class="search-results" aria-live="polite"></div>
+    <p class="search-hint">按 <kbd>/</kbd> 或 <kbd>Ctrl</kbd>+<kbd>K</kbd> 打开，<kbd>Esc</kbd> 关闭。索引完全离线。</p>
+  </div>
+</div>
+
+<noscript><p class="noscript-note">搜索与阅读进度需要 JavaScript；正文、目录和翻页仍可正常使用。可用浏览器查找（Ctrl+F）。</p></noscript>
+
+<script src="assets/search-index.js"></script>
+<script src="assets/viz-data.js"></script>
+<script src="assets/app.js"></script>
+<script src="assets/viz.js"></script>
+
+</body>
+</html>

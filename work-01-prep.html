@@ -1,0 +1,590 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<title>调研前 7 天 · FDE 零基础教程</title>
+<meta name="description" content="章程、干系人、数据权限、基线、排期：进场前必须备齐的五件事。">
+<link rel="stylesheet" href="assets/course.css">
+<script>
+(function () {
+  try {
+    var saved = localStorage.getItem('fde-theme');
+    var theme = saved || (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+    document.documentElement.dataset.theme = theme;
+  } catch (e) {}
+})();
+</script>
+</head>
+<body class="track-workbench page-work-01-prep">
+<a class="skip-link" href="#main">跳到正文</a>
+
+<header class="topbar">
+  <button class="icon-btn nav-toggle" id="nav-toggle" type="button" aria-expanded="false" aria-controls="sidebar" aria-label="打开课程目录">
+    <span aria-hidden="true">☰</span>
+  </button>
+  <a class="brand" data-same-tab href="index.html"><span class="brand-mark">FDE</span><span class="brand-text">零基础教程</span></a>
+  <nav class="track-switch" aria-label="模块切换"><a class="track-link" data-same-tab href="index.html" title="从零建立完整心智模型">主线</a><span class="track-link active" aria-current="true" title="现场查用：输入、步骤、输出、阶段门">工作台</span><a class="track-link" data-same-tab href="day1-00-overview.html" title="六步链路：简报 → 访谈 → 证据 → 底稿 → 门">Day1</a><a class="track-link" data-same-tab href="appendix-methods.html" title="一卡一问，按阶段、产物、角色查">方法库</a><a class="track-link" data-same-tab href="appendix-templates.html" title="模板、产物链、术语与来源">附录</a></nav>
+  <div class="top-actions">
+    <button class="search-open" id="search-open" type="button" aria-haspopup="dialog">
+      <span aria-hidden="true">⌕</span><span class="search-label">搜索</span><kbd>/</kbd>
+    </button>
+    <button class="icon-btn" id="theme-toggle" type="button" aria-label="切换深浅色">◐</button>
+  </div>
+  <div class="read-progress" aria-hidden="true"><span id="read-progress"></span></div>
+</header>
+
+<div class="layout">
+  <aside class="sidebar" id="sidebar">
+    <nav class="course-tree" aria-label="课程目录"><header class="side-head"><p class="side-eyebrow">当前模块</p><p class="side-title">实操工作台</p><p class="side-caption">现场查用：输入、步骤、输出、阶段门</p><p class="side-meta">9 页<span class="dot">·</span>按需查</p></header><section class="nav-group"><p class="nav-group-title"><span class="nav-group-num">01</span>调研与记录</p><span class="nav-link nav-current" aria-current="page">调研前 7 天</span><a class="nav-link" data-same-tab href="work-02-interview.html">现场 60 分钟</a><a class="nav-link" data-same-tab href="work-03-record.html">记录：把现场变成证据</a><a class="nav-link" data-same-tab href="work-04-model.html">从证据到模型</a></section><section class="nav-group"><p class="nav-group-title"><span class="nav-group-num">02</span>交付与 Demo</p><a class="nav-link" data-same-tab href="work-05-spec.html">一小时压出评审包</a><a class="nav-link" data-same-tab href="work-06-demo.html">Demo 脚本、数据与环境</a><a class="nav-link" data-same-tab href="work-07-run.html">五天执行与阶段门</a><a class="nav-link" data-same-tab href="work-08-retro.html">复盘与回流</a><a class="nav-link" data-same-tab href="work-09-toolchain.html">工具链与硬编码路径</a></section></nav>
+  </aside>
+  <button class="scrim" id="scrim" type="button" aria-label="关闭目录" hidden></button>
+
+  <main class="main" id="main">
+    <nav class="crumb" aria-label="面包屑"><a data-same-tab href="index.html">教程</a><span class="sep">/</span><span>实操工作台</span><span class="sep">/</span><span>调研与记录</span><span class="sep">/</span><span aria-current="page">调研前 7 天</span></nav>
+    <article class="article">
+      <header class="page-head">
+        <div class="badges"><span class="badge badge-workbench">查用</span><span class="badge badge-time">15 分钟</span></div>
+        <h1>调研前 7 天</h1>
+        <p class="lede">章程、干系人、数据权限、基线、排期：进场前必须备齐的五件事。</p>
+        <p class="page-question"><span class="eyebrow">本页要回答</span>明天要去现场，今天必须准备到什么程度？</p>
+        <div class="page-meta">
+          <section class="meta-block">
+            <h2 class="meta-title" id="meta-objectives">读完你能</h2>
+            <ul class="objective-list"><li>产出范围与非范围、数据权限和调研排期；</li><li>为每个关键角色写出需要什么证据；</li><li>建立至少一个指标的基线采集方式。</li></ul>
+          </section>
+          <section class="meta-block">
+            <h2 class="meta-title" id="meta-prereq">前置</h2>
+            <p>先读：<a href="main-03-as-is.html" target="_blank" rel="noopener">看清今天实际怎么运转</a></p>
+          </section>
+        </div>
+      </header>
+
+      <div class="prose">
+        <dl class="runbook-head">
+<div><dt>何时用</dt><dd>进场前 7 天，或接到调研任务后的第一个工作日</dd></div>
+<div><dt>前置</dt><dd>A00-01 项目一页纸、A00-02 干系人地图已有一版</dd></div>
+<div><dt>产出</dt><dd>A00-03、A00-04、A01-01、A01-03、A01-04</dd></div>
+<div><dt>阶段门与耗时</dt><dd>G1 调研准备门；约 6 小时，分散在 7 天</dd></div>
+</dl>
+
+<p>明天进场，今天下午只有一页项目纸和一张空日历。现场最贵的不是时间，是问错人、问错事、拿不到数据。</p>
+<p>这一页把 7 天拆成 7 个动作，外加进场前 30 分钟的范围分诊：分诊先决定这件事该不该做，剩下每天一件，做完打勾；最后一天只打印和彩排。</p>
+<h2 id="sec-when">何时用</h2>
+<p><strong>该用</strong>：</p>
+<ul>
+<li>距首次现场访谈 7 天左右；</li>
+<li>知道大致业务域，但范围、数据、受访人还没定；</li>
+<li>要带同事进场，需要统一“问什么、拿什么”。</li>
+</ul>
+<p><strong>不该用</strong>：</p>
+<ul>
+<li>还没立项、没有发起人。先补 A00-01；</li>
+<li>只读公开资料，不做现场取证；</li>
+<li>没有数据授权却想“先聊再补”。没有 A00-04，不碰明细数据。</li>
+</ul>
+<div class="checkpoint">
+<p><strong>停一下</strong>：这次调研结束时，要改变谁的哪个决定？答不出来，说明结果合同还没写，别急着排日程。</p>
+</div>
+<h2 id="sec-prereq">前置</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th scope="col">前置</th>
+<th scope="col">最低要求</th>
+<th scope="col">缺失怎么办</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A00-01 项目章程一页纸</td>
+<td>写清业务问题、目标用户、成功标准</td>
+<td>找发起人补，不要自己编</td>
+</tr>
+<tr>
+<td>A00-02 干系人地图</td>
+<td>标出最终决策人、日常操作者、技术把关人</td>
+<td>先访谈发起人，画出第一版</td>
+</tr>
+<tr>
+<td>决策人时间</td>
+<td>已约到真正拍板的人</td>
+<td>只约到接口人，G1 不通过</td>
+</tr>
+<tr>
+<td>数据样本或制度</td>
+<td>一份脱敏样例、空白表单或现行制度</td>
+<td>现场再要，但要在计划里写“补采”</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="sec-inputs">输入</h2>
+<p>进场前读五样东西，每样只取一个结果：</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th scope="col">输入</th>
+<th scope="col">只取什么</th>
+<th scope="col">用来产出</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>项目一页纸</td>
+<td>业务问题、成功标准</td>
+<td>结果合同</td>
+</tr>
+<tr>
+<td>干系人地图</td>
+<td>谁关心什么、要什么证据</td>
+<td>访谈对象与提纲</td>
+</tr>
+<tr>
+<td>表单、制度</td>
+<td>字段、审批链、例外</td>
+<td>观察表底稿</td>
+</tr>
+<tr>
+<td>报表、台账</td>
+<td>指标定义、口径、可信度</td>
+<td>基线</td>
+</tr>
+<tr>
+<td>日历、场地</td>
+<td>时段、路程、材料</td>
+<td>排期</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="sec-steps">步骤</h2>
+<h3 id="step-scoping">第 0 步：范围分诊（D-7，30 分钟）</h3>
+<p>在写结果合同之前，先用第 2 页（<a class="page-link" href="main-02-slicing.html" target="_blank" rel="noopener">把“系统”切成可验证的决策</a>）里的六个问题，把接到的请求过一遍：为什么现在、不做会怎样、真实用户有多少、今天手工替代的成本多高、客户技术团队能承担什么、它会挤掉队列里的哪一项。</p>
+<p>分诊的输出只有一行，写进 <code>00_项目章程/00-01_项目一页纸.md</code>：</p>
+<blockquote>
+<p>本轮只验证：<strong><strong>；明确不做：</strong></strong>；停止条件：____。</p>
+</blockquote>
+<p>如果答案是“销售很急，但客户业务并不急”，就把它记成 No-Go 或延后，不要因为一个电话就变成 D-7 的承诺。每一次承诺都会进入代码库、发布流程和支持队列，进场前就该决定它为谁让路。</p>
+<h3 id="step-outcome">第 1 步：写结果合同（D-7，60 分钟）</h3>
+<p>把“做一个排班系统”改写成一句可验收的结果。<span class="term-link" title="Outcome Contract：把“我要一个系统”改写成“我们要改善哪个结果”，写明对象、行为、基线、目标、时间、边界和反指标。">结果合同</span>七个空：</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th scope="col">字段</th>
+<th scope="col">要写成什么</th>
+<th scope="col">排班案例【示例】</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>对象</td>
+<td>谁的哪个动作</td>
+<td>陈静每月的额度分配</td>
+</tr>
+<tr>
+<td>行为</td>
+<td>从什么做法改成什么做法</td>
+<td>从翻 Excel、微信和记忆，改成在一张表里当场核对</td>
+</tr>
+<tr>
+<td>基线</td>
+<td>现在实测或回忆值</td>
+<td>约 3 小时/月，冲突多在提交后才发现</td>
+</tr>
+<tr>
+<td>目标</td>
+<td>可观察的终点</td>
+<td>1 小时内完成，提交前看到 C1、C2</td>
+</tr>
+<tr>
+<td>时间</td>
+<td>多长窗口</td>
+<td>一个月度周期</td>
+</tr>
+<tr>
+<td>边界</td>
+<td>不改变什么</td>
+<td>不改审批权、不改额度规则</td>
+</tr>
+<tr>
+<td>反指标</td>
+<td>不能变坏什么</td>
+<td>超排天数、人均夜班数不上升</td>
+</tr>
+</tbody>
+</table></div>
+<p>反指标最容易漏；没有它，团队会为快牺牲公平或合规。写完让发起人复述；复述不出，还是功能清单。</p>
+<h3 id="step-stakeholders">第 2 步：画干系人地图（D-6，45 分钟）</h3>
+<p>干系人地图（Stakeholder Map）不是通讯录。每个名字后答三件事：影响什么、关心什么、需要什么证据才会点头。</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th scope="col">角色</th>
+<th scope="col">位置</th>
+<th scope="col">关心什么</th>
+<th scope="col">需要什么证据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>周主任</td>
+<td>最终审批人</td>
+<td>总额度不超、临床不出事</td>
+<td>规则、合规、异常处理</td>
+</tr>
+<tr>
+<td>陈静</td>
+<td>日常操作者</td>
+<td>少返工、别靠回忆</td>
+<td>真实操作、改版下降</td>
+</tr>
+<tr>
+<td>赵岚</td>
+<td>需求提出者</td>
+<td>本组缺口被看见</td>
+<td>缺口计算、调配记录</td>
+</tr>
+<tr>
+<td>刘工</td>
+<td>数据接口人</td>
+<td>权限可控、不加负担</td>
+<td>数据清单、写回边界</td>
+</tr>
+</tbody>
+</table></div>
+<p>态度写支持、中立或抵触及原因，不写“人很好”；抵触的人常掌握关键例外，要单独约。证据需求决定访谈问什么、Demo 演示什么。</p>
+<h3 id="step-scope">第 3 步：划范围与非范围（D-5，45 分钟）</h3>
+<p>章程里的范围最容易写成口号。范围与非范围各写至少三条；非范围要具体到业务方点头，不写“其他”。</p>
+<ul>
+<li><strong>包含</strong>：S1 额度分配到亚专科与人、冲突提示、分配记录写回。</li>
+<li><strong>不包含</strong>：个人排班与换班（S2）、住院总轮转（S3）、自动优化、移动端。</li>
+<li><strong>边界</strong>：额度仍由孙老师下发，审批仍走周主任签字。</li>
+<li><strong>依赖</strong>：人员可用天数、年假表、额度表。</li>
+<li><strong>变更</strong>：新增亚专科或班型，先评估数据与规则，不直接进本期。</li>
+</ul>
+<p>把非范围读给业务方听：“这次不做，会影响你什么？”答不上来，它可能在范围内。</p>
+<h3 id="step-data">第 4 步：定知情同意与数据权限（D-4，45 分钟）</h3>
+<p>数据权限（Data Permission）不是保密承诺，是八件事：数据类别、用途、脱敏方式、存储位置、访问人、授权人、授权日期、销毁方式。</p>
+<p>三条硬线：最小必要、用途限定、书面授权。姓名可换化名，但保留业务键；映射表单独存放，不进演示环境。授权人必须能对数据负责，通常是周主任或刘工。授权日期写进场前；没日期等于没授权。</p>
+<p>医院场景还要多问一句：<strong>这批数据会不会离开院内、用于对外发表或产品推广？</strong> 会，就先确认伦理委员会（IRB）是否要求审查；涉及患者数据的，必须有过批件或书面豁免。拿不到批件，就把范围收在管理与排班数据上，不碰患者明细。访谈录音同样要当场征得同意，并把“同意录音/仅笔记”写进 A00-04。</p>
+<h3 id="step-plan">第 5 步：排调研计划（D-3，45 分钟）</h3>
+<p>A01-01 一行一场，七列：日期、时段、对象、主题、地点或方式、所需材料、负责人。排三类场次：决策人 30 分钟问规则与审批；操作者 60–90 分钟做场景走查；跟岗 90–120 分钟看真实动作。</p>
+<p>每场只写一个主题，不写“了解业务”；至少一场跟岗，只看访谈会得到“应该怎样”；每半天留 30 分钟缓冲。</p>
+<h3 id="step-outline">第 6 步：写提纲骨架与观察表（D-2，60 分钟）</h3>
+<p>这一站只写提纲骨架：每场三个必问，以及期望证据。完整分轮提纲在 work-02 展开。三个问题分别对准：最近一次场景、当时的决策、决定后的动作。</p>
+<p>观察表用 A01-03 九列：时间、角色、动作、使用工具、输入、输出、等待或切换、痛点、备注。先打印十行空表；手写比开电脑快。</p>
+<h3 id="step-baseline">第 7 步：采基线并打印（D-1，60 分钟）</h3>
+<p><span class="term-link" title="Baseline：开始改造前测得的当前值；没有实测基线，就不能声称“下降了 X%”。">基线</span>是改造前测得的当前值。没有实测基线，就不能说“下降了 X%”。至少选一个指标，填满八列：指标、定义、当前值、单位、数据来源、统计口径、采集日期、可信度。</p>
+<p>拿不到系统数据就写“受访者回忆值”，标“低”，并现场复测。最后打印计划、观察表、基线清单和 A00-03、A00-04 各一份。</p>
+<div class="checkpoint">
+<p><strong>停一下</strong>：如果只能带三张纸进场，带哪三张？计划、观察表、基线清单。章程留在电脑里，现场不看。</p>
+</div>
+<h2 id="sec-output">输出</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th scope="col">输出</th>
+<th scope="col">文件</th>
+<th scope="col">最小内容</th>
+<th scope="col">下游</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A00-03 范围与非范围</td>
+<td><code>00_项目章程/00-03_范围与非范围.md</code></td>
+<td>包含、不包含、边界、依赖、变更</td>
+<td>work-02、work-04</td>
+</tr>
+<tr>
+<td>A00-04 知情同意与数据权限</td>
+<td><code>00_项目章程/00-04_知情同意与数据权限.md</code></td>
+<td>八字段 + 授权日期</td>
+<td>全场</td>
+</tr>
+<tr>
+<td>A01-01 调研计划与排期</td>
+<td><code>01_调研准备/01-01_调研计划与排期.md</code></td>
+<td>七列，每场一行</td>
+<td>work-02</td>
+</tr>
+<tr>
+<td>A01-03 现场观察记录表</td>
+<td><code>01_调研准备/01-03_现场观察记录表.md</code></td>
+<td>九列，已打印十行</td>
+<td>work-02、work-03</td>
+</tr>
+<tr>
+<td>A01-04 基线数据清单</td>
+<td><code>01_调研准备/01-04_基线数据清单.md</code></td>
+<td>八列，至少一个指标完整</td>
+<td>work-04、work-07</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="sec-gate">阶段门</h2>
+<div class="gate-panel">
+<p><strong>G0 收口</strong>：A00-03 非范围至少三条且业务方确认；A00-04 有授权人、日期和销毁方式。</p>
+<p><strong>G1 通过</strong>：计划每场有对象、时段、主题、材料；提纲骨架每场不超过三问且写期望证据；观察表能记九列；基线至少一个指标有来源和口径；约到决策人。</p>
+<p><strong>有条件</strong>：基线只有回忆值——标低并写“现场复测”；决策人不在——改约并先跟岗，不用接口人代替结论。</p>
+<p><strong>不通过</strong>：无书面授权、只有接口人、计划写“了解业务”、观察表只有“痛点”。补齐再进场。</p>
+</div>
+<h2 id="sec-template">模板</h2>
+<div class="template-block">
+<div class="template-title">A01-01 调研计划与排期 <span>片段，可直接抄</span></div>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th scope="col">日期</th>
+<th scope="col">时段</th>
+<th scope="col">对象</th>
+<th scope="col">主题</th>
+<th scope="col">地点或方式</th>
+<th scope="col">所需材料</th>
+<th scope="col">负责人</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D-3</td>
+<td>09:00–10:30</td>
+<td>陈静</td>
+<td>最近一次额度分配</td>
+<td>排班室／跟岗</td>
+<td>排班本、Excel 导出</td>
+<td>FDE-1</td>
+</tr>
+<tr>
+<td>D-2</td>
+<td>14:00–14:30</td>
+<td>周主任</td>
+<td>额度规则与审批边界</td>
+<td>会议室</td>
+<td>额度表、审批单</td>
+<td>FDE-1</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="template-block">
+<div class="template-title">A01-04 基线数据清单 <span>一行一个指标</span></div>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th scope="col">指标</th>
+<th scope="col">定义</th>
+<th scope="col">当前值</th>
+<th scope="col">单位</th>
+<th scope="col">数据来源</th>
+<th scope="col">统计口径</th>
+<th scope="col">采集日期</th>
+<th scope="col">可信度</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>额度分配耗时</td>
+<td>从收额度到提交审批的人工时间</td>
+<td>约 3【示例】</td>
+<td>小时/月</td>
+<td>陈静回忆</td>
+<td>含电话协调，不含审批等待</td>
+<td>D-1</td>
+<td>低，现场复测</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>填写说明</strong>：回忆值必须写“低”；没有口径的数字不进清单；至少一个指标进场前有来源。</p>
+</div>
+<p>完整空白模板在 <code>templates/blank/01-01_调研计划与排期.md</code> 与 <code>templates/blank/01-04_基线数据清单.md</code>。</p>
+<p><span id="cb-brief"></span></p>
+<h2 id="sec-case">排班案例</h2>
+<p><span class="case-link">案例 CB-12</span>的做法可以直接抄结构，不要抄数字。它的数据权限部分是这样落的：</p>
+<ul>
+<li><strong>类别</strong>：姓名、岗位、资质、可用天数、月度额度、分配记录；</li>
+<li><strong>用途</strong>：仅用于本次 Demo 与验证；</li>
+<li><strong>脱敏</strong>：姓名化名，删除身份证号与联系方式，映射表单独存放；</li>
+<li><strong>存储与访问</strong>：客户内网指定目录，FDE 两人、陈静、刘工可访问；</li>
+<li><strong>授权与销毁</strong>：周主任书面授权，验证结束后 30 天内删除副本。</li>
+</ul>
+<p>这张表进场前由周主任确认；没有它，连排班本照片也别拍。</p>
+<p>对应的排期可以排得很轻：</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th scope="col">时间</th>
+<th scope="col">对象</th>
+<th scope="col">时长</th>
+<th scope="col">主题</th>
+<th scope="col">方式</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D-6 上午</td>
+<td>陈静</td>
+<td>90 分钟</td>
+<td>最近一次额度分配</td>
+<td>排班室跟岗</td>
+</tr>
+<tr>
+<td>D-5 下午</td>
+<td>周主任</td>
+<td>30 分钟</td>
+<td>额度规则与审批边界</td>
+<td>会议室</td>
+</tr>
+</tbody>
+</table></div>
+<p>陈静那场是跟岗，不是座谈；周主任那场只问规则和边界。每场只解决一类证据。</p>
+<h2 id="sec-failures">常见失败</h2>
+<div class="pitfalls">
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th scope="col">现象</th>
+<th scope="col">原因</th>
+<th scope="col">处理</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>范围写成功能清单</td>
+<td>把“做什么”当成“改变什么”</td>
+<td>回到结果合同，先写对象和行为</td>
+</tr>
+<tr>
+<td>干系人只有联系人</td>
+<td>只按组织架构画图</td>
+<td>补“关心什么、需要什么证据、决策权”</td>
+</tr>
+<tr>
+<td>数据权限口头答应</td>
+<td>怕麻烦，想先拿后补</td>
+<td>停采明细；先签 A00-04，或只用脱敏样例</td>
+</tr>
+<tr>
+<td>基线全是回忆值</td>
+<td>没提前要报表</td>
+<td>标低可信度，写现场复测，不用它算降幅</td>
+</tr>
+<tr>
+<td>提纲列了二十问</td>
+<td>把访谈当问卷</td>
+<td>每场只留三个必问，其余现场生成</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="hands-on">
+<p><strong>动手 30 分钟</strong>：写一版结果合同。</p>
+<ol>
+<li>选一个正在做的需求，用一句话写“谁、在什么时点、做什么决定”；</li>
+<li>填七字段；基线写“未知”也行，但要写怎么测；</li>
+<li>让同事只看合同复述目标，复述不出就改。</li>
+</ol>
+<p><strong>自检</strong>：合同里没有“系统”“平台”“支持”；反指标至少一条；基线有来源。</p>
+</div>
+<div class="self-test">
+<p><strong>三问自测</strong></p>
+<details>
+<summary>1. 结果合同和需求清单最大的区别是什么？</summary>
+
+合同写结果和量法，清单写功能；前者能验收，后者只能交付。
+
+</details>
+<details>
+<summary>2. 干系人地图为什么要有“需要什么证据”一列？</summary>
+
+不同角色点头的依据不同；提前写清，访谈和 Demo 才知道给谁看什么。
+
+</details>
+<details>
+<summary>3. 只有回忆值，能不能写“效率提升 60%”？</summary>
+
+不能。回忆值只能当假设，标低并现场复测；否则是把估算当实测。
+
+</details>
+</div>
+<h2 id="sec-checklist">自检清单</h2>
+<p>打印这一页，进场前逐项打勾：</p>
+<ul>
+<li>[ ] 结果合同七字段齐全，反指标至少一条；</li>
+<li>[ ] 干系人地图标出决策人、操作者、把关人、可能抵触者；</li>
+<li>[ ] 范围与非范围各至少三条，非范围经确认；</li>
+<li>[ ] A00-04 八字段齐全，有授权人和授权日期；</li>
+<li>[ ] A01-01 每场有对象、时段、主题、材料；</li>
+<li>[ ] 至少一场跟岗，约到决策人；</li>
+<li>[ ] A01-03 九列可手写，已打印十行；</li>
+<li>[ ] A01-04 至少一个指标有来源、口径和可信度；</li>
+<li>[ ] 有没有预约到真正做决策的人，而不是只约到接口人；</li>
+<li>[ ] 有没有拿到最近一次真实例外的材料（改过的单子、特批记录、群里的临时调整）；</li>
+<li>[ ] 有没有确认数据权限的书面授权人，而不只是口头同意；</li>
+<li>[ ] 有没有把“先临时看一下”的请求挡在范围外，而不是顺手写进本期。</li>
+</ul>
+<div class="recap">
+<p><strong>本章带走</strong></p>
+<ol>
+<li>进场前 7 天先做范围分诊，再备齐七件事：合同、干系人、范围、授权、排期、提纲骨架、基线。</li>
+<li>合同让“做什么”变成“哪个结果要变”；干系人地图决定问谁；数据权限决定能不能碰。</li>
+<li>基线没有实测就标低；非范围没确认就不算范围。</li>
+</ol>
+</div>
+      </div>
+
+      <section class="term-cards" aria-label="本页术语卡"><p class="eyebrow">本页术语</p><div class="term-grid"><article class="term-card" id="term-outcome-contract"><h3 id="term-title-outcome-contract">结果合同 <span class="term-en">Outcome Contract</span></h3><p>把“我要一个系统”改写成“我们要改善哪个结果”，写明对象、行为、基线、目标、时间、边界和反指标。</p></article><article class="term-card" id="term-baseline"><h3 id="term-title-baseline">基线 <span class="term-en">Baseline</span></h3><p>开始改造前测得的当前值；没有实测基线，就不能声称“下降了 X%”。</p></article><article class="term-card" id="term-runbook"><h3 id="term-title-runbook">Runbook（操作手册页） <span class="term-en">Runbook</span></h3><p>工作台里按“何时用、输入、步骤、输出、阶段门、模板、常见失败”组织的可执行页面。</p></article></div></section>
+      <section class="artifact-box" aria-label="本页产物"><div class="artifact-block"><h3 id="artifacts-out">本页要写出的产物</h3><ul><li><code>A00-03</code> 范围与非范围 <span class="muted">→ 00_项目章程/00-03_范围与非范围.md</span> <span class="gate-tag">G0</span> <a href="templates/blank/00-03_范围与非范围.html" data-template-view data-template-title="A00-03 范围与非范围模板" title="A00-03 范围与非范围模板 ｜ 当前页弹窗预览">模板</a> <a href="templates/golden/00-03_范围与非范围_排班案例.html" data-template-view data-template-title="A00-03 范围与非范围黄金样例" title="A00-03 范围与非范围黄金样例 ｜ 当前页弹窗预览">黄金样例</a></li><li><code>A00-04</code> 知情同意与数据权限 <span class="muted">→ 00_项目章程/00-04_知情同意与数据权限.md</span> <span class="gate-tag">G0</span> <a href="templates/blank/00-04_知情同意与数据权限.html" data-template-view data-template-title="A00-04 知情同意与数据权限模板" title="A00-04 知情同意与数据权限模板 ｜ 当前页弹窗预览">模板</a> <a href="templates/golden/00-04_知情同意与数据权限_排班案例.html" data-template-view data-template-title="A00-04 知情同意与数据权限黄金样例" title="A00-04 知情同意与数据权限黄金样例 ｜ 当前页弹窗预览">黄金样例</a></li><li><code>A01-01</code> 调研计划与排期 <span class="muted">→ 01_调研准备/01-01_调研计划与排期.md</span> <span class="gate-tag">G1</span> <a href="templates/blank/01-01_调研计划与排期.html" data-template-view data-template-title="A01-01 调研计划与排期模板" title="A01-01 调研计划与排期模板 ｜ 当前页弹窗预览">模板</a> <a href="templates/golden/01-01_调研计划与排期_排班案例.html" data-template-view data-template-title="A01-01 调研计划与排期黄金样例" title="A01-01 调研计划与排期黄金样例 ｜ 当前页弹窗预览">黄金样例</a></li><li><code>A01-03</code> 现场观察记录表 <span class="muted">→ 01_调研准备/01-03_现场观察记录表.md</span> <span class="gate-tag">G1</span> <a href="templates/blank/01-03_现场观察记录表.html" data-template-view data-template-title="A01-03 现场观察记录表模板" title="A01-03 现场观察记录表模板 ｜ 当前页弹窗预览">模板</a> <a href="templates/golden/01-03_现场观察记录表_排班案例.html" data-template-view data-template-title="A01-03 现场观察记录表黄金样例" title="A01-03 现场观察记录表黄金样例 ｜ 当前页弹窗预览">黄金样例</a></li><li><code>A01-04</code> 基线数据清单 <span class="muted">→ 01_调研准备/01-04_基线数据清单.md</span> <span class="gate-tag">G1</span> <a href="templates/blank/01-04_基线数据清单.html" data-template-view data-template-title="A01-04 基线数据清单模板" title="A01-04 基线数据清单模板 ｜ 当前页弹窗预览">模板</a> <a href="templates/golden/01-04_基线数据清单_排班案例.html" data-template-view data-template-title="A01-04 基线数据清单黄金样例" title="A01-04 基线数据清单黄金样例 ｜ 当前页弹窗预览">黄金样例</a></li></ul></div><div class="artifact-block"><h3 id="artifacts-in">开始前应已具备</h3><p class="muted"><code>A00-01</code> 项目一页纸、<code>A00-02</code> 干系人地图</p></div></section>
+      <section class="sources" aria-label="来源"><h2 id="sec-sources">来源与证据等级</h2><ol class="source-list"><li><span class="src-id">S17</span> <strong>FDE 方法论沉淀</strong> <span class="badge badge-实践">实践</span><div class="muted">本子项目 · 抓取 2026-09-23 · 内部方法沉淀</div><div class="src-url"><span class="muted">无公开链接</span></div></li><li><span class="src-id">S18</span> <strong>流程与范围模板</strong> <span class="badge badge-实践">实践</span><div class="muted">本子项目 · 抓取 2026-09-23 · 内部方法沉淀</div><div class="src-url"><span class="muted">无公开链接</span></div></li><li><span class="src-id">S19</span> <strong>医院排班场景映射</strong> <span class="badge badge-实践">实践</span><div class="muted">本子项目 · 抓取 2026-10-19 · 内部方法沉淀；案例已匿名化</div><div class="src-url"><span class="muted">无公开链接</span></div></li><li><span class="src-id">S15</span> <strong>《FDE 入门到精通》（FDE: From Fundamentals to Mastery）</strong> <span class="badge badge-第三方">第三方</span><div class="muted">高飞 / feigaobox10 · 抓取 2026-10-19 · CC BY-NC-SA 4.0；非官方，未获讲者或公司背书</div><div class="src-url"><a href="https://github.com/feigaobox10/fde-reader" rel="noreferrer" target="_blank">https://github.com/feigaobox10/fde-reader</a></div></li></ol></section>
+      <nav class="pager" aria-label="翻页"><span class="pager-empty"></span><a class="pager-next" data-same-tab href="work-02-interview.html"><span>下一页</span><strong>现场 60 分钟</strong></a></nav>
+
+      <footer class="page-foot">
+        <p>本教程为内部方法研究。案例已匿名化，数字标注【示例】。Palantir 官方资料版权归 Palantir Technologies，仅作改写与链接。</p>
+        <p class="muted">发现断链或事实错误？回到 <a href="appendix-sources.html" target="_blank" rel="noopener">来源与版权</a> 核对出处。</p>
+      </footer>
+    </article>
+  </main>
+
+  <aside class="toc" id="toc" aria-label="页内目录">
+    <p class="toc-title">本页目录</p><ol class="toc-list"><li class="toc-h2"><a href="#sec-when">何时用</a></li><li class="toc-h2"><a href="#sec-prereq">前置</a></li><li class="toc-h2"><a href="#sec-inputs">输入</a></li><li class="toc-h2"><a href="#sec-steps">步骤</a><ul class="toc-sub"><li class="toc-h3"><a href="#step-scoping">第 0 步：范围分诊（D-7，30 分钟）</a></li><li class="toc-h3"><a href="#step-outcome">第 1 步：写结果合同（D-7，60 分钟）</a></li><li class="toc-h3"><a href="#step-stakeholders">第 2 步：画干系人地图（D-6，45 分钟）</a></li><li class="toc-h3"><a href="#step-scope">第 3 步：划范围与非范围（D-5，45 分钟）</a></li><li class="toc-h3"><a href="#step-data">第 4 步：定知情同意与数据权限（D-4，45 分钟）</a></li><li class="toc-h3"><a href="#step-plan">第 5 步：排调研计划（D-3，45 分钟）</a></li><li class="toc-h3"><a href="#step-outline">第 6 步：写提纲骨架与观察表（D-2，60 分钟）</a></li><li class="toc-h3"><a href="#step-baseline">第 7 步：采基线并打印（D-1，60 分钟）</a></li></ul></li><li class="toc-h2"><a href="#sec-output">输出</a></li><li class="toc-h2"><a href="#sec-gate">阶段门</a></li><li class="toc-h2"><a href="#sec-template">模板</a></li><li class="toc-h2"><a href="#sec-case">排班案例</a></li><li class="toc-h2"><a href="#sec-failures">常见失败</a></li><li class="toc-h2"><a href="#sec-checklist">自检清单</a></li></ol>
+  </aside>
+</div>
+
+<div class="tpl-modal" id="tpl-modal" hidden>
+  <div class="tpl-panel" role="dialog" aria-modal="true" aria-labelledby="tpl-title">
+    <header class="tpl-head">
+      <div class="tpl-heading">
+        <p class="tpl-kicker">模板阅读视图</p>
+        <h2 id="tpl-title">模板</h2>
+      </div>
+      <div class="tpl-actions">
+        <a class="tpl-open" id="tpl-open" href="#" target="_blank" rel="noopener">在新标签打开 ↗</a>
+        <button class="icon-btn" id="tpl-close" type="button" aria-label="关闭模板">✕</button>
+      </div>
+    </header>
+    <div class="tpl-body">
+      <iframe id="tpl-frame" title="模板内容" loading="lazy"></iframe>
+    </div>
+  </div>
+</div>
+
+<div class="search-modal" id="search-modal" hidden>
+  <div class="search-panel" role="dialog" aria-modal="true" aria-labelledby="search-title">
+    <div class="search-head">
+      <label id="search-title" class="sr-only" for="search-input">搜索教程</label>
+      <input id="search-input" type="search" placeholder="搜索概念、产物、模板、方法卡…" autocomplete="off">
+      <button class="icon-btn" id="search-close" type="button" aria-label="关闭搜索">✕</button>
+    </div>
+    <div id="search-results" class="search-results" aria-live="polite"></div>
+    <p class="search-hint">按 <kbd>/</kbd> 或 <kbd>Ctrl</kbd>+<kbd>K</kbd> 打开，<kbd>Esc</kbd> 关闭。索引完全离线。</p>
+  </div>
+</div>
+
+<noscript><p class="noscript-note">搜索与阅读进度需要 JavaScript；正文、目录和翻页仍可正常使用。可用浏览器查找（Ctrl+F）。</p></noscript>
+
+<script src="assets/search-index.js"></script>
+<script src="assets/viz-data.js"></script>
+<script src="assets/app.js"></script>
+<script src="assets/viz.js"></script>
+
+</body>
+</html>

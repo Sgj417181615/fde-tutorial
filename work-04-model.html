@@ -1,0 +1,546 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<title>从证据到模型 · FDE 零基础教程</title>
+<meta name="description" content="决策清单、四类规则、As-is 与切片打分：把访谈材料加工成可设计的东西。">
+<link rel="stylesheet" href="assets/course.css">
+<script>
+(function () {
+  try {
+    var saved = localStorage.getItem('fde-theme');
+    var theme = saved || (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+    document.documentElement.dataset.theme = theme;
+  } catch (e) {}
+})();
+</script>
+</head>
+<body class="track-workbench page-work-04-model">
+<a class="skip-link" href="#main">跳到正文</a>
+
+<header class="topbar">
+  <button class="icon-btn nav-toggle" id="nav-toggle" type="button" aria-expanded="false" aria-controls="sidebar" aria-label="打开课程目录">
+    <span aria-hidden="true">☰</span>
+  </button>
+  <a class="brand" data-same-tab href="index.html"><span class="brand-mark">FDE</span><span class="brand-text">零基础教程</span></a>
+  <nav class="track-switch" aria-label="模块切换"><a class="track-link" data-same-tab href="index.html" title="从零建立完整心智模型">主线</a><span class="track-link active" aria-current="true" title="现场查用：输入、步骤、输出、阶段门">工作台</span><a class="track-link" data-same-tab href="day1-00-overview.html" title="六步链路：简报 → 访谈 → 证据 → 底稿 → 门">Day1</a><a class="track-link" data-same-tab href="appendix-methods.html" title="一卡一问，按阶段、产物、角色查">方法库</a><a class="track-link" data-same-tab href="appendix-templates.html" title="模板、产物链、术语与来源">附录</a></nav>
+  <div class="top-actions">
+    <button class="search-open" id="search-open" type="button" aria-haspopup="dialog">
+      <span aria-hidden="true">⌕</span><span class="search-label">搜索</span><kbd>/</kbd>
+    </button>
+    <button class="icon-btn" id="theme-toggle" type="button" aria-label="切换深浅色">◐</button>
+  </div>
+  <div class="read-progress" aria-hidden="true"><span id="read-progress"></span></div>
+</header>
+
+<div class="layout">
+  <aside class="sidebar" id="sidebar">
+    <nav class="course-tree" aria-label="课程目录"><header class="side-head"><p class="side-eyebrow">当前模块</p><p class="side-title">实操工作台</p><p class="side-caption">现场查用：输入、步骤、输出、阶段门</p><p class="side-meta">9 页<span class="dot">·</span>按需查</p></header><section class="nav-group"><p class="nav-group-title"><span class="nav-group-num">01</span>调研与记录</p><a class="nav-link" data-same-tab href="work-01-prep.html">调研前 7 天</a><a class="nav-link" data-same-tab href="work-02-interview.html">现场 60 分钟</a><a class="nav-link" data-same-tab href="work-03-record.html">记录：把现场变成证据</a><span class="nav-link nav-current" aria-current="page">从证据到模型</span></section><section class="nav-group"><p class="nav-group-title"><span class="nav-group-num">02</span>交付与 Demo</p><a class="nav-link" data-same-tab href="work-05-spec.html">一小时压出评审包</a><a class="nav-link" data-same-tab href="work-06-demo.html">Demo 脚本、数据与环境</a><a class="nav-link" data-same-tab href="work-07-run.html">五天执行与阶段门</a><a class="nav-link" data-same-tab href="work-08-retro.html">复盘与回流</a><a class="nav-link" data-same-tab href="work-09-toolchain.html">工具链与硬编码路径</a></section></nav>
+  </aside>
+  <button class="scrim" id="scrim" type="button" aria-label="关闭目录" hidden></button>
+
+  <main class="main" id="main">
+    <nav class="crumb" aria-label="面包屑"><a data-same-tab href="index.html">教程</a><span class="sep">/</span><span>实操工作台</span><span class="sep">/</span><span>调研与记录</span><span class="sep">/</span><span aria-current="page">从证据到模型</span></nav>
+    <article class="article">
+      <header class="page-head">
+        <div class="badges"><span class="badge badge-workbench">查用</span><span class="badge badge-time">18 分钟</span></div>
+        <h1>从证据到模型</h1>
+        <p class="lede">决策清单、四类规则、As-is 与切片打分：把访谈材料加工成可设计的东西。</p>
+        <p class="page-question"><span class="eyebrow">本页要回答</span>手上有一堆访谈记录，下一步怎样加工成模型而不是直接建表？</p>
+        <div class="page-meta">
+          <section class="meta-block">
+            <h2 class="meta-title" id="meta-objectives">读完你能</h2>
+            <ul class="objective-list"><li>从证据中抽出决策与动作；</li><li>把规则分成配置、硬约束、软偏好、优化目标；</li><li>用打分卡重新比较候选切片。</li></ul>
+          </section>
+          <section class="meta-block">
+            <h2 class="meta-title" id="meta-prereq">前置</h2>
+            <p>先读：<a href="work-03-record.html" target="_blank" rel="noopener">记录：把现场变成证据</a></p>
+          </section>
+        </div>
+      </header>
+
+      <div class="prose">
+        <dl class="runbook-head">
+<div><dt>何时用</dt><dd>G2 记录门通过后、写 one-pager 或画方案之前</dd></div>
+<div><dt>前置</dt><dd>证据台账完整，每条结论都能回到证据 ID</dd></div>
+<div><dt>输入</dt><dd>A02-01～05：观察、逐字稿、术语表、证据台账、待确认清单</dd></div>
+<div><dt>输出</dt><dd>A03-01 决策流、A03-02 用户-决策-动作清单、A03-03 切片打分、A03-04 规则库</dd></div>
+<div><dt>阶段门与耗时</dt><dd>G3 现状与切片门；约 3 小时，可拆两次</dd></div>
+</dl>
+
+<p>访谈记录铺满桌面，你打开建表工具，准备先建人员表、班型表、额度表。字段很顺，半小时画完。但画到一半会发现：三张表没回答“陈静在哪一步、凭什么、把谁分到哪个亚专科”。表能存数，不能替你决定做哪个决策。</p>
+<p>从证据到模型，先加工<strong>判断</strong>，不是<strong>字段</strong>。本页做四件事：圈决策、还原 As-is、分层规则、比较切片。</p>
+<h2 id="sec-when">何时用</h2>
+<p><strong>该用</strong>：</p>
+<ul>
+<li>G2 通过，准备把材料收窄成一次交付；</li>
+<li>你开始按“数据表”或“页面”想方案，而不是按“谁做什么决定”想；</li>
+<li>候选切片不止一个，需要把选择理由摆上桌。</li>
+</ul>
+<p><strong>不该用</strong>：</p>
+<ul>
+<li>台账里还有无法复核的记录。先回 <a class="page-link" href="work-03-record.html" target="_blank" rel="noopener">记录：把现场变成证据</a> 补齐；</li>
+<li>客户已给出签字范围且不许改。仍要做规则库；</li>
+<li>只有查看和导出、没有决策的场景，不要硬造。</li>
+</ul>
+<div class="checkpoint">
+<p><strong>停一下</strong>：从台账抽三条证据，它们共同指向哪一个“必须选一个”的决定？如果指向三个不同决定，你还在收集阶段，不是加工阶段。</p>
+</div>
+<h2 id="sec-prereq">前置</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th scope="col">前置</th>
+<th scope="col">判断标准</th>
+<th scope="col">没做到会怎样</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>G2 已通过</td>
+<td>抽查三条结论都能回到证据 ID</td>
+<td>模型建在无法复核的概括上</td>
+</tr>
+<tr>
+<td>A02-04 台账</td>
+<td>每条有状态、权威性、影响决策</td>
+<td>分不清事实、确认和假设</td>
+</tr>
+<tr>
+<td>A02-05 待确认</td>
+<td>每条有负责人和截止日期</td>
+<td>未决项在评审时变成阻塞</td>
+</tr>
+<tr>
+<td>业务专家 30 分钟</td>
+<td>能确认硬约束的例外和确认人</td>
+<td>规则只能停在“待确认”</td>
+</tr>
+</tbody>
+</table></div>
+<p>规则必须有人说“这条不能破，破例找谁”，否则 A03-04 只是草稿。</p>
+<h2 id="sec-inputs">输入</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th scope="col">输入</th>
+<th scope="col">取什么</th>
+<th scope="col">用在哪</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A02-01 观察记录</td>
+<td>时间、角色、动作、卡点</td>
+<td>还原非正式步骤</td>
+</tr>
+<tr>
+<td>A02-02 逐字稿</td>
+<td>决策动词、条件句、例外句</td>
+<td>圈决策、抽规则</td>
+</tr>
+<tr>
+<td>A02-03 术语表</td>
+<td>业务词与数据字段的对应</td>
+<td>统一用词</td>
+</tr>
+<tr>
+<td>A02-04 台账</td>
+<td>证据 ID、状态、权威性</td>
+<td>给模型挂证据</td>
+</tr>
+<tr>
+<td>A02-05 待确认</td>
+<td>未决问题、当前假设</td>
+<td>标出假设边界</td>
+</tr>
+</tbody>
+</table></div>
+<p>不要重新访谈。加工是在已有证据上归类，不是再收集。发现缺口记进 A02-05，不要用想象补。</p>
+<h2 id="sec-steps">六个加工步骤</h2>
+<h3 id="step-decision">第 1 步：圈决策句，不圈名词（30 分钟）</h3>
+<p>通读逐字稿和台账，只标“在几个选项里选一个”的句子。三问判断：</p>
+<ol>
+<li><strong>有候选</strong>：是“分给 A 还是 B”，不是“需要人员信息”；</li>
+<li><strong>有后果</strong>：选错会影响额度、班次或审批；</li>
+<li><strong>有人承担</strong>：有明确决策人和时点。</li>
+</ol>
+<p><a class="case-link" href="case-a-one-pager.html#cb-as-is" target="_blank" rel="noopener">案例 CB-01</a> 里，“额度不够时先借下月”不是决策，是例外规则；“本月每个亚专科用多少、分给谁”才是。<a class="term-link" href="main-03-as-is.html#term-decision" title="Decision：在几个候选方案里选一个并承担后果；查看、了解、导出都不算决策。" target="_blank" rel="noopener">决策</a> 要求选择并承担后果，查看、导出都不算。</p>
+<p>把留下的决策写进 A03-02：角色、场景、决策、时点、输入、动作、系统、频率、证据 ID。一行一个决策；出现“并且”连接两个不相干的决定，就拆行。</p>
+<h3 id="step-as-is">第 2 步：把 As-is 画成决策流，不画部门流程（45 分钟）</h3>
+<p>用 <a class="case-link" href="case-a-one-pager.html#cb-as-is" target="_blank" rel="noopener">案例 CB-01</a> 的五步做骨架：收额度、收需求、凭记忆核对、电话协调、审批录入。每步填九字段：步骤、角色、触发、输入、判断规则、输出、耗时、痛点、证据 ID。</p>
+<p>三个判断标准：</p>
+<ul>
+<li><strong>每步一个动词、一个输出物。</strong> “核对”的输出是“每人可用天数估计”，不是“完成核对”；</li>
+<li><strong>保留没写进制度的步骤。</strong> 纸上草表、按“上次谁让过步”平衡、微信临时改，都是真实判断，往往正是切入点；</li>
+<li><strong>没证据 ID 的步骤标“待验证”，不要删。</strong> 删掉会让流程比现实干净，设计就会漏例外。</li>
+</ul>
+<p>官方把 use case 看作有生命周期的交付单元，先定义问题与价值，再建设 <span class="cite" title="Use case lifecycle · Overview">[S01]</span>。As-is 是定义问题的底图，不是流程美化稿。<span class="ev-practice">【实践】</span><span class="cite" title="FDE 方法论沉淀">[S17]</span></p>
+<h3 id="step-rules">第 3 步：把规则分四层（45 分钟）</h3>
+<p><span class="term-link" title="Four Rule Layers：配置数据、硬约束、软偏好、优化目标四层；优化目标绝不能写成硬约束。">四类规则分层</span> 把“应该、必须、尽量”分成四层。分层决定系统该<strong>阻止、提示，还是只用来比较方案</strong>。</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th scope="col">层级</th>
+<th scope="col">判断问题</th>
+<th scope="col">违反后</th>
+<th scope="col">排班案例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>配置数据</td>
+<td>是可维护的名单或枚举吗？</td>
+<td>配置错了流程还能走</td>
+<td>R-01 班型、R-02 亚专科</td>
+</tr>
+<tr>
+<td>硬约束</td>
+<td>违反后方案直接无效吗？</td>
+<td>必须阻止保存或提交</td>
+<td>R-03 一人一班、R-05 不超天数</td>
+</tr>
+<tr>
+<td>软偏好</td>
+<td>违反后只是变差吗？</td>
+<td>提示、不阻断</td>
+<td>R-06 连续班</td>
+</tr>
+<tr>
+<td>优化目标</td>
+<td>是在可行方案里比好坏吗？</td>
+<td>只影响排序</td>
+<td>R-07 缺口最小、R-08 均衡</td>
+</tr>
+</tbody>
+</table></div>
+<p>每条再补适用对象、例外、冲突、确认人、证据 ID。按顺序问：</p>
+<ol>
+<li>违反它，方案还成立吗？不能，是硬约束；</li>
+<li>谁有权破例？有例外路径的硬约束，必须写批准人；</li>
+<li>系统该阻止还是提示？阻止对应硬约束，提示对应软偏好；</li>
+<li>它在淘汰方案，还是比较方案？比较的是优化目标。</li>
+</ol>
+<p><span class="case-link">案例 CB-15</span> 的关键纪律必须抄：R-07、R-08 是优化目标，<strong>不能写成硬约束</strong>。否则系统会为“缺口最小”排出数学最优、现实没人执行的班。R-05 是硬约束，C1 必须被拦住，不能只弹“建议调整”。</p>
+<h3 id="step-loop">第 4 步：用最短行动闭环检查候选（30 分钟）</h3>
+<p><span class="term-link" title="Shortest Action Loop：让一个真实用户，用真实数据，完成一次有价值的动作，并产生可观察的反馈。">最短行动闭环</span> 是：让真实用户，用真实数据，完成一次有价值的动作，并产生可观察反馈。写成模具：</p>
+<blockquote>
+<p>【角色】在【场景】，用【真实输入】，完成【一个决策动作】，看到【可观察反馈】。</p>
+</blockquote>
+<p><a class="case-link" href="case-a-one-pager.html#cb-slices" target="_blank" rel="noopener">案例 CB-02</a> 的 S1 可填成：陈静在月度额度分配场景，用需求、额度和可用天数，决定每个亚专科用多少、分给谁，并看到已分配、剩余、缺口与冲突。</p>
+<p>四个空有一个填不出，先别打分：角色填不出是还在写“业务部门”；输入填不出是数据没着落；动作填不出是功能不是切片；反馈填不出是没人能判断对错。</p>
+<h3 id="step-score">第 5 步：四维打分，先过硬门槛（30 分钟）</h3>
+<p><span class="term-link" title="Slice Scorecard：用价值、可行性、证据强度、风险四个维度给候选切片打分，避免凭感觉选第一个。">切片打分卡</span> 用价值、可行性、证据强度、风险四项，每项 1–3 分。先给每档写锚点，再打分；否则同一个人上午下午能打出两个结果：</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th scope="col">维度</th>
+<th scope="col">3 分</th>
+<th scope="col">2 分</th>
+<th scope="col">1 分</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>价值</td>
+<td>直接改变每月关键决策</td>
+<td>减少返工或等待，但不改变决定</td>
+<td>只让查看更方便</td>
+</tr>
+<tr>
+<td>可行性</td>
+<td>五天内技术和数据有把握</td>
+<td>有一项依赖需在 D-1 前补齐</td>
+<td>数据拿不到、权限没着落</td>
+</tr>
+<tr>
+<td>证据强度</td>
+<td>有观察、原话和数据</td>
+<td>有原话，但只有单一来源</td>
+<td>只有“应该有需求”</td>
+</tr>
+<tr>
+<td>风险</td>
+<td>出错影响临床、依赖多系统</td>
+<td>出错可回退，依赖一个系统</td>
+<td>出错代价低、依赖少</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>风险分越高，表示越危险</strong>，方向与其他三项相反：总分只把价值、可行性、证据强度相加，风险单独看，不加进总分。<strong>先过硬门槛</strong>：只含一个最终决策；五天内能端到端跑通。硬门槛不过，分值再漂亮也不选。</p>
+<p><a class="case-link" href="case-a-one-pager.html#cb-slices" target="_blank" rel="noopener">案例 CB-02</a> 里 S4 可行性高、证据强、风险低，但最终决策是“无”，所以不做；S2 价值不低，却依赖 S1 的结果，只能第二轮。打分不是算总分，是把“为什么不选它”写成可检查的理由。</p>
+<h3 id="step-gate">第 6 步：交叉核对，过 G3（30 分钟）</h3>
+<p>四份产物必须对上：</p>
+<ol>
+<li>A03-02 的每个决策，能在 A03-01 找到发生步骤；</li>
+<li>A03-03 选中切片只含一个最终决策，输入有来源；</li>
+<li>A03-04 硬约束有确认人，优化目标没混层；</li>
+<li>A02-05 的未决项在规则库或打分表有落点。</li>
+</ol>
+<p>四项都过，才进 one-pager。对不上就改模型，不要靠汇报时口头解释。</p>
+<h2 id="sec-output">输出</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th scope="col">输出</th>
+<th scope="col">路径</th>
+<th scope="col">最小内容</th>
+<th scope="col">下游</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A03-01 As-is 决策流</td>
+<td><code>03_现状与切片/03-01_As-is决策流.md</code></td>
+<td>九字段齐全，含非正式步骤与证据 ID</td>
+<td>work-05、main-04</td>
+</tr>
+<tr>
+<td>A03-02 用户-决策-动作清单</td>
+<td><code>03_现状与切片/03-02_用户-决策-动作清单.md</code></td>
+<td>一行一个决策，有角色、时点、动作</td>
+<td>main-04、main-05</td>
+</tr>
+<tr>
+<td>A03-03 候选切片与打分</td>
+<td><code>03_现状与切片/03-03_候选切片与打分.md</code></td>
+<td>四维分值、硬门槛结论、选择理由</td>
+<td>main-04、main-07</td>
+</tr>
+<tr>
+<td>A03-04 规则库（四层）</td>
+<td><code>03_现状与切片/03-04_规则库.md</code></td>
+<td>层级、例外、冲突、确认人、证据 ID</td>
+<td>main-05、work-05</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="sec-gate">阶段门</h2>
+<div class="gate-panel">
+<p><strong>G3 通过</strong>：一个切片、一个最终决策、一条完整操作路径；As-is 保留真实步骤；四层规则分开；每条硬约束有确认人。</p>
+<p><strong>有条件通过</strong>：只缺一条证据或一个数据口径，已标假设，且不在演示主路径上。补齐期限和负责人后放行。</p>
+<p><strong>不通过</strong>：找不到最终决策；优化目标写成硬约束；切片依赖未建成的上游；硬约束没有确认人。回对应步骤重做。</p>
+</div>
+<h2 id="sec-template">模板</h2>
+<p>先抄 A03-04 骨架。完整空白模板在 <code>templates/blank/03-04_规则库.md</code>，其余三份同名。</p>
+<div class="template-block">
+<div class="template-title">A03-04 规则库（四层） <span>可直接复制</span></div>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th scope="col">规则ID</th>
+<th scope="col">规则原文</th>
+<th scope="col">层级</th>
+<th scope="col">适用对象</th>
+<th scope="col">例外</th>
+<th scope="col">冲突</th>
+<th scope="col">确认人</th>
+<th scope="col">证据ID</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>R-01</td>
+<td></td>
+<td>配置数据 / 硬约束 / 软偏好 / 优化目标</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>R-02</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>填写说明</strong>：规则原文保留业务方说法，不改写成代码条件；层级四选一；例外写谁批、什么条件下批；冲突写谁优先；没有确认人的规则不能进实现。</p>
+</div>
+<p><span id="cb-rules"></span></p>
+<h2 id="sec-case">排班案例</h2>
+<p><a class="case-link" href="case-a-one-pager.html#cb-as-is" target="_blank" rel="noopener">案例 CB-01</a> 的五步可直接落成 A03-01 前五行。以第 3 步为例：</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th scope="col">步骤</th>
+<th scope="col">角色</th>
+<th scope="col">判断规则</th>
+<th scope="col">输出</th>
+<th scope="col">痛点</th>
+<th scope="col">证据ID</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>凭记忆核对</td>
+<td>陈静</td>
+<td>翻排班本、年假表、门诊表和会诊聊天记录</td>
+<td>每人可用天数估计</td>
+<td>依据不可复核</td>
+<td>E-xx</td>
+</tr>
+</tbody>
+</table></div>
+<p>“凭记忆核对”不是坏习惯，而是当前真实的判断步骤。方案要替代的是输入分散和结果不可追溯，不是做一个“人员主数据页”。</p>
+<p><span class="case-link">案例 CB-15</span> 展示规则库成品：R-01、R-02 是配置；R-03 至 R-05 是硬约束；R-06 是软偏好；R-07、R-08 是优化目标。最易写错的是后两条——它们互相冲突，只能比较方案，不能阻止保存。</p>
+<p><a class="case-link" href="case-a-one-pager.html#cb-slices" target="_blank" rel="noopener">案例 CB-02</a> 展示打分后的选择：S1 选中，S2 第二轮，S3 暂缓，S4 不做。S1 站得住，不是因为分最高，而是它只含一个每月真实发生、结果能写回的决策。</p>
+<h2 id="sec-failures">常见失败</h2>
+<div class="pitfalls">
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th scope="col">现象</th>
+<th scope="col">原因</th>
+<th scope="col">处理</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>先画三张数据表，再回头找决策</td>
+<td>把建模当建库</td>
+<td>停表，先写 A03-02；字段服务决策或规则</td>
+</tr>
+<tr>
+<td>As-is 只有制度流程</td>
+<td>只记“应该怎样”</td>
+<td>补纸上草表、微信协调，并标证据</td>
+</tr>
+<tr>
+<td>优化目标写成硬约束</td>
+<td>把“希望更好”当“必须满足”</td>
+<td>四问重判；优化目标只影响排序</td>
+</tr>
+<tr>
+<td>每条规则都没有确认人</td>
+<td>自己推规则</td>
+<td>找业务专家逐条确认，否则标“待确认”</td>
+</tr>
+<tr>
+<td>一个切片塞两个最终决策</td>
+<td>按部门或功能切</td>
+<td>拆成两个切片，各写闭环</td>
+</tr>
+<tr>
+<td>打分口径不一，风险方向反了</td>
+<td>边讨论边改标准</td>
+<td>先定 3/2/1 锚点；风险高记高分，且不并进总分</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="hands-on">
+<p><strong>动手 20 分钟</strong>：从台账抽 8 条证据做最小加工。</p>
+<ol>
+<li>圈出唯一最终决策，写成 A03-02 一行；</li>
+<li>为它写一条 As-is 步骤，填角色、规则、输出、证据 ID；</li>
+<li>抽两条规则判层，写出确认人；</li>
+<li>用模具写闭环，四个空填满。</li>
+</ol>
+<p><strong>自检</strong>：决策句有候选和后果；步骤有输出物；两条规则不同层；闭环有可观察反馈。</p>
+</div>
+<div class="self-test">
+<p><strong>三问自测</strong></p>
+<details>
+<summary>1. 为什么“查看额度全景”不算决策？</summary>
+
+它没有候选、后果和选择，看完可以不改变任何动作。可以作为辅助功能，但不能成为切片的最终决策。
+
+</details>
+<details>
+<summary>2. 优化目标为什么不能写成硬约束？</summary>
+
+硬约束淘汰无效方案，优化目标在有效方案间排序。把“缺口最小”写成硬约束，系统会拒绝所有有缺口的方案，而不是帮人比较哪个缺口可接受。
+
+</details>
+<details>
+<summary>3. 为什么先写最短行动闭环，再打分？</summary>
+
+闭环句逼你填清角色、真实输入、决策动作和反馈。四个空填不满，说明切片太大或没有决策；这时打分只会把错误选项算得更精致。
+
+</details>
+</div>
+<h2 id="sec-checklist">自检清单</h2>
+<ul>
+<li>[ ] A03-02 一行一个决策，含角色、时点、输入、动作；</li>
+<li>[ ] A03-01 每步有动词、输出物和证据 ID；</li>
+<li>[ ] As-is 保留纸上草表、口头协调等非正式步骤；</li>
+<li>[ ] 四层规则分开，优化目标没有混进硬约束；</li>
+<li>[ ] 每条硬约束有例外路径和确认人；</li>
+<li>[ ] 候选切片能填满闭环四空，打分口径一致；</li>
+<li>[ ] 选中切片只含一个最终决策，五天内能跑通。</li>
+</ul>
+<div class="recap">
+<p><strong>本章带走</strong></p>
+<ol>
+<li>从证据到模型，先加工决策，再加工字段。</li>
+<li>As-is 保留真实的非正式步骤；规则分清配置、硬约束、软偏好、优化目标。</li>
+<li>切片先用最短行动闭环验一遍，再按价值、可行性、证据强度、风险打分。</li>
+</ol>
+</div>
+      </div>
+
+      <section class="term-cards" aria-label="本页术语卡"><p class="eyebrow">本页术语</p><div class="term-grid"><article class="term-card" id="term-decision"><h3 id="term-title-decision">决策 <span class="term-en">Decision</span></h3><p>在几个候选方案里选一个并承担后果；查看、了解、导出都不算决策。</p><a class="term-first" href="main-03-as-is.html" target="_blank" rel="noopener">首次解释</a></article><article class="term-card" id="term-rule-layers"><h3 id="term-title-rule-layers">四类规则分层 <span class="term-en">Four Rule Layers</span></h3><p>配置数据、硬约束、软偏好、优化目标四层；优化目标绝不能写成硬约束。</p></article><article class="term-card" id="term-shortest-loop"><h3 id="term-title-shortest-loop">最短行动闭环 <span class="term-en">Shortest Action Loop</span></h3><p>让一个真实用户，用真实数据，完成一次有价值的动作，并产生可观察的反馈。</p></article><article class="term-card" id="term-slice-score"><h3 id="term-title-slice-score">切片打分卡 <span class="term-en">Slice Scorecard</span></h3><p>用价值、可行性、证据强度、风险四个维度给候选切片打分，避免凭感觉选第一个。</p></article></div></section>
+      <section class="artifact-box" aria-label="本页产物"><div class="artifact-block"><h3 id="artifacts-out">本页要写出的产物</h3><ul><li><code>A03-01</code> As-is决策流 <span class="muted">→ 03_现状与切片/03-01_As-is决策流.md</span> <span class="gate-tag">G3</span> <a href="templates/blank/03-01_As-is决策流.html" data-template-view data-template-title="A03-01 As-is决策流模板" title="A03-01 As-is决策流模板 ｜ 当前页弹窗预览">模板</a> <a href="templates/golden/03-01_As-is决策流_排班案例.html" data-template-view data-template-title="A03-01 As-is决策流黄金样例" title="A03-01 As-is决策流黄金样例 ｜ 当前页弹窗预览">黄金样例</a></li><li><code>A03-02</code> 用户-决策-动作清单 <span class="muted">→ 03_现状与切片/03-02_用户-决策-动作清单.md</span> <span class="gate-tag">G3</span> <a href="templates/blank/03-02_用户-决策-动作清单.html" data-template-view data-template-title="A03-02 用户-决策-动作清单模板" title="A03-02 用户-决策-动作清单模板 ｜ 当前页弹窗预览">模板</a> <a href="templates/golden/03-02_用户-决策-动作清单_排班案例.html" data-template-view data-template-title="A03-02 用户-决策-动作清单黄金样例" title="A03-02 用户-决策-动作清单黄金样例 ｜ 当前页弹窗预览">黄金样例</a></li><li><code>A03-03</code> 候选切片与打分 <span class="muted">→ 03_现状与切片/03-03_候选切片与打分.md</span> <span class="gate-tag">G3</span> <a href="templates/blank/03-03_候选切片与打分.html" data-template-view data-template-title="A03-03 候选切片与打分模板" title="A03-03 候选切片与打分模板 ｜ 当前页弹窗预览">模板</a> <a href="templates/golden/03-03_候选切片与打分_排班案例.html" data-template-view data-template-title="A03-03 候选切片与打分黄金样例" title="A03-03 候选切片与打分黄金样例 ｜ 当前页弹窗预览">黄金样例</a></li><li><code>A03-04</code> 规则库（四层） <span class="muted">→ 03_现状与切片/03-04_规则库.md</span> <span class="gate-tag">G3</span> <a href="templates/blank/03-04_规则库.html" data-template-view data-template-title="A03-04 规则库（四层）模板" title="A03-04 规则库（四层）模板 ｜ 当前页弹窗预览">模板</a> <a href="templates/golden/03-04_规则库_排班案例.html" data-template-view data-template-title="A03-04 规则库（四层）黄金样例" title="A03-04 规则库（四层）黄金样例 ｜ 当前页弹窗预览">黄金样例</a></li></ul></div><div class="artifact-block"><h3 id="artifacts-in">开始前应已具备</h3><p class="muted"><code>A02-01</code> 现场观察记录、<code>A02-02</code> 逐字稿、<code>A02-03</code> 术语与说话人表、<code>A02-04</code> 证据台账、<code>A02-05</code> 待确认与问题清单</p></div></section>
+      <section class="sources" aria-label="来源"><h2 id="sec-sources">来源与证据等级</h2><ol class="source-list"><li><span class="src-id">S01</span> <strong>Use case lifecycle · Overview</strong> <span class="badge badge-官方">官方</span><div class="muted">Palantir Technologies · 抓取 2026-10-19 · 版权归 Palantir Technologies；仅内部研究，不对外分发原文</div><div class="src-url"><a href="https://www.palantir.com/docs/foundry/use-case-life-cycle/overview/" rel="noreferrer" target="_blank">https://www.palantir.com/docs/foundry/use-case-life-cycle/overview/</a></div></li><li><span class="src-id">S17</span> <strong>FDE 方法论沉淀</strong> <span class="badge badge-实践">实践</span><div class="muted">本子项目 · 抓取 2026-09-23 · 内部方法沉淀</div><div class="src-url"><span class="muted">无公开链接</span></div></li><li><span class="src-id">S18</span> <strong>流程与范围模板</strong> <span class="badge badge-实践">实践</span><div class="muted">本子项目 · 抓取 2026-09-23 · 内部方法沉淀</div><div class="src-url"><span class="muted">无公开链接</span></div></li><li><span class="src-id">S19</span> <strong>医院排班场景映射</strong> <span class="badge badge-实践">实践</span><div class="muted">本子项目 · 抓取 2026-10-19 · 内部方法沉淀；案例已匿名化</div><div class="src-url"><span class="muted">无公开链接</span></div></li></ol></section>
+      <nav class="pager" aria-label="翻页"><a class="pager-prev" data-same-tab href="work-03-record.html"><span>上一页</span><strong>记录：把现场变成证据</strong></a><a class="pager-next" data-same-tab href="work-05-spec.html"><span>下一页</span><strong>一小时压出评审包</strong></a></nav>
+
+      <footer class="page-foot">
+        <p>本教程为内部方法研究。案例已匿名化，数字标注【示例】。Palantir 官方资料版权归 Palantir Technologies，仅作改写与链接。</p>
+        <p class="muted">发现断链或事实错误？回到 <a href="appendix-sources.html" target="_blank" rel="noopener">来源与版权</a> 核对出处。</p>
+      </footer>
+    </article>
+  </main>
+
+  <aside class="toc" id="toc" aria-label="页内目录">
+    <p class="toc-title">本页目录</p><ol class="toc-list"><li class="toc-h2"><a href="#sec-when">何时用</a></li><li class="toc-h2"><a href="#sec-prereq">前置</a></li><li class="toc-h2"><a href="#sec-inputs">输入</a></li><li class="toc-h2"><a href="#sec-steps">六个加工步骤</a><ul class="toc-sub"><li class="toc-h3"><a href="#step-decision">第 1 步：圈决策句，不圈名词（30 分钟）</a></li><li class="toc-h3"><a href="#step-as-is">第 2 步：把 As-is 画成决策流，不画部门流程（45 分钟）</a></li><li class="toc-h3"><a href="#step-rules">第 3 步：把规则分四层（45 分钟）</a></li><li class="toc-h3"><a href="#step-loop">第 4 步：用最短行动闭环检查候选（30 分钟）</a></li><li class="toc-h3"><a href="#step-score">第 5 步：四维打分，先过硬门槛（30 分钟）</a></li><li class="toc-h3"><a href="#step-gate">第 6 步：交叉核对，过 G3（30 分钟）</a></li></ul></li><li class="toc-h2"><a href="#sec-output">输出</a></li><li class="toc-h2"><a href="#sec-gate">阶段门</a></li><li class="toc-h2"><a href="#sec-template">模板</a></li><li class="toc-h2"><a href="#sec-case">排班案例</a></li><li class="toc-h2"><a href="#sec-failures">常见失败</a></li><li class="toc-h2"><a href="#sec-checklist">自检清单</a></li></ol>
+  </aside>
+</div>
+
+<div class="tpl-modal" id="tpl-modal" hidden>
+  <div class="tpl-panel" role="dialog" aria-modal="true" aria-labelledby="tpl-title">
+    <header class="tpl-head">
+      <div class="tpl-heading">
+        <p class="tpl-kicker">模板阅读视图</p>
+        <h2 id="tpl-title">模板</h2>
+      </div>
+      <div class="tpl-actions">
+        <a class="tpl-open" id="tpl-open" href="#" target="_blank" rel="noopener">在新标签打开 ↗</a>
+        <button class="icon-btn" id="tpl-close" type="button" aria-label="关闭模板">✕</button>
+      </div>
+    </header>
+    <div class="tpl-body">
+      <iframe id="tpl-frame" title="模板内容" loading="lazy"></iframe>
+    </div>
+  </div>
+</div>
+
+<div class="search-modal" id="search-modal" hidden>
+  <div class="search-panel" role="dialog" aria-modal="true" aria-labelledby="search-title">
+    <div class="search-head">
+      <label id="search-title" class="sr-only" for="search-input">搜索教程</label>
+      <input id="search-input" type="search" placeholder="搜索概念、产物、模板、方法卡…" autocomplete="off">
+      <button class="icon-btn" id="search-close" type="button" aria-label="关闭搜索">✕</button>
+    </div>
+    <div id="search-results" class="search-results" aria-live="polite"></div>
+    <p class="search-hint">按 <kbd>/</kbd> 或 <kbd>Ctrl</kbd>+<kbd>K</kbd> 打开，<kbd>Esc</kbd> 关闭。索引完全离线。</p>
+  </div>
+</div>
+
+<noscript><p class="noscript-note">搜索与阅读进度需要 JavaScript；正文、目录和翻页仍可正常使用。可用浏览器查找（Ctrl+F）。</p></noscript>
+
+<script src="assets/search-index.js"></script>
+<script src="assets/viz-data.js"></script>
+<script src="assets/app.js"></script>
+<script src="assets/viz.js"></script>
+
+</body>
+</html>

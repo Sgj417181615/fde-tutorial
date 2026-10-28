@@ -1,0 +1,486 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<title>案例 B：从一页纸到 Demo · FDE 零基础教程</title>
+<meta name="description" content="走查 S1 的决策清单、FR、对象模型、生命周期、界面与仍待确认的边界。">
+<link rel="stylesheet" href="assets/course.css">
+<script>
+(function () {
+  try {
+    var saved = localStorage.getItem('fde-theme');
+    var theme = saved || (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+    document.documentElement.dataset.theme = theme;
+  } catch (e) {}
+})();
+</script>
+</head>
+<body class="track-main page-case-b-solution">
+<a class="skip-link" href="#main">跳到正文</a>
+
+<header class="topbar">
+  <button class="icon-btn nav-toggle" id="nav-toggle" type="button" aria-expanded="false" aria-controls="sidebar" aria-label="打开课程目录">
+    <span aria-hidden="true">☰</span>
+  </button>
+  <a class="brand" data-same-tab href="index.html"><span class="brand-mark">FDE</span><span class="brand-text">零基础教程</span></a>
+  <nav class="track-switch" aria-label="模块切换"><span class="track-link active" aria-current="true" title="从零建立完整心智模型">主线</span><a class="track-link" data-same-tab href="work-01-prep.html" title="现场查用：输入、步骤、输出、阶段门">工作台</a><a class="track-link" data-same-tab href="day1-00-overview.html" title="六步链路：简报 → 访谈 → 证据 → 底稿 → 门">Day1</a><a class="track-link" data-same-tab href="appendix-methods.html" title="一卡一问，按阶段、产物、角色查">方法库</a><a class="track-link" data-same-tab href="appendix-templates.html" title="模板、产物链、术语与来源">附录</a></nav>
+  <div class="top-actions">
+    <button class="search-open" id="search-open" type="button" aria-haspopup="dialog">
+      <span aria-hidden="true">⌕</span><span class="search-label">搜索</span><kbd>/</kbd>
+    </button>
+    <button class="icon-btn" id="theme-toggle" type="button" aria-label="切换深浅色">◐</button>
+  </div>
+  <div class="read-progress" aria-hidden="true"><span id="read-progress"></span></div>
+</header>
+
+<div class="layout">
+  <aside class="sidebar" id="sidebar">
+    <nav class="course-tree" aria-label="课程目录"><header class="side-head"><p class="side-eyebrow">当前模块</p><p class="side-title">主线</p><p class="side-caption">从零建立完整心智模型</p><p class="side-meta">16 页<span class="dot">·</span>约 4 小时</p></header><section class="nav-group"><p class="nav-group-title"><span class="nav-group-num">01</span>开始</p><a class="nav-link" data-same-tab href="index.html">开始：这份教程怎么用</a></section><section class="nav-group"><p class="nav-group-title"><span class="nav-group-num">02</span>看懂 FDE</p><a class="nav-link" data-same-tab href="main-01-fde.html">FDE 是什么，不是什么</a><a class="nav-link" data-same-tab href="main-02-slicing.html">把“系统”切成可验证的决策</a><a class="nav-link" data-same-tab href="lab-slicing.html">实验室：切三个模糊需求</a></section><section class="nav-group"><p class="nav-group-title"><span class="nav-group-num">03</span>看清现状</p><a class="nav-link" data-same-tab href="main-03-as-is.html">看清今天实际怎么运转</a><a class="nav-link" data-same-tab href="main-04-one-pager.html">一页纸对齐范围</a><a class="nav-link" data-same-tab href="case-a-one-pager.html">案例 A：S1 如何被选中</a><a class="nav-link" data-same-tab href="lab-one-pager.html">实验室：20 分钟拼一页纸</a></section><section class="nav-group"><p class="nav-group-title"><span class="nav-group-num">04</span>设计验证</p><a class="nav-link" data-same-tab href="main-05-fr.html">把决策写成一句可验收的 FR</a><a class="nav-link" data-same-tab href="main-06-solution.html">方案设计四件套</a><span class="nav-link nav-current" aria-current="page">案例 B：从一页纸到 Demo</span></section><section class="nav-group"><p class="nav-group-title"><span class="nav-group-num">05</span>跑起来</p><a class="nav-link" data-same-tab href="main-07-gates.html">开始前的五道门</a><a class="nav-link" data-same-tab href="main-08-five-days.html">Day1–5 每天做什么</a><a class="nav-link" data-same-tab href="main-09-adoption.html">从项目到组织能力</a></section><section class="nav-group"><p class="nav-group-title"><span class="nav-group-num">06</span>选读</p><a class="nav-link" data-same-tab href="main-10-patterns.html">五种实施模式<span class="nav-optional">选读</span></a><a class="nav-link" data-same-tab href="main-11-lessons.html">一线八堂课<span class="nav-optional">选读</span></a></section></nav>
+  </aside>
+  <button class="scrim" id="scrim" type="button" aria-label="关闭目录" hidden></button>
+
+  <main class="main" id="main">
+    <nav class="crumb" aria-label="面包屑"><a data-same-tab href="index.html">教程</a><span class="sep">/</span><span>主线</span><span class="sep">/</span><span>设计验证</span><span class="sep">/</span><span aria-current="page">案例 B：从一页纸到 Demo</span></nav>
+    <article class="article">
+      <header class="page-head">
+        <div class="badges"><span class="badge badge-main">必读</span><span class="badge badge-time">18 分钟</span></div>
+        <h1>案例 B：从一页纸到 Demo</h1>
+        <p class="lede">走查 S1 的决策清单、FR、对象模型、生命周期、界面与仍待确认的边界。</p>
+        <p class="page-question"><span class="eyebrow">本页要回答</span>一个切片如何落成可演示、可写回的方案，哪些地方仍是假设？</p>
+        <div class="page-meta">
+          <section class="meta-block">
+            <h2 class="meta-title" id="meta-objectives">读完你能</h2>
+            <ul class="objective-list"><li>把 CB-04 的六段转成 CB-07 的五条 FR；</li><li>解释 Allocation 的状态迁移与写回；</li><li>列出至少三条仍待确认的事项。</li></ul>
+          </section>
+          <section class="meta-block">
+            <h2 class="meta-title" id="meta-prereq">前置</h2>
+            <p>先读：<a href="main-05-fr.html" target="_blank" rel="noopener">把决策写成一句可验收的 FR</a>、<a href="main-06-solution.html" target="_blank" rel="noopener">方案设计四件套</a></p>
+          </section>
+        </div>
+      </header>
+
+      <div class="prose">
+        <p>这一页只做走查：S1 怎样从一页纸走到可演示、可写回的方案，哪些地方仍是假设。读之前你应当看过 FR 固定句和方案设计四件套；遇到不熟的词，先回去补。</p>
+<p>案例已匿名化（场景见<span class="cite" title="医院排班场景映射">[S19]</span>），数字都是【示例】，不是真实医院结论。</p>
+<h2 id="sec-one-pager">起点：一页纸到底定死了什么</h2>
+<p><a class="case-link" href="case-a-one-pager.html#cb-one-pager" target="_blank" rel="noopener">案例 CB-04</a> 是 S1 的范围契约。它用六段把“做什么、不做什么”压在一页里：</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th scope="col">一页纸的段</th>
+<th scope="col">本案写了什么</th>
+<th scope="col">在方案里落到哪</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>用户</td>
+<td>陈静操作；赵岚确认；周主任审批</td>
+<td>决策人、界面权限</td>
+</tr>
+<tr>
+<td>决策</td>
+<td>本月各亚专科用多少额度、分给谁</td>
+<td>唯一最终决策</td>
+</tr>
+<tr>
+<td>输入</td>
+<td>需求、额度、可用天数、资质、结转规则</td>
+<td>对象属性与增强</td>
+</tr>
+<tr>
+<td>动作</td>
+<td>调整、看冲突、写回、提交确认与审批</td>
+<td>生命周期与写回</td>
+</tr>
+<tr>
+<td>价值</td>
+<td>分配从约 3 小时降到 1 小时以内【示例】</td>
+<td>后续 KPI</td>
+</tr>
+<tr>
+<td>不做什么</td>
+<td>不做个人排班、住院总轮转、工资绩效</td>
+<td>Demo 边界</td>
+</tr>
+</tbody>
+</table></div>
+<p>成功标准很硬：陈静能用真实一个月的数据完成一次分配；C1、C2 被识别并至少解决一个；周主任能在界面上完成审批；结果写回后可重开核对。</p>
+<p>一页纸不是需求文档，是范围契约；哪一段没有产物接住，哪里就会在第五天变成“这个也要做”。</p>
+<h2 id="sec-decisions">决策清单：一句最终决策，拆成四行</h2>
+<p>一页纸只有一句最终决策：本月每个亚专科用多少额度、分给谁。但操作时，陈静要连续做几个中间决定。决策清单（A04-01）就是把这些决定一行一行摆出来。</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th scope="col">编号</th>
+<th scope="col">决策</th>
+<th scope="col">决策人</th>
+<th scope="col">时点</th>
+<th scope="col">输入</th>
+<th scope="col">动作</th>
+<th scope="col">频率</th>
+<th scope="col">影响对象</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>DC-1</td>
+<td>各亚专科本月额度怎么分</td>
+<td>周主任（陈静提方案）</td>
+<td>每月 25 日前</td>
+<td>需求、额度、可用天数、资质</td>
+<td>确认或调整分配方案</td>
+<td>每月</td>
+<td>三个亚专科的额度与人员分配</td>
+</tr>
+<tr>
+<td>DC-2</td>
+<td>某个人分到哪个亚专科</td>
+<td>陈静</td>
+<td>分配时</td>
+<td>人员可用天数、资质、组长偏好</td>
+<td>把人拖入亚专科并保存</td>
+<td>每月多次</td>
+<td>人员与亚专科的分配记录</td>
+</tr>
+<tr>
+<td>DC-3</td>
+<td>出现缺口时怎么办</td>
+<td>陈静 + 赵岚</td>
+<td>发现冲突时</td>
+<td>缺口大小、可借额度、内部人手</td>
+<td>借调、改派或申请额外额度</td>
+<td>每月 1–3 次</td>
+<td>缺口涉及的亚专科与人员</td>
+</tr>
+<tr>
+<td>DC-4</td>
+<td>最终方案是否发布</td>
+<td>周主任</td>
+<td>每月 27 日</td>
+<td>阻断性冲突是否清零、缺口是否有负责人、总额度是否超</td>
+<td>审批并写回</td>
+<td>每月</td>
+<td>月度分配方案与额度状态</td>
+</tr>
+</tbody>
+</table></div>
+<p>编号用 DC（Decision），与 Day1 工具包的 D1（第一天）区分。DC-1 和 DC-2 是同一业务动作的两面，合并成 one-pager 的<strong>一个</strong>最终决策；DC-3 是缺口出现后才触发的中间决策；DC-4 是审批动作。赵岚的组长确认是 DC-4 之前的子步骤，不单独占一行。清单写多了，常见原因不是范围变大，而是把“查看”“导出”这类动作误写成决策。</p>
+<h2 id="cb-fr">五条 FR：哪些已经能验收</h2>
+<p><span class="case-link">案例 CB-07</span> 把上面的决定写成了五条 FR。下面补上可观察的验收点，数字仍用案例固定值【示例】。</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th scope="col">FR</th>
+<th scope="col">谁、在哪、做什么</th>
+<th scope="col">验收时看什么</th>
+<th scope="col">依赖的数据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>FR-01 查看额度全景</td>
+<td>陈静按月查看各亚专科需求、额度、已分配、剩余、缺口</td>
+<td>Demo 三个亚专科逐行可见；真实科室 12 个只作背景；缺口非零时显示差额</td>
+<td>月份、额度、已用、需求</td>
+</tr>
+<tr>
+<td>FR-02 分配人员</td>
+<td>陈静把人员拖入亚专科，填人天并保存；校验可用天数与资质</td>
+<td>王芳可用 9 天，填 10 天时被阻止并提示超出 1 天</td>
+<td>人员、可用天数、资质</td>
+</tr>
+<tr>
+<td>FR-03 识别并解释冲突</td>
+<td>冲突面板显示类型、对象、差额和建议动作</td>
+<td>C1 显示超排 1 天；C2 显示缺口 2 人天</td>
+<td>冲突类型、差额、对象</td>
+</tr>
+<tr>
+<td>FR-04 组长确认</td>
+<td>赵岚看到本组分配，选择确认或调整，意见写回记录</td>
+<td>确认后状态变化；意见重开仍在</td>
+<td>确认人、意见、状态</td>
+</tr>
+<tr>
+<td>FR-05 主任审批与写回</td>
+<td>周主任看冲突与总额度，批准后写回</td>
+<td>分配为已发布；额度已用与剩余同步变化；重开仍在</td>
+<td>审批人、状态、已用、剩余</td>
+</tr>
+</tbody>
+</table></div>
+<p>FR-03 容易被写歪：系统只负责把差额和后果摆出来，先解决哪个、怎么调仍由陈静决定。FR-05 则相反，批准后必须写回，否则审批只是一次点击。</p>
+<p>FR-02 的“资质校验”还带着假设：资质由谁认定，目前没有定论。黄金样例按目标态写“阻止保存”；口径确认前，Demo 降级为“高亮提示 + 组长确认”，并登记在待确认清单里。</p>
+<h2 id="cb-objects">对象模型：Allocation 连接人与亚专科</h2>
+<p><span class="case-link">案例 CB-05</span> 的对象模型有七个对象，与演示最相关的是五个：</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th scope="col">对象</th>
+<th scope="col">类型</th>
+<th scope="col">关键属性</th>
+<th scope="col">关系</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>人员 Person</td>
+<td>core</td>
+<td>姓名、岗位、资质、可上班型、可用天数</td>
+<td>属于多个亚专科；有多条分配</td>
+</tr>
+<tr>
+<td>亚专科 Subspecialty</td>
+<td>core</td>
+<td>名称、负责人、月度需求</td>
+<td>有多个额度与分配</td>
+</tr>
+<tr>
+<td>额度 Quota</td>
+<td>core</td>
+<td>月份、额度人天、已用、剩余</td>
+<td>属于亚专科；驱动分配</td>
+</tr>
+<tr>
+<td>分配 Allocation</td>
+<td>use case</td>
+<td>月份、人员、亚专科、人天、状态</td>
+<td>连接人员与亚专科</td>
+</tr>
+<tr>
+<td>冲突 Conflict</td>
+<td>derived</td>
+<td>类型、对象、差额、严重度</td>
+<td>指向分配或额度</td>
+</tr>
+</tbody>
+</table></div>
+<p>基数决定校验怎么写：一个人员可分配到多个亚专科（1:N）；一个亚专科有多条分配（1:N）；一条分配只属于一个人员和一个亚专科。</p>
+<p><strong>对象模型不是数据库表。</strong> 冲突是算出来的，可以没有“冲突表”；分配由用户在界面创建，源系统里可能只有排班结果，没有“分配方案”。</p>
+<p>用 FR 反查：FR-02 需要人员、亚专科、分配和额度；FR-03 需要冲突；FR-05 需要分配状态和额度已用。指不到对象的 FR，要么漏了对象，要么写虚了。</p>
+<h2 id="cb-lifecycle">生命周期与写回：批准以后发生什么</h2>
+<p><span class="case-link">案例 CB-06</span> 给了 Allocation 的状态链：</p>
+<pre><code class="language-text">建议 → 已确认 → 已发布 → 调整中 → 已归档
+</code></pre>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th scope="col">当前状态</th>
+<th scope="col">Action</th>
+<th scope="col">迁移后</th>
+<th scope="col">写回字段</th>
+<th scope="col">谁可操作</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>建议</td>
+<td>确认分配</td>
+<td>已确认</td>
+<td>状态、确认人</td>
+<td>陈静</td>
+</tr>
+<tr>
+<td>已确认</td>
+<td>发布</td>
+<td>已发布</td>
+<td>状态、发布时间</td>
+<td>周主任</td>
+</tr>
+<tr>
+<td>已发布</td>
+<td>发起调整</td>
+<td>调整中</td>
+<td>状态、调整原因</td>
+<td>陈静</td>
+</tr>
+<tr>
+<td>调整中</td>
+<td>重新发布</td>
+<td>已发布</td>
+<td>状态、新版本号</td>
+<td>周主任</td>
+</tr>
+<tr>
+<td>已发布</td>
+<td>归档</td>
+<td>已归档</td>
+<td>状态、归档时间</td>
+<td>系统/陈静</td>
+</tr>
+</tbody>
+</table></div>
+<p>额度 Quota 的链路是：草稿 → 待确认 → 已确认 → 执行中 → 已关闭。两条链在“发布”处交汇：分配发布时，额度的已用增加、剩余减少。</p>
+<p>演示时，周主任点“批准”，必须同时发生三件事：分配状态变为“已发布”；额度已用与剩余数字变化；关掉重开后两者都还在。少一件，都只能叫“界面演示”，不能叫“决策落成数据”。</p>
+<p>写回还要有权限和失败处理：陈静可以确认，但不能替周主任发布。审批要区分两类冲突：<strong>阻断性冲突</strong>（如 C1 超排）未清零时，批准按钮禁用；<strong>结构性缺口</strong>（如 C2）允许带缺口批准，但每条缺口必须有负责人和日期。权限没谈下来就先写本地对象，并标明风险。</p>
+<h2 id="sec-demo">界面与 Demo：一条路径走完</h2>
+<p>S1 的界面只承载四个意图：看全景、做分配、处理冲突、完成审批。连起来就是 Demo 主线：</p>
+<ol>
+<li>陈静打开额度全景：妇科 10、乳腺 22、消化 22 人天；妇科需求 12，C2 显示缺口 2 人天。</li>
+<li>她在分配台把王芳拖入某个亚专科，填 10 天；王芳可用 9 天，保存被阻止，C1 提示超出 1 天。</li>
+<li>她改成 9 天，冲突面板只剩 C2；她申请额外 1 天额度，缺口从 2 降到 1，剩余 1 天登记负责人和日期。</li>
+<li>赵岚在组长确认页确认并留下意见；周主任看到“阻断性冲突已清零、剩余缺口有负责人”，在审批页批准，返回列表后分配为已发布、额度已变，刷新后仍在。</li>
+</ol>
+<p>这条路径走通，方案才算支撑决策。Demo Readiness 检查的不是“页面做完没有”，而是路径有没有真实证据：</p>
+<ul>
+<li>用真实月份的脱敏数据，不是手搓的玩具数据；</li>
+<li>陈静本人操作，不由 FDE 代点；</li>
+<li>从看到缺口到审批写回全程走通，写回后重开仍在；</li>
+<li>数据或权限出问题时，有离线快照或降级路径，不假装成功；</li>
+<li>需要签字的审批人在场，或明确改成“先操作、次日补审批”。</li>
+</ul>
+<p>任一项没证据，结论只能是“有条件 Go”或“不 Go”，不能写成“已就绪”。</p>
+<div class="checkpoint">
+<p><strong>停一下</strong>：把检查项套到你的项目上：哪一项有证据？只有口头保证的那项，就是演示前最大的风险。</p>
+</div>
+<h2 id="cb-open">哪些已经固定，哪些仍是假设</h2>
+<p>先把话说清：本案例是教学样例。下面说的“已固定”，只表示它在当前案例设定里被一页纸、访谈或规则库写死，不等于真实医院已经确认，更不能拿去当客户事实。</p>
+<p>已经在案例设定里固定的（仍全是【示例】）：最终决策与“不做什么”（CB-04）；五条 FR 的角色、界面、动作（CB-07）；对象及三类划分（CB-05）；两条状态链（CB-06）；额度 10/22/22（妇科/乳腺/消化）、C1 超 1 天、C2 缺口 2 人天。它们分别支撑范围、验收、对象、写回与演示断言。</p>
+<p>仍然待确认的，集中在一张清单里（<a class="case-link" href="main-07-gates.html#cb-open" target="_blank" rel="noopener">案例 CB-11</a>）：</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th scope="col">待确认问题</th>
+<th scope="col">影响什么</th>
+<th scope="col">当前假设</th>
+<th scope="col">演示时的处理</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>额度能否跨月结转</td>
+<td>缺口计算</td>
+<td>不能结转</td>
+<td>按不能结转演示并注明</td>
+</tr>
+<tr>
+<td>外部人员资质谁认定</td>
+<td>FR-02 校验强度</td>
+<td>由组长认定</td>
+<td>只提示、不阻断</td>
+</tr>
+<tr>
+<td>临时调整是否同审批链</td>
+<td>Allocation 状态</td>
+<td>走简化审批</td>
+<td>本期不演示</td>
+</tr>
+<tr>
+<td>写回院内系统权限</td>
+<td>真实写回</td>
+<td>先写本地对象</td>
+<td>明确不是院内系统</td>
+</tr>
+<tr>
+<td>基线 3 小时是否准确</td>
+<td>价值声明</td>
+<td>回忆值，偏高</td>
+<td>先计时，不承诺降幅</td>
+</tr>
+</tbody>
+</table></div>
+<p>这张表是方案的一部分：藏起来会被一句“谁说的”击穿，摆出来反而更容易拿到确认。</p>
+<div class="pitfalls">
+<p><strong>坑 1：把【示例】数字当成客户事实。</strong>
+表现：汇报时说“你们现在要 3 小时，我们能降到 1 小时”。后果：基线只是回忆值，实测不符就伤信任。
+处理：数字标【示例】；先测基线，测不了就只描述行为变化。</p>
+<p><strong>坑 2：把待确认规则写成系统能力。</strong>
+表现：FR 写“自动认定资质”，Demo 也演成自动通过。后果：追问口径时无法回答。
+处理：按当前字段校验，口径未定只提示，并放回待确认清单。</p>
+<p><strong>坑 3：Demo 只演界面，不演写回。</strong>
+表现：点批准弹“成功”，不展示状态和额度变化。后果：无法证明决策落成数据。
+处理：每次演示都留一个“关掉重开”的动作。</p>
+<p><strong>坑 4：让 FDE 代操作。</strong>
+表现：演示时全是实施人员在点。后果：采用信号是假的。
+处理：让陈静本人操作，FDE 只准备数据和兜底。</p>
+</div>
+<div class="self-test">
+<p><strong>三问自测</strong></p>
+<details>
+<summary>1. CB-04 的六个段落，分别由哪些方案产物接住？</summary>
+
+用户与决策落到决策清单和权限；输入落到对象属性与增强；动作落到生命周期与写回；价值落到后续 KPI；不做什么落到 Demo 边界。
+
+</details>
+<details>
+<summary>2. Allocation 从“已确认”到“已发布”，写回了什么？为什么这一步是 Demo 的关键？</summary>
+
+写回状态与发布时间，同时额度已用增加、剩余减少。它把审批从界面动作变成数据变化，关掉重开仍可见，才能证明决策落成数据。
+
+</details>
+<details>
+<summary>3. 举出本案至少三条仍待确认的事项，并说明演示时怎么处理。</summary>
+
+额度是否跨月结转（按不能结转演示）；资质由谁认定（只提示不阻断）；临时调整是否同审批链（本期不演示）；写回院内系统权限（先写本地对象）；基线 3 小时是否准确（先计时）。任答三条即可。
+
+</details>
+</div>
+<div class="recap">
+<p><strong>本章带走</strong></p>
+<ol>
+<li>一页纸每段都要有产物接住；最终决策只有一个，其余是中间决策，不是新范围。</li>
+<li>五条 FR 能验收，靠角色、界面、动作和可观察结果；写回让审批落成数据。</li>
+<li>方案里必须同时有“已固定”和“待确认”两张清单；【示例】数字不是客户事实，未确认规则不能伪装成系统能力。</li>
+</ol>
+</div>
+      </div>
+
+      
+      <section class="artifact-box" aria-label="本页产物"><div class="artifact-block"><h3 id="artifacts-in">开始前应已具备</h3><p class="muted"><code>A03-05</code> use-case one-pager、<code>A04-02</code> 功能需求FR</p></div></section>
+      <section class="sources" aria-label="来源"><h2 id="sec-sources">来源与证据等级</h2><ol class="source-list"><li><span class="src-id">S03</span> <strong>Solution design</strong> <span class="badge badge-官方">官方</span><div class="muted">Palantir Technologies · 抓取 2026-10-19 · 版权归 Palantir Technologies；仅内部研究，不对外分发原文</div><div class="src-url"><a href="https://www.palantir.com/docs/foundry/use-case-life-cycle/solution-design/" rel="noreferrer" target="_blank">https://www.palantir.com/docs/foundry/use-case-life-cycle/solution-design/</a></div></li><li><span class="src-id">S04</span> <strong>Sequencing development</strong> <span class="badge badge-官方">官方</span><div class="muted">Palantir Technologies · 抓取 2026-10-19 · 版权归 Palantir Technologies；仅内部研究，不对外分发原文</div><div class="src-url"><a href="https://www.palantir.com/docs/foundry/use-case-life-cycle/sequencing-development/" rel="noreferrer" target="_blank">https://www.palantir.com/docs/foundry/use-case-life-cycle/sequencing-development/</a></div></li><li><span class="src-id">S17</span> <strong>FDE 方法论沉淀</strong> <span class="badge badge-实践">实践</span><div class="muted">本子项目 · 抓取 2026-09-23 · 内部方法沉淀</div><div class="src-url"><span class="muted">无公开链接</span></div></li><li><span class="src-id">S19</span> <strong>医院排班场景映射</strong> <span class="badge badge-实践">实践</span><div class="muted">本子项目 · 抓取 2026-10-19 · 内部方法沉淀；案例已匿名化</div><div class="src-url"><span class="muted">无公开链接</span></div></li></ol></section>
+      <nav class="pager" aria-label="翻页"><a class="pager-prev" data-same-tab href="main-06-solution.html"><span>上一页</span><strong>方案设计四件套</strong></a><a class="pager-next" data-same-tab href="main-07-gates.html"><span>下一页</span><strong>开始前的五道门</strong></a></nav>
+
+      <footer class="page-foot">
+        <p>本教程为内部方法研究。案例已匿名化，数字标注【示例】。Palantir 官方资料版权归 Palantir Technologies，仅作改写与链接。</p>
+        <p class="muted">发现断链或事实错误？回到 <a href="appendix-sources.html" target="_blank" rel="noopener">来源与版权</a> 核对出处。</p>
+      </footer>
+    </article>
+  </main>
+
+  <aside class="toc" id="toc" aria-label="页内目录">
+    <p class="toc-title">本页目录</p><ol class="toc-list"><li class="toc-h2"><a href="#sec-one-pager">起点：一页纸到底定死了什么</a></li><li class="toc-h2"><a href="#sec-decisions">决策清单：一句最终决策，拆成四行</a></li><li class="toc-h2"><a href="#cb-fr">五条 FR：哪些已经能验收</a></li><li class="toc-h2"><a href="#cb-objects">对象模型：Allocation 连接人与亚专科</a></li><li class="toc-h2"><a href="#cb-lifecycle">生命周期与写回：批准以后发生什么</a></li><li class="toc-h2"><a href="#sec-demo">界面与 Demo：一条路径走完</a></li><li class="toc-h2"><a href="#cb-open">哪些已经固定，哪些仍是假设</a></li></ol>
+  </aside>
+</div>
+
+<div class="tpl-modal" id="tpl-modal" hidden>
+  <div class="tpl-panel" role="dialog" aria-modal="true" aria-labelledby="tpl-title">
+    <header class="tpl-head">
+      <div class="tpl-heading">
+        <p class="tpl-kicker">模板阅读视图</p>
+        <h2 id="tpl-title">模板</h2>
+      </div>
+      <div class="tpl-actions">
+        <a class="tpl-open" id="tpl-open" href="#" target="_blank" rel="noopener">在新标签打开 ↗</a>
+        <button class="icon-btn" id="tpl-close" type="button" aria-label="关闭模板">✕</button>
+      </div>
+    </header>
+    <div class="tpl-body">
+      <iframe id="tpl-frame" title="模板内容" loading="lazy"></iframe>
+    </div>
+  </div>
+</div>
+
+<div class="search-modal" id="search-modal" hidden>
+  <div class="search-panel" role="dialog" aria-modal="true" aria-labelledby="search-title">
+    <div class="search-head">
+      <label id="search-title" class="sr-only" for="search-input">搜索教程</label>
+      <input id="search-input" type="search" placeholder="搜索概念、产物、模板、方法卡…" autocomplete="off">
+      <button class="icon-btn" id="search-close" type="button" aria-label="关闭搜索">✕</button>
+    </div>
+    <div id="search-results" class="search-results" aria-live="polite"></div>
+    <p class="search-hint">按 <kbd>/</kbd> 或 <kbd>Ctrl</kbd>+<kbd>K</kbd> 打开，<kbd>Esc</kbd> 关闭。索引完全离线。</p>
+  </div>
+</div>
+
+<noscript><p class="noscript-note">搜索与阅读进度需要 JavaScript；正文、目录和翻页仍可正常使用。可用浏览器查找（Ctrl+F）。</p></noscript>
+
+<script src="assets/search-index.js"></script>
+<script src="assets/viz-data.js"></script>
+<script src="assets/app.js"></script>
+<script src="assets/viz.js"></script>
+
+</body>
+</html>

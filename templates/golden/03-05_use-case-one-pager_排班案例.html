@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>A03-05 use-case one-pager（排班案例） · FDE 模板库</title>
+<link rel="stylesheet" href="../../assets/course.css">
+</head>
+<body>
+<a class="skip-link" href="#main">跳到正文</a>
+<main class="main" id="main">
+<article class="article">
+<nav class="crumb" aria-label="面包屑">
+<a href="../../index.html">教程首页</a><span class="sep">/</span>
+<a href="../../appendix-templates.html">模板库</a><span class="sep">/</span>
+<span>黄金样例</span>
+</nav>
+<header class="page-head">
+<div class="badges">
+<span class="badge badge-main">A03-05</span>
+<span class="badge">黄金样例</span>
+<span class="badge badge-time">Markdown 阅读视图</span>
+</div>
+<h1>A03-05 use-case one-pager（排班案例）</h1>
+<p class="page-question">这是模板的阅读视图，源文件是 <code>03-05_use-case-one-pager_排班案例.md</code>。
+<a href="03-05_use-case-one-pager_排班案例.md">下载 / 编辑 Markdown</a> · <a href="../../appendix-templates.html">返回模板库</a></p>
+</header>
+<div class="prose">
+<blockquote>
+<p>【示例】匿名化案例，数字均为示例。</p>
+</blockquote>
+<h2 id="tpl-sec-1">标题</h2>
+<p>病理科月度外部人员额度分配。</p>
+<h2 id="tpl-sec-2">用户</h2>
+<p>陈静（排班员）主操作；赵岚等组长提需求并确认；周主任审批。</p>
+<h2 id="tpl-sec-3">决策</h2>
+<p>本月每个亚专科各使用多少外部人员额度，以及这些额度分给哪些具体人员。</p>
+<h2 id="tpl-sec-4">输入</h2>
+<ul>
+<li>各亚专科月度需求（人天）。</li>
+<li>人力资源下发的额度（人天）。</li>
+<li>人员可用天数（年假、门诊、外出会诊已扣）。</li>
+<li>人员资质与可上班型。</li>
+<li>上月结转与借用规则。</li>
+</ul>
+<h2 id="tpl-sec-5">动作</h2>
+<ul>
+<li>在“亚专科 × 人员”的分配界面上调整。</li>
+<li>系统即时显示已分配、剩余额度、缺口与冲突。</li>
+<li>保存后写回分配记录。</li>
+<li>提交组长确认、主任审批。</li>
+</ul>
+<h2 id="tpl-sec-6">价值</h2>
+<ul>
+<li>把分配耗时从约 3 小时降到 1 小时以内【示例】。</li>
+<li>冲突在排班前暴露，而不是月中才发现。</li>
+<li>额度、分配、调整有同一份可追溯记录。</li>
+</ul>
+<h2 id="tpl-sec-7">不做什么</h2>
+<ul>
+<li>不做具体日期与班型的个人排班（S2）。</li>
+<li>不做住院总轮转（S3）。</li>
+<li>不做工资、绩效核算。</li>
+<li>不自动替人做最终决定，只给建议与冲突提示。</li>
+</ul>
+<h2 id="tpl-sec-8">成功标准</h2>
+<ul>
+<li>陈静能用真实一个月的数据完成一次分配。</li>
+<li>C1、C2 在界面上被识别，并至少解决一个。</li>
+<li>周主任能在界面上完成审批。</li>
+<li>分配结果写回后可再次打开核对。</li>
+</ul>
+<h2 id="tpl-sec-9">相关方</h2>
+<p>周主任（审批）、陈静（操作）、赵岚（需求与确认）、孙老师（额度口径）、刘工（数据权限）。</p>
+<h2 id="tpl-sec-10">现状</h2>
+<p>Excel + 微信 + 记忆 + 纸质草表；版本分散，冲突发现晚。</p>
+</div>
+<footer class="page-foot">
+<p class="muted">本页由 <code>_tools/build.py</code> 从 Markdown 自动生成，请改源文件而不是改这里。</p>
+</footer>
+</article>
+</main>
+</body>
+</html>

@@ -1,0 +1,313 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<title>实验室：20 分钟拼一页纸 · FDE 零基础教程</title>
+<meta name="description" content="给出半成品材料，要求读者在 20 分钟内补全并自评一页纸。">
+<link rel="stylesheet" href="assets/course.css">
+<script>
+(function () {
+  try {
+    var saved = localStorage.getItem('fde-theme');
+    var theme = saved || (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+    document.documentElement.dataset.theme = theme;
+  } catch (e) {}
+})();
+</script>
+</head>
+<body class="track-main page-lab-one-pager">
+<a class="skip-link" href="#main">跳到正文</a>
+
+<header class="topbar">
+  <button class="icon-btn nav-toggle" id="nav-toggle" type="button" aria-expanded="false" aria-controls="sidebar" aria-label="打开课程目录">
+    <span aria-hidden="true">☰</span>
+  </button>
+  <a class="brand" data-same-tab href="index.html"><span class="brand-mark">FDE</span><span class="brand-text">零基础教程</span></a>
+  <nav class="track-switch" aria-label="模块切换"><span class="track-link active" aria-current="true" title="从零建立完整心智模型">主线</span><a class="track-link" data-same-tab href="work-01-prep.html" title="现场查用：输入、步骤、输出、阶段门">工作台</a><a class="track-link" data-same-tab href="day1-00-overview.html" title="六步链路：简报 → 访谈 → 证据 → 底稿 → 门">Day1</a><a class="track-link" data-same-tab href="appendix-methods.html" title="一卡一问，按阶段、产物、角色查">方法库</a><a class="track-link" data-same-tab href="appendix-templates.html" title="模板、产物链、术语与来源">附录</a></nav>
+  <div class="top-actions">
+    <button class="search-open" id="search-open" type="button" aria-haspopup="dialog">
+      <span aria-hidden="true">⌕</span><span class="search-label">搜索</span><kbd>/</kbd>
+    </button>
+    <button class="icon-btn" id="theme-toggle" type="button" aria-label="切换深浅色">◐</button>
+  </div>
+  <div class="read-progress" aria-hidden="true"><span id="read-progress"></span></div>
+</header>
+
+<div class="layout">
+  <aside class="sidebar" id="sidebar">
+    <nav class="course-tree" aria-label="课程目录"><header class="side-head"><p class="side-eyebrow">当前模块</p><p class="side-title">主线</p><p class="side-caption">从零建立完整心智模型</p><p class="side-meta">16 页<span class="dot">·</span>约 4 小时</p></header><section class="nav-group"><p class="nav-group-title"><span class="nav-group-num">01</span>开始</p><a class="nav-link" data-same-tab href="index.html">开始：这份教程怎么用</a></section><section class="nav-group"><p class="nav-group-title"><span class="nav-group-num">02</span>看懂 FDE</p><a class="nav-link" data-same-tab href="main-01-fde.html">FDE 是什么，不是什么</a><a class="nav-link" data-same-tab href="main-02-slicing.html">把“系统”切成可验证的决策</a><a class="nav-link" data-same-tab href="lab-slicing.html">实验室：切三个模糊需求</a></section><section class="nav-group"><p class="nav-group-title"><span class="nav-group-num">03</span>看清现状</p><a class="nav-link" data-same-tab href="main-03-as-is.html">看清今天实际怎么运转</a><a class="nav-link" data-same-tab href="main-04-one-pager.html">一页纸对齐范围</a><a class="nav-link" data-same-tab href="case-a-one-pager.html">案例 A：S1 如何被选中</a><span class="nav-link nav-current" aria-current="page">实验室：20 分钟拼一页纸</span></section><section class="nav-group"><p class="nav-group-title"><span class="nav-group-num">04</span>设计验证</p><a class="nav-link" data-same-tab href="main-05-fr.html">把决策写成一句可验收的 FR</a><a class="nav-link" data-same-tab href="main-06-solution.html">方案设计四件套</a><a class="nav-link" data-same-tab href="case-b-solution.html">案例 B：从一页纸到 Demo</a></section><section class="nav-group"><p class="nav-group-title"><span class="nav-group-num">05</span>跑起来</p><a class="nav-link" data-same-tab href="main-07-gates.html">开始前的五道门</a><a class="nav-link" data-same-tab href="main-08-five-days.html">Day1–5 每天做什么</a><a class="nav-link" data-same-tab href="main-09-adoption.html">从项目到组织能力</a></section><section class="nav-group"><p class="nav-group-title"><span class="nav-group-num">06</span>选读</p><a class="nav-link" data-same-tab href="main-10-patterns.html">五种实施模式<span class="nav-optional">选读</span></a><a class="nav-link" data-same-tab href="main-11-lessons.html">一线八堂课<span class="nav-optional">选读</span></a></section></nav>
+  </aside>
+  <button class="scrim" id="scrim" type="button" aria-label="关闭目录" hidden></button>
+
+  <main class="main" id="main">
+    <nav class="crumb" aria-label="面包屑"><a data-same-tab href="index.html">教程</a><span class="sep">/</span><span>主线</span><span class="sep">/</span><span>看清现状</span><span class="sep">/</span><span aria-current="page">实验室：20 分钟拼一页纸</span></nav>
+    <article class="article">
+      <header class="page-head">
+        <div class="badges"><span class="badge badge-main">必读</span><span class="badge badge-time">15 分钟</span></div>
+        <h1>实验室：20 分钟拼一页纸</h1>
+        <p class="lede">给出半成品材料，要求读者在 20 分钟内补全并自评一页纸。</p>
+        <p class="page-question"><span class="eyebrow">本页要回答</span>我能否在有限信息下拼出一页可评审的 one-pager？</p>
+        <div class="page-meta">
+          <section class="meta-block">
+            <h2 class="meta-title" id="meta-objectives">读完你能</h2>
+            <ul class="objective-list"><li>从给定材料中选出唯一最终决策；</li><li>补全六段并写出三条非范围；</li><li>用自检表给出一处必须修改的地方。</li></ul>
+          </section>
+          <section class="meta-block">
+            <h2 class="meta-title" id="meta-prereq">前置</h2>
+            <p>先读：<a href="main-04-one-pager.html" target="_blank" rel="noopener">一页纸对齐范围</a>、<a href="case-a-one-pager.html" target="_blank" rel="noopener">案例 A：S1 如何被选中</a></p>
+          </section>
+        </div>
+      </header>
+
+      <div class="prose">
+        <p>这是一次 20 分钟的拼装练习：给你一份半成品材料和一张评分表，你要选出唯一最终决策，补全六段，并挑出一处必须修改的地方。</p>
+<p>草稿只保存在本机，不会上传。你可以先读 <a class="case-link" href="case-a-one-pager.html#cb-one-pager" target="_blank" rel="noopener">案例 CB-04</a> 找感觉，再回来做。</p>
+<h2 id="sec-inputs">你会用到什么</h2>
+<ul>
+<li>输入：A03-03 候选切片与打分，以及下面给出的半成品；</li>
+<li>输出：A03-05 use-case one-pager，写到 <code>03_现状与切片/03-05_use-case-one-pager.md</code>；</li>
+<li>模板：<a class="template-link" href="templates/blank/03-05_use-case-one-pager.html" data-template-view data-template-title="A03-05 use-case one-pager模板" title="A03-05 use-case one-pager模板 ｜ 当前页弹窗预览">A03-05 use-case one-pager模板</a>；</li>
+<li>时间盒：练习 1 六分钟，练习 2 九分钟，练习 3 五分钟。</li>
+</ul>
+<h2 id="ex-decision">练习 1：认出唯一最终决策（6 分钟）</h2>
+<p>下面三行来自同一份材料，只有一行是“最终决策”：</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th scope="col">选项</th>
+<th scope="col">内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A</td>
+<td>在“亚专科 × 人员”界面上调整分配</td>
+</tr>
+<tr>
+<td>B</td>
+<td>本月每个亚专科各使用多少外部人员额度，以及分给哪些人</td>
+</tr>
+<tr>
+<td>C</td>
+<td>周主任审批并写回</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>步骤</strong>：</p>
+<ol>
+<li>判断 A、B、C 各是决策、动作还是审批；</li>
+<li>选出一个最终决策；</li>
+<li>套进决策句：<code>____在____，根据____，决定____，并触发____。</code></li>
+</ol>
+<textarea data-lab="lab-onepager-decision" rows="8"></textarea>
+
+<p><strong>自检</strong>：① 你选的那一行，是否包含“决定什么”，而不只是“做什么动作”？② 决策句里是否只有一个“决定”？</p>
+<details><summary>参考答案</summary>
+
+B 是最终决策。A 是动作，C 是审批动作。参考句：陈静在每月 25 日前，根据各亚专科需求、外部额度和人员可用天数，决定本月每个亚专科用多少额度、分给谁，并写回分配记录、提交确认。
+
+</details>
+
+<div class="checkpoint">
+<p><strong>停一下</strong>：如果你选的是 A 或 C，先别往下做。A 描述的是界面操作，C 描述的是审批环节；它们都发生在决策之后。一页纸的“决策”段只放那个需要业务判断的选择。</p>
+</div>
+<h2 id="ex-six">练习 2：补全六段（9 分钟）</h2>
+<p>这是一份故意写坏的半成品。请补全或改写，至少写出三条“不做什么”。</p>
+<div class="template-block">
+<div class="template-title">半成品 one-pager <span>请改写</span></div>
+<pre><code class="language-text">1. 用户：陈静（排班员）主操作；周主任审批。
+2. 决策：本月每个亚专科用多少外部人员额度，以及分给谁。
+3. 输入：需求、额度、可用天数。
+4. 动作：在界面上调整，系统显示冲突。
+5. 价值：提升效率，减少返工。
+6. 不做什么：
+</code></pre>
+</div>
+<p><strong>步骤</strong>：</p>
+<ol>
+<li>给输入补来源、口径和状态；</li>
+<li>给动作补“系统动作”和“人的动作”，至少有一条写回；</li>
+<li>把价值改成“基线 → 目标 → 测法”；</li>
+<li>写出三条非范围，每条带理由或归属切片。</li>
+</ol>
+<textarea data-lab="lab-onepager-six" rows="8"></textarea>
+
+<p><strong>自检</strong>：① 输入里是否至少有一条标了“待确认”？② 动作里是否有保存/写回？③ 三条非范围是否都能在评审时直接引用？</p>
+<details><summary>参考要点</summary>
+
+输入可补：人员资质与可上班型、上月结转与借用规则；并标注哪些已有、哪些待确认。动作可补：保存后写回分配记录，提交组长确认、主任审批。价值可写：分配耗时从约 3 小时降到 1 小时以内【示例】，冲突在排班前暴露，记录可追溯；同时写清测量方式。非范围可写：不做 S2 个人排班、不做 S3 住院总轮转、不做工资绩效核算、不自动替人做最终决定。
+
+</details>
+
+<div class="hands-on">
+<p><strong>动手交付</strong>：把练习 1 的决策句和练习 2 的六段合成一版 A03-05，写入 <code>03_现状与切片/03-05_use-case-one-pager.md</code>。</p>
+<p>提交前做三件事：</p>
+<ol>
+<li>用一句话读给旁边的人听，问他“这次做什么、不做什么”；</li>
+<li>把每个数字后面补上【示例】或“待确认”；</li>
+<li>把“不做什么”至少一条改成“不做 ____，因为 ____”。</li>
+</ol>
+</div>
+<h2 id="ex-review">练习 3：用评分表挑一处必须改（5 分钟）</h2>
+<p>先按下面六项给自己的草稿打分，每项 0–2 分，总分 12 分。</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th scope="col">维度</th>
+<th scope="col">0 分</th>
+<th scope="col">1 分</th>
+<th scope="col">2 分</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>用户</td>
+<td>只写部门</td>
+<td>有角色，但操作与审批混在一起</td>
+<td>操作者、审批者、相关方分开</td>
+</tr>
+<tr>
+<td>决策</td>
+<td>写成功能清单</td>
+<td>有决策，但不止一条</td>
+<td>只有一条最终决策</td>
+</tr>
+<tr>
+<td>输入</td>
+<td>只写“相关数据”</td>
+<td>有输入，缺来源或口径</td>
+<td>每条有来源、口径、状态</td>
+</tr>
+<tr>
+<td>动作</td>
+<td>只有“查看”</td>
+<td>有操作，缺写回或确认</td>
+<td>系统动作与人的动作齐全</td>
+</tr>
+<tr>
+<td>价值</td>
+<td>只有“提效”</td>
+<td>有目标，无基线</td>
+<td>基线、目标、测法齐全</td>
+</tr>
+<tr>
+<td>不做什么</td>
+<td>空着</td>
+<td>有一两条，理由不足</td>
+<td>至少三条，能挡住加需求</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>评分口径</strong>：9–12 分可评审；6–8 分有条件通过，先补最低分项；0–5 分退回重写。总分只用于定位短板，不是精确科学 <span class="cite" title="FDE 方法论沉淀">[S17]</span>。</p>
+<p><strong>步骤</strong>：</p>
+<ol>
+<li>给自己打分；</li>
+<li>找出最低的一项；</li>
+<li>写出“必须改的那一处”，要具体到句子。</li>
+</ol>
+<textarea data-lab="lab-onepager-review" rows="8"></textarea>
+
+<p><strong>自检</strong>：你写的是“价值段太空”还是“把‘提升效率’改成‘约 3 小时降到 1 小时以内【示例】，现场计时’”？后者才是可执行的修改。</p>
+<div class="pitfalls">
+<p><strong>坑 1：把动作当决策。</strong>
+表现：决策段写“调整分配界面”。后果：不知道业务方到底在判断什么。
+处理：问一句“他在这里选了什么”，把界面操作降为动作。</p>
+<p><strong>坑 2：六段写成功能清单。</strong>
+表现：输入、动作里堆满导入、导出、提醒、统计。后果：范围收不住。
+处理：每条都问“缺了它，这个决定会不会变”；不会变的删掉。</p>
+<p><strong>坑 3：“不做什么”写“其他需求后续再说”。</strong>
+表现：边界不可引用。后果：现场每加一个需求都要重新争论。
+处理：至少三条具体范围，每条带理由或归属切片。</p>
+<p><strong>坑 4：自评全是 2 分。</strong>
+表现：没有证据也给自己满分。后果：练习失去意义。
+处理：每一分都要能在草稿里指到对应句子；指不到就降分。</p>
+</div>
+<div class="self-test">
+<p><strong>三问自测</strong></p>
+<details>
+<summary>1. 为什么“调整分配界面”不能写成决策？</summary>
+
+它描述的是决策之后的界面操作，不包含业务判断。决策要回答“在几个选项里选了什么”，例如“每个亚专科用多少额度、分给谁”。
+
+</details>
+<details>
+<summary>2. 三条“不做什么”怎样才算合格？</summary>
+
+每条要具体到范围，并带理由或归属切片，最好能直接引用，例如“不做 S2 个人排班，因为它是下一轮”。只写“其他需求后续再说”不合格。
+
+</details>
+<details>
+<summary>3. 价值段没有基线怎么办？</summary>
+
+写“约”并标明“待现场复测”，同时写清测量方式、数据来源、校准日期和负责人；四项缺一项，评审时按“无基线”处理。不要编一个精确数字，也不要只写“待校准”四个字就过关。
+
+</details>
+</div>
+<div class="recap">
+<p><strong>本章带走</strong></p>
+<ol>
+<li>先认最终决策，再补六段；动作和审批都不能冒充决策。</li>
+<li>输入的来源与口径、动作的写回与确认、价值的三要素、至少三条非范围，是一页纸的四条硬边。</li>
+<li>评分表用来定位最低分项；改一处具体句子，比通篇重写更有效。</li>
+</ol>
+</div>
+      </div>
+
+      
+      <section class="artifact-box" aria-label="本页产物"><div class="artifact-block"><h3 id="artifacts-out">本页要写出的产物</h3><ul><li><code>A03-05</code> use-case one-pager <span class="muted">→ 03_现状与切片/03-05_use-case-one-pager.md</span> <span class="gate-tag">G3</span> <a href="templates/blank/03-05_use-case-one-pager.html" data-template-view data-template-title="A03-05 use-case one-pager模板" title="A03-05 use-case one-pager模板 ｜ 当前页弹窗预览">模板</a> <a href="templates/golden/03-05_use-case-one-pager_排班案例.html" data-template-view data-template-title="A03-05 use-case one-pager黄金样例" title="A03-05 use-case one-pager黄金样例 ｜ 当前页弹窗预览">黄金样例</a></li></ul></div><div class="artifact-block"><h3 id="artifacts-in">开始前应已具备</h3><p class="muted"><code>A03-03</code> 候选切片与打分</p></div></section>
+      <section class="sources" aria-label="来源"><h2 id="sec-sources">来源与证据等级</h2><ol class="source-list"><li><span class="src-id">S17</span> <strong>FDE 方法论沉淀</strong> <span class="badge badge-实践">实践</span><div class="muted">本子项目 · 抓取 2026-09-23 · 内部方法沉淀</div><div class="src-url"><span class="muted">无公开链接</span></div></li><li><span class="src-id">S19</span> <strong>医院排班场景映射</strong> <span class="badge badge-实践">实践</span><div class="muted">本子项目 · 抓取 2026-10-19 · 内部方法沉淀；案例已匿名化</div><div class="src-url"><span class="muted">无公开链接</span></div></li></ol></section>
+      <nav class="pager" aria-label="翻页"><a class="pager-prev" data-same-tab href="case-a-one-pager.html"><span>上一页</span><strong>案例 A：S1 如何被选中</strong></a><a class="pager-next" data-same-tab href="main-05-fr.html"><span>下一页</span><strong>把决策写成一句可验收的 FR</strong></a></nav>
+
+      <footer class="page-foot">
+        <p>本教程为内部方法研究。案例已匿名化，数字标注【示例】。Palantir 官方资料版权归 Palantir Technologies，仅作改写与链接。</p>
+        <p class="muted">发现断链或事实错误？回到 <a href="appendix-sources.html" target="_blank" rel="noopener">来源与版权</a> 核对出处。</p>
+      </footer>
+    </article>
+  </main>
+
+  <aside class="toc" id="toc" aria-label="页内目录">
+    <p class="toc-title">本页目录</p><ol class="toc-list"><li class="toc-h2"><a href="#sec-inputs">你会用到什么</a></li><li class="toc-h2"><a href="#ex-decision">练习 1：认出唯一最终决策（6 分钟）</a></li><li class="toc-h2"><a href="#ex-six">练习 2：补全六段（9 分钟）</a></li><li class="toc-h2"><a href="#ex-review">练习 3：用评分表挑一处必须改（5 分钟）</a></li></ol>
+  </aside>
+</div>
+
+<div class="tpl-modal" id="tpl-modal" hidden>
+  <div class="tpl-panel" role="dialog" aria-modal="true" aria-labelledby="tpl-title">
+    <header class="tpl-head">
+      <div class="tpl-heading">
+        <p class="tpl-kicker">模板阅读视图</p>
+        <h2 id="tpl-title">模板</h2>
+      </div>
+      <div class="tpl-actions">
+        <a class="tpl-open" id="tpl-open" href="#" target="_blank" rel="noopener">在新标签打开 ↗</a>
+        <button class="icon-btn" id="tpl-close" type="button" aria-label="关闭模板">✕</button>
+      </div>
+    </header>
+    <div class="tpl-body">
+      <iframe id="tpl-frame" title="模板内容" loading="lazy"></iframe>
+    </div>
+  </div>
+</div>
+
+<div class="search-modal" id="search-modal" hidden>
+  <div class="search-panel" role="dialog" aria-modal="true" aria-labelledby="search-title">
+    <div class="search-head">
+      <label id="search-title" class="sr-only" for="search-input">搜索教程</label>
+      <input id="search-input" type="search" placeholder="搜索概念、产物、模板、方法卡…" autocomplete="off">
+      <button class="icon-btn" id="search-close" type="button" aria-label="关闭搜索">✕</button>
+    </div>
+    <div id="search-results" class="search-results" aria-live="polite"></div>
+    <p class="search-hint">按 <kbd>/</kbd> 或 <kbd>Ctrl</kbd>+<kbd>K</kbd> 打开，<kbd>Esc</kbd> 关闭。索引完全离线。</p>
+  </div>
+</div>
+
+<noscript><p class="noscript-note">搜索与阅读进度需要 JavaScript；正文、目录和翻页仍可正常使用。可用浏览器查找（Ctrl+F）。</p></noscript>
+
+<script src="assets/search-index.js"></script>
+<script src="assets/viz-data.js"></script>
+<script src="assets/app.js"></script>
+<script src="assets/viz.js"></script>
+<script src="assets/lab.js"></script>
+</body>
+</html>

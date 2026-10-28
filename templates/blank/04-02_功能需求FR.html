@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>A04-02 功能需求FR · FDE 模板库</title>
+<link rel="stylesheet" href="../../assets/course.css">
+</head>
+<body>
+<a class="skip-link" href="#main">跳到正文</a>
+<main class="main" id="main">
+<article class="article">
+<nav class="crumb" aria-label="面包屑">
+<a href="../../index.html">教程首页</a><span class="sep">/</span>
+<a href="../../appendix-templates.html">模板库</a><span class="sep">/</span>
+<span>空白模板</span>
+</nav>
+<header class="page-head">
+<div class="badges">
+<span class="badge badge-main">A04-02</span>
+<span class="badge">空白模板</span>
+<span class="badge badge-time">Markdown 阅读视图</span>
+</div>
+<h1>A04-02 功能需求FR</h1>
+<p class="page-question">这是模板的阅读视图，源文件是 <code>04-02_功能需求FR.md</code>。
+<a href="04-02_功能需求FR.md">下载 / 编辑 Markdown</a> · <a href="../../appendix-templates.html">返回模板库</a></p>
+</header>
+<div class="prose">
+<blockquote>
+<p>产物路径：<code>04_方案设计/04-02_功能需求FR.md</code> ｜ 所属阶段：04_方案设计 ｜ 阶段门：G4</p>
+</blockquote>
+<h2 id="tpl-sec-1">用途</h2>
+<p>把决策清单落成可验收的功能需求（FR，Functional Requirement），确保每条需求都能回答：谁、在哪个界面、看什么输入、做什么决定、执行什么动作、怎样算通过。</p>
+<h2 id="tpl-sec-2">何时用</h2>
+<ul>
+<li>决策清单确认之后、画原型或写代码之前；</li>
+<li>与业务方逐条确认“这个屏幕到底帮你做什么决定”时；</li>
+<li>Demo 前逐条验收，确认每条 FR 都能被真实用户走通；</li>
+<li>发现页面越画越多时，回到这里删掉没有决策支撑的需求。</li>
+</ul>
+<h2 id="tpl-sec-3">填写说明</h2>
+<ol>
+<li>FR 编号唯一，建议用 <code>FR-01</code>、<code>FR-02</code>，并与决策清单中的决策对应。</li>
+<li>用户写角色，不写“用户”两个字；界面写具体屏幕或区块名称。</li>
+<li>输入写字段或数据项，不写“相关数据”。</li>
+<li>决策写这一步要做的判断；一条 FR 只承载一个决策。</li>
+<li>动作动词开头，写用户实际点击、拖拽、填写或确认的操作。</li>
+<li>验收标准必须可观察、可复现，不写“体验良好”“响应迅速”。</li>
+<li>证据 ID 对应证据台账；推断或待验证的证据要保留状态，不能写成事实。</li>
+<li>写完后用四个红旗信号自查：说不清谁在什么界面做什么决定、一条 FR 塞了两个以上决策、只有“体验良好”、需要的数据现场拿不到却写成必须。</li>
+</ol>
+<h2 id="tpl-sec-4">字段</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th scope="col">FR编号</th>
+<th scope="col">用户</th>
+<th scope="col">界面</th>
+<th scope="col">输入</th>
+<th scope="col">决策</th>
+<th scope="col">动作</th>
+<th scope="col">验收标准</th>
+<th scope="col">证据ID</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>FR-01</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>FR-02</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>FR-03</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="tpl-sec-5">质量门自检（G4）</h2>
+<ul>
+<li>[ ] 每条 FR 有唯一编号，并能追溯到决策清单中的某个决策。</li>
+<li>[ ] 写明用户与界面，能回答“谁在哪个屏幕做什么决定”。</li>
+<li>[ ] 一条 FR 只承载一个决策，没有把查看、分配、审批混在一起。</li>
+<li>[ ] 输入字段在对象模型或数据清单中有来源。</li>
+<li>[ ] 动作是用户动作，不是“系统应该支持”这类无法验收的表述。</li>
+<li>[ ] 验收标准可观察、可复现，没有“体验良好”一类空话。</li>
+<li>[ ] 关键 FR 有证据 ID；推断类证据没有伪装成事实。</li>
+<li>[ ] 四个红旗信号已逐条自查。</li>
+</ul>
+</div>
+<footer class="page-foot">
+<p class="muted">本页由 <code>_tools/build.py</code> 从 Markdown 自动生成，请改源文件而不是改这里。</p>
+</footer>
+</article>
+</main>
+</body>
+</html>

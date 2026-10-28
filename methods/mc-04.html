@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<title>控制矩阵 · FDE 零基础教程</title>
+<meta name="description" content="流程每一步，人做什么、系统做什么、谁签字？">
+<link rel="stylesheet" href="../assets/course.css">
+<script>
+(function () {
+  try {
+    var saved = localStorage.getItem('fde-theme');
+    var theme = saved || (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+    document.documentElement.dataset.theme = theme;
+  } catch (e) {}
+})();
+</script>
+</head>
+<body class="track-methods page-mc-04">
+<a class="skip-link" href="#main">跳到正文</a>
+
+<header class="topbar">
+  <button class="icon-btn nav-toggle" id="nav-toggle" type="button" aria-expanded="false" aria-controls="sidebar" aria-label="打开课程目录">
+    <span aria-hidden="true">☰</span>
+  </button>
+  <a class="brand" data-same-tab href="../index.html"><span class="brand-mark">FDE</span><span class="brand-text">零基础教程</span></a>
+  <nav class="track-switch" aria-label="模块切换"><a class="track-link" data-same-tab href="../index.html" title="从零建立完整心智模型">主线</a><a class="track-link" data-same-tab href="../work-01-prep.html" title="现场查用：输入、步骤、输出、阶段门">工作台</a><a class="track-link" data-same-tab href="../day1-00-overview.html" title="六步链路：简报 → 访谈 → 证据 → 底稿 → 门">Day1</a><span class="track-link active" aria-current="true" title="一卡一问，按阶段、产物、角色查">方法库</span><a class="track-link" data-same-tab href="../appendix-templates.html" title="模板、产物链、术语与来源">附录</a></nav>
+  <div class="top-actions">
+    <button class="search-open" id="search-open" type="button" aria-haspopup="dialog">
+      <span aria-hidden="true">⌕</span><span class="search-label">搜索</span><kbd>/</kbd>
+    </button>
+    <button class="icon-btn" id="theme-toggle" type="button" aria-label="切换深浅色">◐</button>
+  </div>
+  <div class="read-progress" aria-hidden="true"><span id="read-progress"></span></div>
+</header>
+
+<div class="layout">
+  <aside class="sidebar" id="sidebar">
+    <nav class="course-tree" aria-label="课程目录"><header class="side-head"><p class="side-eyebrow">当前模块</p><p class="side-title">方法库</p><p class="side-caption">一卡一问，按阶段、产物、角色查</p><p class="side-meta">11 页<span class="dot">·</span>持续积累</p></header><section class="nav-group"><a class="nav-link nav-index" data-same-tab href="../appendix-methods.html">方法库索引 <span class="nav-hint">先看这张表</span></a><a class="nav-link nav-method" data-same-tab href="../methods/mc-01.html"><span class="nav-id">mc-01</span>四类规则分层</a><a class="nav-link nav-method" data-same-tab href="../methods/mc-02.html"><span class="nav-id">mc-02</span>最短行动闭环</a><a class="nav-link nav-method" data-same-tab href="../methods/mc-03.html"><span class="nav-id">mc-03</span>结果合同</a><span class="nav-link nav-method nav-current" aria-current="page"><span class="nav-id">mc-04</span>控制矩阵</span><a class="nav-link nav-method" data-same-tab href="../methods/mc-05.html"><span class="nav-id">mc-05</span>切片打分卡</a><a class="nav-link nav-method" data-same-tab href="../methods/mc-06.html"><span class="nav-id">mc-06</span>证据分级与双轴标注</a><a class="nav-link nav-method" data-same-tab href="../methods/mc-07.html"><span class="nav-id">mc-07</span>分轮追问</a><a class="nav-link nav-method" data-same-tab href="../methods/mc-08.html"><span class="nav-id">mc-08</span>五道门检查</a><a class="nav-link nav-method" data-same-tab href="../methods/mc-09.html"><span class="nav-id">mc-09</span>Demo 前置检查</a><a class="nav-link nav-method" data-same-tab href="../methods/mc-10.html"><span class="nav-id">mc-10</span>回流账本</a></section></nav>
+  </aside>
+  <button class="scrim" id="scrim" type="button" aria-label="关闭目录" hidden></button>
+
+  <main class="main" id="main">
+    <nav class="crumb" aria-label="面包屑"><a data-same-tab href="../index.html">教程</a><span class="sep">/</span><a data-same-tab href="../appendix-methods.html">方法库</a><span class="sep">/</span><span aria-current="page">控制矩阵</span></nav>
+    <article class="article">
+      <header class="page-head">
+        <div class="badges"><span class="badge badge-method">方法卡</span></div>
+        <h1>控制矩阵</h1>
+        <p class="lede">流程每一步，人做什么、系统做什么、谁签字？</p>
+        <p class="page-question"><span class="eyebrow">本页要回答</span>流程每一步，人做什么、系统做什么、谁签字？</p>
+        <div class="page-meta">
+          <section class="meta-block">
+            <h2 class="meta-title" id="meta-objectives">读完你能</h2>
+            <ul class="objective-list"><li>判断这个方法是否适用于你的场景；</li><li>按步骤执行并产出关联 artifact；</li><li>用检查清单自检，避开反模式。</li></ul>
+          </section>
+          <section class="meta-block">
+            <h2 class="meta-title" id="meta-prereq">前置</h2>
+            <p><span class="muted">无前置，从本页开始。</span></p>
+          </section>
+        </div>
+      </header>
+
+      <div class="prose">
+        <h2 id="answer">一句话回答</h2>
+<p>给流程每一步只选一个控制级别：<strong>完全自主、人在回路、纯人工</strong>；再写清谁验证、谁审批、出问题怎么回滚。系统可以计算、提示、拦住保存，但不能替人承担签字。</p>
+<p><a class="term-link" href="../work-05-spec.html#term-control-matrix" title="Control Matrix：把流程每一步分成完全自主、人在回路、纯人工，并写清验证者、审批者和回滚方式。" target="_blank" rel="noopener">人机控制矩阵</a>不是一张部门职责表，而是一张“这一步谁说了算”的表。级别选错，界面做得再顺，业务方也不敢用。</p>
+<h2 id="when">什么时候用</h2>
+<p><strong>用</strong>：</p>
+<ul>
+<li>方案设计完成、准备评审 FR 和界面时；</li>
+<li>Demo 前，需要确认哪些动作用户可以自己完成、哪些必须等审批；</li>
+<li>双方对“能不能自动处理”争执不下时。</li>
+</ul>
+<p><strong>不用</strong>：</p>
+<ul>
+<li>As-is 还没画清，步骤和例外都不全。先补 A03-01；</li>
+<li>只是在讨论按钮放左边还是右边，不涉及决定权；</li>
+<li>你想用矩阵把所有责任推给系统。矩阵恰恰是为了把责任写回人。</li>
+</ul>
+<h2 id="steps">怎么做</h2>
+<ol>
+<li><strong>抄步骤</strong>：从 As-is 决策流逐行抄下步骤，保留角色和触发条件。</li>
+<li><strong>标判断</strong>：在每一步问“这里有没有人做决定”，没有判断的步骤不进矩阵主体。</li>
+<li><strong>选级别</strong>：只选一个。系统可独立完成且错了可恢复→完全自主；系统给建议、人确认→人在回路；必须人判断→纯人工。</li>
+<li><strong>写验证者</strong>：写清谁看结果、看什么、发现错了怎么处理，不能写“系统校验”就结束。</li>
+<li><strong>写审批者</strong>：写具体角色和时点。审批不是点个同意，要有依据和留痕。</li>
+<li><strong>写回滚</strong>：状态改错了怎么退回、谁有权退、退回后哪些字段要恢复。</li>
+<li><strong>走查例外</strong>：拿 C1 这类真实冲突走一遍，确认每一步都有人接得住。</li>
+</ol>
+<h2 id="case">排班案例片段</h2>
+<p><a class="case-link" href="../case-b-solution.html#cb-lifecycle" target="_blank" rel="noopener">案例 CB-06</a> 里，额度从“草稿”到“待确认”由陈静提交，从“待确认”到“已确认”由周主任确认；分配从“已确认”到“已发布”由周主任发布。系统负责改状态、写字段，但不替周主任做批准决定【示例】。</p>
+<p><a class="case-link" href="../case-a-one-pager.html#cb-one-pager" target="_blank" rel="noopener">案例 CB-04</a> 也写明“不自动替人做最终决定，只给建议与冲突提示”。C1 出现时，系统可以拦住保存并解释原因，这是完全自主的校验；但怎么调、找谁借额度，仍是陈静和赵岚的判断。两者不能混成一句“系统处理”。</p>
+<h2 id="checklist">检查清单</h2>
+<ul>
+<li>[ ] 每一步只有一个控制级别，没有“半自动”这种模糊写法。</li>
+<li>[ ] 没有“系统负责审批”这种句子；审批必须落到人。</li>
+<li>[ ] 审批人有名字或明确角色，也有时点。</li>
+<li>[ ] 写回有权限、校验和失败处理。</li>
+<li>[ ] 每一步都有回滚方式。</li>
+<li>[ ] 例外路径也有人负责，不是空白。</li>
+</ul>
+<h2 id="anti">反模式</h2>
+<ul>
+<li><strong>全自动或全人工二选一</strong>：大多数步骤是人在回路，硬分成两端会失真。</li>
+<li><strong>用 RACI 表代替控制级别</strong>：谁负责不等于系统做到哪一步。</li>
+<li><strong>审批人不到场</strong>：矩阵上写了名字，Demo 时不在，等于没签。</li>
+<li><strong>只写正常路径不写回滚</strong>：一出错就只能改数据库。</li>
+<li><strong>系统提示被当成系统决定</strong>：提示是输入，决定仍要有人承担。</li>
+</ul>
+<h2 id="related">关联</h2>
+<ul>
+<li>产物：A04-01 决策清单（<a class="template-link" href="../templates/blank/04-01_决策清单.html" data-template-view data-template-title="A04-01 决策清单模板" title="A04-01 决策清单模板 ｜ 当前页弹窗预览">A04-01 决策清单模板</a>）、A04-05 增强与界面（<a class="template-link" href="../templates/blank/04-05_增强与界面.html" data-template-view data-template-title="A04-05 增强与界面模板" title="A04-05 增强与界面模板 ｜ 当前页弹窗预览">A04-05 增强与界面模板</a>）</li>
+<li>上游页面：<a class="page-link" href="../work-05-spec.html" target="_blank" rel="noopener">一小时压出评审包</a></li>
+<li>相邻方法：<a class="page-link" href="../methods/mc-02.html" target="_blank" rel="noopener">最短行动闭环</a>（最短行动闭环）、<a class="page-link" href="../methods/mc-09.html" target="_blank" rel="noopener">Demo 前置检查</a>（Demo 前置检查）</li>
+<li>案例：<a class="case-link" href="../case-b-solution.html#cb-lifecycle" target="_blank" rel="noopener">案例 CB-06</a>、<a class="case-link" href="../case-a-one-pager.html#cb-one-pager" target="_blank" rel="noopener">案例 CB-04</a></li>
+</ul>
+      </div>
+
+      
+      
+      <section class="sources" aria-label="来源"><h2 id="sec-sources">来源与证据等级</h2><ol class="source-list"><li><span class="src-id">S15</span> <strong>《FDE 入门到精通》（FDE: From Fundamentals to Mastery）</strong> <span class="badge badge-第三方">第三方</span><div class="muted">高飞 / feigaobox10 · 抓取 2026-10-19 · CC BY-NC-SA 4.0；非官方，未获讲者或公司背书</div><div class="src-url"><a href="https://github.com/feigaobox10/fde-reader" rel="noreferrer" target="_blank">https://github.com/feigaobox10/fde-reader</a></div></li><li><span class="src-id">S18</span> <strong>流程与范围模板</strong> <span class="badge badge-实践">实践</span><div class="muted">本子项目 · 抓取 2026-09-23 · 内部方法沉淀</div><div class="src-url"><span class="muted">无公开链接</span></div></li></ol></section>
+      <nav class="pager" aria-label="翻页"><a class="pager-prev" data-same-tab href="../methods/mc-03.html"><span>上一页</span><strong>结果合同</strong></a><a class="pager-next" data-same-tab href="../methods/mc-05.html"><span>下一页</span><strong>切片打分卡</strong></a></nav>
+
+      <footer class="page-foot">
+        <p>本教程为内部方法研究。案例已匿名化，数字标注【示例】。Palantir 官方资料版权归 Palantir Technologies，仅作改写与链接。</p>
+        <p class="muted">发现断链或事实错误？回到 <a href="../appendix-sources.html" target="_blank" rel="noopener">来源与版权</a> 核对出处。</p>
+      </footer>
+    </article>
+  </main>
+
+  <aside class="toc" id="toc" aria-label="页内目录">
+    <p class="toc-title">本页目录</p><ol class="toc-list"><li class="toc-h2"><a href="#answer">一句话回答</a></li><li class="toc-h2"><a href="#when">什么时候用</a></li><li class="toc-h2"><a href="#steps">怎么做</a></li><li class="toc-h2"><a href="#case">排班案例片段</a></li><li class="toc-h2"><a href="#checklist">检查清单</a></li><li class="toc-h2"><a href="#anti">反模式</a></li><li class="toc-h2"><a href="#related">关联</a></li></ol>
+  </aside>
+</div>
+
+<div class="tpl-modal" id="tpl-modal" hidden>
+  <div class="tpl-panel" role="dialog" aria-modal="true" aria-labelledby="tpl-title">
+    <header class="tpl-head">
+      <div class="tpl-heading">
+        <p class="tpl-kicker">模板阅读视图</p>
+        <h2 id="tpl-title">模板</h2>
+      </div>
+      <div class="tpl-actions">
+        <a class="tpl-open" id="tpl-open" href="#" target="_blank" rel="noopener">在新标签打开 ↗</a>
+        <button class="icon-btn" id="tpl-close" type="button" aria-label="关闭模板">✕</button>
+      </div>
+    </header>
+    <div class="tpl-body">
+      <iframe id="tpl-frame" title="模板内容" loading="lazy"></iframe>
+    </div>
+  </div>
+</div>
+
+<div class="search-modal" id="search-modal" hidden>
+  <div class="search-panel" role="dialog" aria-modal="true" aria-labelledby="search-title">
+    <div class="search-head">
+      <label id="search-title" class="sr-only" for="search-input">搜索教程</label>
+      <input id="search-input" type="search" placeholder="搜索概念、产物、模板、方法卡…" autocomplete="off">
+      <button class="icon-btn" id="search-close" type="button" aria-label="关闭搜索">✕</button>
+    </div>
+    <div id="search-results" class="search-results" aria-live="polite"></div>
+    <p class="search-hint">按 <kbd>/</kbd> 或 <kbd>Ctrl</kbd>+<kbd>K</kbd> 打开，<kbd>Esc</kbd> 关闭。索引完全离线。</p>
+  </div>
+</div>
+
+<noscript><p class="noscript-note">搜索与阅读进度需要 JavaScript；正文、目录和翻页仍可正常使用。可用浏览器查找（Ctrl+F）。</p></noscript>
+
+<script src="../assets/search-index.js"></script>
+<script src="../assets/viz-data.js"></script>
+<script src="../assets/app.js"></script>
+<script src="../assets/viz.js"></script>
+
+</body>
+</html>

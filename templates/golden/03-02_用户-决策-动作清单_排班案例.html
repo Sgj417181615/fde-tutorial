@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>A03-02 用户-决策-动作清单（排班案例） · FDE 模板库</title>
+<link rel="stylesheet" href="../../assets/course.css">
+</head>
+<body>
+<a class="skip-link" href="#main">跳到正文</a>
+<main class="main" id="main">
+<article class="article">
+<nav class="crumb" aria-label="面包屑">
+<a href="../../index.html">教程首页</a><span class="sep">/</span>
+<a href="../../appendix-templates.html">模板库</a><span class="sep">/</span>
+<span>黄金样例</span>
+</nav>
+<header class="page-head">
+<div class="badges">
+<span class="badge badge-main">A03-02</span>
+<span class="badge">黄金样例</span>
+<span class="badge badge-time">Markdown 阅读视图</span>
+</div>
+<h1>A03-02 用户-决策-动作清单（排班案例）</h1>
+<p class="page-question">这是模板的阅读视图，源文件是 <code>03-02_用户-决策-动作清单_排班案例.md</code>。
+<a href="03-02_用户-决策-动作清单_排班案例.md">下载 / 编辑 Markdown</a> · <a href="../../appendix-templates.html">返回模板库</a></p>
+</header>
+<div class="prose">
+<blockquote>
+<p>【示例】匿名化案例，数字均为示例；人名与机构均为化名。</p>
+</blockquote>
+<p>本样例把 S1 的 As-is 流程拆成四个决策点，决策编号沿用 <code>_canon/case-bible.md</code> CB-03 的 DC-1～DC-4。一行只写一个决策；写不出动作的步骤不进入本表。</p>
+<h2 id="tpl-sec-1">用途 / 何时用</h2>
+<p>在 As-is 决策流之后使用。它回答“谁在什么时点、根据什么输入、做什么决定，决定后写回什么对象”。本表只覆盖 S1 外部人员额度分配，不把 S2 个人排班、S3 住院总轮转写进来。</p>
+<h2 id="tpl-sec-2">字段</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th scope="col">角色</th>
+<th scope="col">场景</th>
+<th scope="col">决策</th>
+<th scope="col">时点</th>
+<th scope="col">输入</th>
+<th scope="col">动作</th>
+<th scope="col">系统</th>
+<th scope="col">频率</th>
+<th scope="col">写回对象</th>
+<th scope="col">证据ID</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>周主任（陈静提方案）</td>
+<td>月度额度分配</td>
+<td>DC-1 各亚专科本月额度怎么分</td>
+<td>每月 25 日前</td>
+<td>需求、额度、可用天数、资质</td>
+<td>确认或调整分配方案</td>
+<td>额度分配工作台（替代 Excel 草表）</td>
+<td>每月</td>
+<td>额度 Quota 的额度人天与状态；分配 Allocation 初稿</td>
+<td>E-03、E-04</td>
+</tr>
+<tr>
+<td>陈静</td>
+<td>分配过程中调整人员归属</td>
+<td>DC-2 某个人分到哪个亚专科</td>
+<td>分配时</td>
+<td>人员可用天数、资质、组长偏好</td>
+<td>把人拖入亚专科并保存</td>
+<td>人员池与亚专科分配界面</td>
+<td>每月多次</td>
+<td>Allocation 的人员、亚专科、人天、状态；Quota.used</td>
+<td>E-06【待验证】</td>
+</tr>
+<tr>
+<td>陈静 + 赵岚</td>
+<td>发现缺口或超排</td>
+<td>DC-3 出现缺口时怎么办</td>
+<td>发现冲突时，每月 1–3 次</td>
+<td>缺口大小、可借额度、内部人手</td>
+<td>借调、改派或申请额外额度</td>
+<td>冲突面板 + 线下电话/微信沟通</td>
+<td>每月 1–3 次</td>
+<td>调整记录 Adjustment 的原值、新值、原因；Allocation 或 Quota</td>
+<td>E-03、E-05【待确认】</td>
+</tr>
+<tr>
+<td>周主任</td>
+<td>方案定稿审批</td>
+<td>DC-4 最终方案是否发布</td>
+<td>每月 27 日</td>
+<td>冲突是否清零、总额度是否超</td>
+<td>审批并写回</td>
+<td>审批视图 / 院内排班系统</td>
+<td>每月</td>
+<td>Allocation.status 变为已发布；Quota.used 与剩余；审批人、审批时间</td>
+<td>E-04</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="tpl-sec-3">用户 → 决策 → 动作 → 写回对象</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th scope="col">用户</th>
+<th scope="col">决策</th>
+<th scope="col">动作</th>
+<th scope="col">写回对象</th>
+<th scope="col">写回后用户看到什么</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>陈静</td>
+<td>DC-1（提方案）</td>
+<td>提交分配方案</td>
+<td>Quota.status 从草稿变为待确认；Allocation 初稿</td>
+<td>方案进入待确认，各亚专科已分配合计可见</td>
+</tr>
+<tr>
+<td>周主任</td>
+<td>DC-1（确认）</td>
+<td>确认或调整方案</td>
+<td>Quota.status 变为已确认；确认人、确认时间</td>
+<td>各亚专科额度锁定，陈静可继续分配人员</td>
+</tr>
+<tr>
+<td>陈静</td>
+<td>DC-2</td>
+<td>把人拖入亚专科并填写人天，保存</td>
+<td>Allocation 新增或更新；Quota.used 增加</td>
+<td>人员已排、剩余额度即时变化，冲突面板刷新</td>
+</tr>
+<tr>
+<td>陈静 + 赵岚</td>
+<td>DC-3</td>
+<td>借调、改派或申请额外额度</td>
+<td>Adjustment 记录原值、新值、原因；Allocation 或 Quota 随之变化</td>
+<td>冲突差额变化，调整有留痕，可回查谁在何时改了什么</td>
+</tr>
+<tr>
+<td>周主任</td>
+<td>DC-4</td>
+<td>点击批准</td>
+<td>Allocation.status 变为已发布；审批人、审批时间</td>
+<td>方案发布，重新打开仍能看到同一结果</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="tpl-sec-4">读法</h2>
+<ul>
+<li><strong>最终决策</strong>：DC-1 与 DC-2 合并成一次“额度分配方案”的确认；DC-3 是中间决策；DC-4 是审批动作。one-pager 只承诺 DC-1、DC-2，不把 DC-3、DC-4 全部做进五天 Demo。</li>
+<li><strong>DC-1 回答“每个亚专科用多少”，DC-2 回答“分给谁”</strong>。两行合起来才是 S1 的完整决策闭环；如果把两行并成一行，就说不清谁在什么时候做了什么选择。</li>
+<li><strong>DC-3 的角色是两个人</strong>：陈静负责发现与提出方案，赵岚代表缺口的业务方确认“借调还是改派”。缺少任何一方，这个决策在现实里都推不动。</li>
+<li><strong>DC-4 不是新决策</strong>，它是对 DC-1、DC-2 结果的放行或退回；写回的是状态与审批痕迹，不是重新分配。</li>
+<li><strong>证据强度</strong>：DC-1、DC-3、DC-4 有现场原话或业务确认支撑；DC-2 依赖的 E-06“王芳可上班 9 天”仍是待验证，演示时只能标注来源，不能写成已核实。</li>
+<li><strong>DC-3 的“借下月或别的亚专科”</strong>来自 E-05 的工作假设，尚未经孙老师确认，只能作为建议动作，不能写成系统自动执行。</li>
+</ul>
+<h2 id="tpl-sec-5">哪些步骤不是决策</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th scope="col">As-is 步骤</th>
+<th scope="col">为什么不是决策</th>
+<th scope="col">归入哪里</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1 收额度</td>
+<td>孙老师发放额度，陈静只是接收，没有可陈述的选择</td>
+<td>DC-1 的输入准备</td>
+</tr>
+<tr>
+<td>2 收需求</td>
+<td>组长报数，陈静记录；真正的取舍发生在额度分配时</td>
+<td>DC-1 的输入准备</td>
+</tr>
+<tr>
+<td>3 凭记忆核对可用天数</td>
+<td>是信息收集与估算，不产生写回</td>
+<td>DC-2 的输入准备</td>
+</tr>
+<tr>
+<td>4 电话协调</td>
+<td>其中包含 DC-3 的缺口处理决策；纯沟通动作本身不单列</td>
+<td>DC-3</td>
+</tr>
+<tr>
+<td>5 审批与录入</td>
+<td>其中包含 DC-4 的批准决策；录入是动作，不是决策</td>
+<td>DC-4</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>边界</strong>：孙老师是额度发放者，不是分配决策人；刘工提供数据与权限，不参与业务取舍；系统只做校验、计算与提示，不替陈静或周主任做最终决定。</p>
+<h2 id="tpl-sec-6">决策质量检查</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th scope="col">检查问题</th>
+<th scope="col">本表的回答</th>
+<th scope="col">落在哪一列</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>每一行是否只有一个决策</td>
+<td>是。DC-1 只回答“各亚专科分多少”，DC-2 只回答“某人分到哪”，DC-3 只回答“缺口怎么办”，DC-4 只回答“发不发布”</td>
+<td>决策列</td>
+</tr>
+<tr>
+<td>是否回答了谁、何时、决定什么</td>
+<td>DC-1 周主任每月 25 日前；DC-2 陈静分配时；DC-3 陈静与赵岚发现冲突时；DC-4 周主任每月 27 日</td>
+<td>角色、时点、决策三列</td>
+</tr>
+<tr>
+<td>每个决策是否有动作</td>
+<td>四条都有可执行动作与写回对象，没有“支持管理”这类空话</td>
+<td>动作、写回对象两列</td>
+</tr>
+<tr>
+<td>时点是否具体</td>
+<td>25 日前、分配时、发现冲突时、27 日，都能落到日历或明确事件</td>
+<td>时点列</td>
+</tr>
+<tr>
+<td>输入是否决策当下真正要看的</td>
+<td>需求、额度、可用天数、资质、缺口大小、可借额度，都是当下取舍所需</td>
+<td>输入列</td>
+</tr>
+<tr>
+<td>系统与频率是否可判断</td>
+<td>分配工作台、分配界面、冲突面板、审批视图；每月、每月多次、每月 1–3 次</td>
+<td>系统、频率两列</td>
+</tr>
+<tr>
+<td>关键决策是否有证据</td>
+<td>DC-1 有 E-03、E-04；DC-2 的 E-06 待验证；DC-3 的 E-05 是工作假设；DC-4 有 E-04</td>
+<td>证据ID列</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="tpl-sec-7">时点与频率的边界</h2>
+<ul>
+<li>DC-1 的“每月 25 日前”是方案确认截止，不是开始时间；开始时间取决于孙老师在 20 日左右下发额度。</li>
+<li>DC-2 的“分配时”不是一次性事件，可能在一两天内多次发生；每次保存都应写回并留痕，不能只记最后一次。</li>
+<li>DC-3 的“发现冲突时”由系统提示或人工发现触发，频率每月 1–3 次；它不是固定日程，不能写成“每周一次”。</li>
+<li>DC-4 的“每月 27 日”是审批节点；若 25 日的方案延后，27 日顺延，但不得跳过审批直接发布。</li>
+</ul>
+</div>
+<footer class="page-foot">
+<p class="muted">本页由 <code>_tools/build.py</code> 从 Markdown 自动生成，请改源文件而不是改这里。</p>
+</footer>
+</article>
+</main>
+</body>
+</html>

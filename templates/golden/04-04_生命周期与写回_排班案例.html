@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>A04-04 生命周期与写回_排班案例 · FDE 模板库</title>
+<link rel="stylesheet" href="../../assets/course.css">
+</head>
+<body>
+<a class="skip-link" href="#main">跳到正文</a>
+<main class="main" id="main">
+<article class="article">
+<nav class="crumb" aria-label="面包屑">
+<a href="../../index.html">教程首页</a><span class="sep">/</span>
+<a href="../../appendix-templates.html">模板库</a><span class="sep">/</span>
+<span>黄金样例</span>
+</nav>
+<header class="page-head">
+<div class="badges">
+<span class="badge badge-main">A04-04</span>
+<span class="badge">黄金样例</span>
+<span class="badge badge-time">Markdown 阅读视图</span>
+</div>
+<h1>A04-04 生命周期与写回_排班案例</h1>
+<p class="page-question">这是模板的阅读视图，源文件是 <code>04-04_生命周期与写回_排班案例.md</code>。
+<a href="04-04_生命周期与写回_排班案例.md">下载 / 编辑 Markdown</a> · <a href="../../appendix-templates.html">返回模板库</a></p>
+</header>
+<div class="prose">
+<blockquote>
+<p>【示例】匿名化案例，数字均为示例。状态、Action 与写回字段取自 <code>_canon/case-bible.md</code>（CB-06），校验条件对应 CB-15 的规则库。</p>
+</blockquote>
+<p>本样例只覆盖额度 Quota 与分配 Allocation 两个需要写回的对象。写回意味着用户点击后，<code>Allocation.status</code> 和 <code>Quota.used</code> 真的变化，而不是只弹提示。</p>
+<h2 id="tpl-sec-1">额度 Quota</h2>
+<pre><code class="language-text">草稿 → 待确认 → 已确认 → 执行中 → 已关闭
+</code></pre>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th scope="col">对象</th>
+<th scope="col">状态</th>
+<th scope="col">触发Action</th>
+<th scope="col">迁移后状态</th>
+<th scope="col">写回字段</th>
+<th scope="col">权限</th>
+<th scope="col">校验</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>额度 Quota</td>
+<td>草稿</td>
+<td>提交确认</td>
+<td>待确认</td>
+<td>状态、提交时间</td>
+<td>陈静</td>
+<td>额度合计不超总额度</td>
+</tr>
+<tr>
+<td>额度 Quota</td>
+<td>待确认</td>
+<td>确认</td>
+<td>已确认</td>
+<td>状态、确认人、确认时间</td>
+<td>周主任</td>
+<td>确认人具备审批权限</td>
+</tr>
+<tr>
+<td>额度 Quota</td>
+<td>已确认</td>
+<td>开始执行</td>
+<td>执行中</td>
+<td>状态、执行月份</td>
+<td>陈静</td>
+<td>执行月份与额度月份一致</td>
+</tr>
+<tr>
+<td>额度 Quota</td>
+<td>执行中</td>
+<td>关闭</td>
+<td>已关闭</td>
+<td>状态、关闭时间</td>
+<td>周主任</td>
+<td>无进行中的调整</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="tpl-sec-2">分配 Allocation</h2>
+<pre><code class="language-text">建议 → 已确认 → 已发布 → 调整中 → 已归档
+</code></pre>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th scope="col">对象</th>
+<th scope="col">状态</th>
+<th scope="col">触发Action</th>
+<th scope="col">迁移后状态</th>
+<th scope="col">写回字段</th>
+<th scope="col">权限</th>
+<th scope="col">校验</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>分配 Allocation</td>
+<td>建议</td>
+<td>确认分配</td>
+<td>已确认</td>
+<td>状态、确认人</td>
+<td>陈静</td>
+<td>人天不超可用天数（R-05），资质符合（R-04）</td>
+</tr>
+<tr>
+<td>分配 Allocation</td>
+<td>已确认</td>
+<td>发布</td>
+<td>已发布</td>
+<td>状态、发布时间</td>
+<td>周主任</td>
+<td>冲突已清零或已说明</td>
+</tr>
+<tr>
+<td>分配 Allocation</td>
+<td>已发布</td>
+<td>发起调整</td>
+<td>调整中</td>
+<td>状态、调整原因</td>
+<td>陈静</td>
+<td>当前状态为已发布</td>
+</tr>
+<tr>
+<td>分配 Allocation</td>
+<td>调整中</td>
+<td>重新发布</td>
+<td>已发布</td>
+<td>状态、新版本号</td>
+<td>周主任</td>
+<td>新版本已留痕</td>
+</tr>
+<tr>
+<td>分配 Allocation</td>
+<td>已发布</td>
+<td>归档</td>
+<td>已归档</td>
+<td>状态、归档时间</td>
+<td>系统/陈静</td>
+<td>无待处理调整</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>校验与规则的对应</strong>：R-05“不得超过本人可用天数”是硬约束，C1 就是违反此条，所以确认分配时必须拦住；R-04“资质不符不能排该亚专科”同样在确认时校验。R-07、R-08 是优化目标，不能写成状态迁移的硬校验。</p>
+</div>
+<footer class="page-foot">
+<p class="muted">本页由 <code>_tools/build.py</code> 从 Markdown 自动生成，请改源文件而不是改这里。</p>
+</footer>
+</article>
+</main>
+</body>
+</html>

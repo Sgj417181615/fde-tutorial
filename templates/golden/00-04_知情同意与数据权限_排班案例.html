@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>A00-04 知情同意与数据权限（排班案例） · FDE 模板库</title>
+<link rel="stylesheet" href="../../assets/course.css">
+</head>
+<body>
+<a class="skip-link" href="#main">跳到正文</a>
+<main class="main" id="main">
+<article class="article">
+<nav class="crumb" aria-label="面包屑">
+<a href="../../index.html">教程首页</a><span class="sep">/</span>
+<a href="../../appendix-templates.html">模板库</a><span class="sep">/</span>
+<span>黄金样例</span>
+</nav>
+<header class="page-head">
+<div class="badges">
+<span class="badge badge-main">A00-04</span>
+<span class="badge">黄金样例</span>
+<span class="badge badge-time">Markdown 阅读视图</span>
+</div>
+<h1>A00-04 知情同意与数据权限（排班案例）</h1>
+<p class="page-question">这是模板的阅读视图，源文件是 <code>00-04_知情同意与数据权限_排班案例.md</code>。
+<a href="00-04_知情同意与数据权限_排班案例.md">下载 / 编辑 Markdown</a> · <a href="../../appendix-templates.html">返回模板库</a></p>
+</header>
+<div class="prose">
+<blockquote>
+<p>【示例】匿名化案例，数字均为示例；人名与机构均为化名。</p>
+</blockquote>
+<h2 id="tpl-sec-1">用途 / 何时用</h2>
+<p>在进入现场记录、访谈录音或采集任何业务数据之前使用。本份回答：碰什么数据、为什么碰、怎么脱敏、放在哪里、谁能看、谁授权、何时销毁。数据类别、授权与销毁口径来自 CB-12 的节选。没有周主任的书面授权，不开始录音和导出。</p>
+<p><strong>授权口径</strong>：授权日期 2026-10-09，授权人周主任；FDE 两人、陈静、刘工为最小访问集。日期与目录名均为【示例】。</p>
+<h2 id="tpl-sec-2">知情同意要点</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th scope="col">告知项</th>
+<th scope="col">对受访者的表述</th>
+<th scope="col">记录方式</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>目的</td>
+<td>本次只用于验证月度额度分配这一个决策，不用于绩效评价</td>
+<td>口头说明加简报首页</td>
+</tr>
+<tr>
+<td>自愿</td>
+<td>可以拒绝回答任何问题，也可以随时中止</td>
+<td>访谈开始前确认</td>
+</tr>
+<tr>
+<td>录音</td>
+<td>只有同意才录音；不同意时只做手记</td>
+<td>录音授权栏勾选并签名</td>
+</tr>
+<tr>
+<td>引用</td>
+<td>原话只以化名和问题编号出现，不出现医院名与科室全称</td>
+<td>证据台账 E 编号</td>
+</tr>
+<tr>
+<td>退出</td>
+<td>退出后已采集的个人数据按本表销毁方式处理</td>
+<td>退出记录</td>
+</tr>
+<tr>
+<td>联系</td>
+<td>有疑问可联系 FDE 项目负责人与刘工</td>
+<td>简报末页联系方式</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="tpl-sec-3">字段</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th scope="col">数据类别</th>
+<th scope="col">用途</th>
+<th scope="col">脱敏方式</th>
+<th scope="col">存储位置</th>
+<th scope="col">访问人</th>
+<th scope="col">授权人</th>
+<th scope="col">授权日期</th>
+<th scope="col">销毁方式</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>人员基础信息（姓名、岗位、资质）</td>
+<td>建立人员池，校验资质与可上班型</td>
+<td>姓名替换为王芳、李强、周敏、陈卓等化名；删除身份证号、联系方式、工号</td>
+<td>客户内网共享目录 FDE_S1_2026-09/01_people【示例】</td>
+<td>FDE 两人、陈静、刘工</td>
+<td>周主任</td>
+<td>2026-10-09</td>
+<td>验证结束后 30 天内删除原始副本，保留脱敏汇总</td>
+</tr>
+<tr>
+<td>人员可用天数（年假、门诊、外出会诊扣减）</td>
+<td>校验 C1 超排，计算可分配天数</td>
+<td>只保留可上班天数与扣减原因分类，删除具体请假事由与审批人</td>
+<td>同上目录 /02_availability</td>
+<td>FDE 两人、陈静</td>
+<td>周主任</td>
+<td>2026-10-09</td>
+<td>30 天内删除明细，保留 9/20/18/12 的汇总值</td>
+</tr>
+<tr>
+<td>亚专科月度需求</td>
+<td>计算 C2 缺口，生成额度全景</td>
+<td>聚合到亚专科，不保留组长私人聊天原文与语音</td>
+<td>同上目录 /03_demand</td>
+<td>FDE 两人、陈静</td>
+<td>周主任</td>
+<td>2026-10-09</td>
+<td>30 天内删除原始记录，保留 12/22/22 汇总</td>
+</tr>
+<tr>
+<td>月度额度与调整记录</td>
+<td>展示额度、已用、剩余与追加</td>
+<td>只保留亚专科与人天，不含审批人签名与个人备注</td>
+<td>同上目录 /04_quota</td>
+<td>FDE 两人、陈静</td>
+<td>周主任</td>
+<td>2026-10-09</td>
+<td>30 天内删除原始表，保留脱敏额度汇总</td>
+</tr>
+<tr>
+<td>分配记录与调整记录</td>
+<td>Demo 写回、组长确认、主任审批</td>
+<td>姓名化名；删除审批签名与微信头像；保留时间戳到分钟</td>
+<td>客户内网 Demo 数据库与 /05_allocation</td>
+<td>FDE 两人、陈静、刘工</td>
+<td>周主任</td>
+<td>2026-10-09</td>
+<td>Demo 结束后 30 天内删除数据库副本，保留脱敏结果</td>
+</tr>
+<tr>
+<td>访谈录音与逐字稿</td>
+<td>证据台账、原话引用、假设核对</td>
+<td>录音只标轮次与问题编号；转写后删除可识别片段与口头姓名</td>
+<td>同上目录 /06_interview，不上传公网</td>
+<td>FDE 两人；陈静仅看本人段落</td>
+<td>周主任</td>
+<td>2026-10-09</td>
+<td>转写核对后 7 天内删除录音；逐字稿脱敏后保留 30 天</td>
+</tr>
+<tr>
+<td>现场观察照片与屏幕截图</td>
+<td>记录工具、界面与卡点</td>
+<td>遮住患者信息、屏幕姓名与联系方式，只保留界面结构</td>
+<td>同上目录 /07_observation</td>
+<td>FDE 两人</td>
+<td>周主任</td>
+<td>2026-10-09</td>
+<td>30 天内删除原图，保留脱敏截图</td>
+</tr>
+<tr>
+<td>院内系统只读快照</td>
+<td>基线复测与字段核对</td>
+<td>只导出字段子集，不含患者数据、身份证号与联系方式</td>
+<td>客户内网 /08_snapshot，由刘工导出</td>
+<td>FDE 两人、刘工</td>
+<td>周主任（刘工技术复核）</td>
+<td>2026-10-09</td>
+<td>验证结束后 30 天内删除快照，保留字段清单</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="tpl-sec-4">使用边界</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th scope="col">边界</th>
+<th scope="col">具体要求</th>
+<th scope="col">责任人</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>不上公网</td>
+<td>所有原始数据只留在客户内网指定目录，不使用公网网盘与个人邮箱</td>
+<td>刘工</td>
+</tr>
+<tr>
+<td>不二次使用</td>
+<td>数据仅用于本次 Demo 与验证，不用于绩效评价、审计或教程原图</td>
+<td>FDE 项目负责人</td>
+</tr>
+<tr>
+<td>最小必要</td>
+<td>只采集分配所需的字段，不采集患者信息与完整人事档案</td>
+<td>陈静</td>
+</tr>
+<tr>
+<td>可追溯</td>
+<td>每次导出与访问登记时间、人、用途</td>
+<td>刘工</td>
+</tr>
+<tr>
+<td>教程例外</td>
+<td>教程只使用 CB 片段与脱敏汇总，不使用真实截图与录音</td>
+<td>FDE 项目负责人</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="tpl-sec-5">权限矩阵</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th scope="col">角色</th>
+<th scope="col">可查看</th>
+<th scope="col">可修改</th>
+<th scope="col">不可访问</th>
+<th scope="col">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>陈静</td>
+<td>人员、可用天数、需求、额度、分配记录</td>
+<td>分配记录与本组需求确认</td>
+<td>其他亚专科组长的私人聊天原文</td>
+<td>核心用户，按最小必要</td>
+</tr>
+<tr>
+<td>赵岚</td>
+<td>本组需求与本组分配结果，仅限确认视图</td>
+<td>本组需求确认意见</td>
+<td>数据目录与其他组明细</td>
+<td>不直接访问存储目录</td>
+</tr>
+<tr>
+<td>周主任</td>
+<td>审批视图中的脱敏汇总</td>
+<td>审批状态</td>
+<td>原始录音与数据目录</td>
+<td>最终审批人，不直接访问存储</td>
+</tr>
+<tr>
+<td>孙老师</td>
+<td>额度口径与额度汇总，仅限会议或视图</td>
+<td>额度口径说明</td>
+<td>人员联系方式与分配明细</td>
+<td>不直接访问存储目录</td>
+</tr>
+<tr>
+<td>刘工</td>
+<td>快照、账号与访问日志</td>
+<td>账号权限与快照导出</td>
+<td>访谈逐字稿内容</td>
+<td>技术权限管理</td>
+</tr>
+<tr>
+<td>FDE</td>
+<td>全部脱敏数据</td>
+<td>分析文件与 Demo 数据</td>
+<td>患者信息与未脱敏身份证号</td>
+<td>项目执行</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="tpl-sec-6">授权与销毁记录</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th scope="col">事项</th>
+<th scope="col">时间</th>
+<th scope="col">责任人</th>
+<th scope="col">记录</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>范围与数据授权会</td>
+<td>2026-10-09【示例】</td>
+<td>周主任</td>
+<td>A00-03 与本书面确认</td>
+</tr>
+<tr>
+<td>只读账号开通</td>
+<td>2026-10-12 前【示例】</td>
+<td>刘工</td>
+<td>账号申请单</td>
+</tr>
+<tr>
+<td>访谈录音授权</td>
+<td>每轮开始前</td>
+<td>受访者</td>
+<td>录音授权栏</td>
+</tr>
+<tr>
+<td>中期访问名单复核</td>
+<td>2026-10-14【示例】</td>
+<td>刘工</td>
+<td>访问日志</td>
+</tr>
+<tr>
+<td>原始数据销毁</td>
+<td>验证结束后 30 天内</td>
+<td>刘工、FDE</td>
+<td>销毁记录与脱敏汇总清单</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<footer class="page-foot">
+<p class="muted">本页由 <code>_tools/build.py</code> 从 Markdown 自动生成，请改源文件而不是改这里。</p>
+</footer>
+</article>
+</main>
+</body>
+</html>

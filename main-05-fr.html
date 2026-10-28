@@ -1,0 +1,410 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<title>把决策写成一句可验收的 FR · FDE 零基础教程</title>
+<meta name="description" content="用固定句式写功能需求，识别四个红旗信号，并从 FR 反推数据需求。">
+<link rel="stylesheet" href="assets/course.css">
+<script>
+(function () {
+  try {
+    var saved = localStorage.getItem('fde-theme');
+    var theme = saved || (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+    document.documentElement.dataset.theme = theme;
+  } catch (e) {}
+})();
+</script>
+</head>
+<body class="track-main page-main-05-fr">
+<a class="skip-link" href="#main">跳到正文</a>
+
+<header class="topbar">
+  <button class="icon-btn nav-toggle" id="nav-toggle" type="button" aria-expanded="false" aria-controls="sidebar" aria-label="打开课程目录">
+    <span aria-hidden="true">☰</span>
+  </button>
+  <a class="brand" data-same-tab href="index.html"><span class="brand-mark">FDE</span><span class="brand-text">零基础教程</span></a>
+  <nav class="track-switch" aria-label="模块切换"><span class="track-link active" aria-current="true" title="从零建立完整心智模型">主线</span><a class="track-link" data-same-tab href="work-01-prep.html" title="现场查用：输入、步骤、输出、阶段门">工作台</a><a class="track-link" data-same-tab href="day1-00-overview.html" title="六步链路：简报 → 访谈 → 证据 → 底稿 → 门">Day1</a><a class="track-link" data-same-tab href="appendix-methods.html" title="一卡一问，按阶段、产物、角色查">方法库</a><a class="track-link" data-same-tab href="appendix-templates.html" title="模板、产物链、术语与来源">附录</a></nav>
+  <div class="top-actions">
+    <button class="search-open" id="search-open" type="button" aria-haspopup="dialog">
+      <span aria-hidden="true">⌕</span><span class="search-label">搜索</span><kbd>/</kbd>
+    </button>
+    <button class="icon-btn" id="theme-toggle" type="button" aria-label="切换深浅色">◐</button>
+  </div>
+  <div class="read-progress" aria-hidden="true"><span id="read-progress"></span></div>
+</header>
+
+<div class="layout">
+  <aside class="sidebar" id="sidebar">
+    <nav class="course-tree" aria-label="课程目录"><header class="side-head"><p class="side-eyebrow">当前模块</p><p class="side-title">主线</p><p class="side-caption">从零建立完整心智模型</p><p class="side-meta">16 页<span class="dot">·</span>约 4 小时</p></header><section class="nav-group"><p class="nav-group-title"><span class="nav-group-num">01</span>开始</p><a class="nav-link" data-same-tab href="index.html">开始：这份教程怎么用</a></section><section class="nav-group"><p class="nav-group-title"><span class="nav-group-num">02</span>看懂 FDE</p><a class="nav-link" data-same-tab href="main-01-fde.html">FDE 是什么，不是什么</a><a class="nav-link" data-same-tab href="main-02-slicing.html">把“系统”切成可验证的决策</a><a class="nav-link" data-same-tab href="lab-slicing.html">实验室：切三个模糊需求</a></section><section class="nav-group"><p class="nav-group-title"><span class="nav-group-num">03</span>看清现状</p><a class="nav-link" data-same-tab href="main-03-as-is.html">看清今天实际怎么运转</a><a class="nav-link" data-same-tab href="main-04-one-pager.html">一页纸对齐范围</a><a class="nav-link" data-same-tab href="case-a-one-pager.html">案例 A：S1 如何被选中</a><a class="nav-link" data-same-tab href="lab-one-pager.html">实验室：20 分钟拼一页纸</a></section><section class="nav-group"><p class="nav-group-title"><span class="nav-group-num">04</span>设计验证</p><span class="nav-link nav-current" aria-current="page">把决策写成一句可验收的 FR</span><a class="nav-link" data-same-tab href="main-06-solution.html">方案设计四件套</a><a class="nav-link" data-same-tab href="case-b-solution.html">案例 B：从一页纸到 Demo</a></section><section class="nav-group"><p class="nav-group-title"><span class="nav-group-num">05</span>跑起来</p><a class="nav-link" data-same-tab href="main-07-gates.html">开始前的五道门</a><a class="nav-link" data-same-tab href="main-08-five-days.html">Day1–5 每天做什么</a><a class="nav-link" data-same-tab href="main-09-adoption.html">从项目到组织能力</a></section><section class="nav-group"><p class="nav-group-title"><span class="nav-group-num">06</span>选读</p><a class="nav-link" data-same-tab href="main-10-patterns.html">五种实施模式<span class="nav-optional">选读</span></a><a class="nav-link" data-same-tab href="main-11-lessons.html">一线八堂课<span class="nav-optional">选读</span></a></section></nav>
+  </aside>
+  <button class="scrim" id="scrim" type="button" aria-label="关闭目录" hidden></button>
+
+  <main class="main" id="main">
+    <nav class="crumb" aria-label="面包屑"><a data-same-tab href="index.html">教程</a><span class="sep">/</span><span>主线</span><span class="sep">/</span><span>设计验证</span><span class="sep">/</span><span aria-current="page">把决策写成一句可验收的 FR</span></nav>
+    <article class="article">
+      <header class="page-head">
+        <div class="badges"><span class="badge badge-main">必读</span><span class="badge badge-time">18 分钟</span></div>
+        <h1>把决策写成一句可验收的 FR</h1>
+        <p class="lede">用固定句式写功能需求，识别四个红旗信号，并从 FR 反推数据需求。</p>
+        <p class="page-question"><span class="eyebrow">本页要回答</span>怎样把“系统要支持排班”写成能验收的一句话？</p>
+        <div class="page-meta">
+          <section class="meta-block">
+            <h2 class="meta-title" id="meta-objectives">读完你能</h2>
+            <ul class="objective-list"><li>用“谁—界面—输入—决策—动作”句式写出 FR；</li><li>识别四个红旗信号并改写；</li><li>从每条 FR 推出至少一个数据字段。</li></ul>
+          </section>
+          <section class="meta-block">
+            <h2 class="meta-title" id="meta-prereq">前置</h2>
+            <p>先读：<a href="main-04-one-pager.html" target="_blank" rel="noopener">一页纸对齐范围</a></p>
+          </section>
+        </div>
+      </header>
+
+      <div class="prose">
+        <p>“系统要支持排班。”</p>
+<p>这句话写进需求文档，很容易；拿它验收，几乎不可能。三个月后你问：“支持了吗？”有人说“能打开页面了”，有人说“还差导出”，还有人说“这不是我要的排班”。同一句话，三个人三种理解，因为句子里没有一个人、没有一个时刻、也没有一个能看见的结果。</p>
+<p>这一页只做一件事：把这种愿望，改写成一句能当场判断“做到/没做到”的 <span class="term-link" title="Functional Requirement：用“谁、在什么界面、依据什么输入、做什么决定、产生什么动作”写成的可验收句子。">Functional Requirement（功能需求）</span>。写完，你会得到 <a class="template-link" href="templates/blank/04-02_功能需求FR.html" data-template-view data-template-title="A04-02 功能需求FR模板" title="A04-02 功能需求FR模板 ｜ 当前页弹窗预览">A04-02 功能需求FR模板</a> 的第一版。</p>
+<h2 id="sec-why-not">先分清：愿望、方案、需求</h2>
+<p>“系统要支持排班”是愿望。它没有说谁用、什么时候用、看到什么、做什么决定、结果落在哪里。</p>
+<p>“做一个拖拽式的排班表格，左边人员池，右边亚专科”是方案。它已经替用户决定了交互方式，却仍然没说清业务上要完成哪个决定。</p>
+<p>功能需求夹在两者之间：<strong>它描述谁在什么场景下完成哪个决定，以及完成后世界发生了什么变化。</strong> 它不规定技术栈，也不靠“体验良好”收尾。</p>
+<p>官方公开材料专门讨论了如何从访谈、规则和现状里提炼功能需求<span class="ev-official">【官方】</span><span class="cite" title="Distilling functional requirements">[S02]</span>；下面这个固定句是本项目从实践中改写的写法，不是官方原文模板<span class="ev-practice">【实践】</span><span class="cite" title="FDE 方法论沉淀">[S17]</span>。</p>
+<p>一句愿望要变成 FR，至少要补上三样东西：</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th scope="col">缺的东西</th>
+<th scope="col">愿望里的表现</th>
+<th scope="col">补上以后</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>具体角色</td>
+<td>“业务部门要……”</td>
+<td>陈静，排班员，每月做一次额度分配</td>
+</tr>
+<tr>
+<td>具体时点</td>
+<td>“及时显示”</td>
+<td>每月 20 日收到额度后、月底提交前</td>
+</tr>
+<tr>
+<td>可观察结果</td>
+<td>“支持排班”</td>
+<td>保存后重新打开，分配记录和剩余额度都变了</td>
+</tr>
+</tbody>
+</table></div>
+<div class="checkpoint">
+<p><strong>停一下</strong>：把你手上最熟的一句需求读一遍，问自己三个问题——谁用？他在哪个时刻用？做完以后，你打开什么能看到变化？</p>
+<p>三个里有一个答不上来，这句话就还不能进入验收。</p>
+</div>
+<h2 id="sec-formula">FR 的固定句</h2>
+<p>把下面这句话当成模具，先填满，再润色：</p>
+<blockquote>
+<p><strong>（谁）在（哪个界面）上，依据（哪些输入），判断（什么条件），做出（哪个决定），并通过（什么动作）把结果写回；验收时能看到（什么可观察结果）。</strong></p>
+</blockquote>
+<p>七个空，对应七个必须回答的问题：</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th scope="col">槽位</th>
+<th scope="col">你要回答</th>
+<th scope="col">反例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>谁</td>
+<td>具体角色，不是“业务方”</td>
+<td>“用户”</td>
+</tr>
+<tr>
+<td>界面</td>
+<td>在哪个页面、面板或视图完成</td>
+<td>“在系统里”</td>
+</tr>
+<tr>
+<td>输入</td>
+<td>他眼前有哪些数字、状态、规则</td>
+<td>“相关信息”</td>
+</tr>
+<tr>
+<td>判断</td>
+<td>他在比较什么、权衡什么</td>
+<td>“系统自动处理”</td>
+</tr>
+<tr>
+<td>决定</td>
+<td>这一句只装一个决定</td>
+<td>“分配并审批并通知”</td>
+</tr>
+<tr>
+<td>动作与写回</td>
+<td>点了什么，哪个对象变了</td>
+<td>“保存一下”</td>
+</tr>
+<tr>
+<td>验收结果</td>
+<td>状态、数字或可重开的现象</td>
+<td>“体验流畅”</td>
+</tr>
+</tbody>
+</table></div>
+<p>三个使用要点：</p>
+<ol>
+<li><strong>“界面”不等于“页面”。</strong> 一个面板、一张表、一个弹窗都算。零基础阶段不要纠结控件，先把“他在哪里看到什么”说清。</li>
+<li><strong>决定和动作分开写。</strong> “决定分给谁”是业务判断；“拖入并保存”是动作。只写动作，验收时只能验“点得动”，验不了“分得对”。</li>
+<li><strong>验收结果要能复现。</strong> 优先用三种：对象状态变了（草稿→已确认）、数字变了（剩余从 22 变 12）、重新打开还在（不是只弹提示）。</li>
+</ol>
+<p>一条 FR 只装一个决定。如果句子里出现“并且”“同时”“然后还要”，先拆成两条。拆不开，通常说明你还没找到那个真正的决定。</p>
+<p>表格是速查版；点开下面的句子，可以逐槽看合格与不合格的例子：</p>
+<div class="viz-embed"><figure class="viz viz-fr" data-viz="fr-formula"><figcaption class="viz-head"><span class="viz-kicker">交互图</span><h3 id="viz-fr-title">一句 FR 的七个槽位</h3><p>点句子里的任意槽位，看它要回答什么、合格与不合格各长什么样。</p></figcaption><p class="viz-fr-sentence">（<button type="button" class="viz-slot" data-slot="0" aria-pressed="false">谁</button>）在（<button type="button" class="viz-slot" data-slot="1" aria-pressed="false">哪个界面</button>）上，依据（<button type="button" class="viz-slot" data-slot="2" aria-pressed="false">哪些输入</button>），判断（<button type="button" class="viz-slot" data-slot="3" aria-pressed="false">权衡什么</button>），做出（<button type="button" class="viz-slot" data-slot="4" aria-pressed="false">哪个决定</button>），并通过（<button type="button" class="viz-slot" data-slot="5" aria-pressed="false">什么动作</button>）把结果写回；验收时能看到（<button type="button" class="viz-slot" data-slot="6" aria-pressed="false">什么可观察结果</button>）。</p><div class="viz-detail viz-fr-detail" aria-live="polite"><p class="viz-placeholder">先点「决定」。一条 FR 只装一个决定；出现“并且”“同时”，通常就该拆成两条。</p></div></figure></div>
+
+<div class="checkpoint">
+<p><strong>停一下</strong>：用固定句改写“支持导出报表”。如果改完发现它只是“查看”，没有决定，那它可能不是 FR，而是一个辅助动作。辅助动作可以保留，但不能占用一条决策型 FR 的位置。</p>
+</div>
+<h2 id="sec-red-flags">四个红旗信号</h2>
+<p>下面四种写法，看到就要停下来改。它们不是文风问题，是验收会失败的前兆。</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th scope="col">红旗</th>
+<th scope="col">典型写法</th>
+<th scope="col">为什么会坏</th>
+<th scope="col">怎么改</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>没有角色和场景</td>
+<td>“系统应该支持额度分配”</td>
+<td>谁都能说“支持了”，谁都不用负责</td>
+<td>补上陈静、每月、分配界面</td>
+</tr>
+<tr>
+<td>一条塞多个决定</td>
+<td>“分配、校验、审批并写回”</td>
+<td>验收时无法判断哪一段没做到</td>
+<td>拆成分配、冲突、审批三条</td>
+</tr>
+<tr>
+<td>只有形容词</td>
+<td>“操作简便、体验良好”</td>
+<td>无法观察，也无法复现</td>
+<td>改成状态、数字或重开可见</td>
+</tr>
+<tr>
+<td>依赖拿不到的数据</td>
+<td>“系统自动认定外部人员资质”</td>
+<td>现场没有权威口径，做出来也是假准确</td>
+<td>先按现有字段校验，把口径列为待确认</td>
+</tr>
+</tbody>
+</table></div>
+<p>第四条最隐蔽。排班案例里，“资质由谁认定”本身还没有定论。这时正确的 FR 不是“系统自动认定”，而是“系统按当前资质字段校验；口径确认前，冲突只提示、不阻断”，并把假设写进验收标准。<a class="case-link" href="work-04-model.html#cb-rules" target="_blank" rel="noopener">案例 CB-15</a> 的 R-05 则相反：不得超过本人可用天数是硬约束，必须阻断，不能只提示。</p>
+<p><strong>判断方法</strong>：把 FR 交给一个没参加访谈的同事，让他照着句子操作。他能指出打开哪里、看什么、做什么、结果在哪，才算过关；他如果问“到底谁来做”，说明角色还虚。</p>
+<h3 id="sec-official-red-flags">官方另外标注的两条</h3>
+<p>官方材料在 requirements 阶段还标了两条反模式<span class="ev-official">【官方】</span><span class="cite" title="Distilling functional requirements">[S02]</span>：</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th scope="col">官方红旗</th>
+<th scope="col">典型表现</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>痛点调查不足</td>
+<td>需求来自领导讲话或需求方转述，没有一手观察与原话</td>
+</tr>
+<tr>
+<td>用户面太窄</td>
+<td>只访谈一个人或一个角色，分不清个人偏好与组织问题</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>这两条不替换上面四条。</strong> 上面四条是 FR 写法问题，这两条是“这条 FR 值不值得写”的前置问题。补法：痛点不足就补一次现场观察和三句原话；用户面太窄就再加一个角色，操作者之外补审批者或受影响者。</p>
+<div class="checkpoint">
+<p><strong>停一下</strong>：检查你写过的需求里，有没有“自动”“智能”“一键”开头的动词。每个词背后都藏着一个还没确认的判断规则。把它翻成“依据什么、按什么规则、谁来兜底”，红旗就会消失。</p>
+</div>
+<h2 id="sec-case-fr">排班切片的五条 FR（示例）</h2>
+<p>下面是 S1 的五条 FR，取自 <a class="case-link" href="case-b-solution.html#cb-fr" target="_blank" rel="noopener">案例 CB-07</a>，数字使用案例固定值，全部标【示例】。真实科室有 12 个亚专科、3 种班型；演示只用其中 3 个：妇科 10、乳腺 22、消化 22 人天；冲突 C1 是王芳当月可上班 9 天却被预排 10 天，C2 是妇科缺口 2 人天。</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th scope="col">FR</th>
+<th scope="col">固定句（压缩）</th>
+<th scope="col">验收时看什么</th>
+<th scope="col">至少需要的字段</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>FR-01 查看额度全景</td>
+<td>陈静在月度额度分配界面，按月份查看各亚专科需求、额度、已分配、剩余与缺口</td>
+<td>每个亚专科一行；缺口非零时显示差额</td>
+<td>月份、亚专科、额度人天、已用、剩余、需求</td>
+</tr>
+<tr>
+<td>FR-02 分配人员</td>
+<td>陈静把人员拖入亚专科，填写人天并保存；系统校验可用天数与资质</td>
+<td>王芳可用 9 天，填 10 天时保存被阻止并说明超出 1 天</td>
+<td>人员、可用天数、资质、亚专科、人天</td>
+</tr>
+<tr>
+<td>FR-03 识别并解释冲突</td>
+<td>出现超排、缺口或资质不符时，冲突面板显示类型、对象、差额和建议动作</td>
+<td>C1、C2 都出现；差额分别为 1 天和 2 人天</td>
+<td>冲突类型、关联对象、差额、严重度</td>
+</tr>
+<tr>
+<td>FR-04 组长确认</td>
+<td>赵岚看到本组分配，选择确认或提出调整，意见写回对应记录</td>
+<td>确认后状态变化；意见能在该条分配上重新打开</td>
+<td>确认人、确认时间、意见、分配状态</td>
+</tr>
+<tr>
+<td>FR-05 主任审批与写回</td>
+<td>周主任查看冲突是否清零、总额度是否超限，批准后分配变为已发布</td>
+<td>批准后重新打开，状态为已发布，额度已用与剩余同步变化</td>
+<td>审批人、审批时间、分配状态、额度已用、剩余</td>
+</tr>
+</tbody>
+</table></div>
+<p>拿 FR-02 展开看，它为什么能验收：</p>
+<ul>
+<li><strong>谁、在哪</strong>：陈静，在“亚专科 × 人员”的分配界面。</li>
+<li><strong>依据什么</strong>：人员可用天数、资质、当前额度的剩余。</li>
+<li><strong>做什么决定</strong>：这个人分到哪个亚专科、分多少人天。</li>
+<li><strong>什么动作</strong>：拖入、填人天、保存。</li>
+<li><strong>验收现象</strong>：王芳可用 9 天，填 10 天时保存被阻止，提示“超出可用天数 1 天”；改成 9 天能保存。</li>
+</ul>
+<p>FR-05 的关键在最后半句。批准不是一个提示框，而是 <code>Allocation.status</code> 变成“已发布”，同时额度的已用与剩余数字变化。关掉页面再打开，变化还在，这才叫写回；只弹一句“审批成功”，演示就还停留在幻灯片。</p>
+<p>从 FR 反推数据，是一条很实用的自检：每条 FR 至少能指到一个字段。指不到，要么 FR 写虚了，要么数据还没着落。指到的字段现场拿不到，就把它标成【待确认】，不要写成“系统自动获取”。</p>
+<div class="checkpoint">
+<p><strong>停一下</strong>：从上面五条里任选一条，遮住“至少需要的字段”那一列，自己写一遍。写不出来的字段，就是下一步要问数据负责人刘工的问题，而不是让开发猜。</p>
+</div>
+<div class="hands-on">
+<p><strong>动手 15 分钟</strong>：写出你负责切片的第一版 FR 清单。</p>
+<ol>
+<li>新建 <code>04_方案设计/04-02_功能需求FR.md</code>（模板见 <a class="template-link" href="templates/blank/04-02_功能需求FR.html" data-template-view data-template-title="A04-02 功能需求FR模板" title="A04-02 功能需求FR模板 ｜ 当前页弹窗预览">A04-02 功能需求FR模板</a>）。</li>
+<li>从一页纸的“动作”段里拆出 3–5 条 FR，每条一行，填满八个字段：FR 编号、用户、界面、输入、决策、动作、验收标准、证据 ID。</li>
+<li>每条 FR 后面补一列“至少需要的字段”；拿不到的字段标【待确认】，并写清问谁。</li>
+<li>用固定句把每条 FR 读一遍，读不顺就拆句。</li>
+</ol>
+<p><strong>三条自检</strong>：</p>
+<ul>
+<li>每条 FR 是否只有一个决定，且有一个具体角色？</li>
+<li>验收标准是否能被第三个人复现（状态、数字、重开可见）？</li>
+<li>是否至少有一条 FR 明确写了“阻止保存”或“写回后重新打开可见”？</li>
+</ul>
+<p><strong>参考答案（FR-02）</strong>：</p>
+<blockquote>
+<p>FR-02｜陈静｜月度额度分配界面｜人员可用天数、资质、亚专科剩余额度｜这个人分到哪个亚专科、多少人天｜拖入并填写人天后保存｜王芳可用 9 天，填 10 天时保存被阻止并提示超出 1 天；改 9 天可保存｜O-03（陈静现场指出“她这个月只能上 9 天”）、E-06（排班本照片，仍是“待验证×待确认”，演示前需人事或本人确认）</p>
+</blockquote>
+</div>
+<h2 id="sec-pitfalls">常见坑</h2>
+<div class="pitfalls">
+<p><strong>坑 1：把 FR 写成界面说明书。</strong>
+表现：一上来写“按钮放右下角、表格支持拖拽、颜色用蓝色”。后果：交互变了，业务验收标准也跟着漂移。
+处理：先写决定、输入、动作和验收结果；控件放到方案设计的“界面意图”里再谈。</p>
+<p><strong>坑 2：一条 FR 装完整条流程。</strong>
+表现：“陈静分配、赵岚确认、周主任审批并写回。”后果：任何一段没做完，整条都算没完成，无法定位。
+处理：按决策发生的位置拆开，一条只留一个决定。</p>
+<p><strong>坑 3：验收标准写成形容词。</strong>
+表现：“操作简便”“响应及时”“体验良好”。后果：验收会上只能靠感觉吵架。
+处理：改成状态、数字或重开可见。例如“保存后重新打开，分配记录仍在，剩余额度减少对应人天”。</p>
+<p><strong>坑 4：把待确认的规则写成确定能力。</strong>
+表现：“系统自动认定资质”“自动处理跨月结转”。后果：演示时被业务方一句“谁说的”问倒。
+处理：按现有字段做最小校验，规则口径写进待确认清单，并约定谁来确认。</p>
+</div>
+<div class="self-test">
+<p><strong>三问自测</strong></p>
+<details>
+<summary>1. 一句合格的 FR 必须回答哪七个问题？</summary>
+
+谁、在哪个界面、依据哪些输入、判断什么条件、做出哪个决定、通过什么动作写回、验收时看到什么可观察结果。七项缺一项，验收就会开始扯皮。
+
+</details>
+<details>
+<summary>2. 为什么“系统要支持排班”不能直接当 FR？</summary>
+
+它没有具体角色、时点和可观察结果，无法判断做到没有；它只是愿望，既不能验收，也不能指导对象模型和写回设计。
+
+</details>
+<details>
+<summary>3. FR-05 里“批准后额度已用与剩余同步更新”为什么必须写？</summary>
+
+因为它把审批从“弹一个提示”变成“数据真的变了”。没有写回，审批只是界面动作，关掉页面就失效，Demo 也无法证明决策落成了数据。
+
+</details>
+</div>
+<div class="recap">
+<p><strong>本章带走</strong></p>
+<ol>
+<li>FR 不是功能清单，而是一句可验收的决策句：谁、在哪、依据什么、决定什么、写回什么、验收看到什么。</li>
+<li>四个红旗——没有角色场景、一条多决定、只有形容词、依赖拿不到的数据——出现一个就先改再写。</li>
+<li>每条 FR 至少能反推一个数据字段；推不出或拿不到，就标【待确认】，不要用“系统自动”掩盖。</li>
+</ol>
+</div>
+      </div>
+
+      <section class="term-cards" aria-label="本页术语卡"><p class="eyebrow">本页术语</p><div class="term-grid"><article class="term-card" id="term-functional-requirement"><h3 id="term-title-functional-requirement">Functional Requirement（功能需求） <span class="term-en">Functional Requirement</span></h3><p>用“谁、在什么界面、依据什么输入、做什么决定、产生什么动作”写成的可验收句子。</p></article></div></section>
+      <section class="artifact-box" aria-label="本页产物"><div class="artifact-block"><h3 id="artifacts-out">本页要写出的产物</h3><ul><li><code>A04-02</code> 功能需求FR <span class="muted">→ 04_方案设计/04-02_功能需求FR.md</span> <span class="gate-tag">G4</span> <a href="templates/blank/04-02_功能需求FR.html" data-template-view data-template-title="A04-02 功能需求FR模板" title="A04-02 功能需求FR模板 ｜ 当前页弹窗预览">模板</a> <a href="templates/golden/04-02_功能需求FR_排班案例.html" data-template-view data-template-title="A04-02 功能需求FR黄金样例" title="A04-02 功能需求FR黄金样例 ｜ 当前页弹窗预览">黄金样例</a></li></ul></div><div class="artifact-block"><h3 id="artifacts-in">开始前应已具备</h3><p class="muted"><code>A03-05</code> use-case one-pager、<code>A03-04</code> 规则库（四层）、<code>A03-02</code> 用户-决策-动作清单</p></div></section>
+      <section class="sources" aria-label="来源"><h2 id="sec-sources">来源与证据等级</h2><ol class="source-list"><li><span class="src-id">S02</span> <strong>Distilling functional requirements</strong> <span class="badge badge-官方">官方</span><div class="muted">Palantir Technologies · 抓取 2026-10-19 · 版权归 Palantir Technologies；仅内部研究，不对外分发原文</div><div class="src-url"><a href="https://www.palantir.com/docs/foundry/use-case-life-cycle/distilling-functional-requirements/" rel="noreferrer" target="_blank">https://www.palantir.com/docs/foundry/use-case-life-cycle/distilling-functional-requirements/</a></div></li><li><span class="src-id">S17</span> <strong>FDE 方法论沉淀</strong> <span class="badge badge-实践">实践</span><div class="muted">本子项目 · 抓取 2026-09-23 · 内部方法沉淀</div><div class="src-url"><span class="muted">无公开链接</span></div></li><li><span class="src-id">S18</span> <strong>流程与范围模板</strong> <span class="badge badge-实践">实践</span><div class="muted">本子项目 · 抓取 2026-09-23 · 内部方法沉淀</div><div class="src-url"><span class="muted">无公开链接</span></div></li><li><span class="src-id">S20</span> <strong>FDE 实施手册 v1（9 章整合读本）</strong> <span class="badge badge-实践">实践</span><div class="muted">本子项目 · 抓取 2026-10-19 · 内部方法沉淀；官方事实另注出处</div><div class="src-url"><span class="muted">无公开链接</span></div></li></ol></section>
+      <nav class="pager" aria-label="翻页"><a class="pager-prev" data-same-tab href="lab-one-pager.html"><span>上一页</span><strong>实验室：20 分钟拼一页纸</strong></a><a class="pager-next" data-same-tab href="main-06-solution.html"><span>下一页</span><strong>方案设计四件套</strong></a></nav>
+
+      <footer class="page-foot">
+        <p>本教程为内部方法研究。案例已匿名化，数字标注【示例】。Palantir 官方资料版权归 Palantir Technologies，仅作改写与链接。</p>
+        <p class="muted">发现断链或事实错误？回到 <a href="appendix-sources.html" target="_blank" rel="noopener">来源与版权</a> 核对出处。</p>
+      </footer>
+    </article>
+  </main>
+
+  <aside class="toc" id="toc" aria-label="页内目录">
+    <p class="toc-title">本页目录</p><ol class="toc-list"><li class="toc-h2"><a href="#sec-why-not">先分清：愿望、方案、需求</a></li><li class="toc-h2"><a href="#sec-formula">FR 的固定句</a></li><li class="toc-h2"><a href="#sec-red-flags">四个红旗信号</a><ul class="toc-sub"><li class="toc-h3"><a href="#sec-official-red-flags">官方另外标注的两条</a></li></ul></li><li class="toc-h2"><a href="#sec-case-fr">排班切片的五条 FR（示例）</a></li><li class="toc-h2"><a href="#sec-pitfalls">常见坑</a></li></ol>
+  </aside>
+</div>
+
+<div class="tpl-modal" id="tpl-modal" hidden>
+  <div class="tpl-panel" role="dialog" aria-modal="true" aria-labelledby="tpl-title">
+    <header class="tpl-head">
+      <div class="tpl-heading">
+        <p class="tpl-kicker">模板阅读视图</p>
+        <h2 id="tpl-title">模板</h2>
+      </div>
+      <div class="tpl-actions">
+        <a class="tpl-open" id="tpl-open" href="#" target="_blank" rel="noopener">在新标签打开 ↗</a>
+        <button class="icon-btn" id="tpl-close" type="button" aria-label="关闭模板">✕</button>
+      </div>
+    </header>
+    <div class="tpl-body">
+      <iframe id="tpl-frame" title="模板内容" loading="lazy"></iframe>
+    </div>
+  </div>
+</div>
+
+<div class="search-modal" id="search-modal" hidden>
+  <div class="search-panel" role="dialog" aria-modal="true" aria-labelledby="search-title">
+    <div class="search-head">
+      <label id="search-title" class="sr-only" for="search-input">搜索教程</label>
+      <input id="search-input" type="search" placeholder="搜索概念、产物、模板、方法卡…" autocomplete="off">
+      <button class="icon-btn" id="search-close" type="button" aria-label="关闭搜索">✕</button>
+    </div>
+    <div id="search-results" class="search-results" aria-live="polite"></div>
+    <p class="search-hint">按 <kbd>/</kbd> 或 <kbd>Ctrl</kbd>+<kbd>K</kbd> 打开，<kbd>Esc</kbd> 关闭。索引完全离线。</p>
+  </div>
+</div>
+
+<noscript><p class="noscript-note">搜索与阅读进度需要 JavaScript；正文、目录和翻页仍可正常使用。可用浏览器查找（Ctrl+F）。</p></noscript>
+
+<script src="assets/search-index.js"></script>
+<script src="assets/viz-data.js"></script>
+<script src="assets/app.js"></script>
+<script src="assets/viz.js"></script>
+
+</body>
+</html>

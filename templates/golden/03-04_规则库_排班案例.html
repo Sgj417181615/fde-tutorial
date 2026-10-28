@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>A03-04 规则库（排班案例） · FDE 模板库</title>
+<link rel="stylesheet" href="../../assets/course.css">
+</head>
+<body>
+<a class="skip-link" href="#main">跳到正文</a>
+<main class="main" id="main">
+<article class="article">
+<nav class="crumb" aria-label="面包屑">
+<a href="../../index.html">教程首页</a><span class="sep">/</span>
+<a href="../../appendix-templates.html">模板库</a><span class="sep">/</span>
+<span>黄金样例</span>
+</nav>
+<header class="page-head">
+<div class="badges">
+<span class="badge badge-main">A03-04</span>
+<span class="badge">黄金样例</span>
+<span class="badge badge-time">Markdown 阅读视图</span>
+</div>
+<h1>A03-04 规则库（排班案例）</h1>
+<p class="page-question">这是模板的阅读视图，源文件是 <code>03-04_规则库_排班案例.md</code>。
+<a href="03-04_规则库_排班案例.md">下载 / 编辑 Markdown</a> · <a href="../../appendix-templates.html">返回模板库</a></p>
+</header>
+<div class="prose">
+<blockquote>
+<p>【示例】匿名化案例，数字均为示例；人名与机构均为化名。</p>
+</blockquote>
+<p>本样例直接采用 <code>_canon/case-bible.md</code> CB-15 的 R-01～R-08，不新增规则编号；四层分类按业务含义固定，不随实现方式改变。</p>
+<h2 id="tpl-sec-1">用途 / 何时用</h2>
+<p>在现状梳理和方案设计之间使用。把业务方口头或制度里的规则收集起来，分成配置数据、硬约束、软偏好、优化目标四层，为 FR、对象模型和校验逻辑提供依据。本表只收 S1 额度分配直接相关的规则；S2 的日期与班型规则只保留 R-03 作为后续入口。</p>
+<h2 id="tpl-sec-2">四层分类口径</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th scope="col">层级</th>
+<th scope="col">含义</th>
+<th scope="col">本例规则</th>
+<th scope="col">系统如何处理</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>配置数据</td>
+<td>可枚举、可维护的基础项，本身不构成约束</td>
+<td>R-01、R-02</td>
+<td>提供选项与默认值，不拦截</td>
+</tr>
+<tr>
+<td>硬约束</td>
+<td>违反即不可保存或不可发布</td>
+<td>R-03、R-04、R-05</td>
+<td>必须拦截，并说明触发了哪一条</td>
+</tr>
+<tr>
+<td>软偏好</td>
+<td>尽量满足，可说明理由后违背</td>
+<td>R-06</td>
+<td>提示，不阻止保存</td>
+</tr>
+<tr>
+<td>优化目标</td>
+<td>方案之间比较时追求的方向，不是对错</td>
+<td>R-07、R-08</td>
+<td>只用于建议与排序，不拦截</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>纪律</strong>：优化目标不能写成硬约束。R-07、R-08 一旦被写成“必须”，系统就会去做求解器，数学上最优，现实中却排不出班；R-05 是硬约束，C1 必须被拦住。</p>
+<h2 id="tpl-sec-3">字段</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th scope="col">规则ID</th>
+<th scope="col">规则原文</th>
+<th scope="col">层级</th>
+<th scope="col">适用对象</th>
+<th scope="col">例外</th>
+<th scope="col">冲突</th>
+<th scope="col">确认人</th>
+<th scope="col">证据ID</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>R-01</td>
+<td>班型代码：白班、夜班、周末班</td>
+<td>配置数据</td>
+<td>班型 ShiftType</td>
+<td>无</td>
+<td>无</td>
+<td>陈静</td>
+<td>【待确认】</td>
+</tr>
+<tr>
+<td>R-02</td>
+<td>亚专科列表与负责人</td>
+<td>配置数据</td>
+<td>亚专科 Subspecialty</td>
+<td>新增亚专科需主任批</td>
+<td>无</td>
+<td>周主任</td>
+<td>【待确认】</td>
+</tr>
+<tr>
+<td>R-03</td>
+<td>一人一天只能上一个班</td>
+<td>硬约束</td>
+<td>人员 Person、班型、日期</td>
+<td>无</td>
+<td>与“连班偏好”冲突时，以硬约束为准</td>
+<td>周主任</td>
+<td>【待确认】</td>
+</tr>
+<tr>
+<td>R-04</td>
+<td>资质不符不能排该亚专科</td>
+<td>硬约束</td>
+<td>人员 Person、亚专科 Subspecialty</td>
+<td>主任特批</td>
+<td>资质认定口径未定，见 CB-11“外部人员资质谁认定”</td>
+<td>赵岚</td>
+<td>【待确认】</td>
+</tr>
+<tr>
+<td>R-05</td>
+<td>不得超过本人可用天数</td>
+<td>硬约束</td>
+<td>人员 Person、分配 Allocation</td>
+<td>本人书面同意加班</td>
+<td>C1 就是违反此条</td>
+<td>孙老师</td>
+<td>E-06（待验证）</td>
+</tr>
+<tr>
+<td>R-06</td>
+<td>尽量连续班、少换班</td>
+<td>软偏好</td>
+<td>人员 Person、分配 Allocation</td>
+<td>组长可提出</td>
+<td>与公平性冲突，由组长说明理由</td>
+<td>赵岚</td>
+<td>【待确认】</td>
+</tr>
+<tr>
+<td>R-07</td>
+<td>缺口最小</td>
+<td>优化目标</td>
+<td>分配方案</td>
+<td>无</td>
+<td>与“额度均衡”冲突，由周主任裁定</td>
+<td>周主任</td>
+<td>E-03</td>
+</tr>
+<tr>
+<td>R-08</td>
+<td>各亚专科额度使用尽量均衡</td>
+<td>优化目标</td>
+<td>额度 Quota</td>
+<td>紧缺亚专科优先</td>
+<td>与 R-07 冲突，紧缺亚专科优先</td>
+<td>周主任</td>
+<td>【待确认】</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="tpl-sec-4">硬约束的拦截方式</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th scope="col">规则ID</th>
+<th scope="col">触发条件</th>
+<th scope="col">拦截动作</th>
+<th scope="col">用户看到什么</th>
+<th scope="col">例外如何放行</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>R-03</td>
+<td>同一人员同一天已有班型，又保存第二条</td>
+<td>禁止保存第二条</td>
+<td>“该人员当天已有班，不能重复排班”</td>
+<td>无例外；需先撤销原班再重排。本轮 S1 只做月度人天，R-03 不直接触发，留给 S2</td>
+</tr>
+<tr>
+<td>R-04</td>
+<td>人员资质不覆盖目标亚专科</td>
+<td>禁止把人加入该亚专科</td>
+<td>“资质不符：缺少该亚专科所需资质，需主任特批”</td>
+<td>主任特批后由陈静登记例外，写入调整记录，再放行</td>
+</tr>
+<tr>
+<td>R-05</td>
+<td>某人的分配人天大于其可用天数</td>
+<td>禁止保存超出部分</td>
+<td>“超出可用天数 1 天（C1：王芳 9 天被排 10 天）”</td>
+<td>本人书面同意加班并留痕后放行；口头同意不算</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>可执行性检查</strong>：三条硬约束都能回答“什么时候触发、拦住什么、用户看到什么、例外怎么留痕”。如果只能写“系统应校验”，而说不出拦截动作，就还不能算硬约束。</p>
+<h2 id="tpl-sec-5">例外与冲突</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th scope="col">冲突</th>
+<th scope="col">涉及规则</th>
+<th scope="col">表现</th>
+<th scope="col">冲突时谁优先</th>
+<th scope="col">谁决定</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>硬约束 vs 软偏好</td>
+<td>R-03 vs R-06</td>
+<td>为了连续班，想让人一天上两个班</td>
+<td>硬约束优先，R-06 让位</td>
+<td>周主任</td>
+</tr>
+<tr>
+<td>硬约束 vs 特批</td>
+<td>R-04 的“主任特批”</td>
+<td>资质不符但临床确实缺人</td>
+<td>例外可放行，但必须留痕，且不得同时违反 R-05</td>
+<td>周主任</td>
+</tr>
+<tr>
+<td>硬约束 vs 现状</td>
+<td>R-05 vs C1</td>
+<td>王芳可用 9 天，现被排 10 天</td>
+<td>不是规则例外，是违规现状，必须拦截并改回</td>
+<td>陈静执行，孙老师确认口径</td>
+</tr>
+<tr>
+<td>软偏好 vs 公平</td>
+<td>R-06 vs 公平性</td>
+<td>连续班集中在少数人身上</td>
+<td>软偏好不强制；组长提出理由，陈静记录后再调整</td>
+<td>赵岚提出，陈静记录</td>
+</tr>
+<tr>
+<td>优化目标 vs 优化目标</td>
+<td>R-07 vs R-08</td>
+<td>缺口最小会牺牲各亚专科均衡</td>
+<td>紧缺亚专科优先（R-08 的例外），由周主任裁定</td>
+<td>周主任</td>
+</tr>
+<tr>
+<td>优化目标 vs 硬约束</td>
+<td>R-07 vs R-05</td>
+<td>为了让缺口最小，想让人超天数</td>
+<td>硬约束优先，R-07 不能以违反 R-05 为代价</td>
+<td>周主任</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="tpl-sec-6">与冲突 C1、C2 的对应</h2>
+<ul>
+<li><strong>C1（超排）</strong>：王芳可上班 9 天，却被预排 10 天，直接违反 R-05。R-05 是硬约束，界面必须在保存时拦住，不能只在提交审批时提示。</li>
+<li><strong>C2（缺口）</strong>：妇科需求 12 人天、额度 10 人天，结构性短缺 2 人天。它不是硬约束违规，而是 R-07“缺口最小”要处理的优化目标，同时受额度上限约束；解决靠 DC-3 的借调、改派或申请额外额度。</li>
+<li><strong>R-07、R-08 只做建议排序</strong>：冲突面板可以按“缺口大小”排序，也可以在两个方案间提示“哪个更均衡”，但不能自动改分配，也不能因为优化目标未满足而阻止审批。</li>
+<li><strong>R-04 的资质口径尚未定</strong>：CB-11 的待确认项“外部人员资质谁认定”关闭前，资质校验只能做提示，不能做硬拦截；否则会把一个未确认的口径写成系统强制。</li>
+</ul>
+</div>
+<footer class="page-foot">
+<p class="muted">本页由 <code>_tools/build.py</code> 从 Markdown 自动生成，请改源文件而不是改这里。</p>
+</footer>
+</article>
+</main>
+</body>
+</html>

@@ -1,0 +1,320 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<title>开始：这份教程怎么用 · FDE 零基础教程</title>
+<meta name="description" content="三条学习路线、双轨结构、项目档案怎么建，以及你现在该读哪一页。">
+<link rel="stylesheet" href="assets/course.css">
+<script>
+(function () {
+  try {
+    var saved = localStorage.getItem('fde-theme');
+    var theme = saved || (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+    document.documentElement.dataset.theme = theme;
+  } catch (e) {}
+})();
+</script>
+</head>
+<body class="track-main page-index">
+<a class="skip-link" href="#main">跳到正文</a>
+
+<header class="topbar">
+  <button class="icon-btn nav-toggle" id="nav-toggle" type="button" aria-expanded="false" aria-controls="sidebar" aria-label="打开课程目录">
+    <span aria-hidden="true">☰</span>
+  </button>
+  <span class="brand"><span class="brand-mark">FDE</span><span class="brand-text">零基础教程</span></span>
+  <nav class="track-switch" aria-label="模块切换"><span class="track-link active" aria-current="true" title="从零建立完整心智模型">主线</span><a class="track-link" data-same-tab href="work-01-prep.html" title="现场查用：输入、步骤、输出、阶段门">工作台</a><a class="track-link" data-same-tab href="day1-00-overview.html" title="六步链路：简报 → 访谈 → 证据 → 底稿 → 门">Day1</a><a class="track-link" data-same-tab href="appendix-methods.html" title="一卡一问，按阶段、产物、角色查">方法库</a><a class="track-link" data-same-tab href="appendix-templates.html" title="模板、产物链、术语与来源">附录</a></nav>
+  <div class="top-actions">
+    <button class="search-open" id="search-open" type="button" aria-haspopup="dialog">
+      <span aria-hidden="true">⌕</span><span class="search-label">搜索</span><kbd>/</kbd>
+    </button>
+    <button class="icon-btn" id="theme-toggle" type="button" aria-label="切换深浅色">◐</button>
+  </div>
+  <div class="read-progress" aria-hidden="true"><span id="read-progress"></span></div>
+</header>
+
+<div class="layout">
+  <aside class="sidebar" id="sidebar">
+    <nav class="course-tree" aria-label="课程目录"><header class="side-head"><p class="side-eyebrow">当前模块</p><p class="side-title">主线</p><p class="side-caption">从零建立完整心智模型</p><p class="side-meta">16 页<span class="dot">·</span>约 4 小时</p></header><section class="nav-group"><p class="nav-group-title"><span class="nav-group-num">01</span>开始</p><span class="nav-link nav-current" aria-current="page">开始：这份教程怎么用</span></section><section class="nav-group"><p class="nav-group-title"><span class="nav-group-num">02</span>看懂 FDE</p><a class="nav-link" data-same-tab href="main-01-fde.html">FDE 是什么，不是什么</a><a class="nav-link" data-same-tab href="main-02-slicing.html">把“系统”切成可验证的决策</a><a class="nav-link" data-same-tab href="lab-slicing.html">实验室：切三个模糊需求</a></section><section class="nav-group"><p class="nav-group-title"><span class="nav-group-num">03</span>看清现状</p><a class="nav-link" data-same-tab href="main-03-as-is.html">看清今天实际怎么运转</a><a class="nav-link" data-same-tab href="main-04-one-pager.html">一页纸对齐范围</a><a class="nav-link" data-same-tab href="case-a-one-pager.html">案例 A：S1 如何被选中</a><a class="nav-link" data-same-tab href="lab-one-pager.html">实验室：20 分钟拼一页纸</a></section><section class="nav-group"><p class="nav-group-title"><span class="nav-group-num">04</span>设计验证</p><a class="nav-link" data-same-tab href="main-05-fr.html">把决策写成一句可验收的 FR</a><a class="nav-link" data-same-tab href="main-06-solution.html">方案设计四件套</a><a class="nav-link" data-same-tab href="case-b-solution.html">案例 B：从一页纸到 Demo</a></section><section class="nav-group"><p class="nav-group-title"><span class="nav-group-num">05</span>跑起来</p><a class="nav-link" data-same-tab href="main-07-gates.html">开始前的五道门</a><a class="nav-link" data-same-tab href="main-08-five-days.html">Day1–5 每天做什么</a><a class="nav-link" data-same-tab href="main-09-adoption.html">从项目到组织能力</a></section><section class="nav-group"><p class="nav-group-title"><span class="nav-group-num">06</span>选读</p><a class="nav-link" data-same-tab href="main-10-patterns.html">五种实施模式<span class="nav-optional">选读</span></a><a class="nav-link" data-same-tab href="main-11-lessons.html">一线八堂课<span class="nav-optional">选读</span></a></section></nav>
+  </aside>
+  <button class="scrim" id="scrim" type="button" aria-label="关闭目录" hidden></button>
+
+  <main class="main" id="main">
+    <nav class="crumb" aria-label="面包屑"><span>教程</span><span class="sep">/</span><span>主线</span><span class="sep">/</span><span aria-current="page">开始：这份教程怎么用</span></nav>
+    <article class="article">
+      <header class="page-head">
+        <div class="badges"><span class="badge badge-main">必读</span><span class="badge badge-time">8 分钟</span></div>
+        <h1>开始：这份教程怎么用</h1>
+        <p class="lede">三条学习路线、双轨结构、项目档案怎么建，以及你现在该读哪一页。</p>
+        <p class="page-question"><span class="eyebrow">本页要回答</span>我该按什么顺序学，学到什么程度才算能干活？</p>
+        <div class="page-meta">
+          <section class="meta-block">
+            <h2 class="meta-title" id="meta-objectives">读完你能</h2>
+            <ul class="objective-list"><li>选出一条适合自己的学习路线并说出理由；</li><li>建立自己的 FDE项目档案 目录，放入第一份项目一页纸；</li><li>判断遇到具体问题时该去主线还是工作台。</li></ul>
+          </section>
+          <section class="meta-block">
+            <h2 class="meta-title" id="meta-prereq">前置</h2>
+            <p><span class="muted">无前置，从本页开始。</span></p>
+          </section>
+        </div>
+      </header>
+
+      <div class="prose">
+        <p>你接手了一个项目。业务方说得很急：“先给我们做一个系统，能把排班管起来。”
+你打开会议记录，里面只有三句话：人手不够、Excel 太乱、领导要看见效果。</p>
+<p>你不知道先问什么，也不知道第一版该做多大。你甚至不确定，这件事到底该不该从一个“系统”开始。</p>
+<p>这份教程就是为这个时刻写的。它不要求你懂 Palantir，也不要求你会写代码。它只要求你愿意做一件事：<strong>把“做一个系统”改写成“让谁在什么时候做一个什么决定”，然后用五天验证它。</strong></p>
+<h2 id="sec-problem">这份教程解决什么问题</h2>
+<p>市面上讲 FDE 的材料大致有两类。一类是官方文档，准确，但默认你已经知道 use case、ontology、thin slice 这些词；另一类是经验分享，热闹，但读完还是不知道明天现场该问哪三个问题。</p>
+<p>这份教程想补中间那段：<strong>从零基础到能独立跑一轮</strong>。</p>
+<p>具体来说，学完主线，你应该能：</p>
+<ol>
+<li>判断一个需求是不是值得用 FDE 方式做；</li>
+<li>把模糊需求切成一个五天内可验证的决策；</li>
+<li>画出现状、写出一页纸、写出可验收的功能需求；</li>
+<li>设计一个能演示、能写回（用户动作真正改掉数据，不只是切页面）的最小方案；</li>
+<li>跑完五天验证，并判断该继续、缩小还是停；</li>
+<li>把这一轮的经验变成下一轮能复用的资产。</li>
+</ol>
+<p>这六件事不是六个知识点，而是一条链。链断在哪一环，项目就会在哪一环变成“做了很多功能，但没人用”。</p>
+<h2 id="sec-routes">三条路线：你现在该走哪条</h2>
+<p>不需要每次都从第一页读到最后一页。按你眼下的任务选一条。</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th scope="col">路线</th>
+<th scope="col">适合谁</th>
+<th scope="col">读哪些</th>
+<th scope="col">大约多久</th>
+<th scope="col">读完能得到</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>完整主线</strong></td>
+<td>第一次系统学 FDE，或要独立负责一个用例</td>
+<td>首页 → 主线 14 页（含两个案例、两个实验室）</td>
+<td>4 小时</td>
+<td>完整心智模型 + 一份自己的项目档案</td>
+</tr>
+<tr>
+<td><strong>明天去现场</strong></td>
+<td>已经要进场调研，只差手里的工具</td>
+<td>切片 → 现状 → 五道门 → 工作台 01–03 → 模板库</td>
+<td>约 2 小时（只读与打印）；填完 7 份另需半天</td>
+<td>7 份可打印的“90 分钟现场包”</td>
+</tr>
+<tr>
+<td><strong>交付负责人</strong></td>
+<td>要主持评审、Demo 或阶段门</td>
+<td>一页纸 → 方案设计 → 五天验证 → 工作台 04–08 → Day1 专项</td>
+<td>约 4.5 小时，可分成两次</td>
+<td>能判断“能不能开始、能不能演示、要不要继续”</td>
+</tr>
+</tbody>
+</table></div>
+<p>如果你完全不知道选哪条，先读这一页，然后走完整主线。主线里的两个案例会把抽象概念落到同一个排班场景上，读起来比跳读省力。</p>
+<div class="checkpoint">
+<p><strong>停一下</strong>：先别急着往下翻。写下你手上真实项目的一句话描述，格式是“谁，在什么场景下，要做什么决定，现在卡在哪”。写不出来也没关系，读完第 2 页你会回来补。</p>
+</div>
+<h2 id="sec-tracks">双轨结构：主线讲为什么，工作台讲怎么做</h2>
+<p>教程分成五个模块：主线、实操工作台、Day1 工作台、方法库、附录。顶栏切换模块，<strong>左侧目录只显示当前模块</strong>，所以不会在学主线时被 Day1 的细节干扰。</p>
+<p><strong>主线</strong>负责建立判断力。它回答“为什么这件事要这么做”，用排班案例从头走到尾。主线页面标着“必读”，建议按顺序读。</p>
+<p><strong>实操工作台</strong>负责干活时查。它按“何时用、输入、步骤、输出、阶段门、模板、常见失败”组织，不占主线时间。你不需要背下来，遇到具体动作时回来查。</p>
+<p><strong>Day1 工作台</strong>是把国润 D1 工具包改写成的专项流程。它回答“第一天共创到底怎么跑”，可以独立使用。</p>
+<p><strong>方法库</strong>是一张张方法卡，一张卡回答一个可操作问题。未来新增方法，只需要加卡，不需要改导航。</p>
+<p><strong>附录</strong>放模板、产物链、术语和来源。它们是查用页，不是阅读页。</p>
+<blockquote>
+<p>一个常见误解：把工作台当成“进阶内容”，想先学完主线再看。其实工作台是<strong>工具书</strong>，你第一次做调研就应该翻。主线让你知道为什么，工作台让你今天就能开工。</p>
+</blockquote>
+<h2 id="sec-dossier">项目档案：从第 1 页开始攒</h2>
+<p>这份教程不替你保存项目数据。它给你一套目录和模板，你在自己的电脑上维护一份 <strong>FDE项目档案</strong>。</p>
+<p>档案按阶段分成七个目录，一共 42 个 artifact（有编号、有生产者、有消费者、有阶段门的文件）。听起来很多，但你不需要一次建全。教程提供三档：</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th scope="col">档案规模</th>
+<th scope="col">文件数</th>
+<th scope="col">什么时候用</th>
+<th scope="col">包含什么</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>90 分钟现场包</strong></td>
+<td>7</td>
+<td>明天就要去客户现场</td>
+<td>项目一页纸、数据权限、访谈提纲、观察表、观察记录、证据台账、五道门</td>
+</tr>
+<tr>
+<td><strong>最小可交付档案</strong></td>
+<td>12</td>
+<td>想完整跑一轮验证</td>
+<td>现场包去掉空白观察表 A01-03（剩 6 份），再加干系人地图、As-is、one-pager、FR、Demo 脚本、复盘 6 份</td>
+</tr>
+<tr>
+<td><strong>完整档案</strong></td>
+<td>42</td>
+<td>要交接、审计或复用</td>
+<td>全部 artifact</td>
+</tr>
+</tbody>
+</table></div>
+<p>第一次做，先建最小集。不要一上来追求 42 份齐全——那通常会变成“填表比赛”，而不是做项目。</p>
+<div class="viz-embed"><figure class="viz viz-tiers" data-viz="dossier-tiers"><figcaption class="viz-head"><span class="viz-kicker">交互图</span><h3 id="viz-tiers-title">7 / 12 / 42：三档档案差在哪</h3><p>切换档位，看同一批产物里哪些属于这一档。三档是起步规模，不是三套验收标准。</p></figcaption><div class="viz-toolbar" role="group" aria-label="切换档案档位"><button type="button" class="viz-chip is-active" data-tier="field" aria-pressed="true">现场包 7</button><button type="button" class="viz-chip" data-tier="min" aria-pressed="false">最小档案 12</button><button type="button" class="viz-chip" data-tier="all" aria-pressed="false">完整档案 42</button></div><p class="viz-summary" aria-live="polite"></p><p class="viz-scroll-hint">共 7 个阶段，可左右滑动查看全部产物。</p><div class="viz-tier-grid"><section class="viz-stage" aria-label="00 项目章程"><header class="viz-stage-head"><span class="viz-stage-no">00</span><strong>项目章程</strong><span class="viz-gate" title="项目章程门">G0</span></header><div class="viz-nodes"><span class="viz-cell" data-art="A00-01" data-tiers="field min all" title="A00-01 项目一页纸"><span class="viz-cell-id">A00-01</span><span class="viz-cell-name">项目一页纸</span></span><span class="viz-cell" data-art="A00-02" data-tiers="min all" title="A00-02 干系人地图"><span class="viz-cell-id">A00-02</span><span class="viz-cell-name">干系人地图</span></span><span class="viz-cell" data-art="A00-03" data-tiers="all" title="A00-03 范围与非范围"><span class="viz-cell-id">A00-03</span><span class="viz-cell-name">范围与非范围</span></span><span class="viz-cell" data-art="A00-04" data-tiers="field min all" title="A00-04 知情同意与数据权限"><span class="viz-cell-id">A00-04</span><span class="viz-cell-name">知情同意与数据权限</span></span><span class="viz-cell" data-art="A00-05" data-tiers="all" title="A00-05 需求定向简报"><span class="viz-cell-id">A00-05</span><span class="viz-cell-name">需求定向简报</span></span></div></section><section class="viz-stage" aria-label="01 调研准备"><header class="viz-stage-head"><span class="viz-stage-no">01</span><strong>调研准备</strong><span class="viz-gate" title="调研准备门">G1</span></header><div class="viz-nodes"><span class="viz-cell" data-art="A01-01" data-tiers="all" title="A01-01 调研计划与排期"><span class="viz-cell-id">A01-01</span><span class="viz-cell-name">调研计划与排期</span></span><span class="viz-cell" data-art="A01-02" data-tiers="field min all" title="A01-02 分轮访谈提纲"><span class="viz-cell-id">A01-02</span><span class="viz-cell-name">分轮访谈提纲</span></span><span class="viz-cell" data-art="A01-03" data-tiers="field all" title="A01-03 现场观察记录表"><span class="viz-cell-id">A01-03</span><span class="viz-cell-name">现场观察记录表</span></span><span class="viz-cell" data-art="A01-04" data-tiers="all" title="A01-04 基线数据清单"><span class="viz-cell-id">A01-04</span><span class="viz-cell-name">基线数据清单</span></span></div></section><section class="viz-stage" aria-label="02 现场记录"><header class="viz-stage-head"><span class="viz-stage-no">02</span><strong>现场记录</strong><span class="viz-gate" title="现场记录门">G2</span></header><div class="viz-nodes"><span class="viz-cell" data-art="A02-01" data-tiers="field min all" title="A02-01 现场观察记录"><span class="viz-cell-id">A02-01</span><span class="viz-cell-name">现场观察记录</span></span><span class="viz-cell" data-art="A02-02" data-tiers="all" title="A02-02 逐字稿"><span class="viz-cell-id">A02-02</span><span class="viz-cell-name">逐字稿</span></span><span class="viz-cell" data-art="A02-03" data-tiers="all" title="A02-03 术语与说话人表"><span class="viz-cell-id">A02-03</span><span class="viz-cell-name">术语与说话人表</span></span><span class="viz-cell" data-art="A02-04" data-tiers="field min all" title="A02-04 证据台账"><span class="viz-cell-id">A02-04</span><span class="viz-cell-name">证据台账</span></span><span class="viz-cell" data-art="A02-05" data-tiers="all" title="A02-05 待确认与问题清单"><span class="viz-cell-id">A02-05</span><span class="viz-cell-name">待确认与问题清单</span></span><span class="viz-cell" data-art="A02-06" data-tiers="all" title="A02-06 D1确认记录"><span class="viz-cell-id">A02-06</span><span class="viz-cell-name">D1确认记录</span></span></div></section><section class="viz-stage" aria-label="03 现状与切片"><header class="viz-stage-head"><span class="viz-stage-no">03</span><strong>现状与切片</strong><span class="viz-gate" title="现状与切片门">G3</span></header><div class="viz-nodes"><span class="viz-cell" data-art="A03-01" data-tiers="min all" title="A03-01 As-is决策流"><span class="viz-cell-id">A03-01</span><span class="viz-cell-name">As-is决策流</span></span><span class="viz-cell" data-art="A03-02" data-tiers="all" title="A03-02 用户-决策-动作清单"><span class="viz-cell-id">A03-02</span><span class="viz-cell-name">用户-决策-动作清单</span></span><span class="viz-cell" data-art="A03-03" data-tiers="all" title="A03-03 候选切片与打分"><span class="viz-cell-id">A03-03</span><span class="viz-cell-name">候选切片与打分</span></span><span class="viz-cell" data-art="A03-04" data-tiers="all" title="A03-04 规则库（四层）"><span class="viz-cell-id">A03-04</span><span class="viz-cell-name">规则库（四层）</span></span><span class="viz-cell" data-art="A03-05" data-tiers="min all" title="A03-05 use-case one-pager"><span class="viz-cell-id">A03-05</span><span class="viz-cell-name">use-case one-pager</span></span><span class="viz-cell" data-art="A03-06" data-tiers="all" title="A03-06 D1工作底稿"><span class="viz-cell-id">A03-06</span><span class="viz-cell-name">D1工作底稿</span></span><span class="viz-cell" data-art="A03-07" data-tiers="all" title="A03-07 D1阶段门记录"><span class="viz-cell-id">A03-07</span><span class="viz-cell-name">D1阶段门记录</span></span><span class="viz-cell" data-art="A03-08" data-tiers="all" title="A03-08 D2输入清单"><span class="viz-cell-id">A03-08</span><span class="viz-cell-name">D2输入清单</span></span></div></section><section class="viz-stage" aria-label="04 方案设计"><header class="viz-stage-head"><span class="viz-stage-no">04</span><strong>方案设计</strong><span class="viz-gate" title="方案设计门">G4</span></header><div class="viz-nodes"><span class="viz-cell" data-art="A04-01" data-tiers="all" title="A04-01 决策清单"><span class="viz-cell-id">A04-01</span><span class="viz-cell-name">决策清单</span></span><span class="viz-cell" data-art="A04-02" data-tiers="min all" title="A04-02 功能需求FR"><span class="viz-cell-id">A04-02</span><span class="viz-cell-name">功能需求FR</span></span><span class="viz-cell" data-art="A04-03" data-tiers="all" title="A04-03 对象模型"><span class="viz-cell-id">A04-03</span><span class="viz-cell-name">对象模型</span></span><span class="viz-cell" data-art="A04-04" data-tiers="all" title="A04-04 生命周期与写回"><span class="viz-cell-id">A04-04</span><span class="viz-cell-name">生命周期与写回</span></span><span class="viz-cell" data-art="A04-05" data-tiers="all" title="A04-05 增强与界面"><span class="viz-cell-id">A04-05</span><span class="viz-cell-name">增强与界面</span></span><span class="viz-cell" data-art="A04-06" data-tiers="all" title="A04-06 MVP范围与非范围"><span class="viz-cell-id">A04-06</span><span class="viz-cell-name">MVP范围与非范围</span></span></div></section><section class="viz-stage" aria-label="05 五天验证"><header class="viz-stage-head"><span class="viz-stage-no">05</span><strong>五天验证</strong><span class="viz-gate" title="验证执行门">G5</span></header><div class="viz-nodes"><span class="viz-cell" data-art="A05-01" data-tiers="field min all" title="A05-01 五道门检查表"><span class="viz-cell-id">A05-01</span><span class="viz-cell-name">五道门检查表</span></span><span class="viz-cell" data-art="A05-02" data-tiers="all" title="A05-02 五天计划"><span class="viz-cell-id">A05-02</span><span class="viz-cell-name">五天计划</span></span><span class="viz-cell" data-art="A05-03" data-tiers="all" title="A05-03 每日日志"><span class="viz-cell-id">A05-03</span><span class="viz-cell-name">每日日志</span></span><span class="viz-cell" data-art="A05-04" data-tiers="all" title="A05-04 问题与决策日志"><span class="viz-cell-id">A05-04</span><span class="viz-cell-name">问题与决策日志</span></span><span class="viz-cell" data-art="A05-05" data-tiers="all" title="A05-05 KPI基线与验证标准"><span class="viz-cell-id">A05-05</span><span class="viz-cell-name">KPI基线与验证标准</span></span><span class="viz-cell" data-art="A05-06" data-tiers="min all" title="A05-06 Demo脚本"><span class="viz-cell-id">A05-06</span><span class="viz-cell-name">Demo脚本</span></span><span class="viz-cell" data-art="A05-07" data-tiers="all" title="A05-07 Demo数据清单"><span class="viz-cell-id">A05-07</span><span class="viz-cell-name">Demo数据清单</span></span><span class="viz-cell" data-art="A05-08" data-tiers="all" title="A05-08 反馈记录"><span class="viz-cell-id">A05-08</span><span class="viz-cell-name">反馈记录</span></span><span class="viz-cell" data-art="A05-09" data-tiers="all" title="A05-09 阶段门记录"><span class="viz-cell-id">A05-09</span><span class="viz-cell-name">阶段门记录</span></span></div></section><section class="viz-stage" aria-label="06 复盘与回流"><header class="viz-stage-head"><span class="viz-stage-no">06</span><strong>复盘与回流</strong><span class="viz-gate" title="复盘与回流门">G6</span></header><div class="viz-nodes"><span class="viz-cell" data-art="A06-01" data-tiers="min all" title="A06-01 复盘"><span class="viz-cell-id">A06-01</span><span class="viz-cell-name">复盘</span></span><span class="viz-cell" data-art="A06-02" data-tiers="all" title="A06-02 可复用资产清单"><span class="viz-cell-id">A06-02</span><span class="viz-cell-name">可复用资产清单</span></span><span class="viz-cell" data-art="A06-03" data-tiers="all" title="A06-03 回流账本"><span class="viz-cell-id">A06-03</span><span class="viz-cell-name">回流账本</span></span><span class="viz-cell" data-art="A06-04" data-tiers="all" title="A06-04 下一轮切片与落地计划"><span class="viz-cell-id">A06-04</span><span class="viz-cell-name">下一轮切片与落地计划</span></span></div></section></div><p class="viz-legend"><span class="viz-legend-on"></span>本档包含 <span class="viz-legend-off"></span>本档不含</p></figure></div>
+
+<p>档案的目录长这样：</p>
+<div class="file-tree">FDE项目档案/
+├── 00_项目章程/
+│   ├── 00-01_项目一页纸.md
+│   ├── 00-02_干系人地图.md
+│   ├── 00-03_范围与非范围.md
+│   ├── 00-04_知情同意与数据权限.md
+│   └── 00-05_需求定向简报.md
+├── 01_调研准备/
+├── 02_现场记录/
+├── 03_现状与切片/
+├── 04_方案设计/
+├── 05_五天验证/
+├── 06_复盘与回流/
+└── README.md</div>
+
+<p>每份 artifact 在附录的<a href="appendix-artifacts.html" target="_blank" rel="noopener">产物链与档案</a>里都能查到：谁写、写给谁、过哪道阶段门、模板在哪。你不需要记住编号，页面里的“本页产物”会自动列出来。</p>
+<div class="hands-on">
+<p><strong>动手 10 分钟</strong>：建立你的档案骨架。</p>
+<ol>
+<li>在项目目录下新建 <code>FDE项目档案/</code>，按上面的七个目录建好。</li>
+<li>从<a href="appendix-templates.html" target="_blank" rel="noopener">模板库</a>复制 <code>00-01_项目一页纸.md</code>，放到 <code>00_项目章程/</code>。</li>
+<li>用一句话填“业务问题”，再用一句话填“目标用户”。填不出就写“待确认”，不要编。</li>
+<li>在档案根目录建 <code>README.md</code>，写三行：项目名、当前阶段、下一次要更新的 artifact。</li>
+</ol>
+<p><strong>自检</strong>：① 目录名和编号是否一致；② 一页纸里有没有出现“系统应该支持”这种功能句；③ 每个“待确认”有没有写谁来确认。</p>
+</div>
+<h2 id="sec-downloads">资源下载：不用自己拼</h2>
+<p>教程里的模板、现场包和档案骨架都能整包拿走。解压即用，不需要联网，也不需要安装任何东西：</p>
+<div class="viz-embed"><div class="download-grid" role="list"><a class="download-card" role="listitem" href="downloads/fde-field-pack.zip" target="_blank" rel="noopener"><span class="download-count">7 份</span><strong>90 分钟现场包</strong><span class="download-desc">明天就要去客户现场时带的 7 份空白模板，按档案目录摆好。</span><span class="download-file">fde-field-pack.zip</span></a><a class="download-card" role="listitem" href="downloads/fde-minimal-dossier.zip" target="_blank" rel="noopener"><span class="download-count">12 份</span><strong>最小可交付档案</strong><span class="download-desc">从章程到复盘的最小证据链，适合完整跑一轮验证。</span><span class="download-file">fde-minimal-dossier.zip</span></a><a class="download-card" role="listitem" href="downloads/fde-dossier-skeleton.zip" target="_blank" rel="noopener"><span class="download-count">42 份</span><strong>完整档案骨架</strong><span class="download-desc">42 份空白模板按 00–06 目录摆好，用于交接、审计或复用。</span><span class="download-file">fde-dossier-skeleton.zip</span></a><a class="download-card" role="listitem" href="downloads/fde-templates-blank.zip" target="_blank" rel="noopener"><span class="download-count">42 份</span><strong>42 份空白模板</strong><span class="download-desc">平铺的 Markdown 模板，方便先翻一遍再决定复制哪份。</span><span class="download-file">fde-templates-blank.zip</span></a><a class="download-card" role="listitem" href="downloads/fde-templates-golden.zip" target="_blank" rel="noopener"><span class="download-count">42 份</span><strong>42 份黄金样例</strong><span class="download-desc">排班案例的填写样例，用来对照“每一栏写到什么程度算合格”。</span><span class="download-file">fde-templates-golden.zip</span></a><a class="download-card" role="listitem" href="downloads/fde-d1-field-kit.zip" target="_blank" rel="noopener"><span class="download-count">8 份</span><strong>Day1 现场日套装</strong><span class="download-desc">D1 当天从简报、访谈、证据到阶段门要用的 8 份模板，按当天顺序摆好。</span><span class="download-file">fde-d1-field-kit.zip</span></a><a class="download-card" role="listitem" href="downloads/fde-review-pack.zip" target="_blank" rel="noopener"><span class="download-count">8 份</span><strong>八件评审包</strong><span class="download-desc">one-pager、决策清单、FR、对象模型、生命周期、界面、MVP 与 KPI，外加索引。</span><span class="download-file">fde-review-pack.zip</span></a><a class="download-card" role="listitem" href="downloads/fde-glossary.zip" target="_blank" rel="noopener"><span class="download-count">89 条</span><strong>术语速查表</strong><span class="download-desc">Markdown 与 CSV 两版，按中文、英文、解释、主责页面排列，可直接检索。</span><span class="download-file">fde-glossary.zip</span></a></div><p class="download-note">全部为离线 zip：解压即用，不联网、不需要安装。模板是 Markdown 文件，用任意文本编辑器或 Obsidian 打开。工具包下载在 <a href="day1-00-overview.html#sec-toolkit" target="_blank" rel="noopener">Day1 总览</a>。</p></div>
+
+<p>如果你只想先试一份，仍然建议从 <a href="appendix-templates.html#sec-first-copy" target="_blank" rel="noopener">A00-01 项目一页纸</a> 开始；整包下载是为了省去建目录和找文件的时间，不是让你一次填完。</p>
+<h2 id="sec-how-read">每页怎么读：固定的骨架</h2>
+<p>主线页的结构是固定的，你读两页就会熟悉：</p>
+<ul>
+<li>开头是<strong>现场困境</strong>，不是定义；</li>
+<li>然后是<strong>人话解释 → 类比 → 为什么需要 → 回到排班案例</strong>；</li>
+<li>中间有<strong>停一下</strong>判断题，逼你停下来想；</li>
+<li>有<strong>动手 10 分钟</strong>，产出直接进档案；</li>
+<li>结尾是<strong>三问自测、常见坑、本章带走</strong>。</li>
+</ul>
+<p>工作台页换成另一套骨架：何时用、前置、输入、步骤、输出、阶段门、模板、案例、常见失败、自检。你可以在打印时只打印工作台页，它会自动隐藏导航，变成一张现场单页。</p>
+<p>正文里会出现几种标记：</p>
+<ul>
+<li><span class="ev-official">【官方】</span> Palantir 官方文档或官方材料；</li>
+<li><span class="ev-third">【第三方】</span> 从业者整理、公开课程；</li>
+<li><span class="ev-practice">【实践】</span> 真实项目复盘，但样本有限；</li>
+<li><span class="ev-infer">【推断】</span> 我们基于材料做的归纳，不能直接写进客户正式材料；</li>
+<li><span class="ev-todo">【待确认】</span> 目前没有可靠答案。</li>
+</ul>
+<p>看到标记，先问一句：这个结论的证据成色，撑得住我接下来要做的事吗？</p>
+<h2 id="sec-start">现在开始：你的第一个 10 分钟</h2>
+<p>如果你只做一件事，做这个：<strong>把“做一个排班系统”改写成一句决策。</strong></p>
+<p>不是“支持排班”，不是“提升效率”，而是类似：</p>
+<blockquote>
+<p>陈静（排班员）在每月 25 日前，根据各亚专科需求、外部人员额度和人员可用天数，决定本月每个亚专科用多少额度、分给谁。</p>
+</blockquote>
+<p>这句话里有人、有时点、有输入、有决定、有动作。它不完整，但它可以被验证。第 2 页会教你怎么从这句话走到一个五天内能验证的切片。</p>
+<div class="pitfalls">
+<p><strong>三个一开始就会踩的坑</strong></p>
+<ol>
+<li><strong>把“上线系统”当目标。</strong> 系统是手段，决策改变才是目标。没有决策，功能再多也只是演示。</li>
+<li><strong>先接数据，再想问题。</strong> 数据会把你拖进“字段对不齐”的泥潭，而真正的问题可能根本没被问出来。</li>
+<li><strong>一次做太大。</strong> “排班”包含额度分配、个人排班、换班、轮转、报表。五天内只能验证其中一条最薄的路径。</li>
+</ol>
+</div>
+<div class="self-test">
+<p><strong>三问自测</strong></p>
+<details>
+<summary>1. 主线和工作台的区别是什么？</summary>
+
+主线讲“为什么”，按顺序建立判断力；工作台讲“怎么做”，按需查步骤、模板和阶段门。工作台不是进阶内容，是工具书。
+
+</details>
+<details>
+<summary>2. 42 份档案必须一次建全吗？</summary>
+
+不需要。先建 7 份现场包或 12 份最小档案。完整档案用于交接、审计和复用，不是入门门槛。
+
+</details>
+<details>
+<summary>3. 一个合格的“决策句”至少包含哪三样？</summary>
+
+谁（角色）、在什么时点、做什么决定。再加上输入和动作，就可以被验证。
+
+</details>
+</div>
+<div class="recap">
+<p><strong>本章带走</strong></p>
+<ol>
+<li>这份教程的目标不是让你“懂 FDE”，而是让你能独立跑一轮：切片、调研、设计、验证、复盘。</li>
+<li>三条路线按任务选；第一次学走完整主线，明天进场走 90 分钟现场包。</li>
+<li>从第 1 页开始维护自己的项目档案，先建最小集，不要追求一次填满 42 份。</li>
+</ol>
+</div>
+      </div>
+
+      <section class="term-cards" aria-label="本页术语卡"><p class="eyebrow">本页术语</p><div class="term-grid"><article class="term-card" id="term-fde"><h3 id="term-title-fde">FDE <span class="term-en">Forward Deployed Engineer</span></h3><p>扎在客户现场、用工程手段解决业务问题，并对业务结果负责的角色。</p><a class="term-first" href="main-01-fde.html" target="_blank" rel="noopener">首次解释</a></article><article class="term-card" id="term-artifact"><h3 id="term-title-artifact">Artifact（产物） <span class="term-en">Artifact</span></h3><p>项目档案中一个有编号、有生产者、有消费者、有阶段门的文件。</p><a class="term-first" href="appendix-artifacts.html" target="_blank" rel="noopener">首次解释</a></article><article class="term-card" id="term-minimal-dossier"><h3 id="term-title-minimal-dossier">最小可交付档案 <span class="term-en">Minimal Dossier</span></h3><p>一轮完整验证所需的最低证据链，共 12 份文件；完整档案是 42 份。</p></article><article class="term-card" id="term-dossier"><h3 id="term-title-dossier">项目档案 <span class="term-en">Project Dossier</span></h3><p>读者从第 1 章起持续维护的产物集合，按 00–06 阶段组织，共 42 个 artifact。</p></article></div></section>
+      <section class="artifact-box" aria-label="本页产物"><div class="artifact-block"><h3 id="artifacts-out">本页要写出的产物</h3><ul><li><code>A00-01</code> 项目一页纸 <span class="muted">→ 00_项目章程/00-01_项目一页纸.md</span> <span class="gate-tag">G0</span> <a href="templates/blank/00-01_项目一页纸.html" data-template-view data-template-title="A00-01 项目一页纸模板" title="A00-01 项目一页纸模板 ｜ 当前页弹窗预览">模板</a> <a href="templates/golden/00-01_项目一页纸_排班案例.html" data-template-view data-template-title="A00-01 项目一页纸黄金样例" title="A00-01 项目一页纸黄金样例 ｜ 当前页弹窗预览">黄金样例</a></li></ul></div></section>
+      <section class="sources" aria-label="来源"><h2 id="sec-sources">来源与证据等级</h2><ol class="source-list"><li><span class="src-id">S15</span> <strong>《FDE 入门到精通》（FDE: From Fundamentals to Mastery）</strong> <span class="badge badge-第三方">第三方</span><div class="muted">高飞 / feigaobox10 · 抓取 2026-10-19 · CC BY-NC-SA 4.0；非官方，未获讲者或公司背书</div><div class="src-url"><a href="https://github.com/feigaobox10/fde-reader" rel="noreferrer" target="_blank">https://github.com/feigaobox10/fde-reader</a></div></li><li><span class="src-id">S16</span> <strong>GR-FDE-01-014 D1 客户工具包（国润 Skill 工具包）</strong> <span class="badge badge-实践">实践</span><div class="muted">国润项目组 · 抓取 2026-10-19 · MIT；`grilling` 上游署名 Matt Pocock；包内文件不随教程分发</div><div class="src-url"><span class="muted">无公开链接</span></div></li><li><span class="src-id">S17</span> <strong>FDE 方法论沉淀</strong> <span class="badge badge-实践">实践</span><div class="muted">本子项目 · 抓取 2026-09-23 · 内部方法沉淀</div><div class="src-url"><span class="muted">无公开链接</span></div></li><li><span class="src-id">S20</span> <strong>FDE 实施手册 v1（9 章整合读本）</strong> <span class="badge badge-实践">实践</span><div class="muted">本子项目 · 抓取 2026-10-19 · 内部方法沉淀；官方事实另注出处</div><div class="src-url"><span class="muted">无公开链接</span></div></li></ol></section>
+      <nav class="pager" aria-label="翻页"><span class="pager-empty"></span><a class="pager-next" data-same-tab href="main-01-fde.html"><span>下一页</span><strong>FDE 是什么，不是什么</strong></a></nav>
+
+      <footer class="page-foot">
+        <p>本教程为内部方法研究。案例已匿名化，数字标注【示例】。Palantir 官方资料版权归 Palantir Technologies，仅作改写与链接。</p>
+        <p class="muted">发现断链或事实错误？回到 <a href="appendix-sources.html" target="_blank" rel="noopener">来源与版权</a> 核对出处。</p>
+      </footer>
+    </article>
+  </main>
+
+  <aside class="toc" id="toc" aria-label="页内目录">
+    <p class="toc-title">本页目录</p><ol class="toc-list"><li class="toc-h2"><a href="#sec-problem">这份教程解决什么问题</a></li><li class="toc-h2"><a href="#sec-routes">三条路线：你现在该走哪条</a></li><li class="toc-h2"><a href="#sec-tracks">双轨结构：主线讲为什么，工作台讲怎么做</a></li><li class="toc-h2"><a href="#sec-dossier">项目档案：从第 1 页开始攒</a></li><li class="toc-h2"><a href="#sec-downloads">资源下载：不用自己拼</a></li><li class="toc-h2"><a href="#sec-how-read">每页怎么读：固定的骨架</a></li><li class="toc-h2"><a href="#sec-start">现在开始：你的第一个 10 分钟</a></li></ol>
+  </aside>
+</div>
+
+<div class="tpl-modal" id="tpl-modal" hidden>
+  <div class="tpl-panel" role="dialog" aria-modal="true" aria-labelledby="tpl-title">
+    <header class="tpl-head">
+      <div class="tpl-heading">
+        <p class="tpl-kicker">模板阅读视图</p>
+        <h2 id="tpl-title">模板</h2>
+      </div>
+      <div class="tpl-actions">
+        <a class="tpl-open" id="tpl-open" href="#" target="_blank" rel="noopener">在新标签打开 ↗</a>
+        <button class="icon-btn" id="tpl-close" type="button" aria-label="关闭模板">✕</button>
+      </div>
+    </header>
+    <div class="tpl-body">
+      <iframe id="tpl-frame" title="模板内容" loading="lazy"></iframe>
+    </div>
+  </div>
+</div>
+
+<div class="search-modal" id="search-modal" hidden>
+  <div class="search-panel" role="dialog" aria-modal="true" aria-labelledby="search-title">
+    <div class="search-head">
+      <label id="search-title" class="sr-only" for="search-input">搜索教程</label>
+      <input id="search-input" type="search" placeholder="搜索概念、产物、模板、方法卡…" autocomplete="off">
+      <button class="icon-btn" id="search-close" type="button" aria-label="关闭搜索">✕</button>
+    </div>
+    <div id="search-results" class="search-results" aria-live="polite"></div>
+    <p class="search-hint">按 <kbd>/</kbd> 或 <kbd>Ctrl</kbd>+<kbd>K</kbd> 打开，<kbd>Esc</kbd> 关闭。索引完全离线。</p>
+  </div>
+</div>
+
+<noscript><p class="noscript-note">搜索与阅读进度需要 JavaScript；正文、目录和翻页仍可正常使用。可用浏览器查找（Ctrl+F）。</p></noscript>
+
+<script src="assets/search-index.js"></script>
+<script src="assets/viz-data.js"></script>
+<script src="assets/app.js"></script>
+<script src="assets/viz.js"></script>
+
+</body>
+</html>

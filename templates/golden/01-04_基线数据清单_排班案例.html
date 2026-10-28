@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>A01-04 基线数据清单（排班案例） · FDE 模板库</title>
+<link rel="stylesheet" href="../../assets/course.css">
+</head>
+<body>
+<a class="skip-link" href="#main">跳到正文</a>
+<main class="main" id="main">
+<article class="article">
+<nav class="crumb" aria-label="面包屑">
+<a href="../../index.html">教程首页</a><span class="sep">/</span>
+<a href="../../appendix-templates.html">模板库</a><span class="sep">/</span>
+<span>黄金样例</span>
+</nav>
+<header class="page-head">
+<div class="badges">
+<span class="badge badge-main">A01-04</span>
+<span class="badge">黄金样例</span>
+<span class="badge badge-time">Markdown 阅读视图</span>
+</div>
+<h1>A01-04 基线数据清单（排班案例）</h1>
+<p class="page-question">这是模板的阅读视图，源文件是 <code>01-04_基线数据清单_排班案例.md</code>。
+<a href="01-04_基线数据清单_排班案例.md">下载 / 编辑 Markdown</a> · <a href="../../appendix-templates.html">返回模板库</a></p>
+</header>
+<div class="prose">
+<blockquote>
+<p>【示例】匿名化案例，数字均为示例；人名与机构均为化名。</p>
+</blockquote>
+<h2 id="tpl-sec-1">用途 / 何时用</h2>
+<p>在 D1 调研准备阶段确定要测哪些指标、现在大约是多少、数字从哪里来。本表是五天后判断“是否变好”的对照基准，也是防止把回忆值当成实测值对外声明的开关。</p>
+<p>本案例的基线集中在“额度分配”这一件事上：一个月、三个亚专科、四名外部协作人员。所有数字来自匿名化教学材料，不是客户实测，也不是行业统计。</p>
+<h2 id="tpl-sec-2">采集信息</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th scope="col">项目</th>
+<th scope="col">内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>采集日期</td>
+<td>2026-10-19（D1）</td>
+</tr>
+<tr>
+<td>采集地点</td>
+<td>病理科秘书工位、妇科病理组长办公室、科主任办公室</td>
+</tr>
+<tr>
+<td>采集方式</td>
+<td>陈静、赵岚、周主任访谈；纸质排班本与草表查看；未做系统导出</td>
+</tr>
+<tr>
+<td>数据月份</td>
+<td>2026 年 11 月分配周期（示例）</td>
+</tr>
+<tr>
+<td>脱敏处理</td>
+<td>人名替换为化名；删除联系方式与身份证号；机构名不出现</td>
+</tr>
+<tr>
+<td>记录人</td>
+<td>FDE 记录人</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="tpl-sec-3">基线总表</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th scope="col">指标</th>
+<th scope="col">定义</th>
+<th scope="col">当前值</th>
+<th scope="col">单位</th>
+<th scope="col">数据来源</th>
+<th scope="col">统计口径</th>
+<th scope="col">采集日期</th>
+<th scope="col">可信度</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>额度分配耗时</td>
+<td>从拿到额度到方案可提交审批的净工作时间；含收额度、收需求、核对可用天数、电话协调、定稿；不含主任审批等待</td>
+<td>约 3 小时（回忆值，需现场复测）</td>
+<td>小时/月</td>
+<td>陈静访谈（2026-10-19）</td>
+<td>单个完整月份；含 2–3 轮返工；不含审批等待</td>
+<td>2026-10-19</td>
+<td>回忆</td>
+</tr>
+<tr>
+<td>冲突发现时点</td>
+<td>首次发现 C1（超排）或 C2（缺口）类冲突所在环节</td>
+<td>月中执行时</td>
+<td>阶段</td>
+<td>陈静访谈；排班本批注</td>
+<td>最近 3 个月的平均情况</td>
+<td>2026-10-19</td>
+<td>回忆</td>
+</tr>
+<tr>
+<td>方案版本数</td>
+<td>同一月份并存的分配方案副本数量</td>
+<td>约 4（待清点）</td>
+<td>份</td>
+<td>Excel、微信、纸质草表、院内系统四类载体</td>
+<td>2026 年 11 月分配周期</td>
+<td>待采集</td>
+<td>推断</td>
+</tr>
+<tr>
+<td>返工轮次</td>
+<td>组长提出调整到方案定稿之间的轮数</td>
+<td>2–3</td>
+<td>轮</td>
+<td>陈静访谈</td>
+<td>最近 3 个月平均；一次电话修改算半轮</td>
+<td>2026-10-19</td>
+<td>回忆</td>
+</tr>
+<tr>
+<td>亚专科月度需求</td>
+<td>各亚专科当月需要的外部协作人员人天</td>
+<td>12 / 22 / 22（合计 56）</td>
+<td>人天/月</td>
+<td>组长口头；A02-01 O-04</td>
+<td>妇科/乳腺/消化；2026 年 11 月</td>
+<td>2026-10-19</td>
+<td>待验证</td>
+</tr>
+<tr>
+<td>外部人员额度</td>
+<td>人力资源下发的月度可用额度上限</td>
+<td>10 / 22 / 22（合计 54）</td>
+<td>人天/月</td>
+<td>孙老师下发的额度表（脱敏快照）</td>
+<td>妇科/乳腺/消化；2026 年 11 月</td>
+<td>2026-10-19</td>
+<td>实测</td>
+</tr>
+<tr>
+<td>人员可用天数</td>
+<td>个人当月可上班天数，已扣年假、门诊、外出会诊</td>
+<td>9 / 20 / 18 / 12（合计 59）</td>
+<td>人天/月</td>
+<td>纸质排班本、年假表、微信群记录</td>
+<td>王芳/李强/周敏/陈卓；2026 年 11 月</td>
+<td>2026-10-19</td>
+<td>待验证</td>
+</tr>
+<tr>
+<td>预排天数</td>
+<td>当前草表已排给个人的天数</td>
+<td>10 / 20 / 12 / 12（合计 54）</td>
+<td>人天/月</td>
+<td>陈静纸质草表</td>
+<td>同上四人；2026 年 11 月</td>
+<td>2026-10-19</td>
+<td>实测</td>
+</tr>
+<tr>
+<td>C1 超排差额</td>
+<td>王芳预排天数减可用天数</td>
+<td>+1</td>
+<td>人天</td>
+<td>草表对照排班本；A02-01 O-03</td>
+<td>王芳一人；2026 年 11 月</td>
+<td>2026-10-19</td>
+<td>待验证</td>
+</tr>
+<tr>
+<td>C2 额度缺口</td>
+<td>妇科月度需求减外部额度</td>
+<td>2</td>
+<td>人天</td>
+<td>需求记录对照额度表；A02-01 O-04</td>
+<td>妇科；2026 年 11 月</td>
+<td>2026-10-19</td>
+<td>待验证</td>
+</tr>
+<tr>
+<td>总容量余量</td>
+<td>四人可用天数合计减预排天数合计</td>
+<td>5</td>
+<td>人天</td>
+<td>上两行相减</td>
+<td>四人合计；2026 年 11 月</td>
+<td>2026-10-19</td>
+<td>待验证</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="tpl-sec-4">数字之间的关系</h2>
+<ul>
+<li>需求 56 人天、额度 54 人天，差额 2 人天，就是 C2。</li>
+<li>可用 59 人天、预排 54 人天，表面上还有 5 人天余量。</li>
+<li>但这 5 天余量集中在周敏身上（可用 18、预排 12），额度侧没有余量：乳腺 22/22、消化 22/22 都已用满。</li>
+<li>因此“总量够”不能消掉 C2；要动 C2 只能追加额度或跨亚专科借额度，而借调规则尚未确认。</li>
+<li>王芳超排 1 天属于可用天数约束，与额度无关；即使额度有富余，也不能让她上 10 天。</li>
+</ul>
+<h2 id="tpl-sec-5">亚专科基线明细</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th scope="col">亚专科</th>
+<th scope="col">月度需求</th>
+<th scope="col">外部额度</th>
+<th scope="col">需求减额度</th>
+<th scope="col">预排人员与人天</th>
+<th scope="col">预排合计</th>
+<th scope="col">基线状态</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>妇科病理</td>
+<td>12</td>
+<td>10</td>
+<td>-2</td>
+<td>王芳 10</td>
+<td>10</td>
+<td>C2 缺口 2；王芳同时超排 1</td>
+</tr>
+<tr>
+<td>乳腺病理</td>
+<td>22</td>
+<td>22</td>
+<td>0</td>
+<td>李强 12、周敏 10</td>
+<td>22</td>
+<td>额度用满，无余量</td>
+</tr>
+<tr>
+<td>消化病理</td>
+<td>22</td>
+<td>22</td>
+<td>0</td>
+<td>李强 8、周敏 2、陈卓 12</td>
+<td>22</td>
+<td>额度用满，无余量</td>
+</tr>
+<tr>
+<td>合计</td>
+<td>56</td>
+<td>54</td>
+<td>-2</td>
+<td>—</td>
+<td>54</td>
+<td>总容量 59，结构仍有冲突</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="tpl-sec-6">人员基线明细</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th scope="col">人员</th>
+<th scope="col">可上班天数</th>
+<th scope="col">预排天数</th>
+<th scope="col">差额</th>
+<th scope="col">预排去向</th>
+<th scope="col">备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>王芳</td>
+<td>9</td>
+<td>10</td>
+<td>-1（超排）</td>
+<td>妇科 10</td>
+<td>C1；需本人或人事确认 9 天</td>
+</tr>
+<tr>
+<td>李强</td>
+<td>20</td>
+<td>20</td>
+<td>0</td>
+<td>乳腺 12 + 消化 8</td>
+<td>满负荷</td>
+</tr>
+<tr>
+<td>周敏</td>
+<td>18</td>
+<td>12</td>
+<td>+6（未排）</td>
+<td>乳腺 10 + 消化 2</td>
+<td>有容量，但额度与资质是否允许补妇科未确认</td>
+</tr>
+<tr>
+<td>陈卓</td>
+<td>12</td>
+<td>12</td>
+<td>0</td>
+<td>消化 12</td>
+<td>满负荷</td>
+</tr>
+<tr>
+<td>合计</td>
+<td>59</td>
+<td>54</td>
+<td>+5</td>
+<td>—</td>
+<td>余量集中在周敏</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="tpl-sec-7">现场补测计划</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th scope="col">指标</th>
+<th scope="col">补测方式</th>
+<th scope="col">责任人</th>
+<th scope="col">时间窗口</th>
+<th scope="col">记录位置</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>额度分配耗时</td>
+<td>陈静用计时器完整走一次 11 月分配，取两次中位数</td>
+<td>陈静</td>
+<td>D2（2026-10-20）</td>
+<td>A05-03 每日日志</td>
+</tr>
+<tr>
+<td>冲突发现时点</td>
+<td>记录本次首次发现 C1/C2 的位置与时间</td>
+<td>FDE 记录人</td>
+<td>D2</td>
+<td>A02-04</td>
+</tr>
+<tr>
+<td>方案版本数</td>
+<td>现场清点 Excel、微信、纸质、系统四类载体</td>
+<td>FDE 记录人</td>
+<td>D1 结束前</td>
+<td>A02-04</td>
+</tr>
+<tr>
+<td>返工轮次</td>
+<td>陈静在本次分配中计数</td>
+<td>陈静</td>
+<td>D2–D3</td>
+<td>A05-03</td>
+</tr>
+<tr>
+<td>王芳可用天数</td>
+<td>本人或人事书面确认</td>
+<td>陈静</td>
+<td>D2 17:00 前</td>
+<td>A02-04 E-06</td>
+</tr>
+<tr>
+<td>需求 12 的口径</td>
+<td>赵岚对照夜班表书面确认</td>
+<td>陈静</td>
+<td>D2 12:00 前</td>
+<td>A02-05 Q-02</td>
+</tr>
+<tr>
+<td>年假表可导出性</td>
+<td>陈静现场演示导出；刘工确认接口</td>
+<td>陈静</td>
+<td>D2</td>
+<td>A02-05 Q-09</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="tpl-sec-8">口径声明</h2>
+<ul>
+<li>3 小时是陈静回忆值，不是系统实测；D2 必须现场计时一次，D5 再复测。没有复测，不能对外声称“下降 X%”。</li>
+<li>需求、可用天数、C1/C2 都来自匿名化教学材料；除额度表与草表外，均未取得系统导出。</li>
+<li>“实测”仅表示在 D1 直接看到文件或界面，不等于数据正确；王芳 9 天仍需本人确认。</li>
+<li>所有数字只用于教学示例，不得写成行业统计、客户实测或官方数据。</li>
+</ul>
+</div>
+<footer class="page-foot">
+<p class="muted">本页由 <code>_tools/build.py</code> 从 Markdown 自动生成，请改源文件而不是改这里。</p>
+</footer>
+</article>
+</main>
+</body>
+</html>

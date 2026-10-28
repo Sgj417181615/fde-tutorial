@@ -1,0 +1,529 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<title>现场 60 分钟 · FDE 零基础教程</title>
+<meta name="description" content="开场、场景走查、追问、收尾：一场访谈怎么问、怎么控、怎么记。">
+<link rel="stylesheet" href="assets/course.css">
+<script>
+(function () {
+  try {
+    var saved = localStorage.getItem('fde-theme');
+    var theme = saved || (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+    document.documentElement.dataset.theme = theme;
+  } catch (e) {}
+})();
+</script>
+</head>
+<body class="track-workbench page-work-02-interview">
+<a class="skip-link" href="#main">跳到正文</a>
+
+<header class="topbar">
+  <button class="icon-btn nav-toggle" id="nav-toggle" type="button" aria-expanded="false" aria-controls="sidebar" aria-label="打开课程目录">
+    <span aria-hidden="true">☰</span>
+  </button>
+  <a class="brand" data-same-tab href="index.html"><span class="brand-mark">FDE</span><span class="brand-text">零基础教程</span></a>
+  <nav class="track-switch" aria-label="模块切换"><a class="track-link" data-same-tab href="index.html" title="从零建立完整心智模型">主线</a><span class="track-link active" aria-current="true" title="现场查用：输入、步骤、输出、阶段门">工作台</span><a class="track-link" data-same-tab href="day1-00-overview.html" title="六步链路：简报 → 访谈 → 证据 → 底稿 → 门">Day1</a><a class="track-link" data-same-tab href="appendix-methods.html" title="一卡一问，按阶段、产物、角色查">方法库</a><a class="track-link" data-same-tab href="appendix-templates.html" title="模板、产物链、术语与来源">附录</a></nav>
+  <div class="top-actions">
+    <button class="search-open" id="search-open" type="button" aria-haspopup="dialog">
+      <span aria-hidden="true">⌕</span><span class="search-label">搜索</span><kbd>/</kbd>
+    </button>
+    <button class="icon-btn" id="theme-toggle" type="button" aria-label="切换深浅色">◐</button>
+  </div>
+  <div class="read-progress" aria-hidden="true"><span id="read-progress"></span></div>
+</header>
+
+<div class="layout">
+  <aside class="sidebar" id="sidebar">
+    <nav class="course-tree" aria-label="课程目录"><header class="side-head"><p class="side-eyebrow">当前模块</p><p class="side-title">实操工作台</p><p class="side-caption">现场查用：输入、步骤、输出、阶段门</p><p class="side-meta">9 页<span class="dot">·</span>按需查</p></header><section class="nav-group"><p class="nav-group-title"><span class="nav-group-num">01</span>调研与记录</p><a class="nav-link" data-same-tab href="work-01-prep.html">调研前 7 天</a><span class="nav-link nav-current" aria-current="page">现场 60 分钟</span><a class="nav-link" data-same-tab href="work-03-record.html">记录：把现场变成证据</a><a class="nav-link" data-same-tab href="work-04-model.html">从证据到模型</a></section><section class="nav-group"><p class="nav-group-title"><span class="nav-group-num">02</span>交付与 Demo</p><a class="nav-link" data-same-tab href="work-05-spec.html">一小时压出评审包</a><a class="nav-link" data-same-tab href="work-06-demo.html">Demo 脚本、数据与环境</a><a class="nav-link" data-same-tab href="work-07-run.html">五天执行与阶段门</a><a class="nav-link" data-same-tab href="work-08-retro.html">复盘与回流</a><a class="nav-link" data-same-tab href="work-09-toolchain.html">工具链与硬编码路径</a></section></nav>
+  </aside>
+  <button class="scrim" id="scrim" type="button" aria-label="关闭目录" hidden></button>
+
+  <main class="main" id="main">
+    <nav class="crumb" aria-label="面包屑"><a data-same-tab href="index.html">教程</a><span class="sep">/</span><span>实操工作台</span><span class="sep">/</span><span>调研与记录</span><span class="sep">/</span><span aria-current="page">现场 60 分钟</span></nav>
+    <article class="article">
+      <header class="page-head">
+        <div class="badges"><span class="badge badge-workbench">查用</span><span class="badge badge-time">16 分钟</span></div>
+        <h1>现场 60 分钟</h1>
+        <p class="lede">开场、场景走查、追问、收尾：一场访谈怎么问、怎么控、怎么记。</p>
+        <p class="page-question"><span class="eyebrow">本页要回答</span>现场只有一小时，怎样问到真正的决策而不是流程介绍？</p>
+        <div class="page-meta">
+          <section class="meta-block">
+            <h2 class="meta-title" id="meta-objectives">读完你能</h2>
+            <ul class="objective-list"><li>按“最近一次”让受访者走完一个真实场景；</li><li>每轮只问 2–4 个问题并追问到动作；</li><li>当场产出观察记录与下一轮提纲。</li></ul>
+          </section>
+          <section class="meta-block">
+            <h2 class="meta-title" id="meta-prereq">前置</h2>
+            <p>先读：<a href="work-01-prep.html" target="_blank" rel="noopener">调研前 7 天</a></p>
+          </section>
+        </div>
+      </header>
+
+      <div class="prose">
+        <dl class="runbook-head">
+<div><dt>何时用</dt><dd>每场现场访谈或跟岗，60–90 分钟</dd></div>
+<div><dt>前置</dt><dd>A00-04 已授权；A01-01 已排期；A01-03 已打印</dd></div>
+<div><dt>产出</dt><dd>A01-02 分轮访谈提纲、A02-01 现场观察记录</dd></div>
+<div><dt>阶段门与耗时</dt><dd>G2 现场记录门；访谈 60 分钟，另留 10 分钟整理</dd></div>
+</dl>
+
+<p>一小时结束，受访者说“讲得挺清楚了吧”，你低头一看，笔记里只有“收额度、收需求、核对、协调、审批”五步。每一步都对，但你没看到任何一次真实的判断，也不知道冲突是在哪一步被发现的。</p>
+<p>访谈不是听流程介绍，是让一个人带你在一个真实实例上走一遍，直到看见他依据什么做决定、决定后做了什么。</p>
+<h2 id="sec-when">何时用</h2>
+<p><strong>该用</strong>：</p>
+<ul>
+<li>第一次见操作者，要还原“最近一次”的真实做法；</li>
+<li>要确认一个决策的输入、规则、动作和例外；</li>
+<li>跟岗时，要把动作、等待和切换记成 O-xx。</li>
+</ul>
+<p><strong>不该用</strong>：</p>
+<ul>
+<li>只想听部门介绍或看 Demo。那是汇报，不是取证；</li>
+<li>没有知情同意与数据权限。先补 A00-04；</li>
+<li>受访者不是实际做这件事的人。可以聊背景，但不能当操作证据。</li>
+</ul>
+<div class="checkpoint">
+<p><strong>停一下</strong>：开场前问自己——今天结束时，我要带走哪一个具体场景、哪三个决策？答不出来，先把提纲压到三问。</p>
+</div>
+<h2 id="sec-prereq">前置</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th scope="col">前置</th>
+<th scope="col">最低要求</th>
+<th scope="col">缺失怎么办</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A00-04 知情同意与数据权限</td>
+<td>能录、能拍、能引用、知道存多久</td>
+<td>只记笔记，证据状态降级</td>
+</tr>
+<tr>
+<td>A01-01 调研计划</td>
+<td>对象、时段、主题、材料</td>
+<td>改约或缩小主题</td>
+</tr>
+<tr>
+<td>A01-03 观察记录表</td>
+<td>九列，已打印</td>
+<td>手画表格，不要用记忆代替</td>
+</tr>
+<tr>
+<td>A00-02 干系人地图</td>
+<td>知道对方关心什么、需要什么证据</td>
+<td>先问介绍人，别现场猜</td>
+</tr>
+</tbody>
+</table></div>
+<p>提前十分钟到，确认座位、电源、网络、纸笔。坐在受访者侧后方，不坐对面。</p>
+<h2 id="sec-inputs">输入</h2>
+<ul>
+<li>对方最近一次的真实材料：排班本、Excel、聊天记录、审批单，均在授权范围内；</li>
+<li>上一轮未决项：从 A02-05 或提纲里带 2–4 个；</li>
+<li>角色证据需求：周主任要规则与合规，陈静要少返工，刘工要权限可控；</li>
+<li>一个 60 分钟的时间盒，留 10 分钟机动。</li>
+</ul>
+<p>不要带二十页问卷。带一张纸：一个场景、三个必问、一张空观察表。</p>
+<h2 id="sec-steps">步骤</h2>
+<h3 id="step-open">说明来意与许可（0–5 分钟）</h3>
+<p>说三句话：我是谁、为什么来、今天怎么进行。</p>
+<ul>
+<li>“我们不是来验收，也不是来推销系统；想理解你最近一次怎么把这件事做完。”</li>
+<li>“我会记笔记或录音，只用于这次验证；你可以随时让我停、让我删。”</li>
+<li>“今天你带我走，我不懂就问，可能问得很笨。”</li>
+</ul>
+<p>确认录音许可、引用范围、存放位置；手机静音。不要一坐下就问“你们流程是什么”，那会得到一份应然版本。</p>
+<h3 id="step-scene">锁定“最近一次”（5–10 分钟）</h3>
+<p>把场景钉在具体时间、具体对象、具体起点和终点。</p>
+<ul>
+<li>“最近一次做额度分配是哪个月？”</li>
+<li>“从哪一步开始算？到哪一步算结束？”</li>
+<li>“当时手边有哪些东西？”</li>
+</ul>
+<p>如果对方说“一般都是”，追问“最近一次呢”；如果他说“每个月都差不多”，让他挑一个月。在纸上写下起点和终点，后面所有问题都回到这个框里。</p>
+<h3 id="step-walk">带做一遍场景走查（10–35 分钟）</h3>
+<p>场景走查（scene walkthrough）不是问流程，是请对方在一个真实实例上按时间顺序走一遍，边做边说出看到什么、判断什么、做了什么。</p>
+<p>三条规则：</p>
+<ol>
+<li>按发生顺序，不按部门结构；</li>
+<li>只看看得见的东西：屏幕、纸、表格、聊天记录、电话；</li>
+<li>遇到停顿就问“你刚才在看什么、等什么”，不要替他解释。</li>
+</ol>
+<p>常用追问：“这一步的输入从哪来？”“做完之后交给谁？”“这里为什么要停一下？”“有没有哪次不是这么走的？”你只记动作和原话，不急着归因。归因留到 work-03。</p>
+<h3 id="step-grill">分轮追问到决策（35–50 分钟）</h3>
+<p><a class="term-link" href="day1-02-grill.html#term-grilling" title="Grilling：按决策树分轮追问，每轮只问当前可回答的 2–4 个问题，等人回答后再推进。" target="_blank" rel="noopener">Grilling（追问）</a>：一轮只问 2–4 个问题，等对方答完，再根据回答决定下一轮问什么。不要照着二十个问题念。</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th scope="col">轮次</th>
+<th scope="col">问什么</th>
+<th scope="col">典型问法</th>
+<th scope="col">期望证据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>第 1 轮</td>
+<td>决策</td>
+<td>这一步你要在几个选项里选一个吗？选哪个？</td>
+<td>决策点、候选、决策人</td>
+</tr>
+<tr>
+<td>第 2 轮</td>
+<td>依据</td>
+<td>你当时看了什么才这么定？规则写在哪？有没有例外？</td>
+<td>输入、硬约束、软偏好</td>
+</tr>
+<tr>
+<td>第 3 轮</td>
+<td>动作</td>
+<td>定完之后你做什么？如果额度不够或有人请假，怎么办？</td>
+<td>动作、写回、例外处理</td>
+</tr>
+</tbody>
+</table></div>
+<p>追问到动作的三个句式：“能给我看那条记录吗？”“上一次发生是什么时候？”“如果换成另一个人，会怎么做？”对方说“应该可以吧”，不要替她确认；记原话，标待确认。</p>
+<p>控场有三招。跑题时先记到“停车场”，说“这个很重要，等会儿回来”，再拉回当前步骤；领导抢话时，先请操作者走完，再请领导补规则；冷场时数三秒，别急着填。</p>
+<h3 id="step-close">复述并收尾（50–57 分钟）</h3>
+<p>复述三条你听到的事实，请对方纠正：“我听到的是……哪里说错了？”再问两个问题：“还有什么我没问到，但你觉得重要？”“如果我只能再找一个人，应该找谁？”</p>
+<p>要材料：脱敏样例、空白表单、截图；确认哪些能引用、哪些只能看。约定下一轮：还需要谁、看什么证据、什么时候。</p>
+<h3 id="step-capture">当场整理（57–60 分钟）</h3>
+<p>填 A02-01 的表头：日期、地点、角色、场景。把观察写成 O-xx：时间、角色、动作或原话、卡点；初步解释另起一列。在 A01-02 写下下一轮 2–4 个问题，每个写“为什么问”和“期望证据”。</p>
+<p>离场前说清：材料怎么还、录音存哪里、什么时候删。</p>
+<div class="checkpoint">
+<p><strong>停一下</strong>：如果现在合上本子，你能说出今天看到的三个动作和三个待确认吗？说不出来，说明你记的是印象，不是观察。</p>
+</div>
+<h2 id="sec-output">输出</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th scope="col">输出</th>
+<th scope="col">文件</th>
+<th scope="col">最小内容</th>
+<th scope="col">下游</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A01-02 分轮访谈提纲</td>
+<td><code>01_调研准备/01-02_分轮访谈提纲.md</code></td>
+<td>轮次、问题、为什么问、期望证据、追问、中性选项</td>
+<td>下一场、work-03</td>
+</tr>
+<tr>
+<td>A02-01 现场观察记录</td>
+<td><code>02_现场记录/02-01_现场观察记录.md</code></td>
+<td>O-xx、时间、地点、角色、场景、原话或动作、卡点、初步解释、待确认</td>
+<td>work-03、work-04</td>
+</tr>
+</tbody>
+</table></div>
+<p>提纲不是一次性文档。每场结束补下一轮；上一轮的问题要标“已问、已答、待补”。</p>
+<h2 id="sec-gate">阶段门</h2>
+<div class="gate-panel">
+<p><strong>G2 通过</strong>：一次完整的“最近一次”，起点和终点清楚；至少五条 O-xx，每条有时间、角色、场景、原话或动作；至少一个决策追到“依据、动作、例外”；下一轮 2–4 问且每问有理由；录音和引用符合 A00-04。</p>
+<p><strong>有条件</strong>：只能讲流程、没有实例——补一场跟岗，现有说法标工作假设；关键决策人不在——改约，不用接口人代替；不能录音——只记笔记并降级证据状态。</p>
+<p><strong>不通过</strong>：全程只有流程介绍、连续提问不给回答时间、没有知情同意、观察记录只有结论没有原话。重做或补访。</p>
+</div>
+<h2 id="sec-template">模板</h2>
+<div class="template-block">
+<div class="template-title">A01-02 分轮访谈提纲 <span>片段，可直接抄</span></div>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th scope="col">轮次</th>
+<th scope="col">问题编号</th>
+<th scope="col">问题</th>
+<th scope="col">为什么问</th>
+<th scope="col">期望证据</th>
+<th scope="col">追问</th>
+<th scope="col">中性选项</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>R1</td>
+<td>R1-Q1</td>
+<td>最近一次分配是哪个月？从哪一步开始？</td>
+<td>锁定真实实例</td>
+<td>时间、起点</td>
+<td>当时手边有什么？</td>
+<td>—</td>
+</tr>
+<tr>
+<td>R1</td>
+<td>R1-Q2</td>
+<td>这次分了哪几个亚专科？</td>
+<td>锁定范围</td>
+<td>亚专科清单</td>
+<td>有没有不分的？</td>
+<td>—</td>
+</tr>
+<tr>
+<td>R2</td>
+<td>R2-Q1</td>
+<td>这一步你要选一个方案吗？</td>
+<td>找决策点</td>
+<td>候选与决策人</td>
+<td>选错会怎样？</td>
+<td>有人先算再定，也有人边算边定，你更像哪种？</td>
+</tr>
+<tr>
+<td>R3</td>
+<td>R3-Q1</td>
+<td>你依据什么判断？</td>
+<td>找规则</td>
+<td>输入、约束、例外</td>
+<td>规则写在哪？</td>
+<td>—</td>
+</tr>
+</tbody>
+</table></div>
+<p>问题编号用“轮次-序号”（R1-Q1），和 A02-05 的 Q-xx（待确认问题）分开：一个是问过什么，一个是还不知道什么。</p>
+</div>
+<div class="template-block">
+<div class="template-title">A02-01 现场观察记录 <span>表头，一行一条</span></div>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th scope="col">观察ID</th>
+<th scope="col">时间</th>
+<th scope="col">地点</th>
+<th scope="col">角色</th>
+<th scope="col">场景</th>
+<th scope="col">原话或动作</th>
+<th scope="col">卡点</th>
+<th scope="col">初步解释</th>
+<th scope="col">待确认</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>O-01</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>O-02</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>填写说明</strong>：原话或动作栏不加“我觉得”；初步解释和观察分列；待确认写清找谁验证。</p>
+</div>
+<p>完整模板在 <code>templates/blank/01-02_分轮访谈提纲.md</code> 与 <code>templates/blank/02-01_现场观察记录.md</code>。</p>
+<p><span id="cb-observe"></span></p>
+<h2 id="sec-case">排班案例</h2>
+<p>在 <a class="case-link" href="work-01-prep.html#cb-brief" target="_blank" rel="noopener">案例 CB-12</a> 的授权范围内，跟陈静做一场 60 分钟。时间线【示例】：</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th scope="col">时间</th>
+<th scope="col">场景</th>
+<th scope="col">观察</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>09:12</td>
+<td>收额度</td>
+<td>打开三个 Excel，说“我先对一下哪个是最新的”</td>
+</tr>
+<tr>
+<td>09:26</td>
+<td>核对可用天数</td>
+<td>翻纸质排班本，又看微信群</td>
+</tr>
+<tr>
+<td>09:41</td>
+<td>发现超排</td>
+<td>指着王芳那一行说“她这个月只能上 9 天”</td>
+</tr>
+<tr>
+<td>10:05</td>
+<td>提需求</td>
+<td>赵岚说“我们组这个月至少 12 个，不然夜班排不开”</td>
+</tr>
+</tbody>
+</table></div>
+<p>对应问法：</p>
+<ul>
+<li>看到 O-01，追问“你怎么判断哪个是最新的”，得到版本判断依据，而不是“版本很乱”；</li>
+<li>看到 O-03，追问“这个 9 天你和谁确认过”，没确认就标待确认，不能写成事实；</li>
+<li>听到 O-04，追问“12 含不含夜班”，口径不清就先别进模型。</li>
+</ul>
+<p>O-03 是陈静指着数字说的，不等于王芳本人确认；O-04 是赵岚的口头需求，不等于审批通过的额度。两类都要在 A02-01 的“待确认”里留痕。完整观察表见 <span class="case-link">案例 CB-13</span>。</p>
+<h2 id="sec-failures">常见失败</h2>
+<div class="pitfalls">
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th scope="col">现象</th>
+<th scope="col">原因</th>
+<th scope="col">处理</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>受访者从头讲流程</td>
+<td>开场问“你们流程是什么”</td>
+<td>改问“最近一次是哪次”，把话题拉回实例</td>
+</tr>
+<tr>
+<td>你问一句他答一句，像审讯</td>
+<td>一轮抛五个问题</td>
+<td>压到 2–4 个，答完再问下一个</td>
+</tr>
+<tr>
+<td>满页都是“效率低”</td>
+<td>记了结论没记动作</td>
+<td>每条补时间、角色、原话或动作</td>
+</tr>
+<tr>
+<td>把“应该可以”写成“可以”</td>
+<td>替对方确认</td>
+<td>保留原话，标待确认</td>
+</tr>
+<tr>
+<td>领导一直抢话</td>
+<td>座位和顺序没设计</td>
+<td>先请操作者走完，再请领导补规则</td>
+</tr>
+<tr>
+<td>录音没许可</td>
+<td>跳过 A00-04</td>
+<td>停录，改用笔记，证据状态降级</td>
+</tr>
+<tr>
+<td>收尾直接走人</td>
+<td>没有复述和下一轮</td>
+<td>留七分钟复述三条、约下一场</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="hands-on">
+<p><strong>动手 20 分钟</strong>：两人一组，一人讲“最近一次报销、排班或下单”，另一人只做三件事。</p>
+<ol>
+<li>用一句话锁定场景起点和终点；</li>
+<li>画时间线，记三条动作或原话；</li>
+<li>用 2–4 个问题追一个决策，追问到“依据和动作”。</li>
+</ol>
+<p><strong>自检</strong>：三条记录里至少两条是可复核动作；没有一条是“他觉得效率低”；下一轮问题不超过四个。</p>
+</div>
+<div class="self-test">
+<p><strong>三问自测</strong></p>
+<details>
+<summary>1. 为什么第一问不是“你们流程是什么”？</summary>
+
+那会得到应然版本。问“最近一次”才能看到实际步骤、例外和绕行。
+
+</details>
+<details>
+<summary>2. 一轮为什么只问 2–4 个问题？</summary>
+
+让人答完，你才能根据回答重画问题树。一次抛太多，只会得到浅答，也来不及追问。
+
+</details>
+<details>
+<summary>3. 受访者说“系统应该不能改吧”，怎么记？</summary>
+
+记原话，标“工作假设、推断”，不要写成系统约束；找刘工或实际操作验证。
+
+</details>
+</div>
+<h2 id="sec-checklist">自检清单</h2>
+<p>打印这一页，每场结束逐项打勾：</p>
+<ul>
+<li>[ ] 开场说明来意、许可、引用范围和退出方式；</li>
+<li>[ ] 场景锁定在“最近一次”，有明确起点和终点；</li>
+<li>[ ] 至少五条 O-xx，每条有时间、角色、场景、原话或动作；</li>
+<li>[ ] 至少一个决策追到依据、动作和例外；</li>
+<li>[ ] 没有替受访者确认“应该可以”；</li>
+<li>[ ] 下一轮提纲 2–4 问，每问有为什么问和期望证据；</li>
+<li>[ ] 材料获取与录音符合 A00-04；</li>
+<li>[ ] 离场前完成复述和下一场约定。</li>
+</ul>
+<div class="recap">
+<p><strong>本章带走</strong></p>
+<ol>
+<li>一小时的目标不是听完流程，而是看完一个真实实例，追到一个决策。</li>
+<li>场景走查按时间顺序、看可见动作；分轮追问每轮 2–4 问，答完再推进。</li>
+<li>原话、解释、待确认分开放；没有确认的“应该”不能当约束。</li>
+</ol>
+</div>
+      </div>
+
+      <section class="term-cards" aria-label="本页术语卡"><p class="eyebrow">本页术语</p><div class="term-grid"><article class="term-card" id="term-grilling"><h3 id="term-title-grilling">Grilling（追问） <span class="term-en">Grilling</span></h3><p>按决策树分轮追问，每轮只问当前可回答的 2–4 个问题，等人回答后再推进。</p><a class="term-first" href="day1-02-grill.html" target="_blank" rel="noopener">首次解释</a></article></div></section>
+      <section class="artifact-box" aria-label="本页产物"><div class="artifact-block"><h3 id="artifacts-out">本页要写出的产物</h3><ul><li><code>A01-02</code> 分轮访谈提纲 <span class="muted">→ 01_调研准备/01-02_分轮访谈提纲.md</span> <span class="gate-tag">G1</span> <a href="templates/blank/01-02_分轮访谈提纲.html" data-template-view data-template-title="A01-02 分轮访谈提纲模板" title="A01-02 分轮访谈提纲模板 ｜ 当前页弹窗预览">模板</a> <a href="templates/golden/01-02_分轮访谈提纲_排班案例.html" data-template-view data-template-title="A01-02 分轮访谈提纲黄金样例" title="A01-02 分轮访谈提纲黄金样例 ｜ 当前页弹窗预览">黄金样例</a></li><li><code>A02-01</code> 现场观察记录 <span class="muted">→ 02_现场记录/02-01_现场观察记录.md</span> <span class="gate-tag">G2</span> <a href="templates/blank/02-01_现场观察记录.html" data-template-view data-template-title="A02-01 现场观察记录模板" title="A02-01 现场观察记录模板 ｜ 当前页弹窗预览">模板</a> <a href="templates/golden/02-01_现场观察记录_排班案例.html" data-template-view data-template-title="A02-01 现场观察记录黄金样例" title="A02-01 现场观察记录黄金样例 ｜ 当前页弹窗预览">黄金样例</a></li></ul></div><div class="artifact-block"><h3 id="artifacts-in">开始前应已具备</h3><p class="muted"><code>A00-02</code> 干系人地图、<code>A00-04</code> 知情同意与数据权限、<code>A01-01</code> 调研计划与排期、<code>A01-03</code> 现场观察记录表</p></div></section>
+      <section class="sources" aria-label="来源"><h2 id="sec-sources">来源与证据等级</h2><ol class="source-list"><li><span class="src-id">S01</span> <strong>Use case lifecycle · Overview</strong> <span class="badge badge-官方">官方</span><div class="muted">Palantir Technologies · 抓取 2026-10-19 · 版权归 Palantir Technologies；仅内部研究，不对外分发原文</div><div class="src-url"><a href="https://www.palantir.com/docs/foundry/use-case-life-cycle/overview/" rel="noreferrer" target="_blank">https://www.palantir.com/docs/foundry/use-case-life-cycle/overview/</a></div></li><li><span class="src-id">S17</span> <strong>FDE 方法论沉淀</strong> <span class="badge badge-实践">实践</span><div class="muted">本子项目 · 抓取 2026-09-23 · 内部方法沉淀</div><div class="src-url"><span class="muted">无公开链接</span></div></li><li><span class="src-id">S19</span> <strong>医院排班场景映射</strong> <span class="badge badge-实践">实践</span><div class="muted">本子项目 · 抓取 2026-10-19 · 内部方法沉淀；案例已匿名化</div><div class="src-url"><span class="muted">无公开链接</span></div></li><li><span class="src-id">S20</span> <strong>FDE 实施手册 v1（9 章整合读本）</strong> <span class="badge badge-实践">实践</span><div class="muted">本子项目 · 抓取 2026-10-19 · 内部方法沉淀；官方事实另注出处</div><div class="src-url"><span class="muted">无公开链接</span></div></li></ol></section>
+      <nav class="pager" aria-label="翻页"><a class="pager-prev" data-same-tab href="work-01-prep.html"><span>上一页</span><strong>调研前 7 天</strong></a><a class="pager-next" data-same-tab href="work-03-record.html"><span>下一页</span><strong>记录：把现场变成证据</strong></a></nav>
+
+      <footer class="page-foot">
+        <p>本教程为内部方法研究。案例已匿名化，数字标注【示例】。Palantir 官方资料版权归 Palantir Technologies，仅作改写与链接。</p>
+        <p class="muted">发现断链或事实错误？回到 <a href="appendix-sources.html" target="_blank" rel="noopener">来源与版权</a> 核对出处。</p>
+      </footer>
+    </article>
+  </main>
+
+  <aside class="toc" id="toc" aria-label="页内目录">
+    <p class="toc-title">本页目录</p><ol class="toc-list"><li class="toc-h2"><a href="#sec-when">何时用</a></li><li class="toc-h2"><a href="#sec-prereq">前置</a></li><li class="toc-h2"><a href="#sec-inputs">输入</a></li><li class="toc-h2"><a href="#sec-steps">步骤</a><ul class="toc-sub"><li class="toc-h3"><a href="#step-open">说明来意与许可（0–5 分钟）</a></li><li class="toc-h3"><a href="#step-scene">锁定“最近一次”（5–10 分钟）</a></li><li class="toc-h3"><a href="#step-walk">带做一遍场景走查（10–35 分钟）</a></li><li class="toc-h3"><a href="#step-grill">分轮追问到决策（35–50 分钟）</a></li><li class="toc-h3"><a href="#step-close">复述并收尾（50–57 分钟）</a></li><li class="toc-h3"><a href="#step-capture">当场整理（57–60 分钟）</a></li></ul></li><li class="toc-h2"><a href="#sec-output">输出</a></li><li class="toc-h2"><a href="#sec-gate">阶段门</a></li><li class="toc-h2"><a href="#sec-template">模板</a></li><li class="toc-h2"><a href="#sec-case">排班案例</a></li><li class="toc-h2"><a href="#sec-failures">常见失败</a></li><li class="toc-h2"><a href="#sec-checklist">自检清单</a></li></ol>
+  </aside>
+</div>
+
+<div class="tpl-modal" id="tpl-modal" hidden>
+  <div class="tpl-panel" role="dialog" aria-modal="true" aria-labelledby="tpl-title">
+    <header class="tpl-head">
+      <div class="tpl-heading">
+        <p class="tpl-kicker">模板阅读视图</p>
+        <h2 id="tpl-title">模板</h2>
+      </div>
+      <div class="tpl-actions">
+        <a class="tpl-open" id="tpl-open" href="#" target="_blank" rel="noopener">在新标签打开 ↗</a>
+        <button class="icon-btn" id="tpl-close" type="button" aria-label="关闭模板">✕</button>
+      </div>
+    </header>
+    <div class="tpl-body">
+      <iframe id="tpl-frame" title="模板内容" loading="lazy"></iframe>
+    </div>
+  </div>
+</div>
+
+<div class="search-modal" id="search-modal" hidden>
+  <div class="search-panel" role="dialog" aria-modal="true" aria-labelledby="search-title">
+    <div class="search-head">
+      <label id="search-title" class="sr-only" for="search-input">搜索教程</label>
+      <input id="search-input" type="search" placeholder="搜索概念、产物、模板、方法卡…" autocomplete="off">
+      <button class="icon-btn" id="search-close" type="button" aria-label="关闭搜索">✕</button>
+    </div>
+    <div id="search-results" class="search-results" aria-live="polite"></div>
+    <p class="search-hint">按 <kbd>/</kbd> 或 <kbd>Ctrl</kbd>+<kbd>K</kbd> 打开，<kbd>Esc</kbd> 关闭。索引完全离线。</p>
+  </div>
+</div>
+
+<noscript><p class="noscript-note">搜索与阅读进度需要 JavaScript；正文、目录和翻页仍可正常使用。可用浏览器查找（Ctrl+F）。</p></noscript>
+
+<script src="assets/search-index.js"></script>
+<script src="assets/viz-data.js"></script>
+<script src="assets/app.js"></script>
+<script src="assets/viz.js"></script>
+
+</body>
+</html>

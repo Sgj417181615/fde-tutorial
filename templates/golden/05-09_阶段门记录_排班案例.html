@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>A05-09 阶段门记录（排班案例） · FDE 模板库</title>
+<link rel="stylesheet" href="../../assets/course.css">
+</head>
+<body>
+<a class="skip-link" href="#main">跳到正文</a>
+<main class="main" id="main">
+<article class="article">
+<nav class="crumb" aria-label="面包屑">
+<a href="../../index.html">教程首页</a><span class="sep">/</span>
+<a href="../../appendix-templates.html">模板库</a><span class="sep">/</span>
+<span>黄金样例</span>
+</nav>
+<header class="page-head">
+<div class="badges">
+<span class="badge badge-main">A05-09</span>
+<span class="badge">黄金样例</span>
+<span class="badge badge-time">Markdown 阅读视图</span>
+</div>
+<h1>A05-09 阶段门记录（排班案例）</h1>
+<p class="page-question">这是模板的阅读视图，源文件是 <code>05-09_阶段门记录_排班案例.md</code>。
+<a href="05-09_阶段门记录_排班案例.md">下载 / 编辑 Markdown</a> · <a href="../../appendix-templates.html">返回模板库</a></p>
+</header>
+<div class="prose">
+<blockquote>
+<p>【示例】匿名化案例，数字均为示例；人名与机构均为化名。</p>
+</blockquote>
+<p>本记录用于 G5 阶段门，说明五天验证是否通过、附带什么条件、还欠什么。检查项与 A05-01 五道门一一对应，结论只使用“通过”“有条件”“不通过”。事实取自 <code>_canon/case-bible.md</code> 的 CB-16、CB-17、CB-18。</p>
+<h2 id="tpl-sec-1">一、阶段门结论</h2>
+<p><strong>结论：通过（有条件延续）。</strong></p>
+<ul>
+<li><strong>通过的理由</strong>：S1 的“额度分配—冲突识别—组长确认—主任审批—重开核对”闭环由陈静本人走通；C1 被拦住，C2 从 2 人天降到 1 人天；五道门中四道通过，Demo、展示与反馈记录齐备。</li>
+<li><strong>附带的限制</strong>：第 4 道门“可演示底座”中的写回只完成本地对象，院内排班系统未写回；KPI 基线未复测，不能声称降幅。两项都转入待办，不作为“已通过”处理。</li>
+<li><strong>延续的含义</strong>：同意进入 S2（个人排班与换班）的准备，但 S2 立项前必须完成写回评估与基线补测；未完成前不扩科、不对外宣传。</li>
+</ul>
+<h2 id="tpl-sec-2">二、逐项记录</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th scope="col">门</th>
+<th scope="col">检查项</th>
+<th scope="col">结论</th>
+<th scope="col">依据</th>
+<th scope="col">待补</th>
+<th scope="col">负责人</th>
+<th scope="col">日期</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>G5-1 窄决策</td>
+<td>只做一个最终决策：DC-1 与 DC-2 合并为月度额度分配方案确认</td>
+<td>通过</td>
+<td>A03-05 S1 one-pager；A05-01 第 1 门</td>
+<td>无</td>
+<td>周主任</td>
+<td>D5</td>
+</tr>
+<tr>
+<td>G5-2 三方人马</td>
+<td>业务、数据、应用三方到场且能当场决策</td>
+<td>通过</td>
+<td>D1–D5 签到表；D5 周主任到场并审批</td>
+<td>无</td>
+<td>陈静</td>
+<td>D5</td>
+</tr>
+<tr>
+<td>G5-3 真实数据权限</td>
+<td>书面授权、字段级脱敏、真实月份快照</td>
+<td>通过</td>
+<td>授权书（周主任签字）；A05-07 数据清单</td>
+<td>无</td>
+<td>刘工</td>
+<td>D5</td>
+</tr>
+<tr>
+<td>G5-4 可演示底座（装载与操作）</td>
+<td>快照离线可打开，陈静本人操作，不由 FDE 代点</td>
+<td>通过</td>
+<td>D4 排练记录；D5 现场记录</td>
+<td>无</td>
+<td>FDE</td>
+<td>D5</td>
+</tr>
+<tr>
+<td>G5-4 可演示底座（写回）</td>
+<td>点“确认分配”后状态与额度已用真的变化，重开可见</td>
+<td>有条件</td>
+<td>本地对象写回成功；院内系统未写回（刘工 D1 说明）</td>
+<td>完成院内写回权限与接口评估</td>
+<td>刘工</td>
+<td>S2 D1 前</td>
+</tr>
+<tr>
+<td>G5-5 每日展示</td>
+<td>每天 17:00 向业务方展示增量，并有书面记录</td>
+<td>通过</td>
+<td>D1–D4 展示记录；A05-03 每日日志</td>
+<td>无</td>
+<td>陈静</td>
+<td>D5</td>
+</tr>
+<tr>
+<td>G5-Demo</td>
+<td>8 分钟脚本走通；C1 拦住；C2 解决 1 人天</td>
+<td>通过</td>
+<td>A05-06 脚本；D5 现场记录</td>
+<td>C2 剩余 1 天已登记负责人与日期，不宣称清零</td>
+<td>FDE</td>
+<td>D5</td>
+</tr>
+<tr>
+<td>G5-KPI</td>
+<td>实测耗时与返工有记录，基线可复核</td>
+<td>有条件</td>
+<td>现场计时 50 分钟一次；基线 3 小时为回忆值、未复测</td>
+<td>补测两次取中位数，或统一改“可能缩短”</td>
+<td>陈静</td>
+<td>复盘后 5 个工作日</td>
+</tr>
+<tr>
+<td>G5-反馈</td>
+<td>五方角色反馈已记录并分类，负面反馈未筛掉</td>
+<td>通过</td>
+<td>A05-08，12 条：可用 2、需改 7、不做 3</td>
+<td>资质备案口径移交 S2</td>
+<td>FDE</td>
+<td>D5</td>
+</tr>
+<tr>
+<td>G5-复盘</td>
+<td>事实、判断、结果、原因分开写</td>
+<td>通过</td>
+<td>A06-01–A06-04 复盘草案</td>
+<td>补 S2 one-pager</td>
+<td>FDE</td>
+<td>D5</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="tpl-sec-3">三、Demo 与 KPI 结果</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th scope="col">项目</th>
+<th scope="col">现场记录</th>
+<th scope="col">判断</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>流程</td>
+<td>8 分钟走完，陈静操作、赵岚确认、周主任审批</td>
+<td>通过</td>
+</tr>
+<tr>
+<td>C1 超排</td>
+<td>王芳从 10 天改 9 天，系统阻止保存并提示释放 1 天</td>
+<td>通过</td>
+</tr>
+<tr>
+<td>C2 缺口</td>
+<td>申请额外 1 人天，缺口 2→1；剩余 1 天由赵岚登记负责人与日期</td>
+<td>部分通过，未清零</td>
+</tr>
+<tr>
+<td>写回</td>
+<td>本地对象状态“建议→已确认→已发布”，额度已用同步 +1</td>
+<td>通过（仅本地对象）</td>
+</tr>
+<tr>
+<td>院内系统</td>
+<td>未写回，陈静仍需手工二次录入</td>
+<td>边界，不计通过</td>
+</tr>
+<tr>
+<td>KPI 耗时</td>
+<td>现场计时 50 分钟，仅一次</td>
+<td>记录，不作降幅声明</td>
+</tr>
+<tr>
+<td>返工轮次</td>
+<td>1 轮</td>
+<td>达标（目标 ≤1 轮）</td>
+</tr>
+<tr>
+<td>方案版本数</td>
+<td>演示内 1 份；院内系统仍另存 1 份</td>
+<td>部分达标</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>KPI 口径</strong>：50 分钟是 D5 一次现场实测；基线“约 3 小时”来自陈静回忆，D2、D4 两次补测都未完成。因此本轮只能写“实测 50 分钟，基线未复测，可能缩短”，不得写“下降 83%”或“效率提升 3 倍”。</p>
+<h2 id="tpl-sec-4">四、写回边界</h2>
+<p>本轮写回的是<strong>本地对象</strong>，不是院内排班系统。陈静在 Demo 中点击“批准”后，本地 <code>Allocation.status</code> 变为“已发布”、<code>Quota.used</code> 同步加 1，重新打开能看到结果；但院内系统没有任何数据变化，陈静回去仍需手工录入一次。</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th scope="col">写回对象</th>
+<th scope="col">本轮状态</th>
+<th scope="col">证据</th>
+<th scope="col">允许的表述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>本地 Allocation</td>
+<td>已写回，重开可见</td>
+<td>D5 现场截图与核对记录</td>
+<td>“分配结果已保存并可复核”</td>
+</tr>
+<tr>
+<td>本地 Quota.used</td>
+<td>已同步 +1</td>
+<td>D5 现场核对</td>
+<td>“额度已用随确认更新”</td>
+</tr>
+<tr>
+<td>院内排班系统</td>
+<td>未写回</td>
+<td>刘工 D1 说明；D5 现场二次录入</td>
+<td>不得说“已对接”“已同步”“已上线”</td>
+</tr>
+<tr>
+<td>患者与绩效数据</td>
+<td>未使用</td>
+<td>A05-07 数据清单</td>
+<td>不得暗示覆盖临床或绩效</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>对外表述纪律</strong>：任何材料提到本轮成果，必须同时出现“本地对象写回，院内系统未写回”这一句；不得只展示“写回成功”的截图而不说明边界。</p>
+<h2 id="tpl-sec-5">五、条件与待办</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th scope="col">条件编号</th>
+<th scope="col">条件</th>
+<th scope="col">可观察的验收标准</th>
+<th scope="col">负责人</th>
+<th scope="col">截止</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>C-1</td>
+<td>院内写回评估</td>
+<td>产出一页评估单，写明能否写、谁批准、预计工期与责任厂商</td>
+<td>刘工</td>
+<td>S2 D1 前</td>
+</tr>
+<tr>
+<td>C-2</td>
+<td>基线补测</td>
+<td>陈静用同一月份数据计时两次，记录中位数并更新 A05-05</td>
+<td>陈静</td>
+<td>复盘后 5 个工作日</td>
+</tr>
+<tr>
+<td>C-3</td>
+<td>资质备案口径</td>
+<td>拿到人事备案表；拿不到时，由孙老师与赵岚共同签字确认临时口径</td>
+<td>孙老师、赵岚</td>
+<td>S2 D3</td>
+</tr>
+<tr>
+<td>C-4</td>
+<td>试点范围</td>
+<td>仅妇科病理一个亚专科；扩科需周主任书面同意</td>
+<td>周主任</td>
+<td>S2 结束前</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>条件判定规则</strong>：C-1、C-2 未完成前，S2 只能做设计与数据准备，不能进入开发；C-3 未完成前，资质仍只做提示、不做硬拦截；C-4 是范围红线，任何“全科推广”的表述都视为越界。</p>
+<h2 id="tpl-sec-6">六、确认</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th scope="col">角色</th>
+<th scope="col">姓名</th>
+<th scope="col">确认内容</th>
+<th scope="col">日期</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>业务审批人</td>
+<td>周主任</td>
+<td>同意“通过（有条件延续）”；范围限妇科病理试点，先不推广</td>
+<td>D5</td>
+</tr>
+<tr>
+<td>业务操作者</td>
+<td>陈静</td>
+<td>确认 Demo 结果与 A05-03 日志一致；愿意在 S2 继续试用</td>
+<td>D5</td>
+</tr>
+<tr>
+<td>数据与权限</td>
+<td>刘工</td>
+<td>确认“本地写回、院内未写回”的边界表述准确</td>
+<td>D5</td>
+</tr>
+<tr>
+<td>交付负责人</td>
+<td>FDE</td>
+<td>提交本记录，附 A05-01、A05-05、A05-08 作为依据</td>
+<td>D5</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="tpl-sec-7">七、与上游记录的一致性</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th scope="col">上游记录</th>
+<th scope="col">其结论</th>
+<th scope="col">与本记录是否一致</th>
+<th scope="col">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A05-01 五道门检查表</td>
+<td>有条件继续</td>
+<td>一致</td>
+<td>门 4 的条件延续为本记录 C-1</td>
+</tr>
+<tr>
+<td>A05-04 问题与决策日志</td>
+<td>P-01 写回降级、P-02 基线挂起</td>
+<td>一致</td>
+<td>两条均转为本记录待办</td>
+</tr>
+<tr>
+<td>A05-05 KPI 基线与验证标准</td>
+<td>基线为回忆值，需现场复测</td>
+<td>一致</td>
+<td>本记录不声称降幅</td>
+</tr>
+<tr>
+<td>A05-08 反馈记录</td>
+<td>12 条，含 3 条“不做”</td>
+<td>一致</td>
+<td>F-08、F-10、F-12 均进入范围约束</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<footer class="page-foot">
+<p class="muted">本页由 <code>_tools/build.py</code> 从 Markdown 自动生成，请改源文件而不是改这里。</p>
+</footer>
+</article>
+</main>
+</body>
+</html>

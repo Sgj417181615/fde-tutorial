@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>A03-05 use-case one-pager · FDE 模板库</title>
+<link rel="stylesheet" href="../../assets/course.css">
+</head>
+<body>
+<a class="skip-link" href="#main">跳到正文</a>
+<main class="main" id="main">
+<article class="article">
+<nav class="crumb" aria-label="面包屑">
+<a href="../../index.html">教程首页</a><span class="sep">/</span>
+<a href="../../appendix-templates.html">模板库</a><span class="sep">/</span>
+<span>空白模板</span>
+</nav>
+<header class="page-head">
+<div class="badges">
+<span class="badge badge-main">A03-05</span>
+<span class="badge">空白模板</span>
+<span class="badge badge-time">Markdown 阅读视图</span>
+</div>
+<h1>A03-05 use-case one-pager</h1>
+<p class="page-question">这是模板的阅读视图，源文件是 <code>03-05_use-case-one-pager.md</code>。
+<a href="03-05_use-case-one-pager.md">下载 / 编辑 Markdown</a> · <a href="../../appendix-templates.html">返回模板库</a></p>
+</header>
+<div class="prose">
+<h2 id="tpl-sec-1">用途 / 何时用</h2>
+<p>在切片选定之后、进入方案设计之前使用。用一页纸锁定一个用户、一个最终决策、一条端到端路径和明确的不做范围，作为 D1 工作底稿和后续 FR 的共同基线。</p>
+<h2 id="tpl-sec-2">填写说明</h2>
+<ul>
+<li>全页只承诺一个最终决策；相邻决策写进“不做什么”或后续轮次。</li>
+<li>“用户”写具体角色和场景，写清谁操作、谁确认、谁审批。</li>
+<li>“决策”用一个可陈述的选择，不写功能清单。</li>
+<li>“输入”写做决定实际要看的数据、规则和材料。</li>
+<li>“动作”写决定之后在界面上或流程中发生什么，写清是否写回。</li>
+<li>“价值”写可观察变化；有基线就引用 A01-04，没有就标“待测量”，并同时写测量方式、数据来源、校准日期和负责人。</li>
+<li>“不做什么”至少三条，包含相邻切片和自动决策边界。</li>
+<li>“成功标准”必须能在五天内由真实用户验证。</li>
+<li>“相关方”写审批、操作、需求确认和数据权限角色；“现状”写今天的实际做法。</li>
+</ul>
+<h2 id="tpl-sec-3">字段</h2>
+<h3 id="tpl-sec-4">标题</h3>
+<p>（用“对象 + 决策”命名，不写系统名）</p>
+<h3 id="tpl-sec-5">用户</h3>
+<p>（主操作者、需求提出者、确认者、审批者；写到角色和场景）</p>
+<h3 id="tpl-sec-6">决策</h3>
+<p>（本轮唯一要支撑的最终决策）</p>
+<h3 id="tpl-sec-7">输入</h3>
+<p>（决策实际依赖的需求、额度、可用性、资质、规则等）</p>
+<h3 id="tpl-sec-8">动作</h3>
+<p>（决定后发生什么：调整、校验、保存、写回、提交、审批）</p>
+<h3 id="tpl-sec-9">价值</h3>
+<p>（用户与业务的可观察变化；基线来源；无基线时写“待测量”+ 测量方式、数据来源、校准日期、负责人）</p>
+<h3 id="tpl-sec-10">不做什么</h3>
+<p>（相邻切片、自动决策边界、无关系统，至少三条）</p>
+<h3 id="tpl-sec-11">成功标准</h3>
+<p>（五天内可验证的条件，写清观察方式）</p>
+<h3 id="tpl-sec-12">相关方</h3>
+<p>（审批、操作、需求确认、数据与权限角色）</p>
+<h3 id="tpl-sec-13">现状</h3>
+<p>（今天的工具、版本、协调方式和主要卡点）</p>
+<h2 id="tpl-sec-14">质量门自检（G3）</h2>
+<ul>
+<li>[ ] 全页只承诺一个最终决策。</li>
+<li>[ ] 用户写到具体角色，且区分操作者、确认者和审批者。</li>
+<li>[ ] 输入与决策直接相关，没有堆无关数据。</li>
+<li>[ ] 动作写清了是否写回，而不只是“展示”。</li>
+<li>[ ] 价值可观察；没有基线时已标“待测量”，且写明测量方式、数据来源、校准日期和负责人。</li>
+<li>[ ] “不做什么”至少三条，包含相邻切片。</li>
+<li>[ ] 成功标准能在五天内由真实用户验证。</li>
+<li>[ ] 相关方覆盖审批、操作、需求确认与数据权限。</li>
+</ul>
+</div>
+<footer class="page-foot">
+<p class="muted">本页由 <code>_tools/build.py</code> 从 Markdown 自动生成，请改源文件而不是改这里。</p>
+</footer>
+</article>
+</main>
+</body>
+</html>

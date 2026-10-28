@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>A05-08 反馈记录（排班案例） · FDE 模板库</title>
+<link rel="stylesheet" href="../../assets/course.css">
+</head>
+<body>
+<a class="skip-link" href="#main">跳到正文</a>
+<main class="main" id="main">
+<article class="article">
+<nav class="crumb" aria-label="面包屑">
+<a href="../../index.html">教程首页</a><span class="sep">/</span>
+<a href="../../appendix-templates.html">模板库</a><span class="sep">/</span>
+<span>黄金样例</span>
+</nav>
+<header class="page-head">
+<div class="badges">
+<span class="badge badge-main">A05-08</span>
+<span class="badge">黄金样例</span>
+<span class="badge badge-time">Markdown 阅读视图</span>
+</div>
+<h1>A05-08 反馈记录（排班案例）</h1>
+<p class="page-question">这是模板的阅读视图，源文件是 <code>05-08_反馈记录_排班案例.md</code>。
+<a href="05-08_反馈记录_排班案例.md">下载 / 编辑 Markdown</a> · <a href="../../appendix-templates.html">返回模板库</a></p>
+</header>
+<div class="prose">
+<blockquote>
+<p>【示例】匿名化案例，数字均为示例；人名与机构均为化名。</p>
+</blockquote>
+<p>反馈在每天 17:00 展示后和 D5 Demo 现场即时记录，保留原话与场景，不提前替用户总结成需求。分类只有三种：<strong>可用</strong>（可作为需求或边界证据）、<strong>需改</strong>（本轮或下一轮要改）、<strong>不做</strong>（明确不做或暂不推广）。事实背景取自 <code>_canon/case-bible.md</code> 的 CB-17、CB-18。</p>
+<h2 id="tpl-sec-1">一、反馈登记</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th scope="col">反馈ID</th>
+<th scope="col">原话</th>
+<th scope="col">场景</th>
+<th scope="col">来源</th>
+<th scope="col">分类</th>
+<th scope="col">影响</th>
+<th scope="col">待确认</th>
+<th scope="col">处理</th>
+<th scope="col">负责人</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>F-01</td>
+<td>“你们先别做排班，额度分不清楚才是每个月最烦的。”</td>
+<td>D1 17:00，看现状五步图</td>
+<td>陈静</td>
+<td>可用</td>
+<td>S1 边界、MVP 非范围</td>
+<td>是否还有比额度更痛的事</td>
+<td>记录为“先做 S1、不做 S2”的依据，不扩范围</td>
+<td>FDE</td>
+</tr>
+<tr>
+<td>F-02</td>
+<td>“这个‘剩余’是额度剩余还是我还没分完？两个数长得一样。”</td>
+<td>D3 17:10，额度全景页</td>
+<td>陈静</td>
+<td>需改</td>
+<td>FR-01 文案与字段</td>
+<td>是否需要同时显示两个剩余</td>
+<td>拆成“额度剩余”和“待分配”两个标签，D4 前改完</td>
+<td>FDE</td>
+</tr>
+<tr>
+<td>F-03</td>
+<td>“我改完要是忘了保存，关掉是不是就白改了？”</td>
+<td>D4 14:20，排练中改王芳天数</td>
+<td>陈静</td>
+<td>需改</td>
+<td>FR-02 保存与离开提示</td>
+<td>是否需要自动保存草稿</td>
+<td>加“未保存离开”提示；本轮由陈静口头确认后再关页</td>
+<td>FDE</td>
+</tr>
+<tr>
+<td>F-04</td>
+<td>“是比我原来快，可我回去还得在院内系统再录一遍。”</td>
+<td>D5 15:10，Demo 结束后</td>
+<td>陈静</td>
+<td>可用</td>
+<td>写回范围、价值表述、A05-09 边界</td>
+<td>院内写回排期</td>
+<td>写入阶段门“未写回院内系统”，不承诺系统集成</td>
+<td>刘工</td>
+</tr>
+<tr>
+<td>F-05</td>
+<td>“我们看到 11 人天，可这 1 天是临时加的，下个月还有没有？”</td>
+<td>D4 14:50，排练中的组长视图</td>
+<td>赵岚</td>
+<td>需改</td>
+<td>FR-04、额度追加对象</td>
+<td>追加额度是否可延续</td>
+<td>追加额度标“本月有效”；跨月问题列入 S2 待确认</td>
+<td>赵岚</td>
+</tr>
+<tr>
+<td>F-06</td>
+<td>“剩 1 天我知道找谁，但日期写死了，到时候人变了怎么办？”</td>
+<td>D5 15:25，C2 缺口登记</td>
+<td>赵岚</td>
+<td>需改</td>
+<td>FR-03 缺口登记</td>
+<td>谁有权改缺口日期</td>
+<td>允许改日期并留调整记录；本轮由赵岚手工改</td>
+<td>FDE</td>
+</tr>
+<tr>
+<td>F-07</td>
+<td>“总额度没超我就签。但我要能看出来这版跟上一版差在哪。”</td>
+<td>D5 15:45，复盘回看审批页</td>
+<td>周主任</td>
+<td>需改</td>
+<td>FR-05 审批视图、版本对比</td>
+<td>版本对比的粒度</td>
+<td>下一轮加版本对比；本轮用调整记录代替</td>
+<td>FDE</td>
+</tr>
+<tr>
+<td>F-08</td>
+<td>“先别推全科，把一个亚专科跑顺再说。”</td>
+<td>D5 16:10，复盘</td>
+<td>周主任</td>
+<td>不做</td>
+<td>推广范围、S2 范围</td>
+<td>试点结束的判定标准</td>
+<td>范围保持妇科病理试点；对外材料不写“全科推广”</td>
+<td>周主任</td>
+</tr>
+<tr>
+<td>F-09</td>
+<td>“已用数得跟人力资源的额度表对得上，对不上我没法审。”</td>
+<td>D3 17:10，展示后看额度已用</td>
+<td>孙老师</td>
+<td>需改</td>
+<td>额度口径、FR-05</td>
+<td>以人力资源表还是系统数为准</td>
+<td>增加额度表对照列与导出，D4 核对一次</td>
+<td>孙老师</td>
+</tr>
+<tr>
+<td>F-10</td>
+<td>“跨月结转制度上没有，你们别在系统里做。”</td>
+<td>D3 17:15，讨论 C2 缺口</td>
+<td>孙老师</td>
+<td>不做</td>
+<td>缺口计算、R-07</td>
+<td>无</td>
+<td>写入 MVP 非范围；关闭 CB-11 的“能否跨月结转”</td>
+<td>孙老师</td>
+</tr>
+<tr>
+<td>F-11</td>
+<td>“资质我只认备过案的，组长说行不算。”</td>
+<td>D5 16:20，复盘谈资质</td>
+<td>孙老师</td>
+<td>需改</td>
+<td>R-04、FR-02 校验强度</td>
+<td>备案表能否在 S2 前拿到</td>
+<td>本轮界面标“资质来源：组长认定，待备案核对”；S2 优先改备案表，拿不到时按临时口径</td>
+<td>孙老师</td>
+</tr>
+<tr>
+<td>F-12</td>
+<td>“写回院内系统要走变更，五天肯定不够。”</td>
+<td>D1 16:40，权限沟通</td>
+<td>刘工</td>
+<td>不做</td>
+<td>门 4、FR-05、Demo 边界</td>
+<td>变更审批最短周期</td>
+<td>本轮只写回本地对象；S2 D1 前出写回评估单</td>
+<td>刘工</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="tpl-sec-2">二、场景分布</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th scope="col">场景</th>
+<th scope="col">条数</th>
+<th scope="col">主要来源</th>
+<th scope="col">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D1 17:00 现状展示</td>
+<td>2</td>
+<td>陈静、刘工</td>
+<td>一条确认 S1 边界，一条暴露写回限制</td>
+</tr>
+<tr>
+<td>D2 17:00 one-pager 展示</td>
+<td>0</td>
+<td>—</td>
+<td>当天只展示边界与口径，未出现界面级反馈</td>
+</tr>
+<tr>
+<td>D3 17:00 三栏界面与口径</td>
+<td>3</td>
+<td>陈静、孙老师</td>
+<td>文案歧义、额度对照、跨月结转</td>
+</tr>
+<tr>
+<td>D4 14:20 排练</td>
+<td>2</td>
+<td>陈静、赵岚</td>
+<td>保存提示、追加额度有效期</td>
+</tr>
+<tr>
+<td>D5 Demo 与复盘</td>
+<td>5</td>
+<td>陈静、赵岚、周主任、孙老师</td>
+<td>含 2 条范围约束与 1 条资质口径冲突</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="tpl-sec-3">三、分类汇总</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th scope="col">分类</th>
+<th scope="col">条数</th>
+<th scope="col">编号</th>
+<th scope="col">处理原则</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>可用</td>
+<td>2</td>
+<td>F-01、F-04</td>
+<td>只作为需求或边界证据，不等于验收，也不等于客户背书</td>
+</tr>
+<tr>
+<td>需改</td>
+<td>7</td>
+<td>F-02、F-03、F-05、F-06、F-07、F-09、F-11</td>
+<td>本轮能改的当轮改；改不了的进 S2 待办，写清负责人</td>
+</tr>
+<tr>
+<td>不做</td>
+<td>3</td>
+<td>F-08、F-10、F-12</td>
+<td>写入非范围或范围约束，附“什么条件下重新考虑”</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="tpl-sec-4">四、按角色归并的处理结论</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th scope="col">角色</th>
+<th scope="col">核心诉求</th>
+<th scope="col">本轮处理</th>
+<th scope="col">下一轮</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>陈静</td>
+<td>少返工、别丢保存、别重复录入</td>
+<td>标签拆分、离开提示、边界说明</td>
+<td>院内写回评估后再谈免二次录入</td>
+</tr>
+<tr>
+<td>赵岚</td>
+<td>缺口可见、追加额度有交代、日期可改</td>
+<td>追加标“本月有效”、缺口可改并留痕</td>
+<td>额度追加做成独立对象</td>
+</tr>
+<tr>
+<td>周主任</td>
+<td>总额度不超、变更看得见、先试点</td>
+<td>调整记录代替版本对比、范围限妇科</td>
+<td>审批页加版本对比</td>
+</tr>
+<tr>
+<td>孙老师</td>
+<td>已用数与额度表对得上、不做跨月、资质认备案</td>
+<td>增加对照列、跨月列非范围、资质标注待核对</td>
+<td>拿到备案表后改硬校验</td>
+</tr>
+<tr>
+<td>刘工</td>
+<td>不增加系统负担、权限可控</td>
+<td>本地对象写回、不碰院内接口</td>
+<td>写回权限与接口评估</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="tpl-sec-5">五、未采纳反馈及理由</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th scope="col">编号</th>
+<th scope="col">反馈</th>
+<th scope="col">未采纳原因</th>
+<th scope="col">重新考虑的条件</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>F-08</td>
+<td>暂不推广到全科</td>
+<td>本轮只验证 S1 在一个亚专科的闭环，推广缺少数据</td>
+<td>妇科试点稳定运行一个完整月度周期，且周主任书面同意</td>
+</tr>
+<tr>
+<td>F-10</td>
+<td>不做跨月结转</td>
+<td>制度没有依据，做了会制造假口径</td>
+<td>人力资源发布正式结转规则</td>
+</tr>
+<tr>
+<td>F-12</td>
+<td>本轮不写回院内系统</td>
+<td>变更审批超出五天窗口，强行做会牺牲验证质量</td>
+<td>信息科完成接口与权限评估，明确责任人与工期</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="tpl-sec-6">六、反馈使用纪律</h2>
+<ul>
+<li>反馈是输入，不是验收结论，也不是客户背书；不得引用原话做宣传或写成“客户高度认可”；</li>
+<li>周主任的“先别推全科”是范围约束，不是对产品的肯定，汇总时不能改写成正面评价；</li>
+<li>负面反馈和口径冲突（F-11 与赵岚的“组长认定”）原样保留，不在汇总时抹平；</li>
+<li>“可用”只表示该反馈能支撑需求或边界判断，不表示功能已通过验收；</li>
+<li>每条反馈都要有处理和负责人；本轮处理不了的，必须进入 A05-09 的待办表。</li>
+</ul>
+</div>
+<footer class="page-foot">
+<p class="muted">本页由 <code>_tools/build.py</code> 从 Markdown 自动生成，请改源文件而不是改这里。</p>
+</footer>
+</article>
+</main>
+</body>
+</html>

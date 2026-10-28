@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>A04-04 生命周期与写回 · FDE 模板库</title>
+<link rel="stylesheet" href="../../assets/course.css">
+</head>
+<body>
+<a class="skip-link" href="#main">跳到正文</a>
+<main class="main" id="main">
+<article class="article">
+<nav class="crumb" aria-label="面包屑">
+<a href="../../index.html">教程首页</a><span class="sep">/</span>
+<a href="../../appendix-templates.html">模板库</a><span class="sep">/</span>
+<span>空白模板</span>
+</nav>
+<header class="page-head">
+<div class="badges">
+<span class="badge badge-main">A04-04</span>
+<span class="badge">空白模板</span>
+<span class="badge badge-time">Markdown 阅读视图</span>
+</div>
+<h1>A04-04 生命周期与写回</h1>
+<p class="page-question">这是模板的阅读视图，源文件是 <code>04-04_生命周期与写回.md</code>。
+<a href="04-04_生命周期与写回.md">下载 / 编辑 Markdown</a> · <a href="../../appendix-templates.html">返回模板库</a></p>
+</header>
+<div class="prose">
+<blockquote>
+<p>产物路径：<code>04_方案设计/04-04_生命周期与写回.md</code> ｜ 所属阶段：04_方案设计 ｜ 阶段门：G4</p>
+</blockquote>
+<h2 id="tpl-sec-1">用途</h2>
+<p>定义对象从创建到关闭的状态、触发动作、写回字段与权限，保证演示不是只弹提示的幻灯片。写回意味着用户点击之后，对象状态和相关额度、余额等字段真的发生变化。</p>
+<h2 id="tpl-sec-2">何时用</h2>
+<ul>
+<li>对象模型确定后，设计状态与操作之前；</li>
+<li>设计审批、确认、调整、归档等流程时；</li>
+<li>Demo 前检查“用户点完按钮之后，数据到底变没变”；</li>
+<li>发现流程只能前进不能退回时，回来补异常路径。</li>
+</ul>
+<h2 id="tpl-sec-3">填写说明</h2>
+<ol>
+<li>每个需要写回的对象单独一组，不要把多个对象混在一张表里。</li>
+<li>状态用名词，例如“草稿”“待确认”“已发布”；Action 用动词，例如“提交确认”“批准”。</li>
+<li>每次迁移写明迁移后的状态，避免出现没有终点的状态。</li>
+<li>写回字段必须落到对象属性上，例如 <code>状态</code>、<code>确认人</code>、<code>已用额度</code>。</li>
+<li>权限写可执行该 Action 的角色；系统自动动作也要标明触发者。</li>
+<li>校验写这次迁移必须满足的条件，优先对应规则库中的硬约束。</li>
+<li>退回、调整、归档等异常路径也要有状态可走，不能只画顺利路径。</li>
+</ol>
+<h2 id="tpl-sec-4">字段</h2>
+<h3 id="tpl-sec-5">对象：__________</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th scope="col">对象</th>
+<th scope="col">状态</th>
+<th scope="col">触发Action</th>
+<th scope="col">迁移后状态</th>
+<th scope="col">写回字段</th>
+<th scope="col">权限</th>
+<th scope="col">校验</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="tpl-sec-6">对象：__________</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th scope="col">对象</th>
+<th scope="col">状态</th>
+<th scope="col">触发Action</th>
+<th scope="col">迁移后状态</th>
+<th scope="col">写回字段</th>
+<th scope="col">权限</th>
+<th scope="col">校验</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="tpl-sec-7">质量门自检（G4）</h2>
+<ul>
+<li>[ ] 每个需要写回的对象都有生命周期，不只画了界面。</li>
+<li>[ ] 状态是名词，Action 是动词，迁移后状态明确。</li>
+<li>[ ] 每次迁移写明写回字段，而不是只弹一个提示。</li>
+<li>[ ] 每个 Action 写明可操作角色，权限边界清楚。</li>
+<li>[ ] 校验条件能对应规则库中的硬约束。</li>
+<li>[ ] 退回、调整、归档等异常路径有状态可走。</li>
+<li>[ ] 对象名称与对象模型完全一致。</li>
+</ul>
+</div>
+<footer class="page-foot">
+<p class="muted">本页由 <code>_tools/build.py</code> 从 Markdown 自动生成，请改源文件而不是改这里。</p>
+</footer>
+</article>
+</main>
+</body>
+</html>

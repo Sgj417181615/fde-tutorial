@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>A04-03 对象模型 · FDE 模板库</title>
+<link rel="stylesheet" href="../../assets/course.css">
+</head>
+<body>
+<a class="skip-link" href="#main">跳到正文</a>
+<main class="main" id="main">
+<article class="article">
+<nav class="crumb" aria-label="面包屑">
+<a href="../../index.html">教程首页</a><span class="sep">/</span>
+<a href="../../appendix-templates.html">模板库</a><span class="sep">/</span>
+<span>空白模板</span>
+</nav>
+<header class="page-head">
+<div class="badges">
+<span class="badge badge-main">A04-03</span>
+<span class="badge">空白模板</span>
+<span class="badge badge-time">Markdown 阅读视图</span>
+</div>
+<h1>A04-03 对象模型</h1>
+<p class="page-question">这是模板的阅读视图，源文件是 <code>04-03_对象模型.md</code>。
+<a href="04-03_对象模型.md">下载 / 编辑 Markdown</a> · <a href="../../appendix-templates.html">返回模板库</a></p>
+</header>
+<div class="prose">
+<blockquote>
+<p>产物路径：<code>04_方案设计/04-03_对象模型.md</code> ｜ 所属阶段：04_方案设计 ｜ 阶段门：G4</p>
+</blockquote>
+<h2 id="tpl-sec-1">用途</h2>
+<p>把业务决策需要的人、事、额度、分配等概念落成对象与关系，作为数据设计、界面设计和写回逻辑的共同语言。对象模型支撑的是决策，不是把源系统表结构照搬一遍。</p>
+<h2 id="tpl-sec-2">何时用</h2>
+<ul>
+<li>决策清单和 FR 初步成型后；</li>
+<li>设计界面字段、数据装载或写回逻辑之前；</li>
+<li>发现同一概念在不同页面叫法不一致时；</li>
+<li>G4 评审时检查数据是否真的支撑得了决策。</li>
+</ul>
+<h2 id="tpl-sec-3">填写说明</h2>
+<ol>
+<li>对象名用“中文名 + 英文名”，全表统一，不用同义词。</li>
+<li>类型只能填 <code>core</code>、<code>derived</code>、<code>use case</code> 三类。</li>
+<li><code>core</code> 是源系统里直接有、粒度对得上的对象；<code>derived</code> 是算出来的；<code>use case</code> 是用户在流程中主动创建或修改的。</li>
+<li>关键属性只写决策要用的字段，不抄整张表。</li>
+<li>关系写对象之间的业务联系；基数写 <code>1:1</code>、<code>1:N</code> 或 <code>N:1</code>，并说明方向。</li>
+<li>来源写系统、表、人工记录或规则计算。</li>
+<li>负责人写维护该对象的角色；未定的标“待确认”，不要空着。</li>
+</ol>
+<h2 id="tpl-sec-4">字段</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th scope="col">对象</th>
+<th scope="col">类型</th>
+<th scope="col">关键属性</th>
+<th scope="col">关系</th>
+<th scope="col">基数</th>
+<th scope="col">来源</th>
+<th scope="col">负责人</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="tpl-sec-5">质量门自检（G4）</h2>
+<ul>
+<li>[ ] 每个对象只出现一次，名称与业务术语表一致。</li>
+<li>[ ] 类型只使用 <code>core</code>、<code>derived</code>、<code>use case</code>，没有第四种。</li>
+<li>[ ] <code>core</code> 对象能在源系统中找到，且粒度与决策一致。</li>
+<li>[ ] <code>derived</code> 对象写明由哪条规则或计算产生。</li>
+<li>[ ] <code>use case</code> 对象写明用户在哪个动作中创建或修改。</li>
+<li>[ ] 关系与基数能支撑决策清单和 FR，不是装饰性画图。</li>
+<li>[ ] 每个对象都有来源与负责人；负责人待定的已明确标注。</li>
+</ul>
+</div>
+<footer class="page-foot">
+<p class="muted">本页由 <code>_tools/build.py</code> 从 Markdown 自动生成，请改源文件而不是改这里。</p>
+</footer>
+</article>
+</main>
+</body>
+</html>

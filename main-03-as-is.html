@@ -1,0 +1,770 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<title>看清今天实际怎么运转 · FDE 零基础教程</title>
+<meta name="description" content="画 As-is 决策流，区分制度流程与真实流程，记录等待、切换、人工判断和例外。">
+<link rel="stylesheet" href="assets/course.css">
+<script>
+(function () {
+  try {
+    var saved = localStorage.getItem('fde-theme');
+    var theme = saved || (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+    document.documentElement.dataset.theme = theme;
+  } catch (e) {}
+})();
+</script>
+</head>
+<body class="track-main page-main-03-as-is">
+<a class="skip-link" href="#main">跳到正文</a>
+
+<header class="topbar">
+  <button class="icon-btn nav-toggle" id="nav-toggle" type="button" aria-expanded="false" aria-controls="sidebar" aria-label="打开课程目录">
+    <span aria-hidden="true">☰</span>
+  </button>
+  <a class="brand" data-same-tab href="index.html"><span class="brand-mark">FDE</span><span class="brand-text">零基础教程</span></a>
+  <nav class="track-switch" aria-label="模块切换"><span class="track-link active" aria-current="true" title="从零建立完整心智模型">主线</span><a class="track-link" data-same-tab href="work-01-prep.html" title="现场查用：输入、步骤、输出、阶段门">工作台</a><a class="track-link" data-same-tab href="day1-00-overview.html" title="六步链路：简报 → 访谈 → 证据 → 底稿 → 门">Day1</a><a class="track-link" data-same-tab href="appendix-methods.html" title="一卡一问，按阶段、产物、角色查">方法库</a><a class="track-link" data-same-tab href="appendix-templates.html" title="模板、产物链、术语与来源">附录</a></nav>
+  <div class="top-actions">
+    <button class="search-open" id="search-open" type="button" aria-haspopup="dialog">
+      <span aria-hidden="true">⌕</span><span class="search-label">搜索</span><kbd>/</kbd>
+    </button>
+    <button class="icon-btn" id="theme-toggle" type="button" aria-label="切换深浅色">◐</button>
+  </div>
+  <div class="read-progress" aria-hidden="true"><span id="read-progress"></span></div>
+</header>
+
+<div class="layout">
+  <aside class="sidebar" id="sidebar">
+    <nav class="course-tree" aria-label="课程目录"><header class="side-head"><p class="side-eyebrow">当前模块</p><p class="side-title">主线</p><p class="side-caption">从零建立完整心智模型</p><p class="side-meta">16 页<span class="dot">·</span>约 4 小时</p></header><section class="nav-group"><p class="nav-group-title"><span class="nav-group-num">01</span>开始</p><a class="nav-link" data-same-tab href="index.html">开始：这份教程怎么用</a></section><section class="nav-group"><p class="nav-group-title"><span class="nav-group-num">02</span>看懂 FDE</p><a class="nav-link" data-same-tab href="main-01-fde.html">FDE 是什么，不是什么</a><a class="nav-link" data-same-tab href="main-02-slicing.html">把“系统”切成可验证的决策</a><a class="nav-link" data-same-tab href="lab-slicing.html">实验室：切三个模糊需求</a></section><section class="nav-group"><p class="nav-group-title"><span class="nav-group-num">03</span>看清现状</p><span class="nav-link nav-current" aria-current="page">看清今天实际怎么运转</span><a class="nav-link" data-same-tab href="main-04-one-pager.html">一页纸对齐范围</a><a class="nav-link" data-same-tab href="case-a-one-pager.html">案例 A：S1 如何被选中</a><a class="nav-link" data-same-tab href="lab-one-pager.html">实验室：20 分钟拼一页纸</a></section><section class="nav-group"><p class="nav-group-title"><span class="nav-group-num">04</span>设计验证</p><a class="nav-link" data-same-tab href="main-05-fr.html">把决策写成一句可验收的 FR</a><a class="nav-link" data-same-tab href="main-06-solution.html">方案设计四件套</a><a class="nav-link" data-same-tab href="case-b-solution.html">案例 B：从一页纸到 Demo</a></section><section class="nav-group"><p class="nav-group-title"><span class="nav-group-num">05</span>跑起来</p><a class="nav-link" data-same-tab href="main-07-gates.html">开始前的五道门</a><a class="nav-link" data-same-tab href="main-08-five-days.html">Day1–5 每天做什么</a><a class="nav-link" data-same-tab href="main-09-adoption.html">从项目到组织能力</a></section><section class="nav-group"><p class="nav-group-title"><span class="nav-group-num">06</span>选读</p><a class="nav-link" data-same-tab href="main-10-patterns.html">五种实施模式<span class="nav-optional">选读</span></a><a class="nav-link" data-same-tab href="main-11-lessons.html">一线八堂课<span class="nav-optional">选读</span></a></section></nav>
+  </aside>
+  <button class="scrim" id="scrim" type="button" aria-label="关闭目录" hidden></button>
+
+  <main class="main" id="main">
+    <nav class="crumb" aria-label="面包屑"><a data-same-tab href="index.html">教程</a><span class="sep">/</span><span>主线</span><span class="sep">/</span><span>看清现状</span><span class="sep">/</span><span aria-current="page">看清今天实际怎么运转</span></nav>
+    <article class="article">
+      <header class="page-head">
+        <div class="badges"><span class="badge badge-main">必读</span><span class="badge badge-time">20 分钟</span></div>
+        <h1>看清今天实际怎么运转</h1>
+        <p class="lede">画 As-is 决策流，区分制度流程与真实流程，记录等待、切换、人工判断和例外。</p>
+        <p class="page-question"><span class="eyebrow">本页要回答</span>今天到底是谁、在什么时候、依据什么、做了什么决定？</p>
+        <div class="page-meta">
+          <section class="meta-block">
+            <h2 class="meta-title" id="meta-objectives">读完你能</h2>
+            <ul class="objective-list"><li>画出排班案例的五步 As-is 流程；</li><li>从访谈与观察中识别四类真实流程细节；</li><li>把每个步骤对应到一个角色、输入、判断和输出。</li></ul>
+          </section>
+          <section class="meta-block">
+            <h2 class="meta-title" id="meta-prereq">前置</h2>
+            <p>先读：<a href="main-02-slicing.html" target="_blank" rel="noopener">把“系统”切成可验证的决策</a></p>
+          </section>
+        </div>
+      </header>
+
+      <div class="prose">
+        <p>周一早上 9:12，你坐在陈静旁边。制度文件写着：额度下发、需求汇总、核对、审批、录入。五步，看起来没有漏洞。</p>
+<p>陈静没打开制度，也没打开排班系统。她打开三个 Excel：“我先对一下哪个是最新的。”9:26，她翻纸质排班本，又看微信群。9:41，她指着王芳那一行：“她这个月只能上 9 天。”10:05，赵岚说：“我们组至少 12 个，不然夜班排不开。”10:22，陈静连打两个电话，改了一版。</p>
+<p>你看到的不是制度，是一条实际走的路。这一页把这条路画出来：<strong>今天到底是谁、在什么时候、依据什么、做了什么决定。</strong></p>
+<h2 id="sec-gap">制度写的那条线，不是今天走的那条线</h2>
+<p>制度文本写的是“应该怎么运转”：职责、节点、审批层级。它通常不写：</p>
+<ul>
+<li>哪个 Excel 才算数；</li>
+<li>可用天数为什么在纸质本和聊天记录里；</li>
+<li>冲突为什么排到一半才发现；</li>
+<li>额度不够时为什么可以先借下月；</li>
+<li>临时调整为什么系统里不一定改。</li>
+</ul>
+<p><a class="case-link" href="case-a-one-pager.html#cb-as-is" target="_blank" rel="noopener">案例 CB-01</a> 和 <a class="case-link" href="work-02-interview.html#cb-observe" target="_blank" rel="noopener">案例 CB-13</a> 放在一起看：</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th scope="col">环节</th>
+<th scope="col">制度文本容易写成</th>
+<th scope="col">CB-01 / CB-13 里实际发生</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>额度下发</td>
+<td>统一时点、统一口径</td>
+<td>微信群 + Excel，至少 3 版并存（O-01）</td>
+</tr>
+<tr>
+<td>需求汇总</td>
+<td>各组按模板填报</td>
+<td>组长口头说，少数群里回一句（O-04）</td>
+</tr>
+<tr>
+<td>核对</td>
+<td>在系统里查可用天数</td>
+<td>纸质本、年假表、门诊表、聊天记录（O-02）</td>
+</tr>
+<tr>
+<td>冲突处理</td>
+<td>系统预警并按规则调整</td>
+<td>发现晚，电话来回改 2–3 轮（O-03、O-05）</td>
+</tr>
+<tr>
+<td>审批录入</td>
+<td>线上审批后自动生效</td>
+<td>签字后录入；临时调整只在微信说（CB-01）</td>
+</tr>
+</tbody>
+</table></div>
+<p>陈静不是不守规矩，她是在用现有工具完成真实决定。制度写理想路径，As-is 写实际的路。</p>
+<div class="checkpoint">
+<p><strong>停一下</strong>：你的流程图有几处是从制度抄的？如果只有“提交”“审批”“归档”，没有具体人名、时间、文件和卡点，画的可能是“应该”。</p>
+</div>
+<h2 id="sec-as-is">As-is 是什么，不是什么</h2>
+<p><span class="term-link" title="As-is：今天实际怎么运转，而不是制度文本上写的流程；要记录等待、切换、人工判断和例外。">As-is（现状）</span> 指的是：今天实际怎么运转，而不是制度文本上写的流程；要记录等待、切换、人工判断和例外。</p>
+<p>它有三个“不是”：</p>
+<ul>
+<li><strong>不是制度流程</strong>：制度是愿望，As-is 是轨迹，允许绕行、补丁和口头约定。</li>
+<li><strong>不是抱怨清单</strong>：每条痛苦挂到步骤、角色和证据上，不能只写“沟通不畅”。</li>
+<li><strong>不是未来方案</strong>：不写“这里应该自动化”，否则会美化现状、漏掉约束。</li>
+</ul>
+<p>把“实际”和“应该”分开：</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th scope="col">问题</th>
+<th scope="col">As-is 的答案</th>
+<th scope="col">“应该”的答案（方案阶段再回答）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>额度从哪来？</td>
+<td>微信群加 Excel，多个版本</td>
+<td>统一额度源</td>
+</tr>
+<tr>
+<td>可用天数依据什么？</td>
+<td>纸质本、年假表、记忆、聊天记录</td>
+<td>人力系统实时数据</td>
+</tr>
+<tr>
+<td>冲突什么时候发现？</td>
+<td>排到一半，靠人看出来</td>
+<td>录入时就校验</td>
+</tr>
+</tbody>
+</table></div>
+<p>左边今天写，右边先别填。<strong>As-is 的价值，是让方案建立在真实约束上，而不是制度文本的想象上。</strong></p>
+<h2 id="sec-four-details">四类细节：等待、切换、人工判断、例外</h2>
+<p>只画步骤，你会得到干净的骨架；真正决定方案难度的是四类细节。<a class="case-link" href="work-02-interview.html#cb-observe" target="_blank" rel="noopener">案例 CB-13</a> 的每条观察都能归类。</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th scope="col">类别</th>
+<th scope="col">CB 里的样子</th>
+<th scope="col">要追问什么</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>等待</strong></td>
+<td>额度每月 20 日左右才发；等组长口头回复；等签字</td>
+<td>等了多久？等的时候做什么？有替代动作吗？</td>
+</tr>
+<tr>
+<td><strong>切换</strong></td>
+<td>三个 Excel、纸质本、微信群、电话（O-01、O-02）</td>
+<td>每次复制了什么？哪个版本是准的？丢了什么？</td>
+</tr>
+<tr>
+<td><strong>人工判断</strong></td>
+<td>凭记忆估算可用天数；“上次谁让过步”（CB-01）</td>
+<td>依据能说出来吗？换个人结果会不同吗？</td>
+</tr>
+<tr>
+<td><strong>例外</strong></td>
+<td>额度不够时借下月或别组；临时调整只在微信说（CB-01）</td>
+<td>多久一次？谁批准？事后怎么补记录？</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>例外最容易被漏掉</strong>：访谈先讲“正常情况”，例外要追问；但系统只支持标准流程，陈静只能继续在微信里打补丁。</p>
+<p>等待和切换也影响决策：信息丢失，判断就推迟。O-03 发现超排时已排到一半，不是算错，是输入太晚。</p>
+<div class="checkpoint">
+<p><strong>停一下</strong>：给你熟悉的流程各写一个例子。如果“例外”写不出来，说明还没跟到真实场景，只听说了标准答案。</p>
+</div>
+<h3 id="sec-four-facts">流程地图要同时装下四类事实</h3>
+<p>四类细节回答“哪里慢、哪里断”。还要加一条轴：同一张图要装下四种事实。<span class="ev-third">【第三方】</span><span class="cite" title="《FDE 入门到精通》（FDE: From Fundamentals to Mastery）">[S15]</span></p>
+<ul>
+<li><strong>正式规则</strong>：制度怎么写。额度按什么口径下发，签字后是否生效。</li>
+<li><strong>系统状态</strong>：系统里留下了什么。排班结果录进去了，临时调整没有。</li>
+<li><strong>组织关系</strong>：谁怕谁、谁能压谁、谁替谁签字。</li>
+<li><strong>经验判断</strong>：老员工脑子里、纸本上、微信群里的规则。</li>
+</ul>
+<p>前两类容易问到，后两类只能靠观察和追问。只画前两类，得到一张<strong>“合规但没用”</strong>的图：每步都对，却解释不了为什么卡住；只画后两类，得到一张<strong>“真实但无法交接”</strong>的图：全是人情和默契，换个人接不住。</p>
+<h2 id="sec-decision-chain">决策链：谁在何时依据什么做什么决定</h2>
+<p>As-is 不能只画成步骤 1→2→3。FDE 关心每一步背后的判断，所以把流程拆成一条<strong>决策链（Decision Chain）</strong>：</p>
+<blockquote>
+<p>角色 → 时点或触发 → 输入 → 判断规则 → 输出或动作</p>
+</blockquote>
+<p>每一步要么是一个决定，要么是决定之后的动作。<span class="term-link" title="Decision：在几个候选方案里选一个并承担后果；查看、了解、导出都不算决策。">决策</span> 的最低门槛是：在几个候选方案里选一个，并承担后果。查看、了解、导出都不算。</p>
+<ul>
+<li><strong>决定</strong>：分多少、分给谁、先改谁。做了之后，资源和结果会不同。</li>
+<li><strong>动作</strong>：发微信、打电话、录入、签字。动作执行决定，本身不产生选择。</li>
+<li><strong>查看</strong>：打开报表、看数字。看完可以什么都不做，所以不构成决策。</li>
+</ul>
+<p><span class="term-link" title="Swimlane Diagram：按角色分泳道、按时点排步骤的流程图，用来画“谁在什么时候做什么”。">泳道图</span> 画交接，决策链画判断。两个一起用，既知道谁交给谁，也知道凭什么。</p>
+<h2 id="sec-five-steps">五步 As-is 流程</h2>
+<p><a class="case-link" href="case-a-one-pager.html#cb-as-is" target="_blank" rel="noopener">案例 CB-01</a> 的五步填进 A03-01：</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th scope="col">步骤</th>
+<th scope="col">角色</th>
+<th scope="col">触发</th>
+<th scope="col">输入</th>
+<th scope="col">判断规则</th>
+<th scope="col">输出</th>
+<th scope="col">耗时</th>
+<th scope="col">痛点</th>
+<th scope="col">证据ID</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1 收额度</td>
+<td>孙老师 → 陈静</td>
+<td>每月 20 日左右</td>
+<td>各亚专科额度、Excel</td>
+<td>按额度口径核对</td>
+<td>微信群 + Excel</td>
+<td>—</td>
+<td>至少 3 版并存</td>
+<td>O-01</td>
+</tr>
+<tr>
+<td>2 收需求</td>
+<td>陈静 → 组长</td>
+<td>额度下发后</td>
+<td>组长口头需求</td>
+<td>说多少记多少</td>
+<td>口头或群消息</td>
+<td>—</td>
+<td>无记录、易漏</td>
+<td>O-04</td>
+</tr>
+<tr>
+<td>3 凭记忆核对</td>
+<td>陈静</td>
+<td>收齐需求后</td>
+<td>排班本、年假表、门诊表、聊天记录</td>
+<td>凭记忆估算可用天数</td>
+<td>纸上草表</td>
+<td>—</td>
+<td>依赖记忆、无单一来源</td>
+<td>O-02</td>
+</tr>
+<tr>
+<td>4 电话协调</td>
+<td>陈静 ↔ 组长</td>
+<td>发现缺口或超排</td>
+<td>草表、额度、可用天数</td>
+<td>上次谁让过步；借下月或别组</td>
+<td>改版方案</td>
+<td>—</td>
+<td>来回改 2–3 轮</td>
+<td>O-03、O-05</td>
+</tr>
+<tr>
+<td>5 审批与录入</td>
+<td>周主任 → 陈静</td>
+<td>方案定稿</td>
+<td>纸质排班结果</td>
+<td>总额度不超、临床不出事</td>
+<td>签字 + 院内系统</td>
+<td>—</td>
+<td>临时调整只在微信</td>
+<td>CB-01</td>
+</tr>
+</tbody>
+</table></div>
+<p>“—”表示未单独记录。CB-01 只给了整件事的耗时：每月约 3 小时、两天内完成、返工 2–3 轮【示例】，没有逐步计时。不编数字，<strong>证据纪律比表格完整重要。</strong></p>
+<ul>
+<li><strong>C1 超排</strong>在步骤 3 才发现（O-03），根因是可用天数分散在纸质本、年假表、聊天记录里：排之前没有一份可信的“本月每人可用几天”。这是<strong>个人容量</strong>问题。</li>
+<li><strong>C2 缺口</strong>在步骤 4 才处理，但短缺在步骤 1 就存在：妇科需求 12 人天、额度 10 人天【示例】。这是<strong>结构性额度</strong>问题。</li>
+</ul>
+<p>两者解法不同：C1 要对齐数据源，C2 要调额度或改需求。混成一句“人手不够”，就会做出一个既不对齐数据、也不解决额度的报表。</p>
+<p>总容量 59 大于需求 56，冲突仍发生：不是总量不够，而是信息和判断没在正确时点相遇。这决定你做报表，还是分配工具。</p>
+<h3 id="sec-swimlane">泳道视图：看谁交给谁、在谁手里停了多久</h3>
+<p>五步表按时间排，看不出交接。把同一批事实按角色摊开，就是泳道视图：</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th scope="col">步骤</th>
+<th scope="col">陈静（排班员）</th>
+<th scope="col">赵岚（组长）</th>
+<th scope="col">周主任（审批）</th>
+<th scope="col">系统/介质</th>
+<th scope="col">等待/切换/判断/例外</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1 收额度（20 日左右）</td>
+<td>收下额度，对版本</td>
+<td>未记录</td>
+<td>未记录</td>
+<td>微信群、Excel</td>
+<td>等额度发放；至少 3 版并存（O-01）</td>
+</tr>
+<tr>
+<td>2 收需求</td>
+<td>逐个问组长</td>
+<td>口头说，少数群里回一句</td>
+<td>未记录</td>
+<td>口头、微信群</td>
+<td>等组长回复；无记录（O-04）</td>
+</tr>
+<tr>
+<td>3 核对可用天数</td>
+<td>翻排班本、年假表、门诊表、聊天记录</td>
+<td>未记录</td>
+<td>未记录</td>
+<td>纸质本、聊天记录</td>
+<td>切换介质；凭记忆判断（O-02）</td>
+</tr>
+<tr>
+<td>4 电话协调（25 日前定稿）</td>
+<td>打电话，改一版</td>
+<td>跟自己的人确认</td>
+<td>未记录</td>
+<td>电话、微信</td>
+<td>等对方确认；来回改 2–3 轮（O-03、O-05）</td>
+</tr>
+<tr>
+<td>5 审批与录入（27 日）</td>
+<td>录入院内排班系统</td>
+<td>未记录</td>
+<td>签字</td>
+<td>纸质、院内排班系统</td>
+<td>等签字；临时调整只在微信说（CB-01）</td>
+</tr>
+</tbody>
+</table></div>
+<p>“未记录”指案例没写，不等于该角色没参与。</p>
+<ul>
+<li><strong>在谁手里停最久</strong>：陈静几乎每格都有动作，另外两人各出现一次。她一请假，流程就停。</li>
+<li><strong>哪一步靠电话/微信补</strong>：第 2、4 步的交接没有系统入口，记录留在聊天里。</li>
+<li><strong>哪一个判断没有系统记录</strong>：可用天数怎么估、“上次谁让过步”怎么平衡，系统里都查不到。</li>
+</ul>
+<h2 id="sec-user-decision-action">用户-决策-动作清单</h2>
+<p>五步按时间排；A03-02 按人排，一个真实决定一行。关键角色如下：</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th scope="col">角色</th>
+<th scope="col">场景</th>
+<th scope="col">决策</th>
+<th scope="col">时点</th>
+<th scope="col">输入</th>
+<th scope="col">动作</th>
+<th scope="col">系统</th>
+<th scope="col">频率</th>
+<th scope="col">证据ID</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>孙老师</td>
+<td>额度下发</td>
+<td>各亚专科额度按什么口径下发</td>
+<td>每月 20 日</td>
+<td>总额度、各亚专科需求</td>
+<td>发群、发 Excel</td>
+<td>微信、Excel</td>
+<td>月</td>
+<td>CB-01</td>
+</tr>
+<tr>
+<td>陈静</td>
+<td>额度分配</td>
+<td>每个亚专科用多少、分给谁</td>
+<td>每月 25 日前</td>
+<td>需求、额度、可用天数</td>
+<td>写草表、录入</td>
+<td>Excel、纸质、院内排班系统</td>
+<td>月</td>
+<td>O-02、O-03</td>
+</tr>
+<tr>
+<td>陈静</td>
+<td>冲突协调</td>
+<td>先改谁、向谁借额度</td>
+<td>发现缺口或超排时</td>
+<td>草表、缺口、超排</td>
+<td>电话协调、改版</td>
+<td>电话、微信</td>
+<td>月</td>
+<td>O-03、O-05</td>
+</tr>
+<tr>
+<td>赵岚</td>
+<td>需求提出</td>
+<td>本组下月需要多少人天</td>
+<td>收到额度通知后</td>
+<td>夜班排班需要</td>
+<td>口头或群里说</td>
+<td>微信</td>
+<td>月</td>
+<td>O-04</td>
+</tr>
+<tr>
+<td>周主任</td>
+<td>审批</td>
+<td>是否签字批准</td>
+<td>方案定稿后</td>
+<td>纸质排班结果</td>
+<td>签字</td>
+<td>纸质、院内排班系统</td>
+<td>月</td>
+<td>CB-01</td>
+</tr>
+</tbody>
+</table></div>
+<p>陈静占两行，因为两个时点做两个决定。<strong>一个决定一行，不要合并成“陈静负责排班”</strong>，否则看不出她哪一步最需要帮助。</p>
+<p>赵岚也不是背景人物：报少了夜班排不开，报多了挤占别组额度。</p>
+<p>每行都能改成“谁在什么界面，依据什么输入，做什么决定，产生什么动作”，这也是写 FR 的原料。</p>
+<div class="checkpoint">
+<p><strong>停一下</strong>：清单只有“业务人员”一行，说明你在按部门写。回到现场，找出真正拍板的人。</p>
+</div>
+<h2 id="sec-observe">现场怎么问、怎么记</h2>
+<p><a class="case-link" href="work-02-interview.html#cb-observe" target="_blank" rel="noopener">案例 CB-13</a> 留下的是可核对的事实（节选三条）：</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th scope="col">观察ID</th>
+<th scope="col">时间</th>
+<th scope="col">角色</th>
+<th scope="col">场景</th>
+<th scope="col">原话或动作</th>
+<th scope="col">卡点</th>
+<th scope="col">初步解释</th>
+<th scope="col">待确认</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>O-01</td>
+<td>09:12</td>
+<td>陈静</td>
+<td>收额度</td>
+<td>打开三个 Excel，说“我先对一下哪个是最新的”</td>
+<td>版本分散</td>
+<td>至少 3 版并存</td>
+<td>是否有唯一权威源</td>
+</tr>
+<tr>
+<td>O-03</td>
+<td>09:41</td>
+<td>陈静</td>
+<td>发现超排</td>
+<td>指着王芳那一行说“她这个月只能上 9 天”</td>
+<td>发现晚</td>
+<td>C1 真实存在</td>
+<td>是否已和本人确认</td>
+</tr>
+<tr>
+<td>O-05</td>
+<td>10:22</td>
+<td>陈静</td>
+<td>电话协调</td>
+<td>连续打两个电话，改了一版</td>
+<td>返工</td>
+<td>协调靠电话</td>
+<td>改版是否留痕</td>
+</tr>
+</tbody>
+</table></div>
+<p>四条记录纪律：</p>
+<ol>
+<li><strong>跟一笔真实业务。</strong> 问“昨天这一笔怎么做的”，比问“你们流程是什么”真实。</li>
+<li><strong>记原话和动作。</strong> “打开三个 Excel”比“核对数据”有用。</li>
+<li><strong>事实、解释、待确认分三栏。</strong> O-01 的事实是打开三个 Excel；解释是至少三版；待确认是哪个是权威源。</li>
+<li><strong>例外单独记。</strong> 借额度、临时改班、微信口头调整，不并进主流程。</li>
+</ol>
+<p>观察前说明目的、取得同意；不记录患者信息。观察是帮对方看清自己怎么工作。</p>
+<h3 id="sec-eight-fields">观察记录的八个字段</h3>
+<p>一条观察写满八个字段，事后才拼得回现场：</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th scope="col">字段</th>
+<th scope="col">一句提醒</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>时间</td>
+<td>几点几分；精确到分钟，才看得出等了多久</td>
+</tr>
+<tr>
+<td>地点</td>
+<td>工位、会议室、走廊；同一个人换个地方，做法可能不同</td>
+</tr>
+<tr>
+<td>角色</td>
+<td>岗位加人名，不写“业务人员”</td>
+</tr>
+<tr>
+<td>触发事件</td>
+<td>什么让他开始这一步；邮件、电话、一句催促都算</td>
+</tr>
+<tr>
+<td>输入</td>
+<td>打开了什么、问了谁；文件名和版本号比“相关数据”有用</td>
+</tr>
+<tr>
+<td>动作</td>
+<td>点、抄、打电话；不写“处理”</td>
+</tr>
+<tr>
+<td>使用的系统/介质</td>
+<td>屏幕、Excel、纸、微信；切换发生在哪，方案就要接到哪</td>
+</tr>
+<tr>
+<td>输出与等待</td>
+<td>交出了什么、接下来等谁；交接点和等待时长是关键</td>
+</tr>
+</tbody>
+</table></div>
+<p>八栏缺一栏，事后补一次现场，成本远高于当时多写一行。不要删掉“绕行”和“失败”，那正是流程真实运行的地方。</p>
+<h2 id="sec-artifacts">产出：A03-01 与 A03-02</h2>
+<p>两个文件，一个按流程，一个按人。</p>
+<div class="template-block">
+<div class="template-title">A03-01 As-is 决策流 <span>可直接复制</span></div>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th scope="col">步骤</th>
+<th scope="col">角色</th>
+<th scope="col">触发</th>
+<th scope="col">输入</th>
+<th scope="col">判断规则</th>
+<th scope="col">输出</th>
+<th scope="col">耗时</th>
+<th scope="col">痛点</th>
+<th scope="col">证据ID</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<p>文件路径：<code>03_现状与切片/03-01_As-is决策流.md</code>。</p>
+<div class="template-block">
+<div class="template-title">A03-02 用户-决策-动作清单 <span>可直接复制</span></div>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th scope="col">角色</th>
+<th scope="col">场景</th>
+<th scope="col">决策</th>
+<th scope="col">时点</th>
+<th scope="col">输入</th>
+<th scope="col">动作</th>
+<th scope="col">系统</th>
+<th scope="col">频率</th>
+<th scope="col">证据ID</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<p>文件路径：<code>03_现状与切片/03-02_用户-决策-动作清单.md</code>。</p>
+<p>填的时候守住三条：</p>
+<ul>
+<li><strong>每行有证据 ID</strong>；没有就写“待确认”，补负责人和日期。</li>
+<li><strong>耗时不知道写“未单独记录”</strong>；编数字会变成假基线。</li>
+<li><strong>决策和动作分列，例外单独一行</strong>；两个文件互相校验，A03-01 的角色都应出现在 A03-02。</li>
+</ul>
+<p>这两份产物是 G3 的输入。一页纸、FR 和对象模型，都从这里取角色、时点和规则。<span class="cite" title="FDE 方法论沉淀">[S17]</span> <span class="cite" title="医院排班场景映射">[S19]</span> <span class="cite" title="FDE 实施手册 v1（9 章整合读本）">[S20]</span></p>
+<div class="hands-on">
+<p><strong>动手 40 分钟</strong>：选一个熟悉的流程，跟一笔真实业务走完。</p>
+<ol>
+<li>先跟人，不先看制度。记录至少 5 个时点：谁、在哪里、做了什么、说了什么。</li>
+<li>填 A03-01 的九个字段；再填 A03-02，每个决定一行。</li>
+<li>标出至少 3 个待确认项，写负责人和日期。</li>
+</ol>
+<p><strong>三条自检</strong>：</p>
+<ul>
+<li>每一步都有角色、时点和输入，而不是只有“汇总”“核对”“审批”？</li>
+<li>你能指出一个例外，以及它靠什么留痕？</li>
+<li>有没有哪一行写的是“查看”，却被当成了决策？</li>
+</ul>
+<p><strong>参考答案</strong>：见上面的五步表和用户-决策-动作清单。重点看：耗时写“未单独记录”；陈静拆成“分额度”和“协调冲突”两行。</p>
+</div>
+<h2 id="sec-pitfalls">常见坑</h2>
+<div class="pitfalls">
+<p><strong>坑 1：把制度当 As-is。</strong>
+表现：流程图画得整齐，却说不出昨天实际发生了什么。
+处理：跟一笔真实业务，用时间、原话、文件名把步骤钉住。</p>
+<p><strong>坑 2：把动作当决策。</strong>
+表现：清单写“录入系统”“发送微信”，数了一堆动作，找不到要支持的判断。
+处理：问每行“他在几个方案里选了一个？”选不出来就是动作或查看。</p>
+<p><strong>坑 3：只画主干，丢掉例外。</strong>
+表现：借额度、临时改班都不写，例外继续在系统外运行。
+处理：问“最近一次不走正常流程是什么时候”，单独记录。</p>
+<p><strong>坑 4：记录写成形容词。</strong>
+表现：“沟通效率低”“数据不准确”，无法验证，也无法变成需求。
+处理：改成可核对的事实：谁在几点打开哪几个文件、说了什么、改了几版。</p>
+</div>
+<div class="self-test">
+<p><strong>三问自测</strong></p>
+<details>
+<summary>1. As-is 和“应该怎么运转”的区别是什么？</summary>
+
+As-is 记录今天实际发生的事：谁在何时、用什么输入、依据什么规则、做了什么决定，包括等待、切换、人工判断和例外。“应该怎么运转”属于制度或方案，混在一起会美化现状。
+
+</details>
+<details>
+<summary>2. 四类真实流程细节是哪四类？各举一个 CB-13 的例子。</summary>
+
+等待、切换、人工判断、例外。等待如额度每月 20 日左右才发；切换如在三个 Excel、纸质本和微信间搬信息；人工判断如凭记忆估算可用天数；例外如借下月或别组额度。
+
+</details>
+<details>
+<summary>3. 为什么 A03-02 要“一个决定一行”，不能按角色合并？</summary>
+
+因为同一个人在不同时点做不同决定，输入、动作和痛点都不同。合并成“陈静负责排班”，就看不出她先分额度、再协调冲突。
+
+</details>
+</div>
+<div class="recap">
+<p><strong>本章带走</strong></p>
+<ol>
+<li>As-is 记录“今天实际怎么运转”，不是制度或未来方案；等待、切换、人工判断、例外都要写。</li>
+<li>决策链是“角色 → 时点 → 输入 → 判断规则 → 输出或动作”；决定、动作、查看要分开。</li>
+<li>A03-01 按流程画，A03-02 按人、按决定列；每行有证据，耗时不知道就写“未单独记录”。</li>
+</ol>
+</div>
+      </div>
+
+      <section class="term-cards" aria-label="本页术语卡"><p class="eyebrow">本页术语</p><div class="term-grid"><article class="term-card" id="term-swimlane"><h3 id="term-title-swimlane">泳道图 <span class="term-en">Swimlane Diagram</span></h3><p>按角色分泳道、按时点排步骤的流程图，用来画“谁在什么时候做什么”。</p></article><article class="term-card" id="term-decision"><h3 id="term-title-decision">决策 <span class="term-en">Decision</span></h3><p>在几个候选方案里选一个并承担后果；查看、了解、导出都不算决策。</p></article><article class="term-card" id="term-as-is"><h3 id="term-title-as-is">As-is（现状） <span class="term-en">As-is</span></h3><p>今天实际怎么运转，而不是制度文本上写的流程；要记录等待、切换、人工判断和例外。</p></article></div></section>
+      <section class="artifact-box" aria-label="本页产物"><div class="artifact-block"><h3 id="artifacts-out">本页要写出的产物</h3><ul><li><code>A03-01</code> As-is决策流 <span class="muted">→ 03_现状与切片/03-01_As-is决策流.md</span> <span class="gate-tag">G3</span> <a href="templates/blank/03-01_As-is决策流.html" data-template-view data-template-title="A03-01 As-is决策流模板" title="A03-01 As-is决策流模板 ｜ 当前页弹窗预览">模板</a> <a href="templates/golden/03-01_As-is决策流_排班案例.html" data-template-view data-template-title="A03-01 As-is决策流黄金样例" title="A03-01 As-is决策流黄金样例 ｜ 当前页弹窗预览">黄金样例</a></li><li><code>A03-02</code> 用户-决策-动作清单 <span class="muted">→ 03_现状与切片/03-02_用户-决策-动作清单.md</span> <span class="gate-tag">G3</span> <a href="templates/blank/03-02_用户-决策-动作清单.html" data-template-view data-template-title="A03-02 用户-决策-动作清单模板" title="A03-02 用户-决策-动作清单模板 ｜ 当前页弹窗预览">模板</a> <a href="templates/golden/03-02_用户-决策-动作清单_排班案例.html" data-template-view data-template-title="A03-02 用户-决策-动作清单黄金样例" title="A03-02 用户-决策-动作清单黄金样例 ｜ 当前页弹窗预览">黄金样例</a></li></ul></div><div class="artifact-block"><h3 id="artifacts-in">开始前应已具备</h3><p class="muted"><code>A02-01</code> 现场观察记录、<code>A02-04</code> 证据台账</p></div></section>
+      <section class="sources" aria-label="来源"><h2 id="sec-sources">来源与证据等级</h2><ol class="source-list"><li><span class="src-id">S01</span> <strong>Use case lifecycle · Overview</strong> <span class="badge badge-官方">官方</span><div class="muted">Palantir Technologies · 抓取 2026-10-19 · 版权归 Palantir Technologies；仅内部研究，不对外分发原文</div><div class="src-url"><a href="https://www.palantir.com/docs/foundry/use-case-life-cycle/overview/" rel="noreferrer" target="_blank">https://www.palantir.com/docs/foundry/use-case-life-cycle/overview/</a></div></li><li><span class="src-id">S17</span> <strong>FDE 方法论沉淀</strong> <span class="badge badge-实践">实践</span><div class="muted">本子项目 · 抓取 2026-09-23 · 内部方法沉淀</div><div class="src-url"><span class="muted">无公开链接</span></div></li><li><span class="src-id">S19</span> <strong>医院排班场景映射</strong> <span class="badge badge-实践">实践</span><div class="muted">本子项目 · 抓取 2026-10-19 · 内部方法沉淀；案例已匿名化</div><div class="src-url"><span class="muted">无公开链接</span></div></li><li><span class="src-id">S20</span> <strong>FDE 实施手册 v1（9 章整合读本）</strong> <span class="badge badge-实践">实践</span><div class="muted">本子项目 · 抓取 2026-10-19 · 内部方法沉淀；官方事实另注出处</div><div class="src-url"><span class="muted">无公开链接</span></div></li><li><span class="src-id">S15</span> <strong>《FDE 入门到精通》（FDE: From Fundamentals to Mastery）</strong> <span class="badge badge-第三方">第三方</span><div class="muted">高飞 / feigaobox10 · 抓取 2026-10-19 · CC BY-NC-SA 4.0；非官方，未获讲者或公司背书</div><div class="src-url"><a href="https://github.com/feigaobox10/fde-reader" rel="noreferrer" target="_blank">https://github.com/feigaobox10/fde-reader</a></div></li></ol></section>
+      <nav class="pager" aria-label="翻页"><a class="pager-prev" data-same-tab href="lab-slicing.html"><span>上一页</span><strong>实验室：切三个模糊需求</strong></a><a class="pager-next" data-same-tab href="main-04-one-pager.html"><span>下一页</span><strong>一页纸对齐范围</strong></a></nav>
+
+      <footer class="page-foot">
+        <p>本教程为内部方法研究。案例已匿名化，数字标注【示例】。Palantir 官方资料版权归 Palantir Technologies，仅作改写与链接。</p>
+        <p class="muted">发现断链或事实错误？回到 <a href="appendix-sources.html" target="_blank" rel="noopener">来源与版权</a> 核对出处。</p>
+      </footer>
+    </article>
+  </main>
+
+  <aside class="toc" id="toc" aria-label="页内目录">
+    <p class="toc-title">本页目录</p><ol class="toc-list"><li class="toc-h2"><a href="#sec-gap">制度写的那条线，不是今天走的那条线</a></li><li class="toc-h2"><a href="#sec-as-is">As-is 是什么，不是什么</a></li><li class="toc-h2"><a href="#sec-four-details">四类细节：等待、切换、人工判断、例外</a><ul class="toc-sub"><li class="toc-h3"><a href="#sec-four-facts">流程地图要同时装下四类事实</a></li></ul></li><li class="toc-h2"><a href="#sec-decision-chain">决策链：谁在何时依据什么做什么决定</a></li><li class="toc-h2"><a href="#sec-five-steps">五步 As-is 流程</a><ul class="toc-sub"><li class="toc-h3"><a href="#sec-swimlane">泳道视图：看谁交给谁、在谁手里停了多久</a></li></ul></li><li class="toc-h2"><a href="#sec-user-decision-action">用户-决策-动作清单</a></li><li class="toc-h2"><a href="#sec-observe">现场怎么问、怎么记</a><ul class="toc-sub"><li class="toc-h3"><a href="#sec-eight-fields">观察记录的八个字段</a></li></ul></li><li class="toc-h2"><a href="#sec-artifacts">产出：A03-01 与 A03-02</a></li><li class="toc-h2"><a href="#sec-pitfalls">常见坑</a></li></ol>
+  </aside>
+</div>
+
+<div class="tpl-modal" id="tpl-modal" hidden>
+  <div class="tpl-panel" role="dialog" aria-modal="true" aria-labelledby="tpl-title">
+    <header class="tpl-head">
+      <div class="tpl-heading">
+        <p class="tpl-kicker">模板阅读视图</p>
+        <h2 id="tpl-title">模板</h2>
+      </div>
+      <div class="tpl-actions">
+        <a class="tpl-open" id="tpl-open" href="#" target="_blank" rel="noopener">在新标签打开 ↗</a>
+        <button class="icon-btn" id="tpl-close" type="button" aria-label="关闭模板">✕</button>
+      </div>
+    </header>
+    <div class="tpl-body">
+      <iframe id="tpl-frame" title="模板内容" loading="lazy"></iframe>
+    </div>
+  </div>
+</div>
+
+<div class="search-modal" id="search-modal" hidden>
+  <div class="search-panel" role="dialog" aria-modal="true" aria-labelledby="search-title">
+    <div class="search-head">
+      <label id="search-title" class="sr-only" for="search-input">搜索教程</label>
+      <input id="search-input" type="search" placeholder="搜索概念、产物、模板、方法卡…" autocomplete="off">
+      <button class="icon-btn" id="search-close" type="button" aria-label="关闭搜索">✕</button>
+    </div>
+    <div id="search-results" class="search-results" aria-live="polite"></div>
+    <p class="search-hint">按 <kbd>/</kbd> 或 <kbd>Ctrl</kbd>+<kbd>K</kbd> 打开，<kbd>Esc</kbd> 关闭。索引完全离线。</p>
+  </div>
+</div>
+
+<noscript><p class="noscript-note">搜索与阅读进度需要 JavaScript；正文、目录和翻页仍可正常使用。可用浏览器查找（Ctrl+F）。</p></noscript>
+
+<script src="assets/search-index.js"></script>
+<script src="assets/viz-data.js"></script>
+<script src="assets/app.js"></script>
+<script src="assets/viz.js"></script>
+
+</body>
+</html>

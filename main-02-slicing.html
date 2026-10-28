@@ -1,0 +1,562 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<title>把“系统”切成可验证的决策 · FDE 零基础教程</title>
+<meta name="description" content="从 use case 到最薄切片，用排班案例演示四个候选如何比较和选中。">
+<link rel="stylesheet" href="assets/course.css">
+<script>
+(function () {
+  try {
+    var saved = localStorage.getItem('fde-theme');
+    var theme = saved || (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+    document.documentElement.dataset.theme = theme;
+  } catch (e) {}
+})();
+</script>
+</head>
+<body class="track-main page-main-02-slicing">
+<a class="skip-link" href="#main">跳到正文</a>
+
+<header class="topbar">
+  <button class="icon-btn nav-toggle" id="nav-toggle" type="button" aria-expanded="false" aria-controls="sidebar" aria-label="打开课程目录">
+    <span aria-hidden="true">☰</span>
+  </button>
+  <a class="brand" data-same-tab href="index.html"><span class="brand-mark">FDE</span><span class="brand-text">零基础教程</span></a>
+  <nav class="track-switch" aria-label="模块切换"><span class="track-link active" aria-current="true" title="从零建立完整心智模型">主线</span><a class="track-link" data-same-tab href="work-01-prep.html" title="现场查用：输入、步骤、输出、阶段门">工作台</a><a class="track-link" data-same-tab href="day1-00-overview.html" title="六步链路：简报 → 访谈 → 证据 → 底稿 → 门">Day1</a><a class="track-link" data-same-tab href="appendix-methods.html" title="一卡一问，按阶段、产物、角色查">方法库</a><a class="track-link" data-same-tab href="appendix-templates.html" title="模板、产物链、术语与来源">附录</a></nav>
+  <div class="top-actions">
+    <button class="search-open" id="search-open" type="button" aria-haspopup="dialog">
+      <span aria-hidden="true">⌕</span><span class="search-label">搜索</span><kbd>/</kbd>
+    </button>
+    <button class="icon-btn" id="theme-toggle" type="button" aria-label="切换深浅色">◐</button>
+  </div>
+  <div class="read-progress" aria-hidden="true"><span id="read-progress"></span></div>
+</header>
+
+<div class="layout">
+  <aside class="sidebar" id="sidebar">
+    <nav class="course-tree" aria-label="课程目录"><header class="side-head"><p class="side-eyebrow">当前模块</p><p class="side-title">主线</p><p class="side-caption">从零建立完整心智模型</p><p class="side-meta">16 页<span class="dot">·</span>约 4 小时</p></header><section class="nav-group"><p class="nav-group-title"><span class="nav-group-num">01</span>开始</p><a class="nav-link" data-same-tab href="index.html">开始：这份教程怎么用</a></section><section class="nav-group"><p class="nav-group-title"><span class="nav-group-num">02</span>看懂 FDE</p><a class="nav-link" data-same-tab href="main-01-fde.html">FDE 是什么，不是什么</a><span class="nav-link nav-current" aria-current="page">把“系统”切成可验证的决策</span><a class="nav-link" data-same-tab href="lab-slicing.html">实验室：切三个模糊需求</a></section><section class="nav-group"><p class="nav-group-title"><span class="nav-group-num">03</span>看清现状</p><a class="nav-link" data-same-tab href="main-03-as-is.html">看清今天实际怎么运转</a><a class="nav-link" data-same-tab href="main-04-one-pager.html">一页纸对齐范围</a><a class="nav-link" data-same-tab href="case-a-one-pager.html">案例 A：S1 如何被选中</a><a class="nav-link" data-same-tab href="lab-one-pager.html">实验室：20 分钟拼一页纸</a></section><section class="nav-group"><p class="nav-group-title"><span class="nav-group-num">04</span>设计验证</p><a class="nav-link" data-same-tab href="main-05-fr.html">把决策写成一句可验收的 FR</a><a class="nav-link" data-same-tab href="main-06-solution.html">方案设计四件套</a><a class="nav-link" data-same-tab href="case-b-solution.html">案例 B：从一页纸到 Demo</a></section><section class="nav-group"><p class="nav-group-title"><span class="nav-group-num">05</span>跑起来</p><a class="nav-link" data-same-tab href="main-07-gates.html">开始前的五道门</a><a class="nav-link" data-same-tab href="main-08-five-days.html">Day1–5 每天做什么</a><a class="nav-link" data-same-tab href="main-09-adoption.html">从项目到组织能力</a></section><section class="nav-group"><p class="nav-group-title"><span class="nav-group-num">06</span>选读</p><a class="nav-link" data-same-tab href="main-10-patterns.html">五种实施模式<span class="nav-optional">选读</span></a><a class="nav-link" data-same-tab href="main-11-lessons.html">一线八堂课<span class="nav-optional">选读</span></a></section></nav>
+  </aside>
+  <button class="scrim" id="scrim" type="button" aria-label="关闭目录" hidden></button>
+
+  <main class="main" id="main">
+    <nav class="crumb" aria-label="面包屑"><a data-same-tab href="index.html">教程</a><span class="sep">/</span><span>主线</span><span class="sep">/</span><span>看懂 FDE</span><span class="sep">/</span><span aria-current="page">把“系统”切成可验证的决策</span></nav>
+    <article class="article">
+      <header class="page-head">
+        <div class="badges"><span class="badge badge-main">必读</span><span class="badge badge-time">18 分钟</span></div>
+        <h1>把“系统”切成可验证的决策</h1>
+        <p class="lede">从 use case 到最薄切片，用排班案例演示四个候选如何比较和选中。</p>
+        <p class="page-question"><span class="eyebrow">本页要回答</span>怎样把“给我做一个系统”改写成五天内能验证的一个决策？</p>
+        <div class="page-meta">
+          <section class="meta-block">
+            <h2 class="meta-title" id="meta-objectives">读完你能</h2>
+            <ul class="objective-list"><li>判断一个需求是不是 use case；</li><li>把模糊需求拆成三个以上候选切片；</li><li>用价值、可行性、证据、风险选出最薄切片。</li></ul>
+          </section>
+          <section class="meta-block">
+            <h2 class="meta-title" id="meta-prereq">前置</h2>
+            <p>先读：<a href="main-01-fde.html" target="_blank" rel="noopener">FDE 是什么，不是什么</a></p>
+          </section>
+        </div>
+      </header>
+
+      <div class="prose">
+        <p>周主任在需求会上说：“给我们科做一个排班系统，最好手机上也能看。”</p>
+<p>你回到工位，画了三层架构，列了二十个功能。第五天演示时，周主任问：“所以陈静这个月到底怎么分额度？”你发现，自己做了很多页面，却没有一个能回答这句话。</p>
+<p>问题不在你做得少，而在起点太大。“做一个系统”是容器，里面装着几十个决定；五天只能验证一个。这一页把容器切开：认出 <span class="term-link" title="Use Case：由专职团队在限定时间内、为一组明确用户交付新能力的一次努力；它不是“接一个系统”或“上一个算法”。">Use Case（用例）</span>，拆成切片，再选出最薄的一片。<span class="cite" title="FDE 方法论沉淀">[S17]</span></p>
+<h2 id="sec-gap">先问：谁在什么时候决定什么</h2>
+<p>把“做一个排班系统”翻译成可验证的问题，只需要问三句：</p>
+<ol>
+<li><strong>谁</strong>会坐在屏幕前用它？</li>
+<li>他在<strong>哪个时点</strong>必须做一个什么决定？</li>
+<li>做完之后，<strong>哪个动作</strong>会发生变化？</li>
+</ol>
+<p>用 <a class="case-link" href="case-a-one-pager.html#cb-scene" target="_blank" rel="noopener">案例 CB-00</a> 回答：</p>
+<ul>
+<li>是陈静，不是“病理科”；</li>
+<li>是每月 25 日前，不是“随时”；</li>
+<li>是决定每个亚专科用多少额度、分给谁，不是“查看排班”；</li>
+<li>是把结果写回排班表并提交赵岚确认、周主任审批，不是“导出 Excel”。</li>
+</ul>
+<p>这四句能对上，你才有能演示、能被业务方判断对错的东西。对不上，通常不是需求不细，而是还没切。</p>
+<div class="checkpoint">
+<p><strong>停一下</strong>：用三问写一句“谁在什么时候决定什么”。如果写成“业务部门需要及时掌握情况”，退回去重写：具体是谁？及时是几点？掌握后做什么动作？</p>
+</div>
+<h2 id="sec-scoping">先做范围分诊，再切候选</h2>
+<p>切片是从“做什么”里选；分诊是先问“这件事现在该不该做”。顺序反了，你会把一整晚花在一个不该做的需求上。</p>
+<p><span class="term-link" title="Scoping：在估工期之前先判断这个请求值不值得做：谁真的用、为什么现在、有没有替代、会挤掉什么，并主动删掉无关实现。">范围界定</span>发生在估工期之前。拿到一个请求，先过六个问题：</p>
+<ol>
+<li><strong>为什么现在？</strong> 是什么让它非这个季度不可？</li>
+<li><strong>不做会怎样？</strong> 拖一个季度呢？</li>
+<li><strong>真实用户有多少？</strong> 是一个人、一个组，还是“全公司以后可能都用”？</li>
+<li><strong>今天手工替代的成本是什么？</strong> 能不能先手工撑过试点？</li>
+<li><strong>客户技术团队能承担什么？</strong> 哪些该他们做？</li>
+<li><strong>它会挤掉队列里的哪一项？</strong> 这笔承诺值得换掉什么？</li>
+</ol>
+<p>“销售的紧急”不等于“客户的紧急”。前者是季度末的额度，后者是业务真的停下来。每一次对客户说“可以”，都会进入代码库、发布流程和支持队列；代价不是免费的，只是账单晚一点到。</p>
+<p>有个很典型的例子【讲者自述】：客户要“移动端”，团队按“完整产品”把 iOS 和 Android 都做了，几名工程师连轴转几周。做完去要 Android 测试名单，才知道客户的设备管理政策只允许 iOS——Android 用户从第一天起就不存在。需求里少的那个限定词，决定了工作量翻倍。</p>
+<p>所以分诊的输出不是“做/不做”两个字，而是三句话：<strong>这一轮只验证哪一个决定、明确不做什么、什么条件下停。</strong> 这三句写不出来，说明你还在按“完整产品”补全一个没问清的请求。</p>
+<h2 id="sec-use-case">Use case：一次有边界的交付</h2>
+<p><span class="term-link" title="Use Case：由专职团队在限定时间内、为一组明确用户交付新能力的一次努力；它不是“接一个系统”或“上一个算法”。">Use Case（用例）</span> 指的是：由专职团队在限定时间内、为一组明确用户交付新能力的一次努力。它不是一个软件，也不是一个算法，而是一次有开始、有结束、有验收的交付。</p>
+<p>四个要素缺一不可：</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th scope="col">要素</th>
+<th scope="col">要回答的问题</th>
+<th scope="col">排班案例里的答案</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>专职团队</td>
+<td>谁对这次交付负责？</td>
+<td>一个能写代码、能问业务、能盯采用的小组</td>
+</tr>
+<tr>
+<td>限定时间</td>
+<td>多久必须给出结果？</td>
+<td>五天的验证窗口</td>
+</tr>
+<tr>
+<td>明确用户</td>
+<td>谁的行为要改变？</td>
+<td>陈静，以及签字确认的周主任</td>
+</tr>
+<tr>
+<td>新能力</td>
+<td>用户能做成什么以前做不成的事？</td>
+<td>在月底前把额度分到人，并留下可核对的结果</td>
+</tr>
+</tbody>
+</table></div>
+<p>官方把 use case 当作有生命周期的交付单元：先定义用例和价值，再进入建设与采用。<span class="cite" title="Use case lifecycle · Overview">[S01]</span> 它问“谁的能力变了”，不是“软件装在哪”。</p>
+<p>判别法很简单：<strong>把系统名删掉，看还剩不剩一个用户、一个时点、一个决定。</strong> “给病理科做排班系统”删掉“系统”就什么都不剩；“让陈静在月底前把额度分到人”仍然成立。后者才是 use case。</p>
+<h3 id="sec-use-case-roles">一个 use case 涉及的七种角色</h3>
+<p>一个 use case 不是“一个 FDE 加一个客户联系人”。它牵涉七种职责；小团队可一人兼多角，但每项职责得有人认领：</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th scope="col">角色</th>
+<th scope="col">管什么</th>
+<th scope="col">一句话</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Domain lead</td>
+<td>某个业务域的 ROI，参与用例优先级决策</td>
+<td>出钱、背指标的人</td>
+</tr>
+<tr>
+<td>Workstream lead</td>
+<td>复用相邻用例的能力与分析</td>
+<td>规模化之后才需要</td>
+</tr>
+<tr>
+<td>Use case lead</td>
+<td>这次交付的 ROI、执行、采纳、权限、协调</td>
+<td>保证事情发生的人</td>
+</tr>
+<tr>
+<td>Product owner</td>
+<td>产品路线图与功能落地，对进度和结果负责</td>
+<td>需求与交付的接口</td>
+</tr>
+<tr>
+<td>SME（业务专家）</td>
+<td>提供业务规则与现状知识，多是旧系统重度用户</td>
+<td>最懂“今天怎么做”的人</td>
+</tr>
+<tr>
+<td>Developer</td>
+<td>数据、工程、应用的实际开发</td>
+<td>干活的人</td>
+</tr>
+<tr>
+<td>End user</td>
+<td>在日常工作里完成真实决策</td>
+<td>验收的唯一标准</td>
+</tr>
+</tbody>
+</table></div>
+<p>早期最常缺的不是 developer，而是 <strong>Domain lead 和 SME</strong>：写代码的人到了，能拍板的人和懂规则的人没到。结果就是开发很快、决策很慢，做出来的东西没人敢用。</p>
+<h2 id="sec-slice">切片：一个用例里，先做哪一个决定</h2>
+<p>用例仍然太大：一个“额度分配”里还藏着人怎么排、住院总怎么轮、报表怎么出。继续往下切，得到切片（Slice）：一个可独立选择、独立交付、独立验收的决策单元。</p>
+<ul>
+<li><strong>独立选择</strong>：能和其他切片放一张表里比较，不是“都要”；</li>
+<li><strong>独立交付</strong>：自己能走完输入、判断、动作，不靠别人先上线；</li>
+<li><strong>独立验收</strong>：业务方能看着一次真实操作说“对”或“不对”。</li>
+</ul>
+<p>一个切片只包含<strong>一个最终决策</strong>。<a class="case-link" href="case-a-one-pager.html#cb-slices" target="_blank" rel="noopener">案例 CB-02</a> 把排班场景切成四个候选：</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th scope="col">切片</th>
+<th scope="col">一句话</th>
+<th scope="col">最终决策</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>S1 外部人员额度分配</td>
+<td>把月度额度分到亚专科并落到人</td>
+<td>本月每个亚专科用多少、分给谁</td>
+</tr>
+<tr>
+<td>S2 个人排班与换班</td>
+<td>把已分配的人排到具体日期与班型</td>
+<td>某天某班谁上</td>
+</tr>
+<tr>
+<td>S3 住院总轮转</td>
+<td>住院总医师的轮转与替班</td>
+<td>下月谁做住院总</td>
+</tr>
+<tr>
+<td>S4 报表与统计</td>
+<td>自动生成月度工时与额度报表</td>
+<td>无（查看为主）</td>
+</tr>
+</tbody>
+</table></div>
+<p>注意 S4：它最容易做、最像“系统”，却没有最终决策。<strong>查看、导出都不算决策</strong>，S4 因此过不了 <a class="term-link" href="main-03-as-is.html#term-decision" title="Decision：在几个候选方案里选一个并承担后果；查看、了解、导出都不算决策。" target="_blank" rel="noopener">决策</a> 的门槛。</p>
+<p>切片不是功能模块：模块按技术分（登录、权限、报表），切片按决定分（分额度、排人、轮转）。一个模块可能服务十个决定，却一个都没端到端跑通。</p>
+<h2 id="sec-thin-slice">最薄切片：最短的端到端路径</h2>
+<p><span class="term-link" title="Thin Slice：一条最短的端到端路径：用真实数据，让真实用户完成一次真实决策，并留下可观察的结果。">Thin Slice（最薄切片）</span> 是：用真实数据，让真实用户完成一次真实决策，并留下可观察的结果。</p>
+<p>它必须同时满足四条：</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th scope="col">条件</th>
+<th scope="col">不合格的样子</th>
+<th scope="col">合格的样子（S1）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>真实数据</td>
+<td>用编好的三行样例</td>
+<td>用本月额度、需求、可用天数</td>
+</tr>
+<tr>
+<td>真实用户</td>
+<td>你自己点一遍</td>
+<td>陈静自己操作，你在旁边看</td>
+</tr>
+<tr>
+<td>一次真实决策</td>
+<td>页面能打开、数据能显示</td>
+<td>陈静决定每个亚专科分多少、分给谁</td>
+</tr>
+<tr>
+<td>可观察结果</td>
+<td>“她说还不错”</td>
+<td>结果写回，赵岚确认、周主任审批，或她当场指出哪一行不对</td>
+</tr>
+</tbody>
+</table></div>
+<p>“薄”是范围窄，不是质量低，也不是只做后台。薄切片必须端到端：有输入、有判断、有动作、有写回；只做数据清洗、登录页或静态报表，都不算。</p>
+<div class="checkpoint">
+<p><strong>停一下</strong>：你的方案能不能指出“输入从哪来、谁在哪一屏做什么决定、决定写回哪里”？缺一样，做的就不是薄切片，而是某个技术层。</p>
+</div>
+<h2 id="sec-score">四个候选怎么打分</h2>
+<p>不要凭“哪个听起来最酷”选。<a class="case-link" href="case-a-one-pager.html#cb-slices" target="_blank" rel="noopener">案例 CB-02</a> 用四个维度，每项 1–3 分：</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th scope="col">维度</th>
+<th scope="col">3 分</th>
+<th scope="col">1 分</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>价值</td>
+<td>直接改变每月关键决策</td>
+<td>只让查看更方便</td>
+</tr>
+<tr>
+<td>可行性</td>
+<td>五天内的技术和数据都有把握</td>
+<td>关键数据拿不到、权限没着落</td>
+</tr>
+<tr>
+<td>证据强度</td>
+<td>有观察、有原话、有数据</td>
+<td>只有一句“应该有这个需求”</td>
+</tr>
+<tr>
+<td>风险</td>
+<td>出错影响临床、依赖多个系统</td>
+<td>出错代价低、依赖少</td>
+</tr>
+</tbody>
+</table></div>
+<p>风险这一栏写的是<strong>危险程度</strong>：3 分最危险，1 分最安全，方向和其他三项相反。它<strong>不加进总分</strong>，总分只加前三项；风险单独看，避免一个会伤到临床的切片靠其他三项高分把风险平均掉。总分只用于比较；<strong>先过硬门槛，再看总分</strong>：有最终决策；五天内能端到端跑通。</p>
+<p>把 CB-02 的定性判断落成一张可抄的表（分值是根据“高/中/低”映射的【示例】，不是唯一答案；计算口径是价值 + 可行性 + 证据强度）：</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th scope="col">切片</th>
+<th scope="col">决策</th>
+<th scope="col">价值</th>
+<th scope="col">可行性</th>
+<th scope="col">证据强度</th>
+<th scope="col">风险</th>
+<th scope="col">总分</th>
+<th scope="col">结论</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>S1 外部人员额度分配</td>
+<td>本月每个亚专科用多少、分给谁</td>
+<td>3</td>
+<td>3</td>
+<td>2</td>
+<td>1</td>
+<td>8</td>
+<td><strong>选中</strong></td>
+</tr>
+<tr>
+<td>S2 个人排班与换班</td>
+<td>某天某班谁上</td>
+<td>3</td>
+<td>2</td>
+<td>2</td>
+<td>2</td>
+<td>7</td>
+<td>第二轮</td>
+</tr>
+<tr>
+<td>S3 住院总轮转</td>
+<td>下月谁做住院总</td>
+<td>2</td>
+<td>2</td>
+<td>1</td>
+<td>2</td>
+<td>5</td>
+<td>暂缓</td>
+</tr>
+<tr>
+<td>S4 报表与统计</td>
+<td>无（查看为主）</td>
+<td>1</td>
+<td>3</td>
+<td>3</td>
+<td>1</td>
+<td>7</td>
+<td>不做</td>
+</tr>
+</tbody>
+</table></div>
+<p>这张表最值得学的不是 S1 得 8 分，而是 <strong>S4 与 S2 同为 7 分，S4 却没被选</strong>。S4 可行性高、证据强、风险低，但没有决策；硬门槛不过，分数再好看也出局。</p>
+<p>S2 价值也高，但输入依赖 S1：人没分到亚专科，排班就是空转。S3 证据只有 1 分：轮转规则多在口头和记忆里。</p>
+<h2 id="sec-why-s1">为什么选 S1</h2>
+<p><a class="case-link" href="case-a-one-pager.html#cb-scene" target="_blank" rel="noopener">案例 CB-00</a> 的场景是：12 个亚专科、3 种班型，每月 20 日左右发额度。需求合计 56 人天，额度合计 54 人天；人员可用天数合计 59 人天。总量看起来够，但仍然有两个冲突：</p>
+<ul>
+<li><strong>C1 超排</strong>：王芳可上班 9 天，却被预排 10 天，超出 1 天；</li>
+<li><strong>C2 缺口</strong>：妇科病理需求 12 人天、额度 10 人天，结构性短缺 2 人天。</li>
+</ul>
+<p><strong>总量够不等于结构对。</strong> 这正是 S1 值得做的原因：它处理的不是“把总数算平”，而是“把有限额度分到会出问题的地方”。</p>
+<p>CB-02 给出五条选中理由，你可以直接拿去讲：</p>
+<ol>
+<li>它只包含一个最终决策，而且这个决策每月真实发生；</li>
+<li>输入（额度、需求、可用天数）基本已有，缺的可以现场补；</li>
+<li>决策结果能写回，演示时看得见；</li>
+<li>S2 依赖 S1 的结果，先做 S2 会被上游数据卡住；</li>
+<li>S4 没有决策，不符合“决策先于数据”。</li>
+</ol>
+<p>再加一条现场理由：S1 是最短链路，陈静有明确输入、决定、动作和痛苦——每月约 3 小时、返工 2–3 轮【示例】。她已经在为它加班。</p>
+<div class="checkpoint">
+<p><strong>停一下</strong>：如果每行都“很重要”，说明你还没比较。给每个候选写一句“这周不做会怎样”；写不出代价的那行，通常可以排到第二轮。</p>
+</div>
+<h2 id="sec-decision-sentence">把候选写成一句决策</h2>
+<p>候选表里的“决策”一栏，不能写名词，要写一句能验收的话。用这个句式：</p>
+<blockquote>
+<p><strong><strong>（角色）在</strong></strong>（时点），根据____（输入），决定____（决定），并触发____（动作）。</p>
+</blockquote>
+<p>S1 写出来是：</p>
+<blockquote>
+<p>陈静（排班员）在每月 25 日前，根据各亚专科需求、外部人员额度和人员可用天数，决定本月每个亚专科用多少额度、分给谁，并把结果写回排班表、提交赵岚确认、周主任审批。</p>
+</blockquote>
+<p>这句话角色、时点、输入、决定、动作五样齐全，拿去问陈静，她能直接判断对错。</p>
+<p>S4 写不出来，因为句子里没有“决定”，只有“查看”和“导出”。<strong>写不出一句决策的候选，不是切片，是功能。</strong></p>
+<h2 id="sec-artifact">产出：A03-03 候选切片与打分</h2>
+<p>把上面的过程落成一个文件：<code>03_现状与切片/03-03_候选切片与打分.md</code>。它的字段是固定的，别自己加戏：</p>
+<div class="template-block">
+<div class="template-title">A03-03 候选切片与打分 <span>可直接复制</span></div>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th scope="col">切片</th>
+<th scope="col">决策</th>
+<th scope="col">价值</th>
+<th scope="col">可行性</th>
+<th scope="col">证据强度</th>
+<th scope="col">风险</th>
+<th scope="col">总分</th>
+<th scope="col">结论</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<p>填的时候守四条：</p>
+<ul>
+<li><strong>至少三个候选</strong>；只有一个候选，是在给既定答案补理由。</li>
+<li><strong>决策写整句</strong>；写不出“决定”两个字的，直接淘汰。</li>
+<li><strong>每个分数配一句依据</strong>，证据栏写观察 ID，不只写“感觉”。</li>
+<li><strong>结论只允许四种</strong>：选中、第二轮、暂缓、不做；只能有一个“选中”。</li>
+</ul>
+<p>这份表是 G3 阶段门（现状与切片门，G0–G6 的完整定义见<a href="main-07-gates.html" target="_blank" rel="noopener">《开始前的五道门》</a>）的输入，后面接一页纸和功能需求；这里选错，后面越写越偏。<span class="cite" title="FDE 实施手册 v1（9 章整合读本）">[S20]</span></p>
+<div class="hands-on">
+<p><strong>动手 30 分钟</strong>：为你自己的项目做一张候选切片表。</p>
+<ol>
+<li>从 <code>00_项目章程/00-01_项目一页纸.md</code> 抄出业务问题，改写成一句决策句。</li>
+<li>写至少三个候选，每个配一句最终决策；写不出决策的标“不做”并说明原因。</li>
+<li>四项各打 1–3 分，选出唯一一个“选中”，写进 <code>03_现状与切片/03-03_候选切片与打分.md</code>。</li>
+</ol>
+<p><strong>三条自检</strong>：</p>
+<ul>
+<li>选中项的决策句里，有没有具体角色和时点？</li>
+<li>有没有一个各项看着不错、但因“没有决策”或“依赖别人”被淘汰的候选？</li>
+<li>你能用一句话说出“为什么不是另一个”吗？说不出，说明表是填的，不是想的。</li>
+</ul>
+<p><strong>参考答案</strong>：见上面的 S1–S4 表。选 S1 不是因为它宏大，而是因为它最短、最真实、最能在几天内被陈静判断对错。</p>
+</div>
+<h2 id="sec-pitfalls">常见坑</h2>
+<div class="pitfalls">
+<p><strong>坑 1：把功能模块当切片。</strong>
+表现：候选写成“登录与权限”“数据导入”“报表中心”。后果：都能做，但没人完成决定。
+处理：用“最终决策”筛；没有决策的模块降为实现手段，不占候选行。</p>
+<p><strong>坑 2：只写一个候选就宣布选中。</strong>
+表现：心里早想做 A，表里只列 A，再补两个陪跑。后果：没有比较，就没有取舍。
+处理：至少三个候选，每个都认真写一句决策；陪跑项会暴露你没想清的边界。</p>
+<p><strong>坑 3：分数好看就选。</strong>
+表现：S4 可行性 3 分、证据 3 分，于是先做报表。后果：做完没人改变动作。
+处理：先过“有最终决策、五天内端到端”的硬门槛，再看总分。</p>
+<p><strong>坑 4：切片还是太大。</strong>
+表现：选中项写成“把排班全流程搬上线”。后果：第五天只能演示半条流程。
+处理：再切一刀，直到一句话说清“谁在哪个时点决定什么”。</p>
+</div>
+<div class="self-test">
+<p><strong>三问自测</strong></p>
+<details>
+<summary>1. 为什么“给病理科做一个排班系统”不是 use case？</summary>
+
+因为它没有明确用户、限定时间和要交付的新能力，只是一个系统容器。改成“让陈静在每月 25 日前把额度分到人”，才具备四个要素。
+
+</details>
+<details>
+<summary>2. 一个合格的薄切片必须同时满足哪四条？</summary>
+
+真实数据、真实用户、一次真实决策、可观察结果，并且端到端：有输入、判断、动作、写回。只做数据层或页面，都不算。
+
+</details>
+<details>
+<summary>3. S4 可行性 3 分、证据 3 分，为什么反而“不做”？</summary>
+
+因为它没有最终决策，只有查看和导出。第一道硬门槛就是“包含一个最终决策”；不过门槛，分数再高也出局。
+
+</details>
+</div>
+<div class="recap">
+<p><strong>本章带走</strong></p>
+<ol>
+<li>先把“做个系统”改写成“谁在什么时候决定什么”，再谈功能和架构。</li>
+<li>Use case 是一次有边界的交付；切片是一个可独立选择、交付、验收的决策单元；薄切片是最短的端到端路径。</li>
+<li>用价值、可行性、证据、风险打分，但先过“有最终决策、五天内端到端”的硬门槛；分数高不等于该做。</li>
+</ol>
+</div>
+      </div>
+
+      <section class="term-cards" aria-label="本页术语卡"><p class="eyebrow">本页术语</p><div class="term-grid"><article class="term-card" id="term-decision"><h3 id="term-title-decision">决策 <span class="term-en">Decision</span></h3><p>在几个候选方案里选一个并承担后果；查看、了解、导出都不算决策。</p><a class="term-first" href="main-03-as-is.html" target="_blank" rel="noopener">首次解释</a></article><article class="term-card" id="term-thin-slice"><h3 id="term-title-thin-slice">Thin Slice（最薄切片） <span class="term-en">Thin Slice</span></h3><p>一条最短的端到端路径：用真实数据，让真实用户完成一次真实决策，并留下可观察的结果。</p></article><article class="term-card" id="term-use-case"><h3 id="term-title-use-case">Use Case（用例） <span class="term-en">Use Case</span></h3><p>由专职团队在限定时间内、为一组明确用户交付新能力的一次努力；它不是“接一个系统”或“上一个算法”。</p></article><article class="term-card" id="term-scoping"><h3 id="term-title-scoping">范围界定 <span class="term-en">Scoping</span></h3><p>在估工期之前先判断这个请求值不值得做：谁真的用、为什么现在、有没有替代、会挤掉什么，并主动删掉无关实现。</p></article></div></section>
+      <section class="artifact-box" aria-label="本页产物"><div class="artifact-block"><h3 id="artifacts-out">本页要写出的产物</h3><ul><li><code>A03-03</code> 候选切片与打分 <span class="muted">→ 03_现状与切片/03-03_候选切片与打分.md</span> <span class="gate-tag">G3</span> <a href="templates/blank/03-03_候选切片与打分.html" data-template-view data-template-title="A03-03 候选切片与打分模板" title="A03-03 候选切片与打分模板 ｜ 当前页弹窗预览">模板</a> <a href="templates/golden/03-03_候选切片与打分_排班案例.html" data-template-view data-template-title="A03-03 候选切片与打分黄金样例" title="A03-03 候选切片与打分黄金样例 ｜ 当前页弹窗预览">黄金样例</a></li></ul></div><div class="artifact-block"><h3 id="artifacts-in">开始前应已具备</h3><p class="muted"><code>A00-01</code> 项目一页纸、<code>A00-03</code> 范围与非范围</p></div></section>
+      <section class="sources" aria-label="来源"><h2 id="sec-sources">来源与证据等级</h2><ol class="source-list"><li><span class="src-id">S01</span> <strong>Use case lifecycle · Overview</strong> <span class="badge badge-官方">官方</span><div class="muted">Palantir Technologies · 抓取 2026-10-19 · 版权归 Palantir Technologies；仅内部研究，不对外分发原文</div><div class="src-url"><a href="https://www.palantir.com/docs/foundry/use-case-life-cycle/overview/" rel="noreferrer" target="_blank">https://www.palantir.com/docs/foundry/use-case-life-cycle/overview/</a></div></li><li><span class="src-id">S17</span> <strong>FDE 方法论沉淀</strong> <span class="badge badge-实践">实践</span><div class="muted">本子项目 · 抓取 2026-09-23 · 内部方法沉淀</div><div class="src-url"><span class="muted">无公开链接</span></div></li><li><span class="src-id">S19</span> <strong>医院排班场景映射</strong> <span class="badge badge-实践">实践</span><div class="muted">本子项目 · 抓取 2026-10-19 · 内部方法沉淀；案例已匿名化</div><div class="src-url"><span class="muted">无公开链接</span></div></li><li><span class="src-id">S20</span> <strong>FDE 实施手册 v1（9 章整合读本）</strong> <span class="badge badge-实践">实践</span><div class="muted">本子项目 · 抓取 2026-10-19 · 内部方法沉淀；官方事实另注出处</div><div class="src-url"><span class="muted">无公开链接</span></div></li><li><span class="src-id">S15</span> <strong>《FDE 入门到精通》（FDE: From Fundamentals to Mastery）</strong> <span class="badge badge-第三方">第三方</span><div class="muted">高飞 / feigaobox10 · 抓取 2026-10-19 · CC BY-NC-SA 4.0；非官方，未获讲者或公司背书</div><div class="src-url"><a href="https://github.com/feigaobox10/fde-reader" rel="noreferrer" target="_blank">https://github.com/feigaobox10/fde-reader</a></div></li></ol></section>
+      <nav class="pager" aria-label="翻页"><a class="pager-prev" data-same-tab href="main-01-fde.html"><span>上一页</span><strong>FDE 是什么，不是什么</strong></a><a class="pager-next" data-same-tab href="lab-slicing.html"><span>下一页</span><strong>实验室：切三个模糊需求</strong></a></nav>
+
+      <footer class="page-foot">
+        <p>本教程为内部方法研究。案例已匿名化，数字标注【示例】。Palantir 官方资料版权归 Palantir Technologies，仅作改写与链接。</p>
+        <p class="muted">发现断链或事实错误？回到 <a href="appendix-sources.html" target="_blank" rel="noopener">来源与版权</a> 核对出处。</p>
+      </footer>
+    </article>
+  </main>
+
+  <aside class="toc" id="toc" aria-label="页内目录">
+    <p class="toc-title">本页目录</p><ol class="toc-list"><li class="toc-h2"><a href="#sec-gap">先问：谁在什么时候决定什么</a></li><li class="toc-h2"><a href="#sec-scoping">先做范围分诊，再切候选</a></li><li class="toc-h2"><a href="#sec-use-case">Use case：一次有边界的交付</a><ul class="toc-sub"><li class="toc-h3"><a href="#sec-use-case-roles">一个 use case 涉及的七种角色</a></li></ul></li><li class="toc-h2"><a href="#sec-slice">切片：一个用例里，先做哪一个决定</a></li><li class="toc-h2"><a href="#sec-thin-slice">最薄切片：最短的端到端路径</a></li><li class="toc-h2"><a href="#sec-score">四个候选怎么打分</a></li><li class="toc-h2"><a href="#sec-why-s1">为什么选 S1</a></li><li class="toc-h2"><a href="#sec-decision-sentence">把候选写成一句决策</a></li><li class="toc-h2"><a href="#sec-artifact">产出：A03-03 候选切片与打分</a></li><li class="toc-h2"><a href="#sec-pitfalls">常见坑</a></li></ol>
+  </aside>
+</div>
+
+<div class="tpl-modal" id="tpl-modal" hidden>
+  <div class="tpl-panel" role="dialog" aria-modal="true" aria-labelledby="tpl-title">
+    <header class="tpl-head">
+      <div class="tpl-heading">
+        <p class="tpl-kicker">模板阅读视图</p>
+        <h2 id="tpl-title">模板</h2>
+      </div>
+      <div class="tpl-actions">
+        <a class="tpl-open" id="tpl-open" href="#" target="_blank" rel="noopener">在新标签打开 ↗</a>
+        <button class="icon-btn" id="tpl-close" type="button" aria-label="关闭模板">✕</button>
+      </div>
+    </header>
+    <div class="tpl-body">
+      <iframe id="tpl-frame" title="模板内容" loading="lazy"></iframe>
+    </div>
+  </div>
+</div>
+
+<div class="search-modal" id="search-modal" hidden>
+  <div class="search-panel" role="dialog" aria-modal="true" aria-labelledby="search-title">
+    <div class="search-head">
+      <label id="search-title" class="sr-only" for="search-input">搜索教程</label>
+      <input id="search-input" type="search" placeholder="搜索概念、产物、模板、方法卡…" autocomplete="off">
+      <button class="icon-btn" id="search-close" type="button" aria-label="关闭搜索">✕</button>
+    </div>
+    <div id="search-results" class="search-results" aria-live="polite"></div>
+    <p class="search-hint">按 <kbd>/</kbd> 或 <kbd>Ctrl</kbd>+<kbd>K</kbd> 打开，<kbd>Esc</kbd> 关闭。索引完全离线。</p>
+  </div>
+</div>
+
+<noscript><p class="noscript-note">搜索与阅读进度需要 JavaScript；正文、目录和翻页仍可正常使用。可用浏览器查找（Ctrl+F）。</p></noscript>
+
+<script src="assets/search-index.js"></script>
+<script src="assets/viz-data.js"></script>
+<script src="assets/app.js"></script>
+<script src="assets/viz.js"></script>
+
+</body>
+</html>

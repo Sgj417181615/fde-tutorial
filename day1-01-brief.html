@@ -1,0 +1,422 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<title>需求定向简报 · FDE 零基础教程</title>
+<meta name="description" content="访谈前先写八字段假设简报，标明哪些是假设、哪些必须停下来等人确认。">
+<link rel="stylesheet" href="assets/course.css">
+<script>
+(function () {
+  try {
+    var saved = localStorage.getItem('fde-theme');
+    var theme = saved || (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+    document.documentElement.dataset.theme = theme;
+  } catch (e) {}
+})();
+</script>
+</head>
+<body class="track-day1 page-day1-01-brief">
+<a class="skip-link" href="#main">跳到正文</a>
+
+<header class="topbar">
+  <button class="icon-btn nav-toggle" id="nav-toggle" type="button" aria-expanded="false" aria-controls="sidebar" aria-label="打开课程目录">
+    <span aria-hidden="true">☰</span>
+  </button>
+  <a class="brand" data-same-tab href="index.html"><span class="brand-mark">FDE</span><span class="brand-text">零基础教程</span></a>
+  <nav class="track-switch" aria-label="模块切换"><a class="track-link" data-same-tab href="index.html" title="从零建立完整心智模型">主线</a><a class="track-link" data-same-tab href="work-01-prep.html" title="现场查用：输入、步骤、输出、阶段门">工作台</a><span class="track-link active" aria-current="true" title="六步链路：简报 → 访谈 → 证据 → 底稿 → 门">Day1</span><a class="track-link" data-same-tab href="appendix-methods.html" title="一卡一问，按阶段、产物、角色查">方法库</a><a class="track-link" data-same-tab href="appendix-templates.html" title="模板、产物链、术语与来源">附录</a></nav>
+  <div class="top-actions">
+    <button class="search-open" id="search-open" type="button" aria-haspopup="dialog">
+      <span aria-hidden="true">⌕</span><span class="search-label">搜索</span><kbd>/</kbd>
+    </button>
+    <button class="icon-btn" id="theme-toggle" type="button" aria-label="切换深浅色">◐</button>
+  </div>
+  <div class="read-progress" aria-hidden="true"><span id="read-progress"></span></div>
+</header>
+
+<div class="layout">
+  <aside class="sidebar" id="sidebar">
+    <nav class="course-tree" aria-label="课程目录"><header class="side-head"><p class="side-eyebrow">当前模块</p><p class="side-title">Day1 工作台</p><p class="side-caption">六步链路：简报 → 访谈 → 证据 → 底稿 → 门</p><p class="side-meta">6 页<span class="dot">·</span>约 100 分钟</p></header><section class="nav-group nav-group-plain"><a class="nav-link" data-same-tab href="day1-00-overview.html">Day1 工作台总览</a><span class="nav-link nav-current" aria-current="page">需求定向简报</span><a class="nav-link" data-same-tab href="day1-02-grill.html">分轮访谈</a><a class="nav-link" data-same-tab href="day1-03-evidence.html">确认记录与证据状态</a><a class="nav-link" data-same-tab href="day1-04-spec.html">D1 工作底稿</a><a class="nav-link" data-same-tab href="day1-05-quality.html">D1 阶段门与评分</a></section></nav>
+  </aside>
+  <button class="scrim" id="scrim" type="button" aria-label="关闭目录" hidden></button>
+
+  <main class="main" id="main">
+    <nav class="crumb" aria-label="面包屑"><a data-same-tab href="index.html">教程</a><span class="sep">/</span><span>Day1 工作台</span><span class="sep">/</span><span aria-current="page">需求定向简报</span></nav>
+    <article class="article">
+      <header class="page-head">
+        <div class="badges"><span class="badge badge-day1">专项</span><span class="badge badge-time">15 分钟</span></div>
+        <h1>需求定向简报</h1>
+        <p class="lede">访谈前先写八字段假设简报，标明哪些是假设、哪些必须停下来等人确认。</p>
+        <p class="page-question"><span class="eyebrow">本页要回答</span>在见到业务方之前，我对问题的理解应该写到什么程度？</p>
+        <div class="page-meta">
+          <section class="meta-block">
+            <h2 class="meta-title" id="meta-objectives">读完你能</h2>
+            <ul class="objective-list"><li>填出八字段需求定向简报；</li><li>把痛点全部标成假设；</li><li>列出至少三个必须由业务方确认的问题。</li></ul>
+          </section>
+          <section class="meta-block">
+            <h2 class="meta-title" id="meta-prereq">前置</h2>
+            <p>先读：<a href="day1-00-overview.html" target="_blank" rel="noopener">Day1 工作台总览</a></p>
+          </section>
+        </div>
+      </header>
+
+      <div class="prose">
+        <dl class="runbook-head">
+<div><dt>何时用</dt><dd>第一次见业务方之前 30–45 分钟；或每次拿到一个新需求</dd></div>
+<div><dt>时间盒与角色</dt><dd>填写 30–35 分钟；FDE 主笔，业务专家只做确认</dd></div>
+<div><dt>本页产出</dt><dd>A00-05 需求定向简报 → <code>00_项目章程/00-05_需求定向简报.md</code></dd></div>
+<div><dt>阶段门</dt><dd>G1 调研准备门；八字段齐全，痛点全部标假设</dd></div>
+</dl>
+
+<p>你还没坐下，心里已经有了答案：“他们就是 Excel 太乱。”于是整场访谈，你都在找支持它的证据；对方说“其实最难的是额度怎么分”，你却没往心里去。</p>
+<p><span class="term-link" title="Domain Brief：在正式访谈前写下的需求理解、痛点假设、预期价值、可能路线和可能误判；它是假设，不是结论。">需求定向简报</span> 就是用来拦住这个瞬间的。它在见业务方之前，逼你把脑子里的答案写下来，并且标清楚：哪句是事实，哪句只是你的猜测。</p>
+<h2 id="sec-why">为什么先写假设</h2>
+<p>不写简报，通常有两种失败：</p>
+<ul>
+<li><strong>没有假设</strong>：问题从“你们平时怎么排班”开始，聊了四十分钟，回到工位才发现最关键的角色没见到。</li>
+<li><strong>假设当结论</strong>：你问“是不是 Excel 特别乱”，对方礼貌地点头；你把点头写进材料，后面所有设计都建在一句客套上。</li>
+</ul>
+<p>简报的作用不是“证明我懂”，而是<strong>把你的猜测变成可以被推翻的句子</strong>。所以它有一个硬规则：<strong>这是假设，不是结论。</strong>痛点要写成“我猜……，待确认”，不能写成“业务方认为……”。</p>
+<p>合格的简报会让你知道访谈时在验证什么。写完仍不知道问谁、问什么，说明你写的是项目介绍。</p>
+<div class="checkpoint">
+<p><strong>停一下</strong>：看你手边任何一份需求材料，找出那些“系统应该支持……”“业务需要提升……”的句子。</p>
+<p>它们不是需求，是方案或愿望。把它们改写成“谁，在什么时候，要做什么决定，现在卡在哪”，才算回到简报该写的东西。</p>
+</div>
+<h2 id="sec-eight-fields">八个字段</h2>
+<p>八个字段的顺序是有讲究的：先写你看到的现场，再写你的猜测，最后写你还不确定什么。字段定义参考流程与范围模板 <span class="cite" title="流程与范围模板">[S18]</span>。</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th scope="col">字段</th>
+<th scope="col">写什么</th>
+<th scope="col">判断标准</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>业务背景</td>
+<td>三句话：谁、在什么场景、现在卡在哪</td>
+<td>不出现“系统”“平台”“数字化”</td>
+</tr>
+<tr>
+<td>当前做法</td>
+<td>从收到需求到交付结果的动词链</td>
+<td>写实际怎么做，不写应该怎么做</td>
+</tr>
+<tr>
+<td>痛点假设</td>
+<td>4–6 条，每条以“我猜”开头</td>
+<td>每条都有观察信号，全部标“假设，待确认”</td>
+</tr>
+<tr>
+<td>预期价值</td>
+<td>从当前状态到目标状态的可观察变化</td>
+<td>有粗略基线，不写“提升效率”</td>
+</tr>
+<tr>
+<td>可能路线</td>
+<td>2–3 个候选切片，标出先后</td>
+<td>写“可能”，不写“确定要做”</td>
+</tr>
+<tr>
+<td>关键未知</td>
+<td>会影响路线选择的事实缺口</td>
+<td>能转成一个可验证的问题</td>
+</tr>
+<tr>
+<td>可能误判</td>
+<td>你最可能把什么当成什么</td>
+<td>至少写一条，越具体越好</td>
+</tr>
+<tr>
+<td>待确认问题</td>
+<td>至少 3 个，指向具体的人</td>
+<td>每个都有“问谁、怎么验证”</td>
+</tr>
+</tbody>
+</table></div>
+<p>最后两个字段不是“补充说明”，而是进现场后的任务清单。缺了它们，简报很容易变成自我确认的材料。</p>
+<h2 id="sec-coach">教练式填写：六步</h2>
+<p>不要从“痛点”开始写，那样你会直接掉进自己的结论。按下面的顺序，每步都有时间盒和一句教练提问。</p>
+<h3 id="coach-01">第 1 步：业务背景（5 分钟）</h3>
+<p>用三句话回答：<strong>谁，在什么场景下，要做什么事，现在卡在哪？</strong></p>
+<p>教练提问：如果删掉“系统”“平台”“数字化”这些词，这句话还成立吗？如果不成立，你写的是方案，不是背景。</p>
+<h3 id="coach-02">第 2 步：当前做法（5 分钟）</h3>
+<p>从“收到需求”写到“交付结果”，用动词开头，一步一行。比如：收额度 → 收需求 → 核对可用天数 → 协调冲突 → 审批录入。</p>
+<p>教练提问：每一步的记录在哪里？微信、Excel、纸质本，还是脑子里？记录在哪里，往往就是卡点在哪里。</p>
+<h3 id="coach-03">第 3 步：痛点假设（8 分钟）</h3>
+<p>列 4–6 条，每条都用“我猜”开头，后面补一个<strong>观察信号</strong>：你到现场看到什么，就说明这条可能成立？</p>
+<p>教练提问：这条如果被推翻，你会看到什么？写不出观察信号，就删掉，它只是情绪。</p>
+<h3 id="coach-04">第 4 步：预期价值（5 分钟）</h3>
+<p>写成“从 X 到 Y”。X 是当前基线，Y 是五天后能观察到的变化。比如“返工从 2–3 轮降到 1 轮以内”【示例】。</p>
+<p>教练提问：五天后，你指着哪条记录说“变了”？说不出来，就还不是价值。</p>
+<h3 id="coach-05">第 5 步：可能路线（4 分钟）</h3>
+<p>写 2–3 个候选切片，每个一句话：先让谁，在什么时候，能做什么决定。标出你先做哪个，以及为什么。</p>
+<p>教练提问：这条路线能不能在五天内演示？不能，就再切小。</p>
+<h3 id="coach-06">第 6 步：关键未知、可能误判、待确认问题（8 分钟）</h3>
+<p>关键未知写事实缺口；可能误判写“我可能把 A 当成 B”；待确认问题至少 3 个，每个写清“问谁、怎么验证”。</p>
+<p>教练提问：如果明天只能问三个问题，是哪三个？圈出来，这就是第一轮访谈的起点。</p>
+<h2 id="sec-case">排班案例填写样例</h2>
+<p>下面是 <a class="case-link" href="work-01-prep.html#cb-brief" target="_blank" rel="noopener">案例 CB-12</a> 的八字段改写样例，数字均为【示例】。</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th scope="col">字段</th>
+<th scope="col">填写样例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>业务背景</td>
+<td>每月外部人员额度分配靠 Excel、微信和记忆，冲突发现晚【示例】</td>
+</tr>
+<tr>
+<td>当前做法</td>
+<td>收额度 → 收需求 → 凭记忆核对 → 电话协调 → 审批录入</td>
+</tr>
+<tr>
+<td>痛点假设</td>
+<td>① 可用天数靠回忆；② 版本分散；③ 缺口发现太晚；④ 临时调整无记录。四条都标“假设，待确认”</td>
+</tr>
+<tr>
+<td>预期价值</td>
+<td>少返工、提前发现冲突、留下一份可追溯的记录</td>
+</tr>
+<tr>
+<td>可能路线</td>
+<td>先做额度分配台（S1），再做个人排班（S2）</td>
+</tr>
+<tr>
+<td>关键未知</td>
+<td>额度规则、资质认定、写回权限</td>
+</tr>
+<tr>
+<td>可能误判</td>
+<td>把“需要排班系统”当成真问题；实际可能先卡在额度分配</td>
+</tr>
+<tr>
+<td>待确认问题</td>
+<td>额度上限怎么定？资质由谁认定？写回需要什么权限？分别找谁确认？</td>
+</tr>
+</tbody>
+</table></div>
+<p>表里没有一句“业务方确认”，因为访谈还没开始；它只是进场前的<strong>最好猜测</strong>，不是结论。</p>
+<h2 id="sec-assumption">假设、判断与结论</h2>
+<p>写简报时，你会在四种句子之间来回跳。把它们分开，是这一页最重要的动作。</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th scope="col">写法</th>
+<th scope="col">它是什么</th>
+<th scope="col">下一步</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>“我猜可用天数靠回忆（待确认）”</td>
+<td>工作假设</td>
+<td>用访谈或观察验证</td>
+</tr>
+<tr>
+<td>“业务方说‘我先对一下哪个是最新的’”</td>
+<td>原文/观察</td>
+<td>进现场观察记录，保留原话</td>
+</tr>
+<tr>
+<td>“业务方确认：额度不能超”</td>
+<td>业务确认</td>
+<td>写进简报的已确认区，标日期和确认人</td>
+</tr>
+<tr>
+<td>“所以需要一个额度分配系统”</td>
+<td>方案结论</td>
+<td>不能写进简报；等切片和方案页再处理</td>
+</tr>
+</tbody>
+</table></div>
+<p>如果你实在想给建议，用这个句式：<strong>“我的建议是……，待业务确认。”</strong>它既保留了你的判断，又没有把判断伪装成事实。</p>
+<h2 id="sec-paths">AI 路径与手工路径</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th scope="col">步骤</th>
+<th scope="col">有 AI 助手时</th>
+<th scope="col">纯手工时</th>
+<th scope="col">等价性检查</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>读已有材料</td>
+<td>让 AI 提取角色、范围、约束，列出缺口</td>
+<td>自己划重点，抄到纸上</td>
+<td>角色、范围、约束各有出处</td>
+</tr>
+<tr>
+<td>起草八字段</td>
+<td>让 AI 按字段生成初稿，逐条标“假设”</td>
+<td>用 A00-05 空白模板手写</td>
+<td>八字段无空缺，痛点全是假设</td>
+</tr>
+<tr>
+<td>列待确认问题</td>
+<td>让 AI 从“关键未知”生成问题候选</td>
+<td>自己按“问谁、怎么验证”写</td>
+<td>至少 3 个，每个有对象</td>
+</tr>
+<tr>
+<td>自检</td>
+<td>让 AI 找出“结论混进假设”的句子</td>
+<td>用下面的三问自检</td>
+<td>没有“系统应该支持”式句子</td>
+</tr>
+</tbody>
+</table></div>
+<p>两条硬规则：AI 生成的每一句都要改写成你的话；改完先自己读一遍，再决定要不要发给业务方。<strong>手工路径不需要任何 skill 安装</strong>，一支笔和一份 A00-05 模板就够了。</p>
+<p><strong>对应技能</strong>：<code>gr-domain-brief</code>（可选）。它给的是初判，不是结论；业务方确认后，把简报交给 <code>gr-d1-grill</code> 或 <code>grilling</code> 继续追问，不要把简报当成访谈提纲。</p>
+<div class="gate-panel">
+<p><strong>G1 通过条件</strong>：八字段齐全；痛点全部标“假设，待确认”；至少 3 个待确认问题，每个都有确认对象和验证方式；没有把方案写成需求。任一条不满足，回炉 10 分钟，不要带着结论进场。</p>
+</div>
+<div class="hands-on">
+<p><strong>动手 15 分钟</strong>：为你手上的项目填一版最小简报。</p>
+<ol>
+<li>业务背景写三句，删掉所有“系统”“平台”字样。</li>
+<li>当前做法写五步，每步用动词开头，并注明记录在哪里。</li>
+<li>列 4 条痛点假设，每条后面加一个“观察信号”。</li>
+<li>写 3 个待确认问题，标清问谁、怎么验证。</li>
+</ol>
+<p><strong>自检</strong>：① 有没有一句话其实是结论；② 每条痛点有没有观察信号；③ 三个待确认问题能不能在明天就问。</p>
+<p><strong>参考答案</strong>：把“需要排班系统”改成“排班员在额度下发后，根据需求和可用天数决定每个亚专科分多少额度”。前者是方案，后者才是要验证的决定。</p>
+</div>
+<h2 id="sec-pitfalls">常见失败</h2>
+<div class="pitfalls">
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th scope="col">现象</th>
+<th scope="col">原因</th>
+<th scope="col">处理</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>痛点写成“业务方认为效率低”</td>
+<td>把自己的判断安到对方头上</td>
+<td>改成“我猜……，待确认”，并补观察信号</td>
+</tr>
+<tr>
+<td>八字段里出现“系统应该支持”</td>
+<td>把方案混进简报</td>
+<td>删掉，移到“可能路线”或方案页</td>
+</tr>
+<tr>
+<td>预期价值只有“降本增效”</td>
+<td>没有基线和观察方式</td>
+<td>写成“从 X 到 Y”，拿不到 X 就标“待校准”</td>
+</tr>
+<tr>
+<td>可能路线只有一条</td>
+<td>已经认定答案</td>
+<td>强制写 2–3 条，并说明为什么先做这条</td>
+</tr>
+<tr>
+<td>关键未知写成“多沟通”</td>
+<td>不是事实缺口</td>
+<td>改成能验证的问题，比如“年假表能否导出”</td>
+</tr>
+<tr>
+<td>待确认问题没有对象</td>
+<td>把清单当许愿池</td>
+<td>每个问题写一个人名或角色，加验证方式</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<h2 id="sec-self-test">三问自测</h2>
+<div class="self-test">
+<details>
+<summary>1. 为什么痛点必须写成“假设”，不能写成“业务方认为”？</summary>
+
+因为访谈还没发生，你手里没有业务方的确认。写成“业务方认为”会把你的猜测伪装成证据，后面所有设计都会失去可推翻性。
+
+</details>
+<details>
+<summary>2. 八个字段里，哪两个决定你进现场先问什么？</summary>
+
+“关键未知”和“待确认问题”。前者告诉你事实缺口在哪，后者把缺口变成可以问出口的问题。
+
+</details>
+<details>
+<summary>3. 手工填简报和 AI 起草，产出有什么不同？</summary>
+
+没有本质不同。两者都必须八字段齐全、痛点标假设、问题有对象。AI 只是更快，不能替你确认，也不能把假设升级成结论。
+
+</details>
+</div>
+<div class="recap">
+<p><strong>本章带走</strong></p>
+<ol>
+<li>需求定向简报是进场前的假设清单，不是项目介绍，更不是结论。</li>
+<li>八字段的顺序是“现场 → 猜测 → 未知”：先写看到什么，再写猜什么，最后写还不确定什么。</li>
+<li>每条痛点都要有观察信号，每个待确认问题都要有对象；没有这两样，简报就只是自我确认。</li>
+</ol>
+</div>
+      </div>
+
+      <section class="term-cards" aria-label="本页术语卡"><p class="eyebrow">本页术语</p><div class="term-grid"><article class="term-card" id="term-domain-brief"><h3 id="term-title-domain-brief">需求定向简报 <span class="term-en">Domain Brief</span></h3><p>在正式访谈前写下的需求理解、痛点假设、预期价值、可能路线和可能误判；它是假设，不是结论。</p></article></div></section>
+      <section class="artifact-box" aria-label="本页产物"><div class="artifact-block"><h3 id="artifacts-out">本页要写出的产物</h3><ul><li><code>A00-05</code> 需求定向简报 <span class="muted">→ 00_项目章程/00-05_需求定向简报.md</span> <span class="gate-tag">G1</span> <a href="templates/blank/00-05_需求定向简报.html" data-template-view data-template-title="A00-05 需求定向简报模板" title="A00-05 需求定向简报模板 ｜ 当前页弹窗预览">模板</a> <a href="templates/golden/00-05_需求定向简报_排班案例.html" data-template-view data-template-title="A00-05 需求定向简报黄金样例" title="A00-05 需求定向简报黄金样例 ｜ 当前页弹窗预览">黄金样例</a></li></ul></div><div class="artifact-block"><h3 id="artifacts-in">开始前应已具备</h3><p class="muted"><code>A00-01</code> 项目一页纸、<code>A00-02</code> 干系人地图</p></div></section>
+      <section class="sources" aria-label="来源"><h2 id="sec-sources">来源与证据等级</h2><ol class="source-list"><li><span class="src-id">S16</span> <strong>GR-FDE-01-014 D1 客户工具包（国润 Skill 工具包）</strong> <span class="badge badge-实践">实践</span><div class="muted">国润项目组 · 抓取 2026-10-19 · MIT；`grilling` 上游署名 Matt Pocock；包内文件不随教程分发</div><div class="src-url"><span class="muted">无公开链接</span></div></li><li><span class="src-id">S17</span> <strong>FDE 方法论沉淀</strong> <span class="badge badge-实践">实践</span><div class="muted">本子项目 · 抓取 2026-09-23 · 内部方法沉淀</div><div class="src-url"><span class="muted">无公开链接</span></div></li><li><span class="src-id">S18</span> <strong>流程与范围模板</strong> <span class="badge badge-实践">实践</span><div class="muted">本子项目 · 抓取 2026-09-23 · 内部方法沉淀</div><div class="src-url"><span class="muted">无公开链接</span></div></li></ol></section>
+      <nav class="pager" aria-label="翻页"><a class="pager-prev" data-same-tab href="day1-00-overview.html"><span>上一页</span><strong>Day1 工作台总览</strong></a><a class="pager-next" data-same-tab href="day1-02-grill.html"><span>下一页</span><strong>分轮访谈</strong></a></nav>
+
+      <footer class="page-foot">
+        <p>本教程为内部方法研究。案例已匿名化，数字标注【示例】。Palantir 官方资料版权归 Palantir Technologies，仅作改写与链接。</p>
+        <p class="muted">发现断链或事实错误？回到 <a href="appendix-sources.html" target="_blank" rel="noopener">来源与版权</a> 核对出处。</p>
+      </footer>
+    </article>
+  </main>
+
+  <aside class="toc" id="toc" aria-label="页内目录">
+    <p class="toc-title">本页目录</p><ol class="toc-list"><li class="toc-h2"><a href="#sec-why">为什么先写假设</a></li><li class="toc-h2"><a href="#sec-eight-fields">八个字段</a></li><li class="toc-h2"><a href="#sec-coach">教练式填写：六步</a><ul class="toc-sub"><li class="toc-h3"><a href="#coach-01">第 1 步：业务背景（5 分钟）</a></li><li class="toc-h3"><a href="#coach-02">第 2 步：当前做法（5 分钟）</a></li><li class="toc-h3"><a href="#coach-03">第 3 步：痛点假设（8 分钟）</a></li><li class="toc-h3"><a href="#coach-04">第 4 步：预期价值（5 分钟）</a></li><li class="toc-h3"><a href="#coach-05">第 5 步：可能路线（4 分钟）</a></li><li class="toc-h3"><a href="#coach-06">第 6 步：关键未知、可能误判、待确认问题（8 分钟）</a></li></ul></li><li class="toc-h2"><a href="#sec-case">排班案例填写样例</a></li><li class="toc-h2"><a href="#sec-assumption">假设、判断与结论</a></li><li class="toc-h2"><a href="#sec-paths">AI 路径与手工路径</a></li><li class="toc-h2"><a href="#sec-pitfalls">常见失败</a></li><li class="toc-h2"><a href="#sec-self-test">三问自测</a></li></ol>
+  </aside>
+</div>
+
+<div class="tpl-modal" id="tpl-modal" hidden>
+  <div class="tpl-panel" role="dialog" aria-modal="true" aria-labelledby="tpl-title">
+    <header class="tpl-head">
+      <div class="tpl-heading">
+        <p class="tpl-kicker">模板阅读视图</p>
+        <h2 id="tpl-title">模板</h2>
+      </div>
+      <div class="tpl-actions">
+        <a class="tpl-open" id="tpl-open" href="#" target="_blank" rel="noopener">在新标签打开 ↗</a>
+        <button class="icon-btn" id="tpl-close" type="button" aria-label="关闭模板">✕</button>
+      </div>
+    </header>
+    <div class="tpl-body">
+      <iframe id="tpl-frame" title="模板内容" loading="lazy"></iframe>
+    </div>
+  </div>
+</div>
+
+<div class="search-modal" id="search-modal" hidden>
+  <div class="search-panel" role="dialog" aria-modal="true" aria-labelledby="search-title">
+    <div class="search-head">
+      <label id="search-title" class="sr-only" for="search-input">搜索教程</label>
+      <input id="search-input" type="search" placeholder="搜索概念、产物、模板、方法卡…" autocomplete="off">
+      <button class="icon-btn" id="search-close" type="button" aria-label="关闭搜索">✕</button>
+    </div>
+    <div id="search-results" class="search-results" aria-live="polite"></div>
+    <p class="search-hint">按 <kbd>/</kbd> 或 <kbd>Ctrl</kbd>+<kbd>K</kbd> 打开，<kbd>Esc</kbd> 关闭。索引完全离线。</p>
+  </div>
+</div>
+
+<noscript><p class="noscript-note">搜索与阅读进度需要 JavaScript；正文、目录和翻页仍可正常使用。可用浏览器查找（Ctrl+F）。</p></noscript>
+
+<script src="assets/search-index.js"></script>
+<script src="assets/viz-data.js"></script>
+<script src="assets/app.js"></script>
+<script src="assets/viz.js"></script>
+
+</body>
+</html>

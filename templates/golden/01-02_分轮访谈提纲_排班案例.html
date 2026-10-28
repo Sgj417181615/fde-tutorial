@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>A01-02 分轮访谈提纲（排班案例） · FDE 模板库</title>
+<link rel="stylesheet" href="../../assets/course.css">
+</head>
+<body>
+<a class="skip-link" href="#main">跳到正文</a>
+<main class="main" id="main">
+<article class="article">
+<nav class="crumb" aria-label="面包屑">
+<a href="../../index.html">教程首页</a><span class="sep">/</span>
+<a href="../../appendix-templates.html">模板库</a><span class="sep">/</span>
+<span>黄金样例</span>
+</nav>
+<header class="page-head">
+<div class="badges">
+<span class="badge badge-main">A01-02</span>
+<span class="badge">黄金样例</span>
+<span class="badge badge-time">Markdown 阅读视图</span>
+</div>
+<h1>A01-02 分轮访谈提纲（排班案例）</h1>
+<p class="page-question">这是模板的阅读视图，源文件是 <code>01-02_分轮访谈提纲_排班案例.md</code>。
+<a href="01-02_分轮访谈提纲_排班案例.md">下载 / 编辑 Markdown</a> · <a href="../../appendix-templates.html">返回模板库</a></p>
+</header>
+<div class="prose">
+<blockquote>
+<p>【示例】匿名化案例，数字均为示例；人名与机构均为化名。</p>
+</blockquote>
+<h2 id="tpl-sec-1">用途 / 何时用</h2>
+<p>在访谈前按轮次准备问题，在现场按提纲推进。本份只覆盖 S1 额度分配相关的四轮访谈：R1 还原最近一次实际做法，R2 确认需求与额度口径，R3 确认规则与权限，R4 做成员校验与基线复测。每轮先确认再进入下一轮，不一次抛出长问卷。</p>
+<h2 id="tpl-sec-2">轮次安排</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th scope="col">轮次</th>
+<th scope="col">时间</th>
+<th scope="col">对象</th>
+<th scope="col">主问题数</th>
+<th scope="col">本轮目标</th>
+<th scope="col">对应产出</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>R1 现状</td>
+<td>2026-10-12【示例】</td>
+<td>陈静</td>
+<td>4</td>
+<td>还原 As-is 五步、工具、耗时与 C1/C2 现场</td>
+<td>A01-03、A02-01 初稿</td>
+</tr>
+<tr>
+<td>R2 需求与额度</td>
+<td>2026-10-12 至 10-13【示例】</td>
+<td>赵岚、孙老师</td>
+<td>4</td>
+<td>确认需求 12 的口径、额度下发与结转</td>
+<td>需求口径、规则库初稿</td>
+</tr>
+<tr>
+<td>R3 规则与权限</td>
+<td>2026-10-13 至 10-14【示例】</td>
+<td>陈静、刘工、周主任</td>
+<td>4</td>
+<td>确认冲突规则、写回权限与审批判据</td>
+<td>规则库、权限方案、待确认清单</td>
+</tr>
+<tr>
+<td>R4 确认与复测</td>
+<td>2026-10-14 至 10-16【示例】</td>
+<td>陈静、赵岚、周主任</td>
+<td>4</td>
+<td>校验记录、确认组长视图、复测基线</td>
+<td>证据台账、复盘记录</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="tpl-sec-3">字段</h2>
+<h3 id="tpl-sec-4">第 1 轮：现状与最近一次实际做法</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th scope="col">轮次</th>
+<th scope="col">问题编号</th>
+<th scope="col">问题</th>
+<th scope="col">为什么问</th>
+<th scope="col">期望证据</th>
+<th scope="col">追问</th>
+<th scope="col">中性选项</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>R1</td>
+<td>R1-Q1</td>
+<td>上个月分配额度，您从收到额度到方案能签字，实际按什么顺序做？</td>
+<td>验证 As-is 五步与工具，不只问制度怎么写</td>
+<td>步骤清单、三个 Excel、纸质草表</td>
+<td>哪一步最花时间？当时大概几点？</td>
+<td>按您平时的顺序说就行，不用总结成流程</td>
+</tr>
+<tr>
+<td>R1</td>
+<td>R1-Q2</td>
+<td>您怎么确认每个人这个月能上几天？最近一次核对是哪个人？</td>
+<td>验证 H-01：可用天数是否没有单一来源</td>
+<td>排班本、年假表、门诊表、聊天记录</td>
+<td>王芳这个月为什么是 9 天？</td>
+<td>您平时会看哪些材料？</td>
+</tr>
+<tr>
+<td>R1</td>
+<td>R1-Q3</td>
+<td>最近一次发现排不下或超排是什么时候？当时怎么处理？</td>
+<td>验证 H-03：冲突发现时点与返工</td>
+<td>具体月份、改版记录、电话记录</td>
+<td>改了几版？最后一版在哪？</td>
+<td>不一定是大问题，任何一次调整都可以</td>
+</tr>
+<tr>
+<td>R1</td>
+<td>R1-Q4</td>
+<td>一张分配表要改几版？最后存在哪里？</td>
+<td>验证 H-02、H-04：版本分散与调整留痕</td>
+<td>Excel 文件、微信群、纸质草表、系统记录</td>
+<td>哪一版是最终版？月中还会不会改？</td>
+<td>按您实际保存的位置说就行</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="tpl-sec-5">第 2 轮：需求与额度口径</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th scope="col">轮次</th>
+<th scope="col">问题编号</th>
+<th scope="col">问题</th>
+<th scope="col">为什么问</th>
+<th scope="col">期望证据</th>
+<th scope="col">追问</th>
+<th scope="col">中性选项</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>R2</td>
+<td>R2-Q1</td>
+<td>妇科这个月 12 人天是怎么提出来的？最近一次怎么跟陈静说的？</td>
+<td>验证 H-05：需求口径与记录方式</td>
+<td>微信原话、上月需求记录</td>
+<td>12 里含不含夜班？如果只有 10 会怎样？</td>
+<td>您当时是怎么算的？</td>
+</tr>
+<tr>
+<td>R2</td>
+<td>R2-Q2</td>
+<td>额度每月怎么下发？最近一次发的是什么文件？</td>
+<td>验证 H-02：版本与权威源</td>
+<td>微信群消息、Excel、下发时间</td>
+<td>有没有唯一版本？谁改过其中数字？</td>
+<td>按实际发的说，不用管制度怎么写</td>
+</tr>
+<tr>
+<td>R2</td>
+<td>R2-Q3</td>
+<td>额度不够时能不能追加或跨月结转？最近一次例子？</td>
+<td>关闭 CB-11 的额度规则未知，影响 C2 计算</td>
+<td>制度条款、审批记录</td>
+<td>追加要谁批？会不会占下月额度？</td>
+<td>制度内外都可以讲</td>
+</tr>
+<tr>
+<td>R2</td>
+<td>R2-Q4</td>
+<td>外部人员资质由谁认定？最近一次资质不符怎么处理？</td>
+<td>关闭 CB-11 的资质认定未知，影响分配校验</td>
+<td>组长认定口径、资质表、特批记录</td>
+<td>主任特批要留什么记录？</td>
+<td>按您实际遇到的例子说</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="tpl-sec-6">第 3 轮：规则、冲突与权限</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th scope="col">轮次</th>
+<th scope="col">问题编号</th>
+<th scope="col">问题</th>
+<th scope="col">为什么问</th>
+<th scope="col">期望证据</th>
+<th scope="col">追问</th>
+<th scope="col">中性选项</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>R3</td>
+<td>R3-Q1</td>
+<td>如果王芳只能上 9 天，现在的表或系统会不会拦住 10 天的安排？</td>
+<td>验证 CB-15 的 R-05 是否真的被执行，C1 如何发生</td>
+<td>校验动作、报错截图、人工发现记录</td>
+<td>谁最后拍板改？改的时候有没有留痕？</td>
+<td>现在实际会不会提示？</td>
+</tr>
+<tr>
+<td>R3</td>
+<td>R3-Q2</td>
+<td>妇科缺口 2 人天，最近一次是怎么补的？</td>
+<td>验证 DC-3 缺口处理与借调规则</td>
+<td>借调记录、追加额度记录、改派记录</td>
+<td>借了哪个组？什么时候还？</td>
+<td>有几种做法都可以说</td>
+</tr>
+<tr>
+<td>R3</td>
+<td>R3-Q3</td>
+<td>如果只读导出一个月的数据，需要哪些字段和什么权限？</td>
+<td>确认数据可行性，CB-16 有条件项</td>
+<td>字段清单、账号流程、接口说明</td>
+<td>写回需要什么权限？院内系统不能写时，本地对象写回能否接受？</td>
+<td>先按最小权限说，后面再谈扩展</td>
+</tr>
+<tr>
+<td>R3</td>
+<td>R3-Q4</td>
+<td>您审批时看什么来判断可以签字？最近一次退回或要求改是什么情况？</td>
+<td>验证 DC-4 审批判据与例外处理</td>
+<td>审批单、退回原因、微信指示</td>
+<td>总额度超了但结构合理，您会怎么处理？</td>
+<td>按您实际签字时的判断说</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="tpl-sec-7">第 4 轮：成员校验与基线复测</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th scope="col">轮次</th>
+<th scope="col">问题编号</th>
+<th scope="col">问题</th>
+<th scope="col">为什么问</th>
+<th scope="col">期望证据</th>
+<th scope="col">追问</th>
+<th scope="col">中性选项</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>R4</td>
+<td>R4-Q1</td>
+<td>我们记录的流程是收额度、收需求、凭记忆核对、电话协调、审批录入，哪一步不对或漏了？</td>
+<td>做成员校验，避免把 FDE 的总结当成事实</td>
+<td>逐条确认、修改标记、补充步骤</td>
+<td>有没有不在制度里但您一定会做的动作？</td>
+<td>您可以逐条纠正，不用给我们面子</td>
+</tr>
+<tr>
+<td>R4</td>
+<td>R4-Q2</td>
+<td>如果组长视图显示 10 额度加 1 追加等于 11，您会怎么确认？剩下 1 天缺口怎么记？</td>
+<td>验证 CB-07 的 FR-04 与 C2 的两种处理分支</td>
+<td>确认意见、缺口登记记录</td>
+<td>追加没批时您希望看到什么？</td>
+<td>两种情况都可以说</td>
+</tr>
+<tr>
+<td>R4</td>
+<td>R4-Q3</td>
+<td>Demo 当天您能否到场审批？不能到场时接受什么替代？</td>
+<td>关闭 CB-10 的“业务方在场”待确认项</td>
+<td>日历、授权人、替代流程</td>
+<td>次日补审批能否接受？</td>
+<td>到场或不到场都请直说</td>
+</tr>
+<tr>
+<td>R4</td>
+<td>R4-Q4</td>
+<td>这次现场计时分配用了多久？和您印象中的 3 小时差多少？</td>
+<td>复测 CB-08 基线，避免把回忆值当实测</td>
+<td>计时记录、两次中位数</td>
+<td>哪一步比预想慢？</td>
+<td>以这次实际计时为准，不用迁就之前的说法</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="tpl-sec-8">提问纪律</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th scope="col">纪律</th>
+<th scope="col">做法</th>
+<th scope="col">反面例子</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>先事实后意见</td>
+<td>先问“最近一次怎么做”，再问“您觉得”</td>
+<td>一上来问“您觉得系统该怎么改”</td>
+</tr>
+<tr>
+<td>一次只问一个</td>
+<td>一个问题只验证一个假设</td>
+<td>把需求、额度、资质塞进同一句</td>
+</tr>
+<tr>
+<td>不诱导</td>
+<td>中性选项里不出现期望答案</td>
+<td>“是不是因为版本太多才出错？”</td>
+</tr>
+<tr>
+<td>可追溯</td>
+<td>录音、逐字稿、证据台账都引用 R 编号</td>
+<td>只写“陈静说很麻烦”</td>
+</tr>
+<tr>
+<td>先确认再下一轮</td>
+<td>每轮结束用 10 分钟复述并请对方纠正</td>
+<td>连续三轮不问确认</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>使用说明</strong>：R2-Q1 与 R3-Q2 涉及具体数字，现场先记原话，不急着换算；12、10、2 等数字在证据台账中必须附来源与待确认项。【示例】</p>
+</div>
+<footer class="page-foot">
+<p class="muted">本页由 <code>_tools/build.py</code> 从 Markdown 自动生成，请改源文件而不是改这里。</p>
+</footer>
+</article>
+</main>
+</body>
+</html>

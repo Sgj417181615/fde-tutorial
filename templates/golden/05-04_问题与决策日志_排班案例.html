@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>A05-04 问题与决策日志（排班案例） · FDE 模板库</title>
+<link rel="stylesheet" href="../../assets/course.css">
+</head>
+<body>
+<a class="skip-link" href="#main">跳到正文</a>
+<main class="main" id="main">
+<article class="article">
+<nav class="crumb" aria-label="面包屑">
+<a href="../../index.html">教程首页</a><span class="sep">/</span>
+<a href="../../appendix-templates.html">模板库</a><span class="sep">/</span>
+<span>黄金样例</span>
+</nav>
+<header class="page-head">
+<div class="badges">
+<span class="badge badge-main">A05-04</span>
+<span class="badge">黄金样例</span>
+<span class="badge badge-time">Markdown 阅读视图</span>
+</div>
+<h1>A05-04 问题与决策日志（排班案例）</h1>
+<p class="page-question">这是模板的阅读视图，源文件是 <code>05-04_问题与决策日志_排班案例.md</code>。
+<a href="05-04_问题与决策日志_排班案例.md">下载 / 编辑 Markdown</a> · <a href="../../appendix-templates.html">返回模板库</a></p>
+</header>
+<div class="prose">
+<blockquote>
+<p>【示例】匿名化案例，数字均为示例；人名与机构均为化名。</p>
+</blockquote>
+<p>本日志记录五天里真正发生过的问题、风险与决策，不收录“讨论过但没结论”的闲聊。编号规则：<code>P-</code> 问题、<code>R-</code> 风险、<code>D-</code> 决策，全表唯一。日期用 D1–D5 表示，与 A05-03 每日日志对应。事实依据取自 <code>_canon/case-bible.md</code> 的 CB-11、CB-13、CB-14、CB-18。</p>
+<h2 id="tpl-sec-1">一、登记表</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th scope="col">编号</th>
+<th scope="col">类型</th>
+<th scope="col">内容</th>
+<th scope="col">提出人</th>
+<th scope="col">影响</th>
+<th scope="col">决定</th>
+<th scope="col">负责人</th>
+<th scope="col">截止日期</th>
+<th scope="col">状态</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>P-01</td>
+<td>问题</td>
+<td>院内排班系统写回需走信息科变更审批，至少 10 个工作日；只读账号可开，写权限五天内拿不到（刘工，D1 16:40）</td>
+<td>刘工</td>
+<td>FR-05 写回、A05-06 最后一段、A05-01 门 4</td>
+<td>周主任 D1 拍板：本轮只写回本地对象；Demo 明确说“未写回院内系统”；院内写回评估列为 S2 前置</td>
+<td>刘工</td>
+<td>D1 18:00</td>
+<td>已解决</td>
+</tr>
+<tr>
+<td>P-02</td>
+<td>问题</td>
+<td>基线“约 3 小时”只是陈静回忆值。D2 现场计时被临时会议打断，D4 排练占满，直到 D5 都没有完整复测</td>
+<td>FDE</td>
+<td>A05-05 的耗时指标、A06 复盘、对外表述</td>
+<td>FDE 与陈静 D5 决定：只记录 D5 实测 50 分钟；基线保留“回忆值，未复测”；不声称降幅，只写“可能缩短”</td>
+<td>陈静</td>
+<td>复盘后 5 个工作日</td>
+<td>挂起</td>
+</tr>
+<tr>
+<td>P-03</td>
+<td>问题</td>
+<td>额度能否跨月结转一直没有书面口径，直接影响 C2 缺口算 2 人天还是 1 人天</td>
+<td>陈静</td>
+<td>缺口计算、R-07、C2 的处理方式</td>
+<td>孙老师 D2 确认“制度上没有跨月结转”：缺口按当月额度计算，不用下月额度冲抵；追加额度只标本月有效</td>
+<td>孙老师</td>
+<td>D2</td>
+<td>已解决</td>
+</tr>
+<tr>
+<td>P-04</td>
+<td>问题</td>
+<td>外部人员资质由谁认定：赵岚说“组长认”，孙老师说“只认备过案的”，两个口径不一致</td>
+<td>赵岚</td>
+<td>FR-02 的校验强度、R-04 资质规则</td>
+<td>FDE 与赵岚 D2 定：本轮以组长认定为准，界面标注“待备案核对”；资质只做提示不做硬拦截；备案口径移交 S2</td>
+<td>孙老师</td>
+<td>S2 D3</td>
+<td>挂起</td>
+</tr>
+<tr>
+<td>P-05</td>
+<td>问题</td>
+<td>妇科“12 人天”是否含夜班，决定需求口径和缺口大小</td>
+<td>陈静</td>
+<td>需求记录、C2 的 2 人天缺口</td>
+<td>赵岚 D2 确认 12 为总人天且含夜班：需求不再拆白班/夜班，缺口 2 人天成立</td>
+<td>赵岚</td>
+<td>D2</td>
+<td>已解决</td>
+</tr>
+<tr>
+<td>D-01</td>
+<td>决策</td>
+<td>C2 缺口 2 人天，是否申请额外额度、申请多少</td>
+<td>陈静</td>
+<td>C2、赵岚确认的 11 人天、A05-06 3:00–5:00 段</td>
+<td>周主任 D5 口头同意追加 1 人天，仅限本月；妇科额度 10→11，剩余 1 人天由赵岚登记负责人与日期</td>
+<td>周主任</td>
+<td>D5</td>
+<td>已解决</td>
+</tr>
+<tr>
+<td>R-01</td>
+<td>风险</td>
+<td>周主任 D5 能否到场审批；D4 秘书只回复“尽量到”，未最终确认</td>
+<td>FDE</td>
+<td>A05-06 6:30–8:00 审批段、阶段门结论</td>
+<td>陈静 D4 定：D5 08:30 再确认；若不到场，改为陈静操作、次日补审批，不假装已批准；实际 D5 上午确认到场</td>
+<td>陈静</td>
+<td>D5 08:30</td>
+<td>已解决</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="tpl-sec-2">二、关键决策展开</h2>
+<h3 id="tpl-sec-3">P-01 写回权限：为什么接受“只写本地”</h3>
+<ul>
+<li><strong>现场事实</strong>：D1 16:40 刘工说明，院内系统写回属于接口变更，需信息科、厂商、科室三方签字，最快 10 个工作日；只读账号当天可开。</li>
+<li><strong>备选方案</strong>：A 延期等权限；B 本地对象写回并在演示中说明边界；C 只读演示、不做写回。</li>
+<li><strong>选择 B 的理由</strong>：A 超出五天窗口；C 无法验证“写回”这道门，Demo 会退化成幻灯片；B 能真实验证状态迁移和额度已用变化，代价是必须把边界说清楚。</li>
+<li><strong>拍板人</strong>：周主任，D1 17:20 口头同意，记入 D1 日志。</li>
+<li><strong>影响范围</strong>：FR-05 的验收从“写回院内系统”降为“写回本地对象”；A05-06 最后 1.5 分钟增加一句边界说明；A05-09 门 4 记“有条件”，不能记“通过”。</li>
+<li><strong>后续动作</strong>：刘工在 S2 D1 前提交写回权限与接口评估单，明确“能不能写、谁批、多久”。</li>
+</ul>
+<h3 id="tpl-sec-4">P-02 基线未复测：为什么不能声称降幅</h3>
+<ul>
+<li><strong>现场事实</strong>：D2 计时到第 40 分钟被临时会议打断；D4 排练占满全天；D5 只有一次 50 分钟的现场计时。</li>
+<li><strong>判断</strong>：50 分钟是“本轮一次实测”，不是与基线同口径的复测；基线 3 小时来自回忆，可能偏高也可能偏低。两者不能直接相减。</li>
+<li><strong>决定</strong>：A05-05 与 A06 复盘只写“实测 50 分钟，基线为回忆值、未复测，可能缩短”；对外材料不得出现“下降 83%”之类表述。</li>
+<li><strong>拍板人</strong>：FDE 与陈静，D5 复盘时确认；周主任知悉。</li>
+<li><strong>后续动作</strong>：陈静在复盘后 5 个工作日内，用同一月份数据补测两次，取中位数；补测完成前，KPI 结论保持“有条件”。</li>
+</ul>
+<h3 id="tpl-sec-5">P-03 与 P-04：额度口径和资质口径不是一回事</h3>
+<ul>
+<li><strong>额度跨月</strong>：孙老师 D2 明确制度上没有结转，因此 C2 的 2 人天缺口不能用下月额度冲抵；追加的 1 人天也只在本月有效。这一条关闭了 CB-11 的第一个待确认项。</li>
+<li><strong>资质认定</strong>：赵岚 D2 说组长认定即可，孙老师 D5 说只认备案。两者冲突没有在本轮解决，因此系统只做提示、不做硬拦截；界面标注“资质来源：组长认定，待备案核对”。</li>
+<li><strong>影响</strong>：FR-02 的“超出时阻止保存”只对可用天数生效，对资质暂不生效；这条差异必须在 FR 文档里写明，不能让开发误以为资质也是硬约束。</li>
+</ul>
+<h3 id="tpl-sec-6">D-01 追加额度：为什么只追加 1 人天</h3>
+<ul>
+<li><strong>缺口</strong>：妇科需求 12、额度 10，缺口 2 人天。</li>
+<li><strong>可选动作</strong>：追加 2 人天、追加 1 人天、不追加只登记缺口。</li>
+<li><strong>决定</strong>：追加 1 人天，缺口从 2 降到 1；剩余 1 人天不藏起来，由赵岚登记负责人和日期。理由是总额度已经 54 人天，追加 2 会突破周主任“总额度不超”的底线；追加 1 既能演示“部分解决”，又保留真实缺口。</li>
+<li><strong>影响</strong>：赵岚按 11 人天确认；A05-06 的 C2 段落必须显示剩余 1 天，不能说成清零。</li>
+</ul>
+<h2 id="tpl-sec-7">三、对方案的影响</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th scope="col">决策</th>
+<th scope="col">影响的 FR / artifact</th>
+<th scope="col">具体改动</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>P-01</td>
+<td>FR-05、A05-06、A05-09</td>
+<td>写回目标改为本地对象；Demo 增加边界说明；门 4 记“有条件”</td>
+</tr>
+<tr>
+<td>P-02</td>
+<td>A05-05、A06-02</td>
+<td>耗时只写实测值与“可能缩短”，删除降幅表述</td>
+</tr>
+<tr>
+<td>P-03</td>
+<td>R-07、A04-04</td>
+<td>缺口计算不引入结转；追加额度标“本月有效”</td>
+</tr>
+<tr>
+<td>P-04</td>
+<td>FR-02、R-04</td>
+<td>资质从“硬拦截”降为“提示 + 待备案核对”</td>
+</tr>
+<tr>
+<td>D-01</td>
+<td>FR-03、A05-06</td>
+<td>C2 显示缺口 2→1，剩余 1 天有负责人与日期</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="tpl-sec-8">四、遗留与移交</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th scope="col">编号</th>
+<th scope="col">遗留事项</th>
+<th scope="col">移交对象</th>
+<th scope="col">移交时间</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>P-01</td>
+<td>院内系统写回权限与接口评估</td>
+<td>刘工 → S2 立项</td>
+<td>S2 D1 前</td>
+</tr>
+<tr>
+<td>P-02</td>
+<td>基线补测两次取中位数</td>
+<td>陈静 → A06 复盘</td>
+<td>复盘后 5 个工作日</td>
+</tr>
+<tr>
+<td>P-04</td>
+<td>资质备案表与组长认定的统一口径</td>
+<td>孙老师、赵岚 → S2</td>
+<td>S2 D3</td>
+</tr>
+<tr>
+<td>D-01</td>
+<td>追加 1 人天下月是否延续</td>
+<td>孙老师 → S2</td>
+<td>S2 D2</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="tpl-sec-9">五、与每日日志的对应</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th scope="col">日期</th>
+<th scope="col">当天新增或关闭的条目</th>
+<th scope="col">对应日志字段</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D1</td>
+<td>P-01 提出并决定降级方案</td>
+<td>D1“决策”“阻塞”</td>
+</tr>
+<tr>
+<td>D2</td>
+<td>P-03、P-05 关闭；P-02 提出；P-04 提出</td>
+<td>D2“决策”“没解决什么”</td>
+</tr>
+<tr>
+<td>D3</td>
+<td>P-04 降为提示；临时调整审批链补记</td>
+<td>D3“决策”</td>
+</tr>
+<tr>
+<td>D4</td>
+<td>R-01 提出；D-01 提出</td>
+<td>D4“阻塞”“决策”</td>
+</tr>
+<tr>
+<td>D5</td>
+<td>D-01、R-01 关闭；P-02 转挂起</td>
+<td>D5“决策”“没解决什么”</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<footer class="page-foot">
+<p class="muted">本页由 <code>_tools/build.py</code> 从 Markdown 自动生成，请改源文件而不是改这里。</p>
+</footer>
+</article>
+</main>
+</body>
+</html>

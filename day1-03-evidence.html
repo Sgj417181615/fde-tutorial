@@ -1,0 +1,526 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<title>确认记录与证据状态 · FDE 零基础教程</title>
+<meta name="description" content="四类访谈状态、五级来源权威性、双轴标注和确认记录，防止把“说过”当“事实”。">
+<link rel="stylesheet" href="assets/course.css">
+<script>
+(function () {
+  try {
+    var saved = localStorage.getItem('fde-theme');
+    var theme = saved || (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+    document.documentElement.dataset.theme = theme;
+  } catch (e) {}
+})();
+</script>
+</head>
+<body class="track-day1 page-day1-03-evidence">
+<a class="skip-link" href="#main">跳到正文</a>
+
+<header class="topbar">
+  <button class="icon-btn nav-toggle" id="nav-toggle" type="button" aria-expanded="false" aria-controls="sidebar" aria-label="打开课程目录">
+    <span aria-hidden="true">☰</span>
+  </button>
+  <a class="brand" data-same-tab href="index.html"><span class="brand-mark">FDE</span><span class="brand-text">零基础教程</span></a>
+  <nav class="track-switch" aria-label="模块切换"><a class="track-link" data-same-tab href="index.html" title="从零建立完整心智模型">主线</a><a class="track-link" data-same-tab href="work-01-prep.html" title="现场查用：输入、步骤、输出、阶段门">工作台</a><span class="track-link active" aria-current="true" title="六步链路：简报 → 访谈 → 证据 → 底稿 → 门">Day1</span><a class="track-link" data-same-tab href="appendix-methods.html" title="一卡一问，按阶段、产物、角色查">方法库</a><a class="track-link" data-same-tab href="appendix-templates.html" title="模板、产物链、术语与来源">附录</a></nav>
+  <div class="top-actions">
+    <button class="search-open" id="search-open" type="button" aria-haspopup="dialog">
+      <span aria-hidden="true">⌕</span><span class="search-label">搜索</span><kbd>/</kbd>
+    </button>
+    <button class="icon-btn" id="theme-toggle" type="button" aria-label="切换深浅色">◐</button>
+  </div>
+  <div class="read-progress" aria-hidden="true"><span id="read-progress"></span></div>
+</header>
+
+<div class="layout">
+  <aside class="sidebar" id="sidebar">
+    <nav class="course-tree" aria-label="课程目录"><header class="side-head"><p class="side-eyebrow">当前模块</p><p class="side-title">Day1 工作台</p><p class="side-caption">六步链路：简报 → 访谈 → 证据 → 底稿 → 门</p><p class="side-meta">6 页<span class="dot">·</span>约 100 分钟</p></header><section class="nav-group nav-group-plain"><a class="nav-link" data-same-tab href="day1-00-overview.html">Day1 工作台总览</a><a class="nav-link" data-same-tab href="day1-01-brief.html">需求定向简报</a><a class="nav-link" data-same-tab href="day1-02-grill.html">分轮访谈</a><span class="nav-link nav-current" aria-current="page">确认记录与证据状态</span><a class="nav-link" data-same-tab href="day1-04-spec.html">D1 工作底稿</a><a class="nav-link" data-same-tab href="day1-05-quality.html">D1 阶段门与评分</a></section></nav>
+  </aside>
+  <button class="scrim" id="scrim" type="button" aria-label="关闭目录" hidden></button>
+
+  <main class="main" id="main">
+    <nav class="crumb" aria-label="面包屑"><a data-same-tab href="index.html">教程</a><span class="sep">/</span><span>Day1 工作台</span><span class="sep">/</span><span aria-current="page">确认记录与证据状态</span></nav>
+    <article class="article">
+      <header class="page-head">
+        <div class="badges"><span class="badge badge-day1">专项</span><span class="badge badge-time">16 分钟</span></div>
+        <h1>确认记录与证据状态</h1>
+        <p class="lede">四类访谈状态、五级来源权威性、双轴标注和确认记录，防止把“说过”当“事实”。</p>
+        <p class="page-question"><span class="eyebrow">本页要回答</span>业务方说了一句话，它在证据链里到底算第几等？</p>
+        <div class="page-meta">
+          <section class="meta-block">
+            <h2 class="meta-title" id="meta-objectives">读完你能</h2>
+            <ul class="objective-list"><li>给每条记录标四类访谈状态；</li><li>同时标来源权威性并解释双轴；</li><li>写出一份可签字的确认记录。</li></ul>
+          </section>
+          <section class="meta-block">
+            <h2 class="meta-title" id="meta-prereq">前置</h2>
+            <p>先读：<a href="day1-02-grill.html" target="_blank" rel="noopener">分轮访谈</a></p>
+          </section>
+        </div>
+      </header>
+
+      <div class="prose">
+        <dl class="runbook-head">
+<div><dt>何时用</dt><dd>每次访谈或观察结束后，以及 D1 收口、确认记录签字之前</dd></div>
+<div><dt>前置</dt><dd>A01-02 提纲、A02-01 观察记录、A02-02 逐字稿、A02-03 术语表</dd></div>
+<div><dt>主要产出</dt><dd>A02-04 证据台账、A02-05 待确认清单、A02-06 D1 确认记录</dd></div>
+<div><dt>阶段门与耗时</dt><dd>G2 现场记录门；阅读约 16 分钟，现场执行约 50 分钟</dd></div>
+</dl>
+
+<p>D1 收口前，你在白板上写下“额度不能跨月”。有人问谁说的，你只找到自己发的“应该是吧”。这不是证据，是<strong>工作假设</strong>；三天后它可能被写成“业务规则”。证据状态要回答：<strong>验证到什么程度？凭什么信？能用到哪里？</strong></p>
+<h2 id="sec-when">何时用</h2>
+<p><strong>该用</strong>：访谈或观察当天；把“业务方说”写进一页纸、规则库或 FR 前；D1 结束请业务方确认关键结论。</p>
+<p><strong>不该用</strong>：无许可时先补数据权限与录音许可；公开资料走来源登记；会议纪要不能替代证据台账。</p>
+<h2 id="sec-inputs">前置与输入</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th scope="col">输入</th>
+<th scope="col">从里面取什么</th>
+<th scope="col">缺了怎么办</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A01-02 分轮访谈提纲</td>
+<td>问题编号、期望证据、追问</td>
+<td>先补提纲，否则不知道哪轮该确认什么</td>
+</tr>
+<tr>
+<td>A02-01 现场观察记录</td>
+<td>时间、角色、动作、卡点</td>
+<td>先复原现场，不能凭印象补</td>
+</tr>
+<tr>
+<td>A02-02 逐字稿</td>
+<td>原话、语气、说话人</td>
+<td>没有录音就标“现场笔记，未录音”</td>
+</tr>
+<tr>
+<td>A02-03 术语与说话人表</td>
+<td>业务词含义、说话人身份</td>
+<td>先对齐术语，避免听错概念</td>
+</tr>
+</tbody>
+</table></div>
+<p>A02-03 决定“谁有资格确认”。同一条规则，排班员和规则所有者的说法，分量不同。</p>
+<h2 id="sec-states">四类访谈状态</h2>
+<p><span class="term-link" title="Interview Evidence State：四类状态：原文/观察、业务确认、工作假设、待验证；它回答“这条信息被验证到什么程度”。">访谈证据状态</span>只有四类。一条证据只能选一类，不能同时写“原文 + 已确认”。</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th scope="col">状态</th>
+<th scope="col">判定标准</th>
+<th scope="col">记录要求</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>原文/观察</strong></td>
+<td>你能回到具体时间、说话人或动作，且有当时记录（录音、逐字稿或现场笔记）</td>
+<td>保留原话和场景，不润色、不概括</td>
+</tr>
+<tr>
+<td><strong>业务确认</strong></td>
+<td>对方听完你的复述后明确点头、纠正或书面回复</td>
+<td>写清谁确认、何时、原话是什么</td>
+</tr>
+<tr>
+<td><strong>工作假设</strong></td>
+<td>这是你从多条线索推出来的，对方没有明确确认</td>
+<td>写成“我们假设……”，并写验证方式</td>
+</tr>
+<tr>
+<td><strong>待验证</strong></td>
+<td>有一个具体说法，但来源、版本或口径尚未核对</td>
+<td>进入 A02-05，写负责人和截止日期</td>
+</tr>
+</tbody>
+</table></div>
+<p>五条边界最容易错：</p>
+<ol>
+<li><strong>“他没反对”不是业务确认。</strong> 只有明确点头、说“对”、签字或书面回复才算。</li>
+<li><strong>“业务方原话”不是官方规则。</strong> 原话说明你记录准确，不说明这句话是正式制度。</li>
+<li><strong>工作假设是“你推出来的解释”，待验证是“有一个说法，但还没核实”。</strong></li>
+<li><strong>一段话里有三个判断，就拆成三条 E-xx。</strong> 例如“额度不能超，超了要写说明，模板在群里”涉及规则、动作、材料三件事。</li>
+<li><strong>事后凭回忆补的记录不是原文/观察。</strong> 只有笔记没有录音时，在来源里写“现场笔记，未录音”，状态最高记到“业务确认”；回忆出来的概括只能记“工作假设”。</li>
+</ol>
+<h2 id="sec-authority">来源权威性五级</h2>
+<p><a class="term-link" href="appendix-sources.html#term-source-authority" title="Source Authority：五级来源成色：官方、第三方、实践、推断、待确认；它回答“这条信息凭什么可信”。" target="_blank" rel="noopener">来源权威性</a>回答另一个问题：<strong>凭什么信这句话？</strong></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th scope="col">级别</th>
+<th scope="col">判断标准</th>
+<th scope="col">典型来源</th>
+<th scope="col">能支撑什么</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>官方</strong></td>
+<td>有正式发布主体，原文可查，对项目有约束力</td>
+<td>法规、正式制度、合同、官方文档</td>
+<td>硬约束、正式口径；引用要能指到原文</td>
+</tr>
+<tr>
+<td><strong>第三方</strong></td>
+<td>外部作者或机构的研究、方法、基准</td>
+<td>行业报告、公开方法论、外部案例</td>
+<td>参考、对照、假设来源；不能当客户规则</td>
+</tr>
+<tr>
+<td><strong>实践</strong></td>
+<td>客户现场真实做法或角色原话</td>
+<td>观察、访谈、排班本、现有表格</td>
+<td>现状重建、痛点判断；不能自动当正式制度</td>
+</tr>
+<tr>
+<td><strong>推断</strong></td>
+<td>团队根据线索做出的解释</td>
+<td>你的归纳、对比、常识判断</td>
+<td>只能写成工作假设</td>
+</tr>
+<tr>
+<td><strong>待确认</strong></td>
+<td>来源不明、版本冲突、尚未核对</td>
+<td>截图、转述、过期表格、传闻</td>
+<td>只能进入待确认清单</td>
+</tr>
+</tbody>
+</table></div>
+<p>关键句：<strong>访谈状态回答“验证到什么程度”，权威性回答“凭什么信”。</strong> 一条“业务方原话”可以是“原文/观察 × 实践”，仍然不是“官方”。</p>
+<div class="checkpoint">
+<p><strong>停一下</strong>：周主任在访谈里说“总额度不能超”，这是“官方”吗？</p>
+<p>不是。它是“业务确认 × 实践”：你确认了周主任的态度，但手里没有正式制度原文。要写成硬约束，最好再拿到制度或书面规则。</p>
+</div>
+<h2 id="sec-dual-axis">双轴判定卡</h2>
+<p>把两个轴交叉，才能决定一条证据能不能进入结论。这张表可以直接打印。</p>
+<div class="template-block">
+<div class="template-title">双轴判定卡 <span>状态 × 权威性</span></div>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th scope="col">访谈状态 \ 权威性</th>
+<th scope="col">官方</th>
+<th scope="col">第三方</th>
+<th scope="col">实践</th>
+<th scope="col">推断</th>
+<th scope="col">待确认</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>原文/观察</strong></td>
+<td>A</td>
+<td>B</td>
+<td>B</td>
+<td>C</td>
+<td>D</td>
+</tr>
+<tr>
+<td><strong>业务确认</strong></td>
+<td>A</td>
+<td>B</td>
+<td>B</td>
+<td>C</td>
+<td>D</td>
+</tr>
+<tr>
+<td><strong>工作假设</strong></td>
+<td>C</td>
+<td>C</td>
+<td>C</td>
+<td>C</td>
+<td>D</td>
+</tr>
+<tr>
+<td><strong>待验证</strong></td>
+<td>D</td>
+<td>D</td>
+<td>D</td>
+<td>D</td>
+<td>D</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>读法</strong>：</p>
+<ul>
+<li><strong>A</strong>：可作为正式依据或硬约束，但仍要写出原文位置与确认人；</li>
+<li><strong>B</strong>：可作为方案依据，引用时必须标来源与证据 ID；</li>
+<li><strong>C</strong>：只能写成工作假设，不能写成“业务方认为”；</li>
+<li><strong>D</strong>：不能支撑结论，只能进入 A02-05，等验证后再升级。</li>
+</ul>
+</div>
+<p>“工作假设 × 官方”仍然是 C。你引用了一份官方文件，不代表你的推断自动变成官方结论。</p>
+<p>用 CB-14【示例】读一遍：E-01 是“原文/观察 × 实践”＝B，可以描述现状；E-04 是“业务确认 × 实践”＝B，可以写审批规则的工作依据；E-05 是“工作假设 × 推断”＝C，只能写“我们假设额度不能跨月”；E-06 是“待验证 × 待确认”＝D，不能写“王芳只能上 9 天”，只能开问题单。</p>
+<h2 id="sec-steps">操作步骤</h2>
+<ol>
+<li><strong>切分原句（5 分钟）</strong>：一句只留一个可判断的主张；包含多个主张的，拆成多条 E-xx。</li>
+<li><strong>判定状态（10 分钟）</strong>：问三件事：这是原话/动作，还是我的解释？对方明确确认了吗？有没有具体说法尚未核实？</li>
+<li><strong>标权威性（5 分钟）</strong>：看来源，不看职位。正式制度是官方，现场做法是实践，你的解释是推断，来源不明是待确认。</li>
+<li><strong>做双轴校验（5 分钟）</strong>：查判定卡。C 改成“我们假设……”；D 搬到 A02-05，不留在结论区。</li>
+<li><strong>建待确认清单（10 分钟）</strong>：每条 D 或未决的 C，写影响、当前假设、验证方式、负责人、截止日期、状态。</li>
+<li><strong>写确认记录（10 分钟）</strong>：只记明确确认或纠正的内容。复述结论，请对方用自己的话再说一遍；点头后记录原话和仍未确认项。</li>
+</ol>
+<p>最后留 5 分钟过 G2：抽查三条将进入方案的结论，看能否回到 E-xx、状态和权威性。</p>
+<h2 id="sec-output">三份产出与字段</h2>
+<p>三份文件都在 <code>02_现场记录/</code> 下，字段不要自创。</p>
+<h3 id="out-ledger">A02-04 证据台账</h3>
+<p>九列，一行一条证据。可直接抄这张空表：</p>
+<div class="template-block">
+<div class="template-title">A02-04 证据台账 <span>九列骨架</span></div>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th scope="col">证据ID</th>
+<th scope="col">原文或观察</th>
+<th scope="col">来源</th>
+<th scope="col">访谈状态</th>
+<th scope="col">权威性</th>
+<th scope="col">影响决策</th>
+<th scope="col">待确认项</th>
+<th scope="col">负责人</th>
+<th scope="col">截止日期</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>E-01</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>E-02</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<p>“影响决策”写具体判断，如“额度校验规则”，不要写“有用”。“原文或观察”栏不要出现“我觉得”。</p>
+<h3 id="out-open">A02-05 待确认与问题清单</h3>
+<p>七列：问题、影响、当前假设、验证方式、负责人、截止日期、状态。放双轴为 D 的条目、未确认的关键 C、版本或口径冲突，以及会影响 D1 结论或 D2 计划的问题。</p>
+<p>一条问题只写一件事。“额度规则不清楚”太宽；“12 人天是否含夜班”可以直接验证。</p>
+<h3 id="out-confirm">A02-06 D1 确认记录</h3>
+<p>六字段，缺一不可：</p>
+<div class="template-block">
+<div class="template-title">A02-06 D1 确认记录 <span>可打印签字</span></div>
+<pre><code class="language-text">确认时间：
+参与人：
+确认内容：
+业务方原话：
+仍未确认项：
+下一步：
+</code></pre>
+</div>
+<p>三条规则：<strong>原话不转述；确认人要有权确认这条规则；仍未确认项不能留空。</strong> 对方只说“差不多”，写进“仍未确认项”。</p>
+<p>排班案例的一条填法【示例】：</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th scope="col">字段</th>
+<th scope="col">填写</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>确认时间</td>
+<td>D1 下午【示例】</td>
+</tr>
+<tr>
+<td>参与人</td>
+<td>周主任、FDE</td>
+</tr>
+<tr>
+<td>确认内容</td>
+<td>总额度不得超过；超出时要写说明</td>
+</tr>
+<tr>
+<td>业务方原话</td>
+<td>“总额度不能超，超了要写说明。”</td>
+</tr>
+<tr>
+<td>仍未确认项</td>
+<td>说明模板是否存在；额度能否跨月（E-05）</td>
+</tr>
+<tr>
+<td>下一步</td>
+<td>周主任提供说明模板；FDE 向孙老师确认规则，截止 <code>&lt;日期&gt;</code></td>
+</tr>
+</tbody>
+</table></div>
+<p>打印后由参与人在“参与人”栏手签，附在 A02-04 后面。</p>
+<h2 id="sec-case">排班案例：从原话到台账与确认</h2>
+<p><a class="case-link" href="work-03-record.html#cb-evidence" target="_blank" rel="noopener">案例 CB-14</a> 里有六条证据（数字均为【示例】）。不要只看“写了什么”，要看“每条能怎么用”：</p>
+<ul>
+<li>E-01、E-02 都指向“三个 Excel 并存”，都是 B，可以共同支撑“版本不统一”；</li>
+<li>E-03“妇科至少 12 个”是赵岚原话，B；但“12 是否含夜班”仍是待确认项；</li>
+<li>E-04 是周主任的业务确认，B，可以写审批规则的工作依据，但仍不是官方制度；</li>
+<li>E-05 是工作假设 C，只能写“我们假设额度不能跨月”；E-06 是 D，不能证明 C1 已成立。</li>
+</ul>
+<p>双轴的作用，是逼你在写结论前先决定：<strong>这句话有没有资格进入结论。</strong></p>
+<div class="hands-on">
+<p><strong>动手 15 分钟</strong>：从最近一次访谈里抽三条“业务方说”，做双轴标注。</p>
+<ol>
+<li>每条拆成一个可判断的主张，编号 E-01 到 E-03；</li>
+<li>标状态与权威性，查表得到 A/B/C/D；</li>
+<li>把 C 改写成“我们假设……”；把 D 搬到待确认清单；</li>
+<li>选一条最重要的 B，写一行 A02-06 确认记录，补上仍未确认项。</li>
+</ol>
+<p><strong>自检</strong>：① 有没有把“没反对”写成“业务确认”；② 有没有 D 还留在结论里；③ 确认记录写的是原话还是概括。</p>
+</div>
+<h2 id="sec-failures">常见失败</h2>
+<div class="pitfalls">
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th scope="col">现象</th>
+<th scope="col">原因</th>
+<th scope="col">处理</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>台账每条都是“业务确认”</td>
+<td>把“没反对”当确认</td>
+<td>只有明确点头、纠正或书面回复才算；否则降为工作假设</td>
+</tr>
+<tr>
+<td>原话漂亮，但找不到说话人</td>
+<td>只抄了结论</td>
+<td>回逐字稿补时间、角色；补不了就降级</td>
+</tr>
+<tr>
+<td>一条证据支撑五个结论</td>
+<td>证据被过度解释</td>
+<td>一条证据只支撑它直接说明的判断</td>
+</tr>
+<tr>
+<td>双轴只标状态，没标权威性</td>
+<td>把“谁说的”当成“凭什么信”</td>
+<td>两轴都标；原话通常是实践，不是官方</td>
+</tr>
+<tr>
+<td>待确认清单没有负责人</td>
+<td>把清单当问题池</td>
+<td>每条必须有人名和日期；没有就升级为阻塞项</td>
+</tr>
+<tr>
+<td>确认记录写成会议纪要</td>
+<td>按时间记，不按确认点记</td>
+<td>只留六字段；一条确认一张记录</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="self-test">
+<p><strong>三问自测</strong></p>
+<details>
+<summary>1. 业务方说“应该不能跨月”，可以标“业务确认”吗？</summary>
+
+不可以。这是推测语气，且没有明确确认。应标“工作假设”；如果有具体说法待核实，也可以标“待验证”，并进入待确认清单。
+
+</details>
+<details>
+<summary>2. “原文/观察 × 实践”能直接当硬约束吗？</summary>
+
+不能。它适合描述现状和痛点，不等于正式规则。硬约束需要官方来源，或规则所有者明确确认并留下记录。
+
+</details>
+<details>
+<summary>3. 为什么“工作假设 × 官方”仍是 C？</summary>
+
+因为访谈状态描述的是你的判断有没有被确认，不是来源本身有多权威。你引用官方材料做推断，推断仍然是推断。
+
+</details>
+</div>
+<h2 id="sec-checklist">自检清单</h2>
+<ul>
+<li>[ ] 每条 E-xx 只有一个状态和一个权威性；</li>
+<li>[ ] 原话与解释分开，原话没有被润色成结论；</li>
+<li>[ ] 所有 C 都写成“我们假设……”，没有伪装成业务确认；</li>
+<li>[ ] 所有 D 都进入 A02-05，有验证方式、负责人和截止日期；</li>
+<li>[ ] 每条关键结论都能回到 E-xx 和原始来源；</li>
+<li>[ ] A02-06 六字段齐全，原话准确，参与人有权确认。</li>
+</ul>
+<div class="recap">
+<p><strong>本章带走</strong></p>
+<ol>
+<li>四类状态回答“验证到什么程度”，五级权威性回答“凭什么信”；两个轴必须同时标。</li>
+<li>“业务方原话”不等于官方，“没反对”不等于确认；工作假设和待验证都要有下一步。</li>
+<li>双轴为 D 的条目不能进结论，只能进待确认清单；确认记录只写明确确认的内容和原话。</li>
+</ol>
+</div>
+      </div>
+
+      <section class="term-cards" aria-label="本页术语卡"><p class="eyebrow">本页术语</p><div class="term-grid"><article class="term-card" id="term-evidence-ledger"><h3 id="term-title-evidence-ledger">证据台账 <span class="term-en">Evidence Ledger</span></h3><p>逐条记录原文/观察、来源、访谈状态、权威性、影响决策和待确认项的账本。</p><a class="term-first" href="work-03-record.html" target="_blank" rel="noopener">首次解释</a></article><article class="term-card" id="term-confirmation-record"><h3 id="term-title-confirmation-record">确认记录 <span class="term-en">Confirmation Record</span></h3><p>记录谁在什么时候确认了什么、原话是什么、还有什么没确认的简短记录。</p></article><article class="term-card" id="term-evidence-state"><h3 id="term-title-evidence-state">访谈证据状态 <span class="term-en">Interview Evidence State</span></h3><p>四类状态：原文/观察、业务确认、工作假设、待验证；它回答“这条信息被验证到什么程度”。</p></article></div></section>
+      <section class="artifact-box" aria-label="本页产物"><div class="artifact-block"><h3 id="artifacts-out">本页要写出的产物</h3><ul><li><code>A02-04</code> 证据台账 <span class="muted">→ 02_现场记录/02-04_证据台账.md</span> <span class="gate-tag">G2</span> <a href="templates/blank/02-04_证据台账.html" data-template-view data-template-title="A02-04 证据台账模板" title="A02-04 证据台账模板 ｜ 当前页弹窗预览">模板</a> <a href="templates/golden/02-04_证据台账_排班案例.html" data-template-view data-template-title="A02-04 证据台账黄金样例" title="A02-04 证据台账黄金样例 ｜ 当前页弹窗预览">黄金样例</a></li><li><code>A02-05</code> 待确认与问题清单 <span class="muted">→ 02_现场记录/02-05_待确认与问题清单.md</span> <span class="gate-tag">G2</span> <a href="templates/blank/02-05_待确认与问题清单.html" data-template-view data-template-title="A02-05 待确认与问题清单模板" title="A02-05 待确认与问题清单模板 ｜ 当前页弹窗预览">模板</a> <a href="templates/golden/02-05_待确认与问题清单_排班案例.html" data-template-view data-template-title="A02-05 待确认与问题清单黄金样例" title="A02-05 待确认与问题清单黄金样例 ｜ 当前页弹窗预览">黄金样例</a></li><li><code>A02-06</code> D1确认记录 <span class="muted">→ 02_现场记录/02-06_D1确认记录.md</span> <span class="gate-tag">G2</span> <a href="templates/blank/02-06_D1确认记录.html" data-template-view data-template-title="A02-06 D1确认记录模板" title="A02-06 D1确认记录模板 ｜ 当前页弹窗预览">模板</a> <a href="templates/golden/02-06_D1确认记录_排班案例.html" data-template-view data-template-title="A02-06 D1确认记录黄金样例" title="A02-06 D1确认记录黄金样例 ｜ 当前页弹窗预览">黄金样例</a></li></ul></div><div class="artifact-block"><h3 id="artifacts-in">开始前应已具备</h3><p class="muted"><code>A01-02</code> 分轮访谈提纲、<code>A02-01</code> 现场观察记录、<code>A02-02</code> 逐字稿、<code>A02-03</code> 术语与说话人表</p></div></section>
+      <section class="sources" aria-label="来源"><h2 id="sec-sources">来源与证据等级</h2><ol class="source-list"><li><span class="src-id">S16</span> <strong>GR-FDE-01-014 D1 客户工具包（国润 Skill 工具包）</strong> <span class="badge badge-实践">实践</span><div class="muted">国润项目组 · 抓取 2026-10-19 · MIT；`grilling` 上游署名 Matt Pocock；包内文件不随教程分发</div><div class="src-url"><span class="muted">无公开链接</span></div></li><li><span class="src-id">S17</span> <strong>FDE 方法论沉淀</strong> <span class="badge badge-实践">实践</span><div class="muted">本子项目 · 抓取 2026-09-23 · 内部方法沉淀</div><div class="src-url"><span class="muted">无公开链接</span></div></li><li><span class="src-id">S21</span> <strong>Matt Pocock · grilling skill</strong> <span class="badge badge-第三方">第三方</span><div class="muted">Matt Pocock · 抓取 2026-10-19 · MIT；随 GR-FDE-01-014 分发，上游作者署名 Matt Pocock</div><div class="src-url"><span class="muted">无公开链接</span></div></li></ol></section>
+      <nav class="pager" aria-label="翻页"><a class="pager-prev" data-same-tab href="day1-02-grill.html"><span>上一页</span><strong>分轮访谈</strong></a><a class="pager-next" data-same-tab href="day1-04-spec.html"><span>下一页</span><strong>D1 工作底稿</strong></a></nav>
+
+      <footer class="page-foot">
+        <p>本教程为内部方法研究。案例已匿名化，数字标注【示例】。Palantir 官方资料版权归 Palantir Technologies，仅作改写与链接。</p>
+        <p class="muted">发现断链或事实错误？回到 <a href="appendix-sources.html" target="_blank" rel="noopener">来源与版权</a> 核对出处。</p>
+      </footer>
+    </article>
+  </main>
+
+  <aside class="toc" id="toc" aria-label="页内目录">
+    <p class="toc-title">本页目录</p><ol class="toc-list"><li class="toc-h2"><a href="#sec-when">何时用</a></li><li class="toc-h2"><a href="#sec-inputs">前置与输入</a></li><li class="toc-h2"><a href="#sec-states">四类访谈状态</a></li><li class="toc-h2"><a href="#sec-authority">来源权威性五级</a></li><li class="toc-h2"><a href="#sec-dual-axis">双轴判定卡</a></li><li class="toc-h2"><a href="#sec-steps">操作步骤</a></li><li class="toc-h2"><a href="#sec-output">三份产出与字段</a><ul class="toc-sub"><li class="toc-h3"><a href="#out-ledger">A02-04 证据台账</a></li><li class="toc-h3"><a href="#out-open">A02-05 待确认与问题清单</a></li><li class="toc-h3"><a href="#out-confirm">A02-06 D1 确认记录</a></li></ul></li><li class="toc-h2"><a href="#sec-case">排班案例：从原话到台账与确认</a></li><li class="toc-h2"><a href="#sec-failures">常见失败</a></li><li class="toc-h2"><a href="#sec-checklist">自检清单</a></li></ol>
+  </aside>
+</div>
+
+<div class="tpl-modal" id="tpl-modal" hidden>
+  <div class="tpl-panel" role="dialog" aria-modal="true" aria-labelledby="tpl-title">
+    <header class="tpl-head">
+      <div class="tpl-heading">
+        <p class="tpl-kicker">模板阅读视图</p>
+        <h2 id="tpl-title">模板</h2>
+      </div>
+      <div class="tpl-actions">
+        <a class="tpl-open" id="tpl-open" href="#" target="_blank" rel="noopener">在新标签打开 ↗</a>
+        <button class="icon-btn" id="tpl-close" type="button" aria-label="关闭模板">✕</button>
+      </div>
+    </header>
+    <div class="tpl-body">
+      <iframe id="tpl-frame" title="模板内容" loading="lazy"></iframe>
+    </div>
+  </div>
+</div>
+
+<div class="search-modal" id="search-modal" hidden>
+  <div class="search-panel" role="dialog" aria-modal="true" aria-labelledby="search-title">
+    <div class="search-head">
+      <label id="search-title" class="sr-only" for="search-input">搜索教程</label>
+      <input id="search-input" type="search" placeholder="搜索概念、产物、模板、方法卡…" autocomplete="off">
+      <button class="icon-btn" id="search-close" type="button" aria-label="关闭搜索">✕</button>
+    </div>
+    <div id="search-results" class="search-results" aria-live="polite"></div>
+    <p class="search-hint">按 <kbd>/</kbd> 或 <kbd>Ctrl</kbd>+<kbd>K</kbd> 打开，<kbd>Esc</kbd> 关闭。索引完全离线。</p>
+  </div>
+</div>
+
+<noscript><p class="noscript-note">搜索与阅读进度需要 JavaScript；正文、目录和翻页仍可正常使用。可用浏览器查找（Ctrl+F）。</p></noscript>
+
+<script src="assets/search-index.js"></script>
+<script src="assets/viz-data.js"></script>
+<script src="assets/app.js"></script>
+<script src="assets/viz.js"></script>
+
+</body>
+</html>

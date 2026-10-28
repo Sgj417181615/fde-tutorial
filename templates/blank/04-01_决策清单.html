@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>A04-01 决策清单 · FDE 模板库</title>
+<link rel="stylesheet" href="../../assets/course.css">
+</head>
+<body>
+<a class="skip-link" href="#main">跳到正文</a>
+<main class="main" id="main">
+<article class="article">
+<nav class="crumb" aria-label="面包屑">
+<a href="../../index.html">教程首页</a><span class="sep">/</span>
+<a href="../../appendix-templates.html">模板库</a><span class="sep">/</span>
+<span>空白模板</span>
+</nav>
+<header class="page-head">
+<div class="badges">
+<span class="badge badge-main">A04-01</span>
+<span class="badge">空白模板</span>
+<span class="badge badge-time">Markdown 阅读视图</span>
+</div>
+<h1>A04-01 决策清单</h1>
+<p class="page-question">这是模板的阅读视图，源文件是 <code>04-01_决策清单.md</code>。
+<a href="04-01_决策清单.md">下载 / 编辑 Markdown</a> · <a href="../../appendix-templates.html">返回模板库</a></p>
+</header>
+<div class="prose">
+<blockquote>
+<p>产物路径：<code>04_方案设计/04-01_决策清单.md</code> ｜ 所属阶段：04_方案设计 ｜ 阶段门：G4</p>
+</blockquote>
+<h2 id="tpl-sec-1">用途</h2>
+<p>把方案真正要支撑的业务决策逐条列出来，作为功能需求、对象模型、生命周期和 MVP 范围的共同锚点。方案不是页面清单，而是“谁在什么时候、基于什么输入、做什么决定”的集合。</p>
+<h2 id="tpl-sec-2">何时用</h2>
+<ul>
+<li>完成 one-pager、准备进入方案设计时；</li>
+<li>写 FR 或画界面之前，先在这里找到对应的决策行；</li>
+<li>G4 评审时，逐行检查方案是否偏离决策；</li>
+<li>Demo 前确认要演示的决策是否仍然只有一条主线。</li>
+</ul>
+<h2 id="tpl-sec-3">填写说明</h2>
+<ol>
+<li>一个决策一行。出现“并且”“同时”时，拆成两行。</li>
+<li>决策人写角色或具体岗位，不写“业务方”“领导”这类笼统称呼。</li>
+<li>时点要能观察，例如“每月 25 日前”“冲突出现时”“审批当天”。</li>
+<li>输入写决策需要的数据项；动作写用户能完成的一步操作。</li>
+<li>频率写真实节奏，例如“每月一次”“每月多次”“仅异常时”。</li>
+<li>影响对象写这个决策会改变哪些记录、人员或状态。</li>
+<li>只把五天 Demo 真正承诺的决策标为主决策，其余标为中间决策或后续切片。</li>
+</ol>
+<h2 id="tpl-sec-4">字段</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th scope="col">决策</th>
+<th scope="col">决策人</th>
+<th scope="col">时点</th>
+<th scope="col">输入</th>
+<th scope="col">动作</th>
+<th scope="col">频率</th>
+<th scope="col">影响对象</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="tpl-sec-5">质量门自检（G4）</h2>
+<ul>
+<li>[ ] 一个决策一行，没有把多个决策塞进同一行。</li>
+<li>[ ] 每行写明决策人，且决策人是真实角色，不是笼统的“业务方”。</li>
+<li>[ ] 时点可观察，不是“随时”或“视情况”。</li>
+<li>[ ] 输入列出的数据在现场拿得到，拿不到的已标为待补齐。</li>
+<li>[ ] 动作是用户能完成的步骤，不是“系统自动优化”。</li>
+<li>[ ] 频率与业务真实节奏一致，没有为了演示而虚构频次。</li>
+<li>[ ] 最终承诺的决策与 one-pager 一致，没有偷偷扩大范围。</li>
+</ul>
+</div>
+<footer class="page-foot">
+<p class="muted">本页由 <code>_tools/build.py</code> 从 Markdown 自动生成，请改源文件而不是改这里。</p>
+</footer>
+</article>
+</main>
+</body>
+</html>

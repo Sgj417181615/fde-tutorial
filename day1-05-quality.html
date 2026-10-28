@@ -1,0 +1,509 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<title>D1 阶段门与评分 · FDE 零基础教程</title>
+<meta name="description" content="12 分 rubric、三种阶段门结论、常见失败、AI 与手工路径等价性检查。">
+<link rel="stylesheet" href="assets/course.css">
+<script>
+(function () {
+  try {
+    var saved = localStorage.getItem('fde-theme');
+    var theme = saved || (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+    document.documentElement.dataset.theme = theme;
+  } catch (e) {}
+})();
+</script>
+</head>
+<body class="track-day1 page-day1-05-quality">
+<a class="skip-link" href="#main">跳到正文</a>
+
+<header class="topbar">
+  <button class="icon-btn nav-toggle" id="nav-toggle" type="button" aria-expanded="false" aria-controls="sidebar" aria-label="打开课程目录">
+    <span aria-hidden="true">☰</span>
+  </button>
+  <a class="brand" data-same-tab href="index.html"><span class="brand-mark">FDE</span><span class="brand-text">零基础教程</span></a>
+  <nav class="track-switch" aria-label="模块切换"><a class="track-link" data-same-tab href="index.html" title="从零建立完整心智模型">主线</a><a class="track-link" data-same-tab href="work-01-prep.html" title="现场查用：输入、步骤、输出、阶段门">工作台</a><span class="track-link active" aria-current="true" title="六步链路：简报 → 访谈 → 证据 → 底稿 → 门">Day1</span><a class="track-link" data-same-tab href="appendix-methods.html" title="一卡一问，按阶段、产物、角色查">方法库</a><a class="track-link" data-same-tab href="appendix-templates.html" title="模板、产物链、术语与来源">附录</a></nav>
+  <div class="top-actions">
+    <button class="search-open" id="search-open" type="button" aria-haspopup="dialog">
+      <span aria-hidden="true">⌕</span><span class="search-label">搜索</span><kbd>/</kbd>
+    </button>
+    <button class="icon-btn" id="theme-toggle" type="button" aria-label="切换深浅色">◐</button>
+  </div>
+  <div class="read-progress" aria-hidden="true"><span id="read-progress"></span></div>
+</header>
+
+<div class="layout">
+  <aside class="sidebar" id="sidebar">
+    <nav class="course-tree" aria-label="课程目录"><header class="side-head"><p class="side-eyebrow">当前模块</p><p class="side-title">Day1 工作台</p><p class="side-caption">六步链路：简报 → 访谈 → 证据 → 底稿 → 门</p><p class="side-meta">6 页<span class="dot">·</span>约 100 分钟</p></header><section class="nav-group nav-group-plain"><a class="nav-link" data-same-tab href="day1-00-overview.html">Day1 工作台总览</a><a class="nav-link" data-same-tab href="day1-01-brief.html">需求定向简报</a><a class="nav-link" data-same-tab href="day1-02-grill.html">分轮访谈</a><a class="nav-link" data-same-tab href="day1-03-evidence.html">确认记录与证据状态</a><a class="nav-link" data-same-tab href="day1-04-spec.html">D1 工作底稿</a><span class="nav-link nav-current" aria-current="page">D1 阶段门与评分</span></section></nav>
+  </aside>
+  <button class="scrim" id="scrim" type="button" aria-label="关闭目录" hidden></button>
+
+  <main class="main" id="main">
+    <nav class="crumb" aria-label="面包屑"><a data-same-tab href="index.html">教程</a><span class="sep">/</span><span>Day1 工作台</span><span class="sep">/</span><span aria-current="page">D1 阶段门与评分</span></nav>
+    <article class="article">
+      <header class="page-head">
+        <div class="badges"><span class="badge badge-day1">专项</span><span class="badge badge-time">14 分钟</span></div>
+        <h1>D1 阶段门与评分</h1>
+        <p class="lede">12 分 rubric、三种阶段门结论、常见失败、AI 与手工路径等价性检查。</p>
+        <p class="page-question"><span class="eyebrow">本页要回答</span>这次 D1 到底算不算做完了，凭什么是这个结论？</p>
+        <div class="page-meta">
+          <section class="meta-block">
+            <h2 class="meta-title" id="meta-objectives">读完你能</h2>
+            <ul class="objective-list"><li>用 rubric 给五项产出打分；</li><li>给出通过、有条件继续或待补证；</li><li>指出 AI 路径与手工路径的产出差异。</li></ul>
+          </section>
+          <section class="meta-block">
+            <h2 class="meta-title" id="meta-prereq">前置</h2>
+            <p>先读：<a href="day1-04-spec.html" target="_blank" rel="noopener">D1 工作底稿</a></p>
+          </section>
+        </div>
+      </header>
+
+      <div class="prose">
+        <dl class="runbook-head">
+<div><dt>何时用</dt><dd>D1 工作底稿完成后、D2 开始前，需要给阶段门一个可复核的结论时</dd></div>
+<div><dt>前置</dt><dd>A03-06 工作底稿、五项产出、证据摘要、A03-08 D2 输入清单</dd></div>
+<div><dt>主要产出</dt><dd>A03-07 D1 阶段门记录</dd></div>
+<div><dt>阶段门与耗时</dt><dd>G3 现状与切片门；阅读约 14 分钟，打分与复核约 25 分钟</dd></div>
+</dl>
+
+<p>D1 结束时，常见的一句话是“差不多了，可以进 D2”。再问“凭什么”，现场往往安静：五项产出都写了，证据够不够？</p>
+<p><a class="term-link" href="work-07-run.html#term-stage-gate" title="Stage Gate：G0–G6，进入下一阶段前必须同时满足的检查点；结论通常是通过、有条件继续或待补证。" target="_blank" rel="noopener">阶段门</a>不是总结会，而是进入下一阶段前的判断。判断不能靠气氛，要靠一张能逐项打分的表。</p>
+<h2 id="sec-when">何时用</h2>
+<p><strong>该用</strong>：A03-06 已写完，准备决定是否进入 D2；团队对“算不算完成”有分歧；你要复核别人给出的“通过”。</p>
+<p><strong>不该用</strong>：五项产出还不存在时，先过前置阶段门，不要用 G3 假装有产出；不要给个人做绩效考核；不要只看分数。</p>
+<h2 id="sec-inputs">前置与输入</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th scope="col">输入</th>
+<th scope="col">用来判断什么</th>
+<th scope="col">缺失时</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A03-06 工作底稿</td>
+<td>五项产出是否齐全、是否咬合</td>
+<td>先写底稿，不能拿聊天记录代替</td>
+</tr>
+<tr>
+<td>五项产出</td>
+<td>一页纸、As-is、决策清单、KPI、MVP</td>
+<td>缺一项，对应维度 0 分</td>
+</tr>
+<tr>
+<td>A03-06 证据摘要</td>
+<td>关键结论能否回到 E-xx</td>
+<td>“证据可追溯”只能 0 分</td>
+</tr>
+<tr>
+<td>A03-08 D2 输入清单</td>
+<td>条件是否可执行、谁负责</td>
+<td>“有条件继续”无法落地</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="sec-rubric">12 分 rubric</h2>
+<p>这张表是教程补充的评分工具 <span class="ev-infer">【推断】</span>，不是工具包原文，也不是行业标准。</p>
+<p><strong>打分规则</strong>：五项产出各 0–2 分，共 10 分；“证据可追溯”“阶段门依据”各 0–1 分，共 2 分。后两项不要打 2 分。</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th scope="col">维度</th>
+<th scope="col" style="text-align: right;">满分</th>
+<th scope="col">0 分：直接判</th>
+<th scope="col">1 分：部分达到</th>
+<th scope="col">2 分：完全达到</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Use Case 一页纸</td>
+<td style="text-align: right;">2</td>
+<td>缺字段，或写成功能清单</td>
+<td>六字段齐全，但价值不可测或无“不做什么”</td>
+<td>六字段齐全，价值有基线，“不做什么”具体</td>
+</tr>
+<tr>
+<td>As-is 决策流</td>
+<td style="text-align: right;">2</td>
+<td>只有步骤，没有角色和判断</td>
+<td>有角色与输入，但缺判断规则或卡点空泛</td>
+<td>六列最小视图齐全，判断规则和卡点具体</td>
+</tr>
+<tr>
+<td>用户-决策-动作清单</td>
+<td style="text-align: right;">2</td>
+<td>角色与决策混在一起</td>
+<td>有决策点，但触发动作不明确</td>
+<td>每个决策都有角色、时点、输入和触发动作</td>
+</tr>
+<tr>
+<td>KPI 基线</td>
+<td style="text-align: right;">2</td>
+<td>没有基线</td>
+<td>有指标，但缺基线、测量方式或来源</td>
+<td>每个指标有基线、目标、测法、来源、验证日</td>
+</tr>
+<tr>
+<td>MVP 范围</td>
+<td style="text-align: right;">2</td>
+<td>只有“做”，没有边界</td>
+<td>有“不做”，但理由不足或“待确认”缺失</td>
+<td>做/不做/待确认清楚，“不做”有理由</td>
+</tr>
+<tr>
+<td>证据可追溯</td>
+<td style="text-align: right;">1</td>
+<td>关键结论无证据，或仅有 C/D 级证据</td>
+<td>关键结论都能回到 E-xx，且状态为 A/B（A/B/C/D 见 day1-03 双轴判定卡）</td>
+<td>—</td>
+</tr>
+<tr>
+<td>阶段门依据</td>
+<td style="text-align: right;">1</td>
+<td>结论无理由，或条件无负责人/日期</td>
+<td>理由、证据、条件、负责人、日期齐全</td>
+<td>—</td>
+</tr>
+</tbody>
+</table></div>
+<p>“达到 1 分但没完全达到 2 分”的取 1 分；不到 1 分就是 0 分。不要四舍五入，不要给半分。一条关键结论配一条直接支撑它的 A/B 级证据，比十条 D 级截图更有用。</p>
+<div class="checkpoint">
+<p><strong>停一下</strong>：五项产出里四项满分、一项 0 分，总分 8 分，能判“通过”吗？</p>
+<p>不能。五项产出是门槛，不是可选项。任何一项 0 分，或证据/门依据 0 分，都触发一票否决；8 分只是把各项加起来的结果，不代表门槛已过。</p>
+</div>
+<h2 id="sec-scoring">怎么打分</h2>
+<ol>
+<li><strong>从 0 分起评（2 分钟）</strong>：先假设每项都不合格，再找证据升到 1 或 2；不要从满分往下扣。</li>
+<li><strong>逐项对照锚点（8 分钟）</strong>：只看“0/1/2 分”的描述，不凭印象。达不到 2 分就落 1 分。</li>
+<li><strong>写依据（5 分钟）</strong>：每个分数后写证据 ID 或具体段落。写不出依据的分数，降一档。</li>
+<li><strong>复算总分（2 分钟）</strong>：五项最多 10 分，后两项各最多 1 分；防止把 0–1 项打成 2 分。</li>
+<li><strong>先看一票否决，再看总分（3 分钟）</strong>：任何一项产出为 0、证据为 0、门依据为 0，或有阻塞级未决项，直接判“待补证”。</li>
+</ol>
+<p>打分只回答“达到哪个可观察条件”，不回答“团队辛不辛苦”。</p>
+<h2 id="sec-conclusions">三种阶段门结论</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th scope="col">结论</th>
+<th scope="col">分数条件</th>
+<th scope="col">还必须满足</th>
+<th scope="col">下一步</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>通过</strong></td>
+<td>9–12 分</td>
+<td>五项每项至少 1 分；证据与门依据各 1 分；无阻塞项；无未关闭条件</td>
+<td>按 A03-08 进入 D2</td>
+</tr>
+<tr>
+<td><strong>有条件继续</strong></td>
+<td>6–8 分；或 9 分以上但有 1–2 个非阻塞条件</td>
+<td>每个条件有负责人、截止日期和可观察完成标准；条件不超过 2 个</td>
+<td>条件满足后转“通过”，否则回退</td>
+</tr>
+<tr>
+<td><strong>待补证</strong></td>
+<td>0–5 分；或任何一项产出 0 分；或证据/门依据 0 分</td>
+<td>存在阻塞级未决项、关键假设无证据，或范围无法收敛</td>
+<td>回 D1 补访谈、补数据，不进入 D2</td>
+</tr>
+</tbody>
+</table></div>
+<p>分数落在表里没写到的组合时，按更严的一档处理。典型是 9 分以上但有 3 个以上非阻塞条件：条件已经多到无法在 D2 前逐条关闭，按“待补证”处理，回 D1 收敛范围，而不是先带着一串条件往下走。</p>
+<p><strong>一票否决优先于总分。</strong> 以下任一情况，直接“待补证”：</p>
+<ul>
+<li>五项产出缺一项，或某项只有标题没有内容；</li>
+<li>关键结论无法回到 A/B 级证据；</li>
+<li>门结论没有理由，或附加条件没有负责人/日期；</li>
+<li>有一个未决项会改变 MVP 的数据模型、规则或验收标准，且 D2 前无法关闭。</li>
+</ul>
+<p>“有条件继续”不是委婉的“通过”。条件要可观察，例如“D2 开始前拿到只读账号”，而不是“再确认一下权限”。</p>
+<h2 id="sec-output">A03-07 阶段门记录</h2>
+<p>结论写进 <code>03_现状与切片/03-07_D1阶段门记录.md</code>。六列，每个维度一行；单项 0/1/2 分分别记作“不通过 / 有条件 / 通过”，分数写入检查项。</p>
+<div class="template-block">
+<div class="template-title">A03-07 D1 阶段门记录 <span>六列骨架</span></div>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th scope="col">检查项</th>
+<th scope="col">结论</th>
+<th scope="col">依据</th>
+<th scope="col">待补项</th>
+<th scope="col">负责人</th>
+<th scope="col">日期</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Use Case 一页纸（0–2）：__ 分</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>As-is 决策流（0–2）：__ 分</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>用户-决策-动作清单（0–2）：__ 分</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>KPI 基线（0–2）：__ 分</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>MVP 范围（0–2）：__ 分</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>证据可追溯（0–1）：__ 分</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>阶段门依据（0–1）：__ 分</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>总分 __/12 与门结论</strong></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<p>结论列写“不通过 / 有条件 / 通过”；依据列写 E-xx 或底稿章节；待补项不要写“无”。最后一行写总分和门结论，由负责人确认。</p>
+<h2 id="sec-failures">常见失败</h2>
+<div class="pitfalls">
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th scope="col">现象</th>
+<th scope="col">原因</th>
+<th scope="col">处理</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>满分算成 14 分</td>
+<td>把两个 0–1 分项也按 0–2 打</td>
+<td>记住 10 + 1 + 1 = 12，后两项满分只有 1</td>
+</tr>
+<tr>
+<td>总分到 9 分却放了阻塞项</td>
+<td>只看总分</td>
+<td>先查五项是否齐全、证据是否 A/B、门条件是否有负责人</td>
+</tr>
+<tr>
+<td>“有条件继续”没有条件</td>
+<td>不敢判“待补证”</td>
+<td>条件必须是可观察动作 + 负责人 + 截止日期</td>
+</tr>
+<tr>
+<td>AI 给 10 分，人直接抄</td>
+<td>没有独立评分</td>
+<td>人先独立打分，再对比；分差超过 1 分就回读锚点</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<h2 id="sec-paths">AI 路径与手工路径的等价性</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th scope="col">环节</th>
+<th scope="col">AI 路径</th>
+<th scope="col">手工路径</th>
+<th scope="col">等价性检查</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>收集材料</td>
+<td>从 A03-06 抽五项产出与证据 ID</td>
+<td>翻 A03-06 和证据摘要</td>
+<td>两边都能指出每个维度的段落或 E-xx</td>
+</tr>
+<tr>
+<td>逐项打分</td>
+<td>按 rubric 给建议分并引依据</td>
+<td>人先独立打分，不看 AI</td>
+<td>分差不超过 1 分；超过就回读锚点</td>
+</tr>
+<tr>
+<td>汇总分数</td>
+<td>自动求和，标出满分结构</td>
+<td>人工复算 10 + 1 + 1</td>
+<td>总分一致，没有单项超满分</td>
+</tr>
+<tr>
+<td>给门结论</td>
+<td>按阈值建议，列出否决项</td>
+<td>人据证据做最终结论</td>
+<td>一致；不一致时记录理由并签字</td>
+</tr>
+<tr>
+<td>写 A03-07</td>
+<td>起草六列表格</td>
+<td>按模板逐行填</td>
+<td>六列齐全，待补项有负责人和日期</td>
+</tr>
+<tr>
+<td>解释边界</td>
+<td>指出缺证据、缺条件</td>
+<td>人确认业务事实和规则所有者</td>
+<td>AI 不替业务方确认，也不替门签字</td>
+</tr>
+</tbody>
+</table></div>
+<p>三条硬规则：AI 的分数要能回到依据，回不到就降为 0 或 1；AI 可以建议“有条件继续”，不能替业务方确认条件已满足；两边结论不一致时，回到锚点重打，仍不一致就记录分歧并升级。</p>
+<p><strong>对应技能</strong>：没有。阶段门必须由人独立打分；<code>gr-d1-to-spec</code> 只能整理到“待业务确认”，不能替你把门判成通过。</p>
+<h2 id="sec-case">案例：CB-16 的门记录怎么读</h2>
+<p><a class="case-link" href="main-07-gates.html#cb-gates" target="_blank" rel="noopener">案例 CB-16</a> 是一份“五道门检查结果”，不是 D1 的 12 分 rubric。它值得学的是记录结构：每行有检查项、证据、结论；其中一项标“有条件”，最后结论是“有条件继续”，并写清条件和替代方案。</p>
+<p>借到 A03-07 时，只借三件事：每个结论都有证据；有条件就写可执行的条件；有替代方案。不要借分数：五道门不能直接换算成 D1 的 9 分或 10 分。两者都是门，但检查对象不同。</p>
+<h2 id="sec-license">工具包来源与 MIT 署名</h2>
+<p>本页的 D1 阶段门记录写法参考 <strong>GR-FDE-01-014 D1 客户工具包</strong>（国润项目组，MIT 许可）改写 <span class="cite" title="GR-FDE-01-014 D1 客户工具包（国润 Skill 工具包）">[S16]</span>；包内追问技能的上游作者是 <strong>Matt Pocock</strong>（MIT 许可）<span class="cite" title="Matt Pocock · grilling skill">[S21]</span>。教程正文只保留改写说明，不复制 <code>SKILL.md</code> 或模板原文；原始工具包按 MIT 在 <a href="day1-00-overview.html#sec-toolkit" target="_blank" rel="noopener">D1 概览</a> 页提供整包下载。</p>
+<p>复用或再分发时，保留 <code>LICENSE</code>、版权声明和作者署名，不要把 MIT 当成“不用署名”。工具包是<span class="ev-practice">【实践】</span>材料，不是官方标准；12 分 rubric 是教程补充的<span class="ev-infer">【推断】</span>工具，不是工具包原版。</p>
+<div class="hands-on">
+<p><strong>动手 20 分钟</strong>：拿你手上的 A03-06，完整打一次分。</p>
+<ol>
+<li>按七个维度写 0/1/2，每个分数后写证据 ID 或段落；</li>
+<li>复算总分，确认满分结构是 10 + 1 + 1；</li>
+<li>找出最低分项，写一句“为什么低”；</li>
+<li>按三种结论给出门结论；如果是“有条件继续”，写 1–2 个条件，补负责人和截止日期；</li>
+<li>填进 A03-07 六列表。</li>
+</ol>
+<p><strong>自检</strong>：① 有没有一项产出是 0 分；② 有没有关键结论只靠 D 级证据；③ 门结论是否与分数、否决项同时一致。</p>
+</div>
+<div class="self-test">
+<p><strong>三问自测</strong></p>
+<details>
+<summary>1. 五项产出各 2 分，证据 0 分，总分 10 分，能通过吗？</summary>
+
+不能。证据可追溯是门槛项，0 分触发一票否决。应判“待补证”，先补关键结论的 A/B 级证据。
+
+</details>
+<details>
+<summary>2. “有条件继续”与“待补证”的区别是什么？</summary>
+
+“有条件继续”是方向成立，有 1–2 个可执行条件，满足即转通过；“待补证”是关键假设无证据、范围无法收敛或存在阻塞项，必须回 D1 补证。
+
+</details>
+<details>
+<summary>3. AI 路径与手工路径怎样才算等价？</summary>
+
+不是文字一样，而是在同一证据上得到同一结论：每维对得上依据，分差不超过 1 分，总分和门结论一致；不一致时有记录并由人判断。
+
+</details>
+</div>
+<h2 id="sec-checklist">自检清单</h2>
+<ul>
+<li>[ ] 七个维度都按 0/1/2 锚点打分，没有模糊词；</li>
+<li>[ ] 五项产出各至少 1 分，证据与门依据各 1 分；</li>
+<li>[ ] 总分按 10 + 1 + 1 复算，不超过 12 分；</li>
+<li>[ ] 每个分数都有证据 ID 或具体段落；</li>
+<li>[ ] 一票否决项逐条检查过，没有被总分掩盖；</li>
+<li>[ ] 门结论是三种之一，条件有负责人和日期；A03-07 六列齐全。</li>
+</ul>
+<div class="recap">
+<p><strong>本章带走</strong></p>
+<ol>
+<li>D1 阶段门用 12 分 rubric：五项产出各 0–2 分，证据与门依据各 0–1 分；按锚点打分，不给半分。</li>
+<li>结论只有三种；一票否决优先于总分，五项缺一项或关键证据不可追溯，就不能“通过”。</li>
+<li>AI 可以建议分数和条件，但人要做独立评分与最终签字；两条路径必须在同一证据上得到同一结论。</li>
+</ol>
+</div>
+      </div>
+
+      <section class="term-cards" aria-label="本页术语卡"><p class="eyebrow">本页术语</p><div class="term-grid"><article class="term-card" id="term-rubric"><h3 id="term-title-rubric">Rubric（评分表） <span class="term-en">Rubric</span></h3><p>把“做得好不好”拆成若干可观察维度并打分，减少凭感觉验收。</p></article><article class="term-card" id="term-stage-gate"><h3 id="term-title-stage-gate">阶段门 <span class="term-en">Stage Gate</span></h3><p>G0–G6，进入下一阶段前必须同时满足的检查点；结论通常是通过、有条件继续或待补证。</p><a class="term-first" href="work-07-run.html" target="_blank" rel="noopener">首次解释</a></article></div></section>
+      <section class="artifact-box" aria-label="本页产物"><div class="artifact-block"><h3 id="artifacts-out">本页要写出的产物</h3><ul><li><code>A03-07</code> D1阶段门记录 <span class="muted">→ 03_现状与切片/03-07_D1阶段门记录.md</span> <span class="gate-tag">G3</span> <a href="templates/blank/03-07_D1阶段门记录.html" data-template-view data-template-title="A03-07 D1阶段门记录模板" title="A03-07 D1阶段门记录模板 ｜ 当前页弹窗预览">模板</a> <a href="templates/golden/03-07_D1阶段门记录_排班案例.html" data-template-view data-template-title="A03-07 D1阶段门记录黄金样例" title="A03-07 D1阶段门记录黄金样例 ｜ 当前页弹窗预览">黄金样例</a></li></ul></div><div class="artifact-block"><h3 id="artifacts-in">开始前应已具备</h3><p class="muted"><code>A03-06</code> D1工作底稿、<code>A03-07</code> D1阶段门记录、<code>A03-08</code> D2输入清单</p></div></section>
+      <section class="sources" aria-label="来源"><h2 id="sec-sources">来源与证据等级</h2><ol class="source-list"><li><span class="src-id">S16</span> <strong>GR-FDE-01-014 D1 客户工具包（国润 Skill 工具包）</strong> <span class="badge badge-实践">实践</span><div class="muted">国润项目组 · 抓取 2026-10-19 · MIT；`grilling` 上游署名 Matt Pocock；包内文件不随教程分发</div><div class="src-url"><span class="muted">无公开链接</span></div></li><li><span class="src-id">S17</span> <strong>FDE 方法论沉淀</strong> <span class="badge badge-实践">实践</span><div class="muted">本子项目 · 抓取 2026-09-23 · 内部方法沉淀</div><div class="src-url"><span class="muted">无公开链接</span></div></li><li><span class="src-id">S21</span> <strong>Matt Pocock · grilling skill</strong> <span class="badge badge-第三方">第三方</span><div class="muted">Matt Pocock · 抓取 2026-10-19 · MIT；随 GR-FDE-01-014 分发，上游作者署名 Matt Pocock</div><div class="src-url"><span class="muted">无公开链接</span></div></li></ol></section>
+      <nav class="pager" aria-label="翻页"><a class="pager-prev" data-same-tab href="day1-04-spec.html"><span>上一页</span><strong>D1 工作底稿</strong></a><span class="pager-empty"></span></nav>
+
+      <footer class="page-foot">
+        <p>本教程为内部方法研究。案例已匿名化，数字标注【示例】。Palantir 官方资料版权归 Palantir Technologies，仅作改写与链接。</p>
+        <p class="muted">发现断链或事实错误？回到 <a href="appendix-sources.html" target="_blank" rel="noopener">来源与版权</a> 核对出处。</p>
+      </footer>
+    </article>
+  </main>
+
+  <aside class="toc" id="toc" aria-label="页内目录">
+    <p class="toc-title">本页目录</p><ol class="toc-list"><li class="toc-h2"><a href="#sec-when">何时用</a></li><li class="toc-h2"><a href="#sec-inputs">前置与输入</a></li><li class="toc-h2"><a href="#sec-rubric">12 分 rubric</a></li><li class="toc-h2"><a href="#sec-scoring">怎么打分</a></li><li class="toc-h2"><a href="#sec-conclusions">三种阶段门结论</a></li><li class="toc-h2"><a href="#sec-output">A03-07 阶段门记录</a></li><li class="toc-h2"><a href="#sec-failures">常见失败</a></li><li class="toc-h2"><a href="#sec-paths">AI 路径与手工路径的等价性</a></li><li class="toc-h2"><a href="#sec-case">案例：CB-16 的门记录怎么读</a></li><li class="toc-h2"><a href="#sec-license">工具包来源与 MIT 署名</a></li><li class="toc-h2"><a href="#sec-checklist">自检清单</a></li></ol>
+  </aside>
+</div>
+
+<div class="tpl-modal" id="tpl-modal" hidden>
+  <div class="tpl-panel" role="dialog" aria-modal="true" aria-labelledby="tpl-title">
+    <header class="tpl-head">
+      <div class="tpl-heading">
+        <p class="tpl-kicker">模板阅读视图</p>
+        <h2 id="tpl-title">模板</h2>
+      </div>
+      <div class="tpl-actions">
+        <a class="tpl-open" id="tpl-open" href="#" target="_blank" rel="noopener">在新标签打开 ↗</a>
+        <button class="icon-btn" id="tpl-close" type="button" aria-label="关闭模板">✕</button>
+      </div>
+    </header>
+    <div class="tpl-body">
+      <iframe id="tpl-frame" title="模板内容" loading="lazy"></iframe>
+    </div>
+  </div>
+</div>
+
+<div class="search-modal" id="search-modal" hidden>
+  <div class="search-panel" role="dialog" aria-modal="true" aria-labelledby="search-title">
+    <div class="search-head">
+      <label id="search-title" class="sr-only" for="search-input">搜索教程</label>
+      <input id="search-input" type="search" placeholder="搜索概念、产物、模板、方法卡…" autocomplete="off">
+      <button class="icon-btn" id="search-close" type="button" aria-label="关闭搜索">✕</button>
+    </div>
+    <div id="search-results" class="search-results" aria-live="polite"></div>
+    <p class="search-hint">按 <kbd>/</kbd> 或 <kbd>Ctrl</kbd>+<kbd>K</kbd> 打开，<kbd>Esc</kbd> 关闭。索引完全离线。</p>
+  </div>
+</div>
+
+<noscript><p class="noscript-note">搜索与阅读进度需要 JavaScript；正文、目录和翻页仍可正常使用。可用浏览器查找（Ctrl+F）。</p></noscript>
+
+<script src="assets/search-index.js"></script>
+<script src="assets/viz-data.js"></script>
+<script src="assets/app.js"></script>
+<script src="assets/viz.js"></script>
+
+</body>
+</html>

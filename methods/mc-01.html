@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<title>四类规则分层 · FDE 零基础教程</title>
+<meta name="description" content="一条业务规则该放配置、硬约束、软偏好还是优化目标？">
+<link rel="stylesheet" href="../assets/course.css">
+<script>
+(function () {
+  try {
+    var saved = localStorage.getItem('fde-theme');
+    var theme = saved || (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+    document.documentElement.dataset.theme = theme;
+  } catch (e) {}
+})();
+</script>
+</head>
+<body class="track-methods page-mc-01">
+<a class="skip-link" href="#main">跳到正文</a>
+
+<header class="topbar">
+  <button class="icon-btn nav-toggle" id="nav-toggle" type="button" aria-expanded="false" aria-controls="sidebar" aria-label="打开课程目录">
+    <span aria-hidden="true">☰</span>
+  </button>
+  <a class="brand" data-same-tab href="../index.html"><span class="brand-mark">FDE</span><span class="brand-text">零基础教程</span></a>
+  <nav class="track-switch" aria-label="模块切换"><a class="track-link" data-same-tab href="../index.html" title="从零建立完整心智模型">主线</a><a class="track-link" data-same-tab href="../work-01-prep.html" title="现场查用：输入、步骤、输出、阶段门">工作台</a><a class="track-link" data-same-tab href="../day1-00-overview.html" title="六步链路：简报 → 访谈 → 证据 → 底稿 → 门">Day1</a><span class="track-link active" aria-current="true" title="一卡一问，按阶段、产物、角色查">方法库</span><a class="track-link" data-same-tab href="../appendix-templates.html" title="模板、产物链、术语与来源">附录</a></nav>
+  <div class="top-actions">
+    <button class="search-open" id="search-open" type="button" aria-haspopup="dialog">
+      <span aria-hidden="true">⌕</span><span class="search-label">搜索</span><kbd>/</kbd>
+    </button>
+    <button class="icon-btn" id="theme-toggle" type="button" aria-label="切换深浅色">◐</button>
+  </div>
+  <div class="read-progress" aria-hidden="true"><span id="read-progress"></span></div>
+</header>
+
+<div class="layout">
+  <aside class="sidebar" id="sidebar">
+    <nav class="course-tree" aria-label="课程目录"><header class="side-head"><p class="side-eyebrow">当前模块</p><p class="side-title">方法库</p><p class="side-caption">一卡一问，按阶段、产物、角色查</p><p class="side-meta">11 页<span class="dot">·</span>持续积累</p></header><section class="nav-group"><a class="nav-link nav-index" data-same-tab href="../appendix-methods.html">方法库索引 <span class="nav-hint">先看这张表</span></a><span class="nav-link nav-method nav-current" aria-current="page"><span class="nav-id">mc-01</span>四类规则分层</span><a class="nav-link nav-method" data-same-tab href="../methods/mc-02.html"><span class="nav-id">mc-02</span>最短行动闭环</a><a class="nav-link nav-method" data-same-tab href="../methods/mc-03.html"><span class="nav-id">mc-03</span>结果合同</a><a class="nav-link nav-method" data-same-tab href="../methods/mc-04.html"><span class="nav-id">mc-04</span>控制矩阵</a><a class="nav-link nav-method" data-same-tab href="../methods/mc-05.html"><span class="nav-id">mc-05</span>切片打分卡</a><a class="nav-link nav-method" data-same-tab href="../methods/mc-06.html"><span class="nav-id">mc-06</span>证据分级与双轴标注</a><a class="nav-link nav-method" data-same-tab href="../methods/mc-07.html"><span class="nav-id">mc-07</span>分轮追问</a><a class="nav-link nav-method" data-same-tab href="../methods/mc-08.html"><span class="nav-id">mc-08</span>五道门检查</a><a class="nav-link nav-method" data-same-tab href="../methods/mc-09.html"><span class="nav-id">mc-09</span>Demo 前置检查</a><a class="nav-link nav-method" data-same-tab href="../methods/mc-10.html"><span class="nav-id">mc-10</span>回流账本</a></section></nav>
+  </aside>
+  <button class="scrim" id="scrim" type="button" aria-label="关闭目录" hidden></button>
+
+  <main class="main" id="main">
+    <nav class="crumb" aria-label="面包屑"><a data-same-tab href="../index.html">教程</a><span class="sep">/</span><a data-same-tab href="../appendix-methods.html">方法库</a><span class="sep">/</span><span aria-current="page">四类规则分层</span></nav>
+    <article class="article">
+      <header class="page-head">
+        <div class="badges"><span class="badge badge-method">方法卡</span></div>
+        <h1>四类规则分层</h1>
+        <p class="lede">一条业务规则该放配置、硬约束、软偏好还是优化目标？</p>
+        <p class="page-question"><span class="eyebrow">本页要回答</span>一条业务规则该放配置、硬约束、软偏好还是优化目标？</p>
+        <div class="page-meta">
+          <section class="meta-block">
+            <h2 class="meta-title" id="meta-objectives">读完你能</h2>
+            <ul class="objective-list"><li>判断这个方法是否适用于你的场景；</li><li>按步骤执行并产出关联 artifact；</li><li>用检查清单自检，避开反模式。</li></ul>
+          </section>
+          <section class="meta-block">
+            <h2 class="meta-title" id="meta-prereq">前置</h2>
+            <p><span class="muted">无前置，从本页开始。</span></p>
+          </section>
+        </div>
+      </header>
+
+      <div class="prose">
+        <h2 id="answer">一句话回答</h2>
+<p>先看违反它会发生什么：改一个值就能恢复的，进<strong>配置数据</strong>；一旦违反就不可接受的，进<strong>硬约束</strong>；违反只是体验变差、可以商量的，进<strong>软偏好</strong>；不违反也能运转、只是想做得更好的，进<strong>优化目标</strong>。一条规则只归一层，归完让业务方签字。</p>
+<p>这是 <a class="term-link" href="../work-04-model.html#term-rule-layers" title="Four Rule Layers：配置数据、硬约束、软偏好、优化目标四层；优化目标绝不能写成硬约束。" target="_blank" rel="noopener">四类规则分层</a> 的用法。判断依据是后果，不是这条规则写在哪个 Excel 列里，也不是它看起来像不像一个字段。</p>
+<h2 id="when">什么时候用</h2>
+<p><strong>用</strong>：</p>
+<ul>
+<li>访谈里已经出现“必须”“一般”“尽量”“优先”这类词，你要把它们落成规则；</li>
+<li>准备写 FR 或画界面前，需要知道哪些规则能改、哪些不能碰；</li>
+<li>评审时有人问“这条为什么不能做成配置”。</li>
+</ul>
+<p><strong>不用</strong>：</p>
+<ul>
+<li>手里只有制度文件，没有现场原话和例外记录。先补证据；</li>
+<li>讨论的是界面布局或操作步骤，不是判断规则；</li>
+<li>你想用分层替业务方做决定。分层只负责把规则放对位置，值仍要业务方确认。</li>
+</ul>
+<h2 id="steps">怎么做</h2>
+<ol>
+<li><strong>抄原文</strong>：把规则逐条抄进 <a class="template-link" href="../templates/blank/03-04_规则库.html" data-template-view data-template-title="A03-04 规则库（四层）模板" title="A03-04 规则库（四层）模板 ｜ 当前页弹窗预览">A03-04 规则库（四层）模板</a>，保留说话人、场景和原话，不要先改写。</li>
+<li><strong>写后果</strong>：每条后面补一句“违反会怎样”，写到能判断严重程度为止。</li>
+<li><strong>归层</strong>：按后果过四层：改值可恢复进配置；不可接受进硬约束；可权衡进软偏好；求更优进优化目标。</li>
+<li><strong>标例外</strong>：写清谁可以破例、需要什么条件、事后怎么补记录。没有例外的硬约束要特别确认。</li>
+<li><strong>找冲突</strong>：两条规则不能同时满足时，记下冲突双方和裁决人，不要自己挑一个。</li>
+<li><strong>确认签字</strong>：让业务专家逐条确认，重点确认优化目标没有被写成硬约束。</li>
+</ol>
+<h2 id="case">排班案例片段</h2>
+<p><a class="case-link" href="../work-04-model.html#cb-rules" target="_blank" rel="noopener">案例 CB-15</a> 里，班型代码和亚专科列表是配置数据；“一人一天只能上一个班”“不得超过本人可用天数”是硬约束；“尽量连续班”是软偏好；“缺口最小”和“额度均衡”是优化目标。R-07 与 R-08 会互相拉扯，必须写清裁决人。</p>
+<p>C1 是王芳可上班 9 天却被预排 10 天【示例】。它违反的是 R-05 这条硬约束，所以系统应当拦住保存，而不是提示“建议调整”。如果把 R-05 降成软偏好，C1 就会被当成可接受的偏差。</p>
+<h2 id="checklist">检查清单</h2>
+<ul>
+<li>[ ] 每条规则只有一个层级，没有“既是硬约束又是优化目标”。</li>
+<li>[ ] 每条规则都能指出违反后的后果。</li>
+<li>[ ] 优化目标没有被写成硬约束。</li>
+<li>[ ] 每个例外都有触发条件、批准人和补记录方式。</li>
+<li>[ ] 每个冲突都有裁决人，不留给系统猜。</li>
+<li>[ ] 每条规则挂了证据 ID，能回到访谈原文。</li>
+</ul>
+<h2 id="anti">反模式</h2>
+<ul>
+<li><strong>把 Excel 列直接当对象属性</strong>：列名不是规则，先问这一列约束了谁的什么决定。</li>
+<li><strong>把优化目标写成硬约束</strong>：数学上最优，现场排不出班。</li>
+<li><strong>用软偏好掩盖例外</strong>：例外需要批准人，不是一句“尽量”。</li>
+<li><strong>配置值硬编码</strong>：班型、亚专科列表这类会变的值，不要写死在流程里。</li>
+</ul>
+<h2 id="related">关联</h2>
+<ul>
+<li>产物：A03-04 规则库（<a class="template-link" href="../templates/blank/03-04_规则库.html" data-template-view data-template-title="A03-04 规则库（四层）模板" title="A03-04 规则库（四层）模板 ｜ 当前页弹窗预览">A03-04 规则库（四层）模板</a>）</li>
+<li>上游页面：<a class="page-link" href="../work-04-model.html" target="_blank" rel="noopener">从证据到模型</a></li>
+<li>相邻方法：<a class="page-link" href="../methods/mc-05.html" target="_blank" rel="noopener">切片打分卡</a>（切片打分）、<a class="page-link" href="../methods/mc-08.html" target="_blank" rel="noopener">五道门检查</a>（五道门）</li>
+<li>案例：<a class="case-link" href="../work-04-model.html#cb-rules" target="_blank" rel="noopener">案例 CB-15</a></li>
+</ul>
+      </div>
+
+      
+      
+      <section class="sources" aria-label="来源"><h2 id="sec-sources">来源与证据等级</h2><ol class="source-list"><li><span class="src-id">S17</span> <strong>FDE 方法论沉淀</strong> <span class="badge badge-实践">实践</span><div class="muted">本子项目 · 抓取 2026-09-23 · 内部方法沉淀</div><div class="src-url"><span class="muted">无公开链接</span></div></li><li><span class="src-id">S18</span> <strong>流程与范围模板</strong> <span class="badge badge-实践">实践</span><div class="muted">本子项目 · 抓取 2026-09-23 · 内部方法沉淀</div><div class="src-url"><span class="muted">无公开链接</span></div></li><li><span class="src-id">S19</span> <strong>医院排班场景映射</strong> <span class="badge badge-实践">实践</span><div class="muted">本子项目 · 抓取 2026-10-19 · 内部方法沉淀；案例已匿名化</div><div class="src-url"><span class="muted">无公开链接</span></div></li></ol></section>
+      <nav class="pager" aria-label="翻页"><a class="pager-prev" data-same-tab href="../appendix-methods.html"><span>上一页</span><strong>方法库</strong></a><a class="pager-next" data-same-tab href="../methods/mc-02.html"><span>下一页</span><strong>最短行动闭环</strong></a></nav>
+
+      <footer class="page-foot">
+        <p>本教程为内部方法研究。案例已匿名化，数字标注【示例】。Palantir 官方资料版权归 Palantir Technologies，仅作改写与链接。</p>
+        <p class="muted">发现断链或事实错误？回到 <a href="../appendix-sources.html" target="_blank" rel="noopener">来源与版权</a> 核对出处。</p>
+      </footer>
+    </article>
+  </main>
+
+  <aside class="toc" id="toc" aria-label="页内目录">
+    <p class="toc-title">本页目录</p><ol class="toc-list"><li class="toc-h2"><a href="#answer">一句话回答</a></li><li class="toc-h2"><a href="#when">什么时候用</a></li><li class="toc-h2"><a href="#steps">怎么做</a></li><li class="toc-h2"><a href="#case">排班案例片段</a></li><li class="toc-h2"><a href="#checklist">检查清单</a></li><li class="toc-h2"><a href="#anti">反模式</a></li><li class="toc-h2"><a href="#related">关联</a></li></ol>
+  </aside>
+</div>
+
+<div class="tpl-modal" id="tpl-modal" hidden>
+  <div class="tpl-panel" role="dialog" aria-modal="true" aria-labelledby="tpl-title">
+    <header class="tpl-head">
+      <div class="tpl-heading">
+        <p class="tpl-kicker">模板阅读视图</p>
+        <h2 id="tpl-title">模板</h2>
+      </div>
+      <div class="tpl-actions">
+        <a class="tpl-open" id="tpl-open" href="#" target="_blank" rel="noopener">在新标签打开 ↗</a>
+        <button class="icon-btn" id="tpl-close" type="button" aria-label="关闭模板">✕</button>
+      </div>
+    </header>
+    <div class="tpl-body">
+      <iframe id="tpl-frame" title="模板内容" loading="lazy"></iframe>
+    </div>
+  </div>
+</div>
+
+<div class="search-modal" id="search-modal" hidden>
+  <div class="search-panel" role="dialog" aria-modal="true" aria-labelledby="search-title">
+    <div class="search-head">
+      <label id="search-title" class="sr-only" for="search-input">搜索教程</label>
+      <input id="search-input" type="search" placeholder="搜索概念、产物、模板、方法卡…" autocomplete="off">
+      <button class="icon-btn" id="search-close" type="button" aria-label="关闭搜索">✕</button>
+    </div>
+    <div id="search-results" class="search-results" aria-live="polite"></div>
+    <p class="search-hint">按 <kbd>/</kbd> 或 <kbd>Ctrl</kbd>+<kbd>K</kbd> 打开，<kbd>Esc</kbd> 关闭。索引完全离线。</p>
+  </div>
+</div>
+
+<noscript><p class="noscript-note">搜索与阅读进度需要 JavaScript；正文、目录和翻页仍可正常使用。可用浏览器查找（Ctrl+F）。</p></noscript>
+
+<script src="../assets/search-index.js"></script>
+<script src="../assets/viz-data.js"></script>
+<script src="../assets/app.js"></script>
+<script src="../assets/viz.js"></script>
+
+</body>
+</html>

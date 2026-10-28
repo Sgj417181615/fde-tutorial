@@ -1,0 +1,437 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<title>方法库 · FDE 零基础教程</title>
+<meta name="description" content="按阶段、产物、角色、成熟度、证据等级、场景自动索引十张方法卡。">
+<link rel="stylesheet" href="assets/course.css">
+<script>
+(function () {
+  try {
+    var saved = localStorage.getItem('fde-theme');
+    var theme = saved || (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+    document.documentElement.dataset.theme = theme;
+  } catch (e) {}
+})();
+</script>
+</head>
+<body class="track-methods page-appendix-methods">
+<a class="skip-link" href="#main">跳到正文</a>
+
+<header class="topbar">
+  <button class="icon-btn nav-toggle" id="nav-toggle" type="button" aria-expanded="false" aria-controls="sidebar" aria-label="打开课程目录">
+    <span aria-hidden="true">☰</span>
+  </button>
+  <a class="brand" data-same-tab href="index.html"><span class="brand-mark">FDE</span><span class="brand-text">零基础教程</span></a>
+  <nav class="track-switch" aria-label="模块切换"><a class="track-link" data-same-tab href="index.html" title="从零建立完整心智模型">主线</a><a class="track-link" data-same-tab href="work-01-prep.html" title="现场查用：输入、步骤、输出、阶段门">工作台</a><a class="track-link" data-same-tab href="day1-00-overview.html" title="六步链路：简报 → 访谈 → 证据 → 底稿 → 门">Day1</a><span class="track-link active" aria-current="true" title="一卡一问，按阶段、产物、角色查">方法库</span><a class="track-link" data-same-tab href="appendix-templates.html" title="模板、产物链、术语与来源">附录</a></nav>
+  <div class="top-actions">
+    <button class="search-open" id="search-open" type="button" aria-haspopup="dialog">
+      <span aria-hidden="true">⌕</span><span class="search-label">搜索</span><kbd>/</kbd>
+    </button>
+    <button class="icon-btn" id="theme-toggle" type="button" aria-label="切换深浅色">◐</button>
+  </div>
+  <div class="read-progress" aria-hidden="true"><span id="read-progress"></span></div>
+</header>
+
+<div class="layout">
+  <aside class="sidebar" id="sidebar">
+    <nav class="course-tree" aria-label="课程目录"><header class="side-head"><p class="side-eyebrow">当前模块</p><p class="side-title">方法库</p><p class="side-caption">一卡一问，按阶段、产物、角色查</p><p class="side-meta">11 页<span class="dot">·</span>持续积累</p></header><section class="nav-group"><span class="nav-link nav-index nav-current" aria-current="page">方法库索引 <span class="nav-hint">先看这张表</span></span><a class="nav-link nav-method" data-same-tab href="methods/mc-01.html"><span class="nav-id">mc-01</span>四类规则分层</a><a class="nav-link nav-method" data-same-tab href="methods/mc-02.html"><span class="nav-id">mc-02</span>最短行动闭环</a><a class="nav-link nav-method" data-same-tab href="methods/mc-03.html"><span class="nav-id">mc-03</span>结果合同</a><a class="nav-link nav-method" data-same-tab href="methods/mc-04.html"><span class="nav-id">mc-04</span>控制矩阵</a><a class="nav-link nav-method" data-same-tab href="methods/mc-05.html"><span class="nav-id">mc-05</span>切片打分卡</a><a class="nav-link nav-method" data-same-tab href="methods/mc-06.html"><span class="nav-id">mc-06</span>证据分级与双轴标注</a><a class="nav-link nav-method" data-same-tab href="methods/mc-07.html"><span class="nav-id">mc-07</span>分轮追问</a><a class="nav-link nav-method" data-same-tab href="methods/mc-08.html"><span class="nav-id">mc-08</span>五道门检查</a><a class="nav-link nav-method" data-same-tab href="methods/mc-09.html"><span class="nav-id">mc-09</span>Demo 前置检查</a><a class="nav-link nav-method" data-same-tab href="methods/mc-10.html"><span class="nav-id">mc-10</span>回流账本</a></section></nav>
+  </aside>
+  <button class="scrim" id="scrim" type="button" aria-label="关闭目录" hidden></button>
+
+  <main class="main" id="main">
+    <nav class="crumb" aria-label="面包屑"><a data-same-tab href="index.html">教程</a><span class="sep">/</span><span aria-current="page">方法库</span></nav>
+    <article class="article">
+      <header class="page-head">
+        <div class="badges"><span class="badge badge-appendix">查用</span><span class="badge badge-time">6 分钟</span></div>
+        <h1>方法库</h1>
+        <p class="lede">按阶段、产物、角色、成熟度、证据等级、场景自动索引十张方法卡。</p>
+        <p class="page-question"><span class="eyebrow">本页要回答</span>哪个方法能解决我眼前这个具体问题？</p>
+        <div class="page-meta">
+          <section class="meta-block">
+            <h2 class="meta-title" id="meta-objectives">读完你能</h2>
+            <ul class="objective-list"><li>按维度筛出相关方法卡；</li><li>判断方法卡的证据等级与成熟度；</li><li>知道新增方法卡要改哪些文件。</li></ul>
+          </section>
+          <section class="meta-block">
+            <h2 class="meta-title" id="meta-prereq">前置</h2>
+            <p><span class="muted">无前置，从本页开始。</span></p>
+          </section>
+        </div>
+      </header>
+
+      <div class="prose">
+        <p>你手里有一个很具体的问题：“这条规则到底能不能配置？”或者“Demo 前我还差什么？”这时你不需要再读一遍主线，而需要一张能直接照着做的小卡。</p>
+<p><span class="term-link" title="Method Card：一张回答一个可操作问题的小卡，带输入、步骤、输出、检查清单和反模式；可被自动索引。">方法卡</span>是一张回答一个可操作问题的小卡：有明确的输入、步骤、输出、检查清单和反模式。它不是章节缩写，也不重新解释概念；概念仍归主线或工作台页，卡片只负责“这种情况怎么做”。</p>
+<p><span class="term-link" title="Method Library：由方法卡组成的可查库，按阶段、产物、角色、成熟度、证据等级和场景自动索引。">方法库</span>由这些卡组成，按阶段、artifact、角色、成熟度、证据等级和场景索引。下面先是十张卡的总表，再给五张筛选表。每张卡都可以单独打开，三到五分钟读完。</p>
+<h2 id="how">三步找到该用的卡</h2>
+<ol>
+<li><strong>先按阶段缩小</strong>：你现在在 00 项目章程还是 05 五天验证？阶段错了，方法再对也用不上。</li>
+<li><strong>再按 artifact 或角色缩小</strong>：你手里要产出哪个文件、你以什么角色参与？两个条件通常能筛到一到两张。</li>
+<li><strong>最后核对成熟度与证据等级</strong>：这张卡是在真实交付里验证过，还是只在试点或概念阶段？证据来自官方、第三方还是实践？</li>
+</ol>
+<p>成熟度和证据等级是两件事。一张卡可以“已验证”，但证据等级仍是“实践”——它在一两次交付里奏效，不等于有官方背书。反过来，官方来源的方法也可能还没在你的场景里验证过。</p>
+<div class="checkpoint">
+<p><strong>停一下</strong>：你现在的问题，能不能写成“我要产出哪个 artifact，遇到什么判断困难”？如果写不出 artifact，先回到工作台页确认当前步骤，不要用方法卡代替问题定义。</p>
+</div>
+<h2 id="all-cards">十张卡总表</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th scope="col">卡</th>
+<th scope="col">回答的问题</th>
+<th scope="col">阶段</th>
+<th scope="col">关联 artifact</th>
+<th scope="col">成熟度 / 证据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="methods/mc-01.html" target="_blank" rel="noopener">MC-01 四类规则分层</a></td>
+<td>一条规则该放配置、硬约束、软偏好还是优化目标？</td>
+<td>03 现状与切片</td>
+<td>A03-04</td>
+<td>已验证 / 实践</td>
+</tr>
+<tr>
+<td><a href="methods/mc-02.html" target="_blank" rel="noopener">MC-02 最短行动闭环</a></td>
+<td>一个切片怎么切才算“最短”？</td>
+<td>03 现状与切片</td>
+<td>A03-01、A03-02、A03-03</td>
+<td>试点中 / 第三方</td>
+</tr>
+<tr>
+<td><a href="methods/mc-03.html" target="_blank" rel="noopener">MC-03 结果合同</a></td>
+<td>怎么把“我要一个系统”改写成可验收的结果？</td>
+<td>00 项目章程</td>
+<td>A00-03、A04-06</td>
+<td>试点中 / 实践</td>
+</tr>
+<tr>
+<td><a href="methods/mc-04.html" target="_blank" rel="noopener">MC-04 控制矩阵</a></td>
+<td>每一步人做什么、系统做什么、谁签字？</td>
+<td>04 方案设计</td>
+<td>A04-01、A04-05</td>
+<td>试点中 / 第三方</td>
+</tr>
+<tr>
+<td><a href="methods/mc-05.html" target="_blank" rel="noopener">MC-05 切片打分卡</a></td>
+<td>四个候选切片，凭什么选这个？</td>
+<td>03 现状与切片</td>
+<td>A03-03</td>
+<td>已验证 / 实践</td>
+</tr>
+<tr>
+<td><a href="methods/mc-06.html" target="_blank" rel="noopener">MC-06 证据分级与双轴标注</a></td>
+<td>一条记录该标成事实、假设还是待确认？</td>
+<td>02 现场记录</td>
+<td>A02-04</td>
+<td>已验证 / 实践</td>
+</tr>
+<tr>
+<td><a href="methods/mc-07.html" target="_blank" rel="noopener">MC-07 分轮追问</a></td>
+<td>一轮问几个问题、什么时候停？</td>
+<td>01 调研准备</td>
+<td>A01-02、A02-01</td>
+<td>已验证 / 实践</td>
+</tr>
+<tr>
+<td><a href="methods/mc-08.html" target="_blank" rel="noopener">MC-08 五道门检查</a></td>
+<td>哪五件事没确认就不能开始五天验证？</td>
+<td>05 五天验证</td>
+<td>A05-01</td>
+<td>已验证 / 实践</td>
+</tr>
+<tr>
+<td><a href="methods/mc-09.html" target="_blank" rel="noopener">MC-09 Demo 前置检查</a></td>
+<td>Demo 前 24 小时，Go 还是 No-Go？</td>
+<td>05 五天验证</td>
+<td>A05-06</td>
+<td>试点中 / 实践</td>
+</tr>
+<tr>
+<td><a href="methods/mc-10.html" target="_blank" rel="noopener">MC-10 回流账本</a></td>
+<td>哪些定制该回流、哪些只留在客户？</td>
+<td>06 复盘与回流</td>
+<td>A06-03</td>
+<td>试点中 / 实践</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="by-stage">按阶段筛</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th scope="col">阶段</th>
+<th scope="col">先看</th>
+<th scope="col">也可以看</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>00 项目章程</td>
+<td>MC-03 结果合同</td>
+<td>—</td>
+</tr>
+<tr>
+<td>01 调研准备</td>
+<td>MC-07 分轮追问</td>
+<td>—</td>
+</tr>
+<tr>
+<td>02 现场记录</td>
+<td>MC-06 证据分级与双轴标注</td>
+<td>—</td>
+</tr>
+<tr>
+<td>03 现状与切片</td>
+<td>MC-02 最短行动闭环</td>
+<td>MC-01 规则分层、MC-05 切片打分卡</td>
+</tr>
+<tr>
+<td>04 方案设计</td>
+<td>MC-04 控制矩阵</td>
+<td>—</td>
+</tr>
+<tr>
+<td>05 五天验证</td>
+<td>MC-08 五道门检查</td>
+<td>MC-09 Demo 前置检查</td>
+</tr>
+<tr>
+<td>06 复盘与回流</td>
+<td>MC-10 回流账本</td>
+<td>—</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="by-artifact">按 artifact 筛</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th scope="col">你要产出的 artifact</th>
+<th scope="col">对应方法卡</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A00-03 范围与非范围、A04-06 MVP 范围与非范围</td>
+<td>MC-03</td>
+</tr>
+<tr>
+<td>A01-02 分轮访谈提纲</td>
+<td>MC-07</td>
+</tr>
+<tr>
+<td>A02-04 证据台账</td>
+<td>MC-06</td>
+</tr>
+<tr>
+<td>A03-01 As-is 决策流、A03-02 用户-决策-动作清单</td>
+<td>MC-02</td>
+</tr>
+<tr>
+<td>A03-03 候选切片与打分</td>
+<td>MC-05</td>
+</tr>
+<tr>
+<td>A03-04 规则库（四层）</td>
+<td>MC-01</td>
+</tr>
+<tr>
+<td>A04-01 决策清单、A04-05 增强与界面</td>
+<td>MC-04</td>
+</tr>
+<tr>
+<td>A05-01 五道门检查表</td>
+<td>MC-08</td>
+</tr>
+<tr>
+<td>A05-06 Demo 脚本</td>
+<td>MC-09</td>
+</tr>
+<tr>
+<td>A06-03 回流账本</td>
+<td>MC-10</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="by-role">按角色筛</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th scope="col">你的角色</th>
+<th scope="col">优先看</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>FDE</td>
+<td>MC-01、MC-02、MC-03、MC-05、MC-06、MC-07、MC-08、MC-09、MC-10</td>
+</tr>
+<tr>
+<td>业务专家</td>
+<td>MC-01、MC-04、MC-05、MC-06、MC-07</td>
+</tr>
+<tr>
+<td>交付负责人</td>
+<td>MC-02、MC-03、MC-04、MC-05、MC-08、MC-09、MC-10</td>
+</tr>
+<tr>
+<td>数据工程师</td>
+<td>MC-06、MC-09</td>
+</tr>
+<tr>
+<td>管理者</td>
+<td>MC-03、MC-08、MC-10</td>
+</tr>
+</tbody>
+</table></div>
+<p>角色筛的是“谁最常做这个判断”，不是“只有谁能读”。FDE 几乎每张都要会，但不必每张都背。</p>
+<h2 id="by-maturity">按成熟度与证据等级筛</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th scope="col">维度</th>
+<th scope="col">取值</th>
+<th scope="col">卡</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>成熟度</td>
+<td>已验证</td>
+<td>MC-01、MC-05、MC-06、MC-07、MC-08</td>
+</tr>
+<tr>
+<td>成熟度</td>
+<td>试点中</td>
+<td>MC-02、MC-03、MC-04、MC-09、MC-10</td>
+</tr>
+<tr>
+<td>证据等级</td>
+<td>实践</td>
+<td>MC-01、MC-03、MC-05、MC-06、MC-07、MC-08、MC-09、MC-10</td>
+</tr>
+<tr>
+<td>证据等级</td>
+<td>第三方</td>
+<td>MC-02、MC-04</td>
+</tr>
+</tbody>
+</table></div>
+<p>“已验证”表示这张卡在至少一次完整交付里按步骤用过，并经过用户操作验证；它不等于官方认证。“试点中”表示有实践基础，但步骤还在调整。没有“官方”等级的卡，是因为这十张主要来自方法沉淀、流程模板和工具包，不是 Palantir 文档的逐条搬运。</p>
+<h2 id="by-scenario">按场景筛</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th scope="col">场景</th>
+<th scope="col">常用卡</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>排班 / 调度</td>
+<td>MC-01、MC-02、MC-03、MC-04、MC-05、MC-08、MC-09、MC-10</td>
+</tr>
+<tr>
+<td>审批流</td>
+<td>MC-01、MC-03、MC-04、MC-06、MC-08、MC-09</td>
+</tr>
+<tr>
+<td>现场调研</td>
+<td>MC-06、MC-07</td>
+</tr>
+<tr>
+<td>Demo 准备</td>
+<td>MC-08、MC-09</td>
+</tr>
+<tr>
+<td>项目复盘</td>
+<td>MC-10</td>
+</tr>
+</tbody>
+</table></div>
+<p>场景只是入口。同一个“审批”场景，如果你卡在规则归类就用 MC-01，卡在谁签字就用 MC-04，不要按场景整包照搬。</p>
+<h2 id="add-card">新增第 11 张卡</h2>
+<p>新增方法卡<strong>不改导航</strong>：左栏的“方法库”分组和页面顺序由构建器按 <code>_content/methods/</code> 目录扫描生成，不需要改 <code>nav.json</code>，也不需要手工注册页面。你要做的是：</p>
+<ol>
+<li>在 <code>_content/methods/</code> 新建 <code>mc-11.md</code>，写全 front matter（id、type、title、question、stage、artifacts、roles、scenarios、maturity、evidence_level、owner、uses、inputs、outputs、steps、checklist、anti_patterns、related、source、license、sources、word_budget）。</li>
+<li>确认 <code>owner</code> 指向已存在的页面，且该概念已在 <code>owners.json</code> 登记；卡片只能用 <code>uses</code>，不能自己拥有概念。</li>
+<li>确认 <code>artifacts</code> 里的 ID 都已在 <code>artifacts.toml</code> 注册；新 artifact 要先注册并补模板。</li>
+<li>确认 <code>related</code> 里的页面、方法卡或 artifact 都能解析。</li>
+<li>运行构建与检查；构建器会生成 <code>methods/mc-11.html</code>、写入搜索索引，并自动收进下面的“构建器自动索引”。</li>
+<li>上方“十张卡总表”和各筛选表是人工编排的推荐路径，可按需补一行；即使不补，新卡也不会失踪。</li>
+</ol>
+<h2 id="auto-index">构建器自动索引</h2>
+<p>这张表直接读方法卡的 front matter，每次构建重新生成。新增、改名或调整阶段/角色/成熟度后，不需要手改本页；它是方法库的<strong>兜底索引</strong>，上方人工表负责推荐，这张表负责不漏。</p>
+<p><div class="table-wrap"><table><thead><tr><th scope="col">方法卡</th><th scope="col">阶段</th><th scope="col">artifact</th><th scope="col">角色</th><th scope="col">成熟度</th><th scope="col">证据等级</th><th scope="col">场景</th></tr></thead><tbody><tr><td><a href="methods/mc-01.html" target="_blank" rel="noopener">mc-01 四类规则分层</a></td><td>03_现状与切片</td><td>A03-04</td><td>FDE、业务专家</td><td>已验证</td><td>实践</td><td>排班、审批、调度</td></tr><tr><td><a href="methods/mc-02.html" target="_blank" rel="noopener">mc-02 最短行动闭环</a></td><td>03_现状与切片</td><td>A03-01、A03-02、A03-03</td><td>FDE、业务专家、交付负责人</td><td>试点中</td><td>第三方</td><td>排班、审批、调度</td></tr><tr><td><a href="methods/mc-03.html" target="_blank" rel="noopener">mc-03 结果合同</a></td><td>00_项目章程</td><td>A00-03、A04-06</td><td>FDE、交付负责人、管理者</td><td>试点中</td><td>实践</td><td>排班、审批、调度</td></tr><tr><td><a href="methods/mc-04.html" target="_blank" rel="noopener">mc-04 控制矩阵</a></td><td>04_方案设计</td><td>A04-01、A04-05</td><td>FDE、交付负责人、业务专家</td><td>试点中</td><td>第三方</td><td>排班、审批、调度</td></tr><tr><td><a href="methods/mc-05.html" target="_blank" rel="noopener">mc-05 切片打分卡</a></td><td>03_现状与切片</td><td>A03-03</td><td>FDE、业务专家、交付负责人</td><td>已验证</td><td>实践</td><td>排班、审批、调度</td></tr><tr><td><a href="methods/mc-06.html" target="_blank" rel="noopener">mc-06 证据分级与双轴标注</a></td><td>02_现场记录</td><td>A02-04</td><td>FDE、业务专家、数据工程师</td><td>已验证</td><td>实践</td><td>调研、排班、审批</td></tr><tr><td><a href="methods/mc-07.html" target="_blank" rel="noopener">mc-07 分轮追问</a></td><td>01_调研准备</td><td>A01-02、A02-01</td><td>FDE、业务专家</td><td>已验证</td><td>实践</td><td>调研、排班、审批</td></tr><tr><td><a href="methods/mc-08.html" target="_blank" rel="noopener">mc-08 五道门检查</a></td><td>05_五天验证</td><td>A05-01</td><td>FDE、交付负责人、管理者</td><td>已验证</td><td>实践</td><td>排班、审批、调度</td></tr><tr><td><a href="methods/mc-09.html" target="_blank" rel="noopener">mc-09 Demo 前置检查</a></td><td>05_五天验证</td><td>A05-06</td><td>FDE、交付负责人、数据工程师</td><td>试点中</td><td>实践</td><td>排班、审批、Demo</td></tr><tr><td><a href="methods/mc-10.html" target="_blank" rel="noopener">mc-10 回流账本</a></td><td>06_复盘与回流</td><td>A06-03</td><td>FDE、交付负责人、管理者</td><td>试点中</td><td>实践</td><td>排班、审批、复盘</td></tr></tbody></table></div></p>
+<h2 id="reading-order">读法建议</h2>
+<p>不要从 MC-01 顺序读到 MC-10。方法库是查用库，不是教程。第一次接触，建议按“证据 → 追问 → 切片 → 规则 → 打分”读 MC-06、MC-07、MC-02、MC-01、MC-05，先建立从现场到切片的链路；准备评审时再读 MC-03、MC-04；启动和演示前读 MC-08、MC-09；项目结束读 MC-10。</p>
+<div class="recap">
+<p><strong>本章带走</strong></p>
+<ol>
+<li>方法卡一张只回答一个可操作问题，用“阶段 → artifact/角色 → 成熟度/证据”三步筛，不要顺序通读。</li>
+<li>成熟度与证据等级要分开看：已验证不等于官方，实践证据也不等于不能再用。</li>
+<li>新增第 11 张卡不用改导航；补 front matter、确认 owner/artifact/related 合法，自动索引会收录它。</li>
+</ol>
+</div>
+      </div>
+
+      <section class="term-cards" aria-label="本页术语卡"><p class="eyebrow">本页术语</p><div class="term-grid"><article class="term-card" id="term-method-library"><h3 id="term-title-method-library">方法库 <span class="term-en">Method Library</span></h3><p>由方法卡组成的可查库，按阶段、产物、角色、成熟度、证据等级和场景自动索引。</p></article><article class="term-card" id="term-method-card"><h3 id="term-title-method-card">方法卡 <span class="term-en">Method Card</span></h3><p>一张回答一个可操作问题的小卡，带输入、步骤、输出、检查清单和反模式；可被自动索引。</p></article></div></section>
+      
+      <section class="sources" aria-label="来源"><h2 id="sec-sources">来源与证据等级</h2><ol class="source-list"><li><span class="src-id">S17</span> <strong>FDE 方法论沉淀</strong> <span class="badge badge-实践">实践</span><div class="muted">本子项目 · 抓取 2026-09-23 · 内部方法沉淀</div><div class="src-url"><span class="muted">无公开链接</span></div></li><li><span class="src-id">S18</span> <strong>流程与范围模板</strong> <span class="badge badge-实践">实践</span><div class="muted">本子项目 · 抓取 2026-09-23 · 内部方法沉淀</div><div class="src-url"><span class="muted">无公开链接</span></div></li><li><span class="src-id">S20</span> <strong>FDE 实施手册 v1（9 章整合读本）</strong> <span class="badge badge-实践">实践</span><div class="muted">本子项目 · 抓取 2026-10-19 · 内部方法沉淀；官方事实另注出处</div><div class="src-url"><span class="muted">无公开链接</span></div></li></ol></section>
+      <nav class="pager" aria-label="翻页"><span class="pager-empty"></span><a class="pager-next" data-same-tab href="methods/mc-01.html"><span>下一页</span><strong>四类规则分层</strong></a></nav>
+
+      <footer class="page-foot">
+        <p>本教程为内部方法研究。案例已匿名化，数字标注【示例】。Palantir 官方资料版权归 Palantir Technologies，仅作改写与链接。</p>
+        <p class="muted">发现断链或事实错误？回到 <a href="appendix-sources.html" target="_blank" rel="noopener">来源与版权</a> 核对出处。</p>
+      </footer>
+    </article>
+  </main>
+
+  <aside class="toc" id="toc" aria-label="页内目录">
+    <p class="toc-title">本页目录</p><ol class="toc-list"><li class="toc-h2"><a href="#how">三步找到该用的卡</a></li><li class="toc-h2"><a href="#all-cards">十张卡总表</a></li><li class="toc-h2"><a href="#by-stage">按阶段筛</a></li><li class="toc-h2"><a href="#by-artifact">按 artifact 筛</a></li><li class="toc-h2"><a href="#by-role">按角色筛</a></li><li class="toc-h2"><a href="#by-maturity">按成熟度与证据等级筛</a></li><li class="toc-h2"><a href="#by-scenario">按场景筛</a></li><li class="toc-h2"><a href="#add-card">新增第 11 张卡</a></li><li class="toc-h2"><a href="#auto-index">构建器自动索引</a></li><li class="toc-h2"><a href="#reading-order">读法建议</a></li></ol>
+  </aside>
+</div>
+
+<div class="tpl-modal" id="tpl-modal" hidden>
+  <div class="tpl-panel" role="dialog" aria-modal="true" aria-labelledby="tpl-title">
+    <header class="tpl-head">
+      <div class="tpl-heading">
+        <p class="tpl-kicker">模板阅读视图</p>
+        <h2 id="tpl-title">模板</h2>
+      </div>
+      <div class="tpl-actions">
+        <a class="tpl-open" id="tpl-open" href="#" target="_blank" rel="noopener">在新标签打开 ↗</a>
+        <button class="icon-btn" id="tpl-close" type="button" aria-label="关闭模板">✕</button>
+      </div>
+    </header>
+    <div class="tpl-body">
+      <iframe id="tpl-frame" title="模板内容" loading="lazy"></iframe>
+    </div>
+  </div>
+</div>
+
+<div class="search-modal" id="search-modal" hidden>
+  <div class="search-panel" role="dialog" aria-modal="true" aria-labelledby="search-title">
+    <div class="search-head">
+      <label id="search-title" class="sr-only" for="search-input">搜索教程</label>
+      <input id="search-input" type="search" placeholder="搜索概念、产物、模板、方法卡…" autocomplete="off">
+      <button class="icon-btn" id="search-close" type="button" aria-label="关闭搜索">✕</button>
+    </div>
+    <div id="search-results" class="search-results" aria-live="polite"></div>
+    <p class="search-hint">按 <kbd>/</kbd> 或 <kbd>Ctrl</kbd>+<kbd>K</kbd> 打开，<kbd>Esc</kbd> 关闭。索引完全离线。</p>
+  </div>
+</div>
+
+<noscript><p class="noscript-note">搜索与阅读进度需要 JavaScript；正文、目录和翻页仍可正常使用。可用浏览器查找（Ctrl+F）。</p></noscript>
+
+<script src="assets/search-index.js"></script>
+<script src="assets/viz-data.js"></script>
+<script src="assets/app.js"></script>
+<script src="assets/viz.js"></script>
+
+</body>
+</html>

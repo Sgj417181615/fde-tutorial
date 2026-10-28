@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>A04-03 对象模型_排班案例 · FDE 模板库</title>
+<link rel="stylesheet" href="../../assets/course.css">
+</head>
+<body>
+<a class="skip-link" href="#main">跳到正文</a>
+<main class="main" id="main">
+<article class="article">
+<nav class="crumb" aria-label="面包屑">
+<a href="../../index.html">教程首页</a><span class="sep">/</span>
+<a href="../../appendix-templates.html">模板库</a><span class="sep">/</span>
+<span>黄金样例</span>
+</nav>
+<header class="page-head">
+<div class="badges">
+<span class="badge badge-main">A04-03</span>
+<span class="badge">黄金样例</span>
+<span class="badge badge-time">Markdown 阅读视图</span>
+</div>
+<h1>A04-03 对象模型_排班案例</h1>
+<p class="page-question">这是模板的阅读视图，源文件是 <code>04-03_对象模型_排班案例.md</code>。
+<a href="04-03_对象模型_排班案例.md">下载 / 编辑 Markdown</a> · <a href="../../appendix-templates.html">返回模板库</a></p>
+</header>
+<div class="prose">
+<blockquote>
+<p>【示例】匿名化案例，数字均为示例。对象与关系取自 <code>_canon/case-bible.md</code>（CB-05）；负责人未在案例中明确的，标为待确认。</p>
+</blockquote>
+<p>本样例只保留支撑 S1 额度分配的对象。<code>core</code>、<code>derived</code>、<code>use case</code> 三类对象混在一张表里，但用途不同。</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th scope="col">对象</th>
+<th scope="col">类型</th>
+<th scope="col">关键属性</th>
+<th scope="col">关系</th>
+<th scope="col">基数</th>
+<th scope="col">来源</th>
+<th scope="col">负责人</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>人员 Person</td>
+<td>core</td>
+<td>姓名、岗位、资质、可上班型、可用天数</td>
+<td>属于多个亚专科；有多条分配</td>
+<td>人员→分配 1:N</td>
+<td>人事 + 排班本</td>
+<td>数据工程师（待确认）</td>
+</tr>
+<tr>
+<td>亚专科 Subspecialty</td>
+<td>core</td>
+<td>名称、负责人、月度需求</td>
+<td>有多个额度与分配</td>
+<td>亚专科→额度/分配 1:N</td>
+<td>科室配置</td>
+<td>业务方（待确认）</td>
+</tr>
+<tr>
+<td>班型 ShiftType</td>
+<td>core</td>
+<td>名称、时段、所需人数</td>
+<td>被分配引用</td>
+<td>班型→分配 1:N</td>
+<td>院内系统</td>
+<td>刘工（信息科）</td>
+</tr>
+<tr>
+<td>额度 Quota</td>
+<td>core</td>
+<td>月份、亚专科、额度人天、已用、剩余</td>
+<td>属于亚专科；驱动分配</td>
+<td>额度→亚专科 N:1</td>
+<td>人力资源</td>
+<td>数据工程师（待确认）</td>
+</tr>
+<tr>
+<td>分配 Allocation</td>
+<td>use case</td>
+<td>月份、人员、亚专科、人天、状态</td>
+<td>连接人员与亚专科</td>
+<td>分配→人员/亚专科 N:1</td>
+<td>用户在界面创建</td>
+<td>陈静（操作）</td>
+</tr>
+<tr>
+<td>冲突 Conflict</td>
+<td>derived</td>
+<td>类型、对象、差额、严重度</td>
+<td>指向分配或额度</td>
+<td>冲突→分配/额度 N:1</td>
+<td>规则计算</td>
+<td>FDE（规则实现）</td>
+</tr>
+<tr>
+<td>调整记录 Adjustment</td>
+<td>use case</td>
+<td>时间、原值、新值、原因、操作人</td>
+<td>指向分配</td>
+<td>调整→分配 N:1</td>
+<td>用户动作</td>
+<td>陈静（操作）</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>三类对象的判断</strong>：</p>
+<ul>
+<li>源系统里直接有、粒度对得上 → <code>core</code>，例如人员、亚专科、班型、额度；</li>
+<li>源系统没有、需要算出来 → <code>derived</code>，例如冲突；</li>
+<li>用户在流程中会主动创建或修改 → <code>use case</code>，例如分配、调整记录。</li>
+</ul>
+<p><strong>关系基数</strong>：一个人员可以分配到多个亚专科；一个亚专科有多条分配；一条分配只属于一个人员和一个亚专科；一个冲突可以指向一条分配或一个额度。</p>
+</div>
+<footer class="page-foot">
+<p class="muted">本页由 <code>_tools/build.py</code> 从 Markdown 自动生成，请改源文件而不是改这里。</p>
+</footer>
+</article>
+</main>
+</body>
+</html>

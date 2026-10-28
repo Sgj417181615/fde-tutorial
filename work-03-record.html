@@ -1,0 +1,585 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<title>记录：把现场变成证据 · FDE 零基础教程</title>
+<meta name="description" content="观察、逐字稿、术语表、证据台账：让三天后还能追溯每条结论。">
+<link rel="stylesheet" href="assets/course.css">
+<script>
+(function () {
+  try {
+    var saved = localStorage.getItem('fde-theme');
+    var theme = saved || (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+    document.documentElement.dataset.theme = theme;
+  } catch (e) {}
+})();
+</script>
+</head>
+<body class="track-workbench page-work-03-record">
+<a class="skip-link" href="#main">跳到正文</a>
+
+<header class="topbar">
+  <button class="icon-btn nav-toggle" id="nav-toggle" type="button" aria-expanded="false" aria-controls="sidebar" aria-label="打开课程目录">
+    <span aria-hidden="true">☰</span>
+  </button>
+  <a class="brand" data-same-tab href="index.html"><span class="brand-mark">FDE</span><span class="brand-text">零基础教程</span></a>
+  <nav class="track-switch" aria-label="模块切换"><a class="track-link" data-same-tab href="index.html" title="从零建立完整心智模型">主线</a><span class="track-link active" aria-current="true" title="现场查用：输入、步骤、输出、阶段门">工作台</span><a class="track-link" data-same-tab href="day1-00-overview.html" title="六步链路：简报 → 访谈 → 证据 → 底稿 → 门">Day1</a><a class="track-link" data-same-tab href="appendix-methods.html" title="一卡一问，按阶段、产物、角色查">方法库</a><a class="track-link" data-same-tab href="appendix-templates.html" title="模板、产物链、术语与来源">附录</a></nav>
+  <div class="top-actions">
+    <button class="search-open" id="search-open" type="button" aria-haspopup="dialog">
+      <span aria-hidden="true">⌕</span><span class="search-label">搜索</span><kbd>/</kbd>
+    </button>
+    <button class="icon-btn" id="theme-toggle" type="button" aria-label="切换深浅色">◐</button>
+  </div>
+  <div class="read-progress" aria-hidden="true"><span id="read-progress"></span></div>
+</header>
+
+<div class="layout">
+  <aside class="sidebar" id="sidebar">
+    <nav class="course-tree" aria-label="课程目录"><header class="side-head"><p class="side-eyebrow">当前模块</p><p class="side-title">实操工作台</p><p class="side-caption">现场查用：输入、步骤、输出、阶段门</p><p class="side-meta">9 页<span class="dot">·</span>按需查</p></header><section class="nav-group"><p class="nav-group-title"><span class="nav-group-num">01</span>调研与记录</p><a class="nav-link" data-same-tab href="work-01-prep.html">调研前 7 天</a><a class="nav-link" data-same-tab href="work-02-interview.html">现场 60 分钟</a><span class="nav-link nav-current" aria-current="page">记录：把现场变成证据</span><a class="nav-link" data-same-tab href="work-04-model.html">从证据到模型</a></section><section class="nav-group"><p class="nav-group-title"><span class="nav-group-num">02</span>交付与 Demo</p><a class="nav-link" data-same-tab href="work-05-spec.html">一小时压出评审包</a><a class="nav-link" data-same-tab href="work-06-demo.html">Demo 脚本、数据与环境</a><a class="nav-link" data-same-tab href="work-07-run.html">五天执行与阶段门</a><a class="nav-link" data-same-tab href="work-08-retro.html">复盘与回流</a><a class="nav-link" data-same-tab href="work-09-toolchain.html">工具链与硬编码路径</a></section></nav>
+  </aside>
+  <button class="scrim" id="scrim" type="button" aria-label="关闭目录" hidden></button>
+
+  <main class="main" id="main">
+    <nav class="crumb" aria-label="面包屑"><a data-same-tab href="index.html">教程</a><span class="sep">/</span><span>实操工作台</span><span class="sep">/</span><span>调研与记录</span><span class="sep">/</span><span aria-current="page">记录：把现场变成证据</span></nav>
+    <article class="article">
+      <header class="page-head">
+        <div class="badges"><span class="badge badge-workbench">查用</span><span class="badge badge-time">18 分钟</span></div>
+        <h1>记录：把现场变成证据</h1>
+        <p class="lede">观察、逐字稿、术语表、证据台账：让三天后还能追溯每条结论。</p>
+        <p class="page-question"><span class="eyebrow">本页要回答</span>现场记录怎么做，才能在三天后还说得清每条结论从哪来？</p>
+        <div class="page-meta">
+          <section class="meta-block">
+            <h2 class="meta-title" id="meta-objectives">读完你能</h2>
+            <ul class="objective-list"><li>把观察整理成可引用的证据条目；</li><li>校正术语与说话人身份；</li><li>为每条结论标访谈状态与来源权威性。</li></ul>
+          </section>
+          <section class="meta-block">
+            <h2 class="meta-title" id="meta-prereq">前置</h2>
+            <p>先读：<a href="work-02-interview.html" target="_blank" rel="noopener">现场 60 分钟</a></p>
+          </section>
+        </div>
+      </header>
+
+      <div class="prose">
+        <dl class="runbook-head">
+<div><dt>何时用</dt><dd>每次访谈或现场观察结束后的当天</dd></div>
+<div><dt>前置</dt><dd>A00-04 已签署；A01-02、A01-03 已用；A02-01 已有现场条目</dd></div>
+<div><dt>输入</dt><dd>观察表、访谈提纲、录音/笔记</dd></div>
+<div><dt>输出</dt><dd>逐字稿、术语表、证据台账、待确认清单</dd></div>
+<div><dt>阶段门与耗时</dt><dd>G2 现场记录门；约 2.5 小时</dd></div>
+</dl>
+
+<p>访谈结束，你回到工位，脑子里有一堆“我懂了”。三天后写方案，你引用了一句“业务方说额度不够”，却想不起是谁说的、原话是什么、当时是确认还是抱怨。</p>
+<p>这不是记性问题，是<strong>记录方式</strong>问题。现场记录的目标不是“留档”，而是让三天后的你、以及没去过现场的同事，能沿着一条证据链回到原始场景。</p>
+<p>这一页给你一套可以当天做完的记录流程：观察怎么整理、逐字稿怎么校正、术语怎么统一、每条结论怎么标来源。</p>
+<h2 id="sec-when">何时用</h2>
+<p><strong>该用</strong>：</p>
+<ul>
+<li>每次访谈、跟岗、工作坊结束后的当天；</li>
+<li>你准备把某句“业务方说”写进 one-pager、FR 或汇报材料之前；</li>
+<li>交接给没去过现场的同事之前。</li>
+</ul>
+<p><strong>不该用</strong>：</p>
+<ul>
+<li>公开资料、行业报告的摘录。它们走来源登记，不走现场证据台账；</li>
+<li>还没有拿到知情同意和录音许可的场合。先补 A00-04，再谈记录；</li>
+<li>把记录当成“会议纪要”。纪要是给人看的摘要，证据台账是给判断用的底账，两者不能互相替代。</li>
+</ul>
+<div class="checkpoint">
+<p><strong>停一下</strong>：你上一次访谈的记录，现在还能回答这三个问题吗——这句话是谁说的？是原话还是你的概括？当时业务方确认了吗？</p>
+<p>只要有一个答不上来，这条记录就不能支撑一个方案决策。</p>
+</div>
+<h2 id="sec-inputs">前置与输入</h2>
+<p>开始之前，桌上应该有五样东西：</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th scope="col">输入</th>
+<th scope="col">用来做什么</th>
+<th scope="col">没有会怎样</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A00-04 知情同意与数据权限</td>
+<td>确认能录、能引用、能存多久</td>
+<td>记录不能用于正式材料，甚至要删除</td>
+</tr>
+<tr>
+<td>A01-02 分轮访谈提纲</td>
+<td>对照问题与回答，判断哪些没问透</td>
+<td>逐字稿变成散乱聊天，无法定位缺口</td>
+</tr>
+<tr>
+<td>A01-03 现场观察记录表</td>
+<td>承接时间、角色、动作、卡点</td>
+<td>观察变成印象，无法复核</td>
+</tr>
+<tr>
+<td>A02-01 现场观察记录</td>
+<td>原始观察条目 O-xx</td>
+<td>证据台账缺少“直接观察”来源</td>
+</tr>
+<tr>
+<td>录音/照片/截图（已获许可）</td>
+<td>校正原话与界面细节</td>
+<td>只能凭记忆，原话引用不可靠</td>
+</tr>
+</tbody>
+</table></div>
+<p>如果只有笔记没有录音，也可以做，但要在台账的“来源”里写清“现场笔记，未录音”，并把“访谈状态”降为“业务确认”或“工作假设”，不能标成“原文/观察”。</p>
+<h2 id="sec-steps">六步记录法</h2>
+<h3 id="step-01">第 1 步：复原现场，先分事实与解释（30 分钟）</h3>
+<p>把 A01-03 的零散记录整理成 O-xx 条目。每条只写四样：时间、角色、动作或原话、卡点。</p>
+<p>然后<strong>另起一列</strong>写“初步解释”。这一步的关键是物理分开：</p>
+<ul>
+<li>“陈静打开三个 Excel，说‘我先对一下哪个是最新的’”——这是观察；</li>
+<li>“至少有三个版本并存”——这是解释，可能对，也可能只是她习惯性打开。</li>
+</ul>
+<p>解释不是不能写，而是不能和观察混在一句话里。后面入台账时，观察进“原文/观察”，解释进“工作假设”。</p>
+<h3 id="step-02">第 2 步：校正逐字稿，不做润色（40 分钟）</h3>
+<p>逐字稿只做四件事：</p>
+<ol>
+<li><strong>标说话人</strong>：不要出现“有人说了句”。用角色名，首次出现时补全名与职责。</li>
+<li><strong>校术语</strong>：把语音转写错的词改对，比如“排班本”不是“排版本”，“亚专科”不是“亚专业”。</li>
+<li><strong>保留语气与停顿</strong>： “这个……应该可以吧” 和 “可以” 是两种证据状态，不要合并。</li>
+<li><strong>标时间戳</strong>：至少每 2–3 分钟一个，方便回听。</li>
+</ol>
+<p>不要做的是：把口语改成书面语、把重复删掉、把含糊的话“整理清楚”。润色会让证据失去原貌，也会让你误以为业务方当时很确定。</p>
+<h3 id="step-03">第 3 步：建术语与说话人表（20 分钟）</h3>
+<p>现场一定有成套的黑话。病理科的“亚专科”“外部人员额度”“住院总”“白班/夜班/周末班”，对内部人是不言自明的，对你不是。</p>
+<p>建一张七列表，和 A02-03 的模板字段一致：前四列把业务词对齐到数据字段，后三列登记是谁说的、他是谁、可信度。</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th scope="col">业务词</th>
+<th scope="col">数据字段</th>
+<th scope="col">英文名</th>
+<th scope="col">定义</th>
+<th scope="col">说话人</th>
+<th scope="col">身份</th>
+<th scope="col">可信度</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>外部人员额度</td>
+<td>quota_monthly</td>
+<td>quota</td>
+<td>每月可分配给某亚专科的外院/协作人员人天数</td>
+<td>孙老师</td>
+<td>人力资源 / 绩效</td>
+<td>高（额度由他发放）</td>
+</tr>
+<tr>
+<td>亚专科</td>
+<td>dept_code</td>
+<td>subspecialty</td>
+<td>病理科下的专业分组，如妇科、乳腺、消化</td>
+<td>陈静</td>
+<td>排班员</td>
+<td>高（本人排班）</td>
+</tr>
+<tr>
+<td>住院总</td>
+<td>chief_flag</td>
+<td>chief resident</td>
+<td>负责夜间与周末轮转的住院医师岗位</td>
+<td>周主任</td>
+<td>科主任</td>
+<td>高（本人任命）</td>
+</tr>
+<tr>
+<td>可用天数</td>
+<td>available_days</td>
+<td>availability</td>
+<td>某人在本月实际能上班的天数，已扣请假与外出</td>
+<td>陈静</td>
+<td>排班员</td>
+<td>中（手工统计，需本人确认）</td>
+</tr>
+</tbody>
+</table></div>
+<p>字段名一列写系统或 Excel 里真实存在的那一列；没有对应字段就写“不存在”，不要硬造英文名。说话人一列写首次说出这个词的人，访谈时间戳留在逐字稿里，不重复进表。只为登记人时，只填说话人、身份、可信度三列，其余写“—”。</p>
+<p>规则只有一条：<strong>同一个概念，全项目只用一个词。</strong> 如果业务方自己有两个说法，在表里注明“同义”，正文选一个，不要混用。</p>
+<h3 id="step-04">第 4 步：逐条入证据台账（40 分钟）</h3>
+<p>这是整页的核心。台账不是“把笔记抄一遍”，而是把每条可能影响判断的信息，变成一条可追溯的记录。</p>
+<p>一条证据至少有七个核心字段；台账里再加上“负责人、截止”两列，一共九列：</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th scope="col">字段</th>
+<th scope="col">写什么</th>
+<th scope="col">反例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>证据ID</td>
+<td>E-01 起顺序编号</td>
+<td>“访谈里说的”</td>
+</tr>
+<tr>
+<td>原文/观察</td>
+<td>原话或可复核的动作，不加概括</td>
+<td>“业务方觉得效率低”</td>
+</tr>
+<tr>
+<td>来源</td>
+<td>谁、在什么场合、哪份材料</td>
+<td>“客户”</td>
+</tr>
+<tr>
+<td>访谈状态</td>
+<td>原文/观察、业务确认、工作假设、待验证</td>
+<td>全部写“确认”</td>
+</tr>
+<tr>
+<td>权威性</td>
+<td>官方、第三方、实践、推断、待确认</td>
+<td>全部写“高”</td>
+</tr>
+<tr>
+<td>影响决策</td>
+<td>这条证据支持或反对哪个判断</td>
+<td>“有用”</td>
+</tr>
+<tr>
+<td>待确认项</td>
+<td>还不确定什么，谁去确认</td>
+<td>空着</td>
+</tr>
+</tbody>
+</table></div>
+<p>两个维度必须同时标：<a class="term-link" href="day1-03-evidence.html#term-evidence-state" title="Interview Evidence State：四类状态：原文/观察、业务确认、工作假设、待验证；它回答“这条信息被验证到什么程度”。" target="_blank" rel="noopener">访谈证据状态</a> 回答“这句话有多确定”，<a class="term-link" href="appendix-sources.html#term-source-authority" title="Source Authority：五级来源成色：官方、第三方、实践、推断、待确认；它回答“这条信息凭什么可信”。" target="_blank" rel="noopener">来源权威性</a> 回答“凭什么信它”。一条“业务方原话”可以是“原文/观察”，但权威性仍是“实践”，不等于官方规则。</p>
+<h3 id="step-05">第 5 步：把不确定项拆成待确认清单（20 分钟）</h3>
+<p>台账里每一条“待确认项”，都搬到 A02-05，变成一条 Q-xx：</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th scope="col">问题ID</th>
+<th scope="col">问题</th>
+<th scope="col">影响</th>
+<th scope="col">当前假设</th>
+<th scope="col">验证方式</th>
+<th scope="col">负责人</th>
+<th scope="col">截止日期</th>
+<th scope="col">状态</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Q-01</td>
+<td>12 人天是否包含夜班</td>
+<td>S1 额度分配</td>
+<td>暂按包含处理</td>
+<td>拿排班表核对</td>
+<td>赵岚</td>
+<td>D2 前</td>
+<td>待验证</td>
+</tr>
+<tr>
+<td>Q-02</td>
+<td>年假表能否导出</td>
+<td>可用天数计算</td>
+<td>暂按手工录入</td>
+<td>找信息科确认</td>
+<td>老周</td>
+<td>D3 前</td>
+<td>验证中</td>
+</tr>
+</tbody>
+</table></div>
+<p>没有负责人和截止日期的“待确认”，等于没有。它会在方案评审时突然变成阻塞项。“状态”只用待验证、验证中、已确认、已否决、已转待办五个值；已确认的结论要转写到 A02-04，不要只在本表留一句“已解决”。</p>
+<h3 id="step-06">第 6 步：过 G2 阶段门（10 分钟）</h3>
+<p>G2 只问四个问题：</p>
+<ol>
+<li>每条要写进方案的结论，能不能在台账里找到对应证据？</li>
+<li>“原话”和“你的解释”是不是分开了？</li>
+<li>每条待确认项有没有负责人和截止日期？</li>
+<li>同一个概念，全文是不是只用一个词？</li>
+</ol>
+<p>四个都“是”，记录才算完成。有一个“否”，不要进入分析和方案设计——后面会反复返工。</p>
+<h2 id="sec-output">输出与阶段门</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th scope="col">输出</th>
+<th scope="col">文件名</th>
+<th scope="col">最小内容</th>
+<th scope="col">下游</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A02-02 逐字稿</td>
+<td><code>02_现场记录/02-02_逐字稿/YYYY-MM-DD_对象_主题.md</code></td>
+<td>说话人、时间戳、术语已校正</td>
+<td>work-04、day1-03</td>
+</tr>
+<tr>
+<td>A02-03 术语与说话人表</td>
+<td><code>02_现场记录/02-03_术语与说话人表.md</code></td>
+<td>中文术语、现场含义、谁在用、首现位置</td>
+<td>work-04、day1-03</td>
+</tr>
+<tr>
+<td>A02-04 证据台账</td>
+<td><code>02_现场记录/02-04_证据台账.md</code></td>
+<td>七字段齐全，双轴标注</td>
+<td>work-04、work-05、main-07</td>
+</tr>
+<tr>
+<td>A02-05 待确认与问题清单</td>
+<td><code>02_现场记录/02-05_待确认与问题清单.md</code></td>
+<td>问题、影响、假设、验证方式、负责人、截止日期、状态</td>
+<td>work-04、day1-04、main-07</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>G2 通过标准</strong>：</p>
+<ul>
+<li>抽查 3 条将进入方案的结论，都能定位到证据 ID 和原始来源；</li>
+<li>台账中没有“来源=客户”“状态=确认”这种无法复核的写法；</li>
+<li>待确认清单 100% 有负责人和截止日期；</li>
+<li>术语表覆盖现场出现频率最高的 10 个词。</li>
+</ul>
+<p><strong>不通过时</strong>：不要“先往下写，回头补”。回到第 2 步或第 4 步，补完再走。G2 是后面所有判断的地基。</p>
+<h2 id="sec-template">模板：先抄这一张</h2>
+<p>下面是 A02-04 证据台账的可复制骨架。完整模板在 <code>templates/blank/02-04_证据台账.md</code>，排班案例的填法见 <code>templates/golden/02-04_证据台账_排班案例.md</code>。</p>
+<div class="template-block">
+<div class="template-title">A02-04 证据台账 <span>可直接复制到档案</span></div>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th scope="col">证据ID</th>
+<th scope="col">原文/观察</th>
+<th scope="col">来源</th>
+<th scope="col">访谈状态</th>
+<th scope="col">权威性</th>
+<th scope="col">影响决策</th>
+<th scope="col">待确认项</th>
+<th scope="col">负责人</th>
+<th scope="col">截止</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>E-01</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>E-02</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>填写说明</strong>：一行只放一条证据；原文/观察栏不加“我觉得”；访谈状态只能是四类之一；权威性只能是五类之一；影响决策写具体的判断，不写“有用”。</p>
+</div>
+<p><span id="cb-observe"></span><span id="cb-evidence"></span></p>
+<h2 id="sec-case">排班案例：一条证据怎么入库</h2>
+<p><a class="case-link" href="work-02-interview.html#cb-observe" target="_blank" rel="noopener">案例 CB-13</a> 里有一条观察：</p>
+<blockquote>
+<p>O-03｜09:41｜陈静｜发现超排｜指着王芳那一行说“她这个月只能上 9 天”｜冲突发现晚｜C1 真实存在｜是否已和本人确认</p>
+</blockquote>
+<p>它进入台账后，变成 <span class="case-link">案例 CB-14</span> 里的 E-06：</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th scope="col">证据ID</th>
+<th scope="col">原文/观察</th>
+<th scope="col">来源</th>
+<th scope="col">访谈状态</th>
+<th scope="col">权威性</th>
+<th scope="col">影响决策</th>
+<th scope="col">待确认项</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>E-06</td>
+<td>王芳这个月只能上 9 天</td>
+<td>排班本照片</td>
+<td>待验证</td>
+<td>待确认</td>
+<td>C1</td>
+<td>需本人或人事确认</td>
+</tr>
+</tbody>
+</table></div>
+<p>注意三个动作：</p>
+<ol>
+<li><strong>观察被保留</strong>：原话是“只能上 9 天”，不是“王芳可用天数不足”。后者已经是解释。</li>
+<li><strong>状态被降级</strong>：这是陈静指着一个数字说的，不等于王芳本人确认，所以标“待验证”，权威性“待确认”。</li>
+<li><strong>影响被写明</strong>：它影响 C1（王芳 9 天可用 vs 计划 10 天），不是泛泛的“排班准确性”。</li>
+</ol>
+<p>同一份台账里，E-03“妇科这个月至少 12 个，不然夜班排不开”是赵岚的现场原话，标“原文/观察 + 实践”；E-04“周主任说额度不能超，超了要写说明”是访谈中的业务确认；E-05“系统应该不能改吧”是陈静的推测，只能标“工作假设 + 推断”。</p>
+<p>这三种成色，决定了它们在方案里能怎么用：E-03 可以写进需求依据，E-04 可以写进规则，E-05 只能写成待验证假设，不能当约束。</p>
+<h2 id="sec-failures">常见失败</h2>
+<div class="pitfalls">
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th scope="col">现象</th>
+<th scope="col">原因</th>
+<th scope="col">处理</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>逐字稿很干净，但找不到原话</td>
+<td>把口语润色成书面语</td>
+<td>保留语气词与停顿；另存“摘要版”，不要覆盖原稿</td>
+</tr>
+<tr>
+<td>台账每条都写“业务确认”</td>
+<td>把“业务方没反对”当成确认</td>
+<td>只有明确点头、签字或复述确认，才写“业务确认”</td>
+</tr>
+<tr>
+<td>术语表只有英文缩写</td>
+<td>把它当成翻译表</td>
+<td>加“在这个现场指什么”“谁在用”“首次出现”三列</td>
+</tr>
+<tr>
+<td>待确认清单很长，但没人动</td>
+<td>没有负责人和截止日期</td>
+<td>每条必须有一个人名和一个日期；没有就删掉或升级为阻塞项</td>
+</tr>
+<tr>
+<td>一条证据支撑五个结论</td>
+<td>证据被过度解释</td>
+<td>一条证据只支撑它直接说明的判断；延伸判断另立假设</td>
+</tr>
+<tr>
+<td>录音没许可</td>
+<td>跳过 A00-04</td>
+<td>立即停止使用该录音；补许可或改用现场笔记并降级状态</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="hands-on">
+<p><strong>动手 15 分钟</strong>：从你最近一次访谈里抽三条结论，做一次“证据回溯”。</p>
+<ol>
+<li>每条结论写一句话；</li>
+<li>在台账里找对应的 E-xx；找不到就新建一条，并标“待验证”；</li>
+<li>给每条补上“访谈状态”和“权威性”；</li>
+<li>如果三条里有任何一条无法回溯，把它从方案草稿里删掉，或改成待确认项。</li>
+</ol>
+<p><strong>自检</strong>：三条结论中，至少两条能落到具体原话或可复核动作；每条待确认项都有一个人名。</p>
+</div>
+<div class="self-test">
+<p><strong>三问自测</strong></p>
+<details>
+<summary>1. 观察和解释为什么要分栏写？</summary>
+
+观察是可复核的事实，解释是你的判断。混在一起，三天后无法区分“业务方说的”和“你推断的”，证据就会在传递中被当成事实。
+
+</details>
+<details>
+<summary>2. “业务方原话”为什么权威性不一定是“官方”？</summary>
+
+访谈状态回答“有多确定”，权威性回答“凭什么信”。原话只说明你准确记录了他的说法，不说明这个说法本身是官方规则。它通常是“实践”或“待确认”。
+
+</details>
+<details>
+<summary>3. G2 不通过时，最不该做的是什么？</summary>
+
+最不该“先往下写，回头补”。记录缺口会在方案、FR、Demo 里逐层放大，最后返工成本远高于当天补 30 分钟。
+
+</details>
+</div>
+<h2 id="sec-checklist">自检清单</h2>
+<p>打印这一页，每次记录完逐项打勾：</p>
+<ul>
+<li>[ ] 每条观察有 O-xx，每条证据有 E-xx，编号连续不重复；</li>
+<li>[ ] 原文/观察栏没有“我觉得”“应该是”；</li>
+<li>[ ] 每条证据的访谈状态是四类之一，权威性是五类之一；</li>
+<li>[ ] 每条将进入方案的结论都能回溯到证据 ID；</li>
+<li>[ ] 术语表覆盖现场高频词，且全文用词一致；</li>
+<li>[ ] 每条待确认项有负责人和截止日期；</li>
+<li>[ ] 录音/截图已获许可，存放位置符合 A00-04；</li>
+<li>[ ] G2 四个问题全部为“是”。</li>
+</ul>
+<div class="recap">
+<p><strong>本章带走</strong></p>
+<ol>
+<li>现场记录的目标是让三天后的人能沿证据链回到原始场景，不是留档。</li>
+<li>六步固定动作：复原现场、校正逐字稿、建术语表、入台账、拆待确认、过 G2。</li>
+<li>每条证据同时标“访谈状态”和“来源权威性”；原话不等于官方，确认不等于事实。</li>
+</ol>
+</div>
+      </div>
+
+      <section class="term-cards" aria-label="本页术语卡"><p class="eyebrow">本页术语</p><div class="term-grid"><article class="term-card" id="term-evidence-state"><h3 id="term-title-evidence-state">访谈证据状态 <span class="term-en">Interview Evidence State</span></h3><p>四类状态：原文/观察、业务确认、工作假设、待验证；它回答“这条信息被验证到什么程度”。</p><a class="term-first" href="day1-03-evidence.html" target="_blank" rel="noopener">首次解释</a></article><article class="term-card" id="term-source-authority"><h3 id="term-title-source-authority">来源权威性 <span class="term-en">Source Authority</span></h3><p>五级来源成色：官方、第三方、实践、推断、待确认；它回答“这条信息凭什么可信”。</p><a class="term-first" href="appendix-sources.html" target="_blank" rel="noopener">首次解释</a></article><article class="term-card" id="term-evidence-ledger"><h3 id="term-title-evidence-ledger">证据台账 <span class="term-en">Evidence Ledger</span></h3><p>逐条记录原文/观察、来源、访谈状态、权威性、影响决策和待确认项的账本。</p></article><article class="term-card" id="term-transcript"><h3 id="term-title-transcript">逐字稿 <span class="term-en">Transcript</span></h3><p>带时间戳和说话人标记的访谈原文；是证据链的底层材料，不是结论。</p></article><article class="term-card" id="term-term-table"><h3 id="term-title-term-table">术语与说话人表 <span class="term-en">Term &amp; Speaker Table</span></h3><p>把业务词、数据字段、英文名、说话人身份对齐的表，防止听错一个词做错整套模型。</p></article></div></section>
+      <section class="artifact-box" aria-label="本页产物"><div class="artifact-block"><h3 id="artifacts-out">本页要写出的产物</h3><ul><li><code>A02-02</code> 逐字稿 <span class="muted">→ 02_现场记录/02-02_逐字稿/</span> <span class="gate-tag">G2</span> <a href="templates/blank/02-02_逐字稿.html" data-template-view data-template-title="A02-02 逐字稿模板" title="A02-02 逐字稿模板 ｜ 当前页弹窗预览">模板</a> <a href="templates/golden/02-02_逐字稿_排班案例.html" data-template-view data-template-title="A02-02 逐字稿黄金样例" title="A02-02 逐字稿黄金样例 ｜ 当前页弹窗预览">黄金样例</a></li><li><code>A02-03</code> 术语与说话人表 <span class="muted">→ 02_现场记录/02-03_术语与说话人表.md</span> <span class="gate-tag">G2</span> <a href="templates/blank/02-03_术语与说话人表.html" data-template-view data-template-title="A02-03 术语与说话人表模板" title="A02-03 术语与说话人表模板 ｜ 当前页弹窗预览">模板</a> <a href="templates/golden/02-03_术语与说话人表_排班案例.html" data-template-view data-template-title="A02-03 术语与说话人表黄金样例" title="A02-03 术语与说话人表黄金样例 ｜ 当前页弹窗预览">黄金样例</a></li><li><code>A02-04</code> 证据台账 <span class="muted">→ 02_现场记录/02-04_证据台账.md</span> <span class="gate-tag">G2</span> <a href="templates/blank/02-04_证据台账.html" data-template-view data-template-title="A02-04 证据台账模板" title="A02-04 证据台账模板 ｜ 当前页弹窗预览">模板</a> <a href="templates/golden/02-04_证据台账_排班案例.html" data-template-view data-template-title="A02-04 证据台账黄金样例" title="A02-04 证据台账黄金样例 ｜ 当前页弹窗预览">黄金样例</a></li><li><code>A02-05</code> 待确认与问题清单 <span class="muted">→ 02_现场记录/02-05_待确认与问题清单.md</span> <span class="gate-tag">G2</span> <a href="templates/blank/02-05_待确认与问题清单.html" data-template-view data-template-title="A02-05 待确认与问题清单模板" title="A02-05 待确认与问题清单模板 ｜ 当前页弹窗预览">模板</a> <a href="templates/golden/02-05_待确认与问题清单_排班案例.html" data-template-view data-template-title="A02-05 待确认与问题清单黄金样例" title="A02-05 待确认与问题清单黄金样例 ｜ 当前页弹窗预览">黄金样例</a></li></ul></div><div class="artifact-block"><h3 id="artifacts-in">开始前应已具备</h3><p class="muted"><code>A00-04</code> 知情同意与数据权限、<code>A01-03</code> 现场观察记录表、<code>A02-01</code> 现场观察记录、<code>A01-02</code> 分轮访谈提纲</p></div></section>
+      <section class="sources" aria-label="来源"><h2 id="sec-sources">来源与证据等级</h2><ol class="source-list"><li><span class="src-id">S16</span> <strong>GR-FDE-01-014 D1 客户工具包（国润 Skill 工具包）</strong> <span class="badge badge-实践">实践</span><div class="muted">国润项目组 · 抓取 2026-10-19 · MIT；`grilling` 上游署名 Matt Pocock；包内文件不随教程分发</div><div class="src-url"><span class="muted">无公开链接</span></div></li><li><span class="src-id">S17</span> <strong>FDE 方法论沉淀</strong> <span class="badge badge-实践">实践</span><div class="muted">本子项目 · 抓取 2026-09-23 · 内部方法沉淀</div><div class="src-url"><span class="muted">无公开链接</span></div></li><li><span class="src-id">S20</span> <strong>FDE 实施手册 v1（9 章整合读本）</strong> <span class="badge badge-实践">实践</span><div class="muted">本子项目 · 抓取 2026-10-19 · 内部方法沉淀；官方事实另注出处</div><div class="src-url"><span class="muted">无公开链接</span></div></li><li><span class="src-id">S21</span> <strong>Matt Pocock · grilling skill</strong> <span class="badge badge-第三方">第三方</span><div class="muted">Matt Pocock · 抓取 2026-10-19 · MIT；随 GR-FDE-01-014 分发，上游作者署名 Matt Pocock</div><div class="src-url"><span class="muted">无公开链接</span></div></li></ol></section>
+      <nav class="pager" aria-label="翻页"><a class="pager-prev" data-same-tab href="work-02-interview.html"><span>上一页</span><strong>现场 60 分钟</strong></a><a class="pager-next" data-same-tab href="work-04-model.html"><span>下一页</span><strong>从证据到模型</strong></a></nav>
+
+      <footer class="page-foot">
+        <p>本教程为内部方法研究。案例已匿名化，数字标注【示例】。Palantir 官方资料版权归 Palantir Technologies，仅作改写与链接。</p>
+        <p class="muted">发现断链或事实错误？回到 <a href="appendix-sources.html" target="_blank" rel="noopener">来源与版权</a> 核对出处。</p>
+      </footer>
+    </article>
+  </main>
+
+  <aside class="toc" id="toc" aria-label="页内目录">
+    <p class="toc-title">本页目录</p><ol class="toc-list"><li class="toc-h2"><a href="#sec-when">何时用</a></li><li class="toc-h2"><a href="#sec-inputs">前置与输入</a></li><li class="toc-h2"><a href="#sec-steps">六步记录法</a><ul class="toc-sub"><li class="toc-h3"><a href="#step-01">第 1 步：复原现场，先分事实与解释（30 分钟）</a></li><li class="toc-h3"><a href="#step-02">第 2 步：校正逐字稿，不做润色（40 分钟）</a></li><li class="toc-h3"><a href="#step-03">第 3 步：建术语与说话人表（20 分钟）</a></li><li class="toc-h3"><a href="#step-04">第 4 步：逐条入证据台账（40 分钟）</a></li><li class="toc-h3"><a href="#step-05">第 5 步：把不确定项拆成待确认清单（20 分钟）</a></li><li class="toc-h3"><a href="#step-06">第 6 步：过 G2 阶段门（10 分钟）</a></li></ul></li><li class="toc-h2"><a href="#sec-output">输出与阶段门</a></li><li class="toc-h2"><a href="#sec-template">模板：先抄这一张</a></li><li class="toc-h2"><a href="#sec-case">排班案例：一条证据怎么入库</a></li><li class="toc-h2"><a href="#sec-failures">常见失败</a></li><li class="toc-h2"><a href="#sec-checklist">自检清单</a></li></ol>
+  </aside>
+</div>
+
+<div class="tpl-modal" id="tpl-modal" hidden>
+  <div class="tpl-panel" role="dialog" aria-modal="true" aria-labelledby="tpl-title">
+    <header class="tpl-head">
+      <div class="tpl-heading">
+        <p class="tpl-kicker">模板阅读视图</p>
+        <h2 id="tpl-title">模板</h2>
+      </div>
+      <div class="tpl-actions">
+        <a class="tpl-open" id="tpl-open" href="#" target="_blank" rel="noopener">在新标签打开 ↗</a>
+        <button class="icon-btn" id="tpl-close" type="button" aria-label="关闭模板">✕</button>
+      </div>
+    </header>
+    <div class="tpl-body">
+      <iframe id="tpl-frame" title="模板内容" loading="lazy"></iframe>
+    </div>
+  </div>
+</div>
+
+<div class="search-modal" id="search-modal" hidden>
+  <div class="search-panel" role="dialog" aria-modal="true" aria-labelledby="search-title">
+    <div class="search-head">
+      <label id="search-title" class="sr-only" for="search-input">搜索教程</label>
+      <input id="search-input" type="search" placeholder="搜索概念、产物、模板、方法卡…" autocomplete="off">
+      <button class="icon-btn" id="search-close" type="button" aria-label="关闭搜索">✕</button>
+    </div>
+    <div id="search-results" class="search-results" aria-live="polite"></div>
+    <p class="search-hint">按 <kbd>/</kbd> 或 <kbd>Ctrl</kbd>+<kbd>K</kbd> 打开，<kbd>Esc</kbd> 关闭。索引完全离线。</p>
+  </div>
+</div>
+
+<noscript><p class="noscript-note">搜索与阅读进度需要 JavaScript；正文、目录和翻页仍可正常使用。可用浏览器查找（Ctrl+F）。</p></noscript>
+
+<script src="assets/search-index.js"></script>
+<script src="assets/viz-data.js"></script>
+<script src="assets/app.js"></script>
+<script src="assets/viz.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>A06-01 复盘（排班案例） · FDE 模板库</title>
+<link rel="stylesheet" href="../../assets/course.css">
+</head>
+<body>
+<a class="skip-link" href="#main">跳到正文</a>
+<main class="main" id="main">
+<article class="article">
+<nav class="crumb" aria-label="面包屑">
+<a href="../../index.html">教程首页</a><span class="sep">/</span>
+<a href="../../appendix-templates.html">模板库</a><span class="sep">/</span>
+<span>黄金样例</span>
+</nav>
+<header class="page-head">
+<div class="badges">
+<span class="badge badge-main">A06-01</span>
+<span class="badge">黄金样例</span>
+<span class="badge badge-time">Markdown 阅读视图</span>
+</div>
+<h1>A06-01 复盘（排班案例）</h1>
+<p class="page-question">这是模板的阅读视图，源文件是 <code>06-01_复盘_排班案例.md</code>。
+<a href="06-01_复盘_排班案例.md">下载 / 编辑 Markdown</a> · <a href="../../appendix-templates.html">返回模板库</a></p>
+</header>
+<div class="prose">
+<blockquote>
+<p>【示例】匿名化案例，数字均为示例；人名与机构均为化名。
+事实取自 <code>_canon/case-bible.md</code>（CB-18、CB-17、CB-08、CB-14）；判断、原因与下一步为本轮整理，均标注依据。</p>
+</blockquote>
+<p>本复盘对象是 S1“外部人员额度分配”的五天验证，不是整个项目的总结。复盘要回答三个问题：本轮实际发生了什么、我们如何解释、下一轮凭什么更有把握。结论只支持“继续做 S2”，不支持对外宣称效率提升。</p>
+<h2 id="tpl-sec-1">事实</h2>
+<p>只写能被日志、录屏、证据台账或现场记录支撑的事。</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th scope="col">编号</th>
+<th scope="col">事实</th>
+<th scope="col">证据来源</th>
+<th scope="col">可核验方式</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>F-01</td>
+<td>五天完成 S1 的分配与审批闭环（DC-1/DC-2 合并，最终到 DC-4）</td>
+<td>D5 Demo 录屏、Allocation 状态日志</td>
+<td>重新打开分配记录，状态为“已发布”</td>
+</tr>
+<tr>
+<td>F-02</td>
+<td>C1 被拦住并修正：王芳从 10 天改为 9 天</td>
+<td>冲突面板记录、陈静现场操作</td>
+<td>冲突记录显示 C1 已解决</td>
+</tr>
+<tr>
+<td>F-03</td>
+<td>C2 解决 1 人天：妇科缺口从 2 降到 1</td>
+<td>缺口面板、追加额度记录</td>
+<td>剩余 1 人天有负责人与日期</td>
+</tr>
+<tr>
+<td>F-04</td>
+<td>写回本地对象成功；院内系统未写回</td>
+<td>本地对象日志、刘工 D3 确认</td>
+<td>本地状态与额度已用同步；院内系统无变更记录</td>
+</tr>
+<tr>
+<td>F-05</td>
+<td>D5 由陈静本人操作，FDE 未代点</td>
+<td>Demo 录屏、操作账号</td>
+<td>关键步骤操作人均为陈静</td>
+</tr>
+<tr>
+<td>F-06</td>
+<td>返工 1 轮：赵岚提出 1 次调整后确认</td>
+<td>组长确认记录、陈静计数</td>
+<td>调整记录仅 1 条</td>
+</tr>
+<tr>
+<td>F-07</td>
+<td>周主任认可继续做 S2</td>
+<td>阶段门记录、D5 会议纪要</td>
+<td>纪要中有明确结论与签字</td>
+</tr>
+<tr>
+<td>F-08</td>
+<td>分配耗时现场计时 50 分钟</td>
+<td>D5 计时记录</td>
+<td>起止点为“拿到额度”到“方案可审批”</td>
+</tr>
+<tr>
+<td>F-09</td>
+<td>基线约 3 小时在本轮未复测</td>
+<td>CB-08、CB-11 的基线项</td>
+<td>仅有受访者回忆，没有第二次计时</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>引用纪律</strong>：F-08 与 F-09 必须成对出现，不能只引用 50 分钟。</p>
+<h2 id="tpl-sec-2">判断</h2>
+<p>判断是对事实的解释，不是事实本身。</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th scope="col">编号</th>
+<th scope="col">判断</th>
+<th scope="col">依据</th>
+<th scope="col">可能被推翻的条件</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>J-01</td>
+<td>真正卡住陈静的不是“没有排班系统”，而是“没有一份实时的额度与可用天数视图”</td>
+<td>E-01、E-02 显示三个 Excel 与纸质排班本并存；D5 陈静在三栏界面完成分配</td>
+<td>若后续发现日期与班型冲突才是主要返工来源，则判断需修正</td>
+</tr>
+<tr>
+<td>J-02</td>
+<td>先切 S1 是对的：S2 依赖 S1 的分配结果，先做 S2 会被上游数据卡住</td>
+<td>CB-02 的切片依赖关系；S1 未稳定写回前无法开始 S2</td>
+<td>若 S1 结果长期无法写回，则 S2 需改从“周排班草表”切入</td>
+</tr>
+<tr>
+<td>J-03</td>
+<td>本地对象写回足以支撑本轮验证，但不足以支撑生产</td>
+<td>F-04：本地写回成功、院内系统未写回</td>
+<td>若业务方要求院内系统为唯一权威源，则验证结论需降级</td>
+</tr>
+<tr>
+<td>J-04</td>
+<td>50 分钟只能说明“本轮这一次更快”，不能证明因果降幅</td>
+<td>F-08 为单次计时、F-09 基线未复测；样本 n=1，且含演示环境熟悉度影响</td>
+<td>完成两次以上同口径计时并复测基线后，才可讨论降幅</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="tpl-sec-3">结果</h2>
+<p>结果写实际发生的变化，不写计划目标。</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th scope="col">指标</th>
+<th scope="col">本轮实际</th>
+<th scope="col">口径与限制</th>
+<th scope="col">可对外表述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>分配耗时</td>
+<td>50 分钟</td>
+<td>D5 现场一次计时，陈静本人操作，样本 n=1</td>
+<td>“本轮实测 50 分钟”，不写“降低 X%”</td>
+</tr>
+<tr>
+<td>基线耗时</td>
+<td>约 3 小时</td>
+<td>受访者回忆值，未复测；与 50 分钟不是同一口径</td>
+<td>只能写“可能缩短”，不得声称降幅</td>
+</tr>
+<tr>
+<td>冲突发现时点</td>
+<td>C1、C2 在分配提交前被识别</td>
+<td>系统日志与 Demo 记录</td>
+<td>“冲突提前到提交前暴露”</td>
+</tr>
+<tr>
+<td>方案版本数</td>
+<td>本地对象 1 份；院内系统仍未写回</td>
+<td>院内系统无变更，不能称“全院唯一版本”</td>
+<td>“本地 1 份，院内待同步”</td>
+</tr>
+<tr>
+<td>返工轮次</td>
+<td>1 轮</td>
+<td>赵岚 1 次调整</td>
+<td>“返工 1 轮”</td>
+</tr>
+<tr>
+<td>C1</td>
+<td>已拦住并修正 10→9</td>
+<td>硬约束 R-05 生效</td>
+<td>“C1 已解决”</td>
+</tr>
+<tr>
+<td>C2</td>
+<td>缺口 2→1，剩余 1 人天未解决</td>
+<td>追加额度仅批 1 天</td>
+<td>“C2 解决 1 人天”，不得写“清零”</td>
+</tr>
+<tr>
+<td>院内系统写回</td>
+<td>未发生</td>
+<td>写回权限启动太晚，D3 才确认只能写本地对象</td>
+<td>“本轮未写回院内系统”</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>结果边界</strong>：本轮没有验证跨月结转、临时调整完整审批链、资质认定统一口径；这些不能写进结果。</p>
+<h2 id="tpl-sec-4">原因</h2>
+<h3 id="tpl-sec-5">做对了</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th scope="col">原因</th>
+<th scope="col">对应事实</th>
+<th scope="col">可迁移做法</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>先把切片收到 S1，只做一个最终决策</td>
+<td>F-01</td>
+<td>下一轮同样先写 one-pager，再定对象与界面</td>
+</tr>
+<tr>
+<td>冲突识别前置，C1 在保存时被拦住</td>
+<td>F-02</td>
+<td>硬约束必须有拦截动作，不能只提示</td>
+</tr>
+<tr>
+<td>让陈静本人操作，FDE 不代点</td>
+<td>F-05</td>
+<td>Demo 与排练都以业务方操作作为通过标准</td>
+</tr>
+<tr>
+<td>每天 17:00 展示增量，问题当天暴露</td>
+<td>CB-16 第 5 门</td>
+<td>下一轮继续固定展示时点与参与人</td>
+</tr>
+<tr>
+<td>每个环节准备失败替代</td>
+<td>CB-17</td>
+<td>审批人缺席时次日补审批，不假装已批准</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="tpl-sec-6">没做好</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th scope="col">原因</th>
+<th scope="col">影响</th>
+<th scope="col">下一轮怎么改</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>写回权限启动太晚，D1 才问刘工</td>
+<td>F-04：只能写回本地对象，Demo 边界说明仓促</td>
+<td>D1 前书面确认字段、账号与失败回退</td>
+</tr>
+<tr>
+<td>基线未复测，只做了 D5 一次计时</td>
+<td>F-09：无法讨论降幅，KPI 只能写“可能缩短”</td>
+<td>D1–D2 做两次同口径计时，取中位数并记录起止点</td>
+</tr>
+<tr>
+<td>追加额度审批路径未在 D3 前确认</td>
+<td>C2 只解决 1 人天，演示需保留差额说明</td>
+<td>下一轮把审批链列入 D3 前置条件</td>
+</tr>
+<tr>
+<td>资质认定口径未统一</td>
+<td>分配校验只能按组长认定，例外靠人工</td>
+<td>资质表在 S2 D3 试点，先提示后拦截</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="tpl-sec-7">可复用</h2>
+<p>只列能被另一个人直接找到并使用的资产，不写“积累了经验”。</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th scope="col">资产</th>
+<th scope="col">类型</th>
+<th scope="col">本轮作用</th>
+<th scope="col">复用条件</th>
+<th scope="col">去向</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>额度分配对象模型</td>
+<td>文档</td>
+<td>支撑额度、分配、冲突与写回</td>
+<td>场景同为“额度→亚专科→人员”两级分配</td>
+<td>06-02 第 1 项</td>
+</tr>
+<tr>
+<td>冲突规则集</td>
+<td>规则</td>
+<td>拦住 C1、暴露 C2</td>
+<td>硬约束与优化目标已分层，且有业务确认人</td>
+<td>06-02 第 2 项</td>
+</tr>
+<tr>
+<td>三栏界面规格</td>
+<td>组件</td>
+<td>一屏看到额度、人员与冲突</td>
+<td>决策可在一屏完成，且有写回动作</td>
+<td>06-02 第 3 项</td>
+</tr>
+<tr>
+<td>双轴证据台账</td>
+<td>模板</td>
+<td>区分原文/观察、工作假设与待确认</td>
+<td>每条证据有来源与待确认项</td>
+<td>06-02 第 4 项</td>
+</tr>
+<tr>
+<td>五道门检查表</td>
+<td>模板</td>
+<td>判断能否开始与能否演示</td>
+<td>每道门有可核查证据</td>
+<td>06-02 第 5 项</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="tpl-sec-8">下一步</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th scope="col">动作</th>
+<th scope="col">负责人</th>
+<th scope="col">时间</th>
+<th scope="col">验收标准</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>S2 立项并写 one-pager</td>
+<td>周主任、陈静</td>
+<td>下一轮 D1 前</td>
+<td>one-pager 只承诺“某天某班谁上”，通过五道门</td>
+</tr>
+<tr>
+<td>复测分配基线</td>
+<td>陈静</td>
+<td>下一轮 D1–D2</td>
+<td>两次同口径计时，取中位数，记录起止点与样本数</td>
+</tr>
+<tr>
+<td>确认写回权限与失败回退</td>
+<td>刘工</td>
+<td>下一轮 D1 前</td>
+<td>书面确认字段、账号、失败回退与责任人</td>
+</tr>
+<tr>
+<td>处理 C2 剩余 1 人天</td>
+<td>赵岚</td>
+<td>本轮结束后 5 个工作日内</td>
+<td>补足额度或书面登记缺口、负责人与日期</td>
+</tr>
+<tr>
+<td>更新可复用资产清单</td>
+<td>FDE</td>
+<td>复盘后 3 个工作日内</td>
+<td>06-02 每项有路径、复用条件、限制与所有者</td>
+</tr>
+<tr>
+<td>评审回流账本</td>
+<td>陈静、赵岚、孙老师</td>
+<td>下一轮 D2</td>
+<td>观察/试点/待定条目均有状态更新</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>复盘边界</strong>：本复盘只覆盖 S1 五天验证，不评价 S3、S4，也不把单次计时当作因果结论。下一轮复盘继续区分事实、判断、结果与原因。</p>
+</div>
+<footer class="page-foot">
+<p class="muted">本页由 <code>_tools/build.py</code> 从 Markdown 自动生成，请改源文件而不是改这里。</p>
+</footer>
+</article>
+</main>
+</body>
+</html>

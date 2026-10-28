@@ -1,0 +1,553 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<title>Day1–5 每天做什么 · FDE 零基础教程</title>
+<meta name="description" content="五天验证的逐日目标、产物、展示节奏、冻结时点和五种失败模式。">
+<link rel="stylesheet" href="assets/course.css">
+<script>
+(function () {
+  try {
+    var saved = localStorage.getItem('fde-theme');
+    var theme = saved || (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+    document.documentElement.dataset.theme = theme;
+  } catch (e) {}
+})();
+</script>
+</head>
+<body class="track-main page-main-08-five-days">
+<a class="skip-link" href="#main">跳到正文</a>
+
+<header class="topbar">
+  <button class="icon-btn nav-toggle" id="nav-toggle" type="button" aria-expanded="false" aria-controls="sidebar" aria-label="打开课程目录">
+    <span aria-hidden="true">☰</span>
+  </button>
+  <a class="brand" data-same-tab href="index.html"><span class="brand-mark">FDE</span><span class="brand-text">零基础教程</span></a>
+  <nav class="track-switch" aria-label="模块切换"><span class="track-link active" aria-current="true" title="从零建立完整心智模型">主线</span><a class="track-link" data-same-tab href="work-01-prep.html" title="现场查用：输入、步骤、输出、阶段门">工作台</a><a class="track-link" data-same-tab href="day1-00-overview.html" title="六步链路：简报 → 访谈 → 证据 → 底稿 → 门">Day1</a><a class="track-link" data-same-tab href="appendix-methods.html" title="一卡一问，按阶段、产物、角色查">方法库</a><a class="track-link" data-same-tab href="appendix-templates.html" title="模板、产物链、术语与来源">附录</a></nav>
+  <div class="top-actions">
+    <button class="search-open" id="search-open" type="button" aria-haspopup="dialog">
+      <span aria-hidden="true">⌕</span><span class="search-label">搜索</span><kbd>/</kbd>
+    </button>
+    <button class="icon-btn" id="theme-toggle" type="button" aria-label="切换深浅色">◐</button>
+  </div>
+  <div class="read-progress" aria-hidden="true"><span id="read-progress"></span></div>
+</header>
+
+<div class="layout">
+  <aside class="sidebar" id="sidebar">
+    <nav class="course-tree" aria-label="课程目录"><header class="side-head"><p class="side-eyebrow">当前模块</p><p class="side-title">主线</p><p class="side-caption">从零建立完整心智模型</p><p class="side-meta">16 页<span class="dot">·</span>约 4 小时</p></header><section class="nav-group"><p class="nav-group-title"><span class="nav-group-num">01</span>开始</p><a class="nav-link" data-same-tab href="index.html">开始：这份教程怎么用</a></section><section class="nav-group"><p class="nav-group-title"><span class="nav-group-num">02</span>看懂 FDE</p><a class="nav-link" data-same-tab href="main-01-fde.html">FDE 是什么，不是什么</a><a class="nav-link" data-same-tab href="main-02-slicing.html">把“系统”切成可验证的决策</a><a class="nav-link" data-same-tab href="lab-slicing.html">实验室：切三个模糊需求</a></section><section class="nav-group"><p class="nav-group-title"><span class="nav-group-num">03</span>看清现状</p><a class="nav-link" data-same-tab href="main-03-as-is.html">看清今天实际怎么运转</a><a class="nav-link" data-same-tab href="main-04-one-pager.html">一页纸对齐范围</a><a class="nav-link" data-same-tab href="case-a-one-pager.html">案例 A：S1 如何被选中</a><a class="nav-link" data-same-tab href="lab-one-pager.html">实验室：20 分钟拼一页纸</a></section><section class="nav-group"><p class="nav-group-title"><span class="nav-group-num">04</span>设计验证</p><a class="nav-link" data-same-tab href="main-05-fr.html">把决策写成一句可验收的 FR</a><a class="nav-link" data-same-tab href="main-06-solution.html">方案设计四件套</a><a class="nav-link" data-same-tab href="case-b-solution.html">案例 B：从一页纸到 Demo</a></section><section class="nav-group"><p class="nav-group-title"><span class="nav-group-num">05</span>跑起来</p><a class="nav-link" data-same-tab href="main-07-gates.html">开始前的五道门</a><span class="nav-link nav-current" aria-current="page">Day1–5 每天做什么</span><a class="nav-link" data-same-tab href="main-09-adoption.html">从项目到组织能力</a></section><section class="nav-group"><p class="nav-group-title"><span class="nav-group-num">06</span>选读</p><a class="nav-link" data-same-tab href="main-10-patterns.html">五种实施模式<span class="nav-optional">选读</span></a><a class="nav-link" data-same-tab href="main-11-lessons.html">一线八堂课<span class="nav-optional">选读</span></a></section></nav>
+  </aside>
+  <button class="scrim" id="scrim" type="button" aria-label="关闭目录" hidden></button>
+
+  <main class="main" id="main">
+    <nav class="crumb" aria-label="面包屑"><a data-same-tab href="index.html">教程</a><span class="sep">/</span><span>主线</span><span class="sep">/</span><span>跑起来</span><span class="sep">/</span><span aria-current="page">Day1–5 每天做什么</span></nav>
+    <article class="article">
+      <header class="page-head">
+        <div class="badges"><span class="badge badge-main">必读</span><span class="badge badge-time">22 分钟</span></div>
+        <h1>Day1–5 每天做什么</h1>
+        <p class="lede">五天验证的逐日目标、产物、展示节奏、冻结时点和五种失败模式。</p>
+        <p class="page-question"><span class="eyebrow">本页要回答</span>五天内每天该产出什么，什么时候必须停？</p>
+        <div class="page-meta">
+          <section class="meta-block">
+            <h2 class="meta-title" id="meta-objectives">读完你能</h2>
+            <ul class="objective-list"><li>为每一天写出一条可展示的增量；</li><li>说明 Day 4 冻结与 Demo 的关系；</li><li>识别五种常见失败模式并给出处理。</li></ul>
+          </section>
+          <section class="meta-block">
+            <h2 class="meta-title" id="meta-prereq">前置</h2>
+            <p>先读：<a href="main-07-gates.html" target="_blank" rel="noopener">开始前的五道门</a></p>
+          </section>
+        </div>
+      </header>
+
+      <div class="prose">
+        <p>Day 1 早上，陈静把三个 Excel、一本纸质排班本和手机里的微信群摆在你面前。团队问你：“今天做什么？先搭框架还是先接数据？”</p>
+<p>如果你说“先搭框架”，五天很可能变成闭门开发：第五天第一次给业务方看，然后发现方向错了。</p>
+<p>五天验证不是“把系统做五天”。它是一条有展示、有冻结、有停止条件的验证节奏：<strong>每天都要有一个能让真实用户判断对错的增量。</strong></p>
+<h2 id="sec-what-five-days">五天是什么，不是什么</h2>
+<p>上一页已经说过：<strong>Palantir 没有发布过一份“FDE 五天逐日日程”。</strong> 官方公开的是 use case lifecycle 的阶段性工作；五天是我们主动选择的验证窗口，不是官方工期。【实践】<span class="cite" title="Use case lifecycle · Overview">[S01]</span><span class="cite" title="Sequencing development">[S04]</span><span class="cite" title="FDE 方法论沉淀">[S17]</span></p>
+<p>这套逐日安排，是把“接入现状、建模、打通、演示”的顺序压进五天。它成立的前提是三条：</p>
+<ol>
+<li><strong>每天有展示</strong>：Day 1 起，每天固定 15–30 分钟给真实用户看。</li>
+<li><strong>每天有增量</strong>：当天结束前，必须多出一个能被判断“对/不对”的东西。</li>
+<li><strong>Day 4 中午冻结</strong>：冻结后只修 bug，不加功能。</li>
+</ol>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th scope="col">日</th>
+<th scope="col">主题</th>
+<th scope="col">当天要有的可展示增量</th>
+<th scope="col">停止条件</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Day 1</td>
+<td>接入与看见现状</td>
+<td>一张被陈静确认过的 As-is 决策流 + 数据体检结果</td>
+<td>真实数据读不到</td>
+</tr>
+<tr>
+<td>Day 2</td>
+<td>建模与切片</td>
+<td>被业务方挑过错的对象模型 + 冻结的切片约定</td>
+<td>模型对不上业务规则</td>
+</tr>
+<tr>
+<td>Day 3</td>
+<td>跑通一次</td>
+<td>陈静自己完成一次真实路径</td>
+<td>没有真实用户碰过系统</td>
+</tr>
+<tr>
+<td>Day 4</td>
+<td>冻结与 Demo 准备</td>
+<td>冻结版本 + 演示就绪卡</td>
+<td>卡上有空项</td>
+</tr>
+<tr>
+<td>Day 5</td>
+<td>演示即决策</td>
+<td>周主任亲手完成一次审批</td>
+<td>审批人不到场</td>
+</tr>
+</tbody>
+</table></div>
+<p>点开任意一天，看它当天要交的产物和对应页面：</p>
+<div class="viz-embed"><figure class="viz viz-days" data-viz="five-days"><figcaption class="viz-head"><span class="viz-kicker">交互图</span><h3 id="viz-days-title">五天验证的节奏</h3><p>每天都要有一个能让真实用户判断对错的增量。点一天，看当天做什么、什么时候必须停。</p></figcaption><ol class="viz-day-list"><li><button type="button" class="viz-day-card" data-day="Day 1" aria-pressed="false"><span class="viz-day-no">Day 1</span><strong>接入与看见现状</strong><span class="viz-day-inc">一张被陈静确认过的 As-is 决策流 + 数据体检结果</span></button></li><li><button type="button" class="viz-day-card" data-day="Day 2" aria-pressed="false"><span class="viz-day-no">Day 2</span><strong>建模与切片</strong><span class="viz-day-inc">被业务方挑过错的模型 + 冻结的切片约定</span></button></li><li><button type="button" class="viz-day-card" data-day="Day 3" aria-pressed="false"><span class="viz-day-no">Day 3</span><strong>跑通一次真实决策</strong><span class="viz-day-inc">陈静自己完成一次真实路径：看到缺口、调整一个人、保存草稿</span></button></li><li><button type="button" class="viz-day-card" data-day="Day 4" aria-pressed="false"><span class="viz-day-no">Day 4</span><strong>冻结与 Demo 准备</strong><span class="viz-day-inc">冻结版本 + 演示就绪卡 + 至少三套失败替代</span></button></li><li><button type="button" class="viz-day-card" data-day="Day 5" aria-pressed="false"><span class="viz-day-no">Day 5</span><strong>演示即决策</strong><span class="viz-day-inc">周主任亲手完成一次审批，并当场给出扩大、修改或停止的结论</span></button></li></ol><div class="viz-detail viz-day-detail" aria-live="polite"><p class="viz-placeholder">先点 Day 1。第一天的展示不是界面，而是一张被使用者确认过的现状流程图。</p></div></figure></div>
+
+<p>五天交付的是 <span class="term-link" title="Minimum Viable Demo：只为第五天一次真实决策演示服务的最小版本；不能把它当 MVP 对外承诺。">MVD（最小可行演示）</span>，不是 <span class="term-link" title="Minimum Viable Product：能进入真实工作、持续被使用的最小版本；五天周期通常交付的不是 MVP。">MVP（最小可用版本）</span>。MVP 能进入真实工作、持续被使用；MVD 只为第五天那一次真实决策演示服务。把 MVD 当 MVP 对外承诺，就是后面“你们不是已经做好了吗”的来源。</p>
+<p>输入是 A05-01 五道门检查表、A05-05 KPI 基线与验证标准；输出是 A05-02 五天计划、A05-03 每日日志。</p>
+<div class="checkpoint">
+<p><strong>停一下</strong>：如果第五天只能演示一个决策，你希望是谁、在什么时点、做什么决定？</p>
+<p>说不出来，说明切片还没窄到五天的尺度。先回到上一页的五道门。</p>
+</div>
+<h2 id="sec-day1">Day 1：接入与看见现状</h2>
+<p><strong>目标</strong>：让真实数据进来，让真实流程被看见。不是搭界面。</p>
+<p><strong>上午</strong>：跟着陈静走一遍她上个月实际怎么分配额度。你记录四类东西：</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th scope="col">记录对象</th>
+<th scope="col">记什么</th>
+<th scope="col">为什么重要</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>等待</td>
+<td>等谁、等多久、为什么等</td>
+<td>等待通常是最容易消灭的浪费</td>
+</tr>
+<tr>
+<td>切换</td>
+<td>在几个 Excel、微信群、电话之间跳</td>
+<td>切换次数决定界面形态</td>
+</tr>
+<tr>
+<td>人工判断</td>
+<td>她凭经验补了什么规则</td>
+<td>这是隐性知识，也是模型真正的输入</td>
+</tr>
+<tr>
+<td>例外</td>
+<td>规则之外怎么处理、多久一次</td>
+<td>例外决定系统能不能被信任</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>下午</strong>：把画出来的流程拿给陈静确认：“我理解的是这样，哪里不对？”同时做数据体检：有哪些表、多少行、主键是否唯一、关键字段缺失率、业务词对应哪个字段、哪些数据根本不存在。</p>
+<p>数据体检至少给出四项结论，缺一项就当“没检查”：</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th scope="col">检查</th>
+<th scope="col">通过线（经验值）</th>
+<th scope="col">不通过时</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>主键唯一</td>
+<td>人员、额度、分配各有唯一键，重复率为 0</td>
+<td>先定业务键，不要拿行号凑</td>
+</tr>
+<tr>
+<td>关键字段完整</td>
+<td>可用天数、需求、额度的缺失率低于 5%</td>
+<td>超过 5% 写补采方案和替代值</td>
+</tr>
+<tr>
+<td>业务词可映射</td>
+<td>一页纸里的每个名词都能指向字段，或明确写“不存在”</td>
+<td>映射不出的进 A02-05</td>
+</tr>
+<tr>
+<td>数据可装载</td>
+<td>能在演示环境打开、查询、导出</td>
+<td>打不开就切快照或人工录入，并写清替代</td>
+</tr>
+</tbody>
+</table></div>
+<p>阈值是经验值，不是行业标准。关键字段缺失时宁可标“待补”，也不要静默填 0——一个假的 0 会让后面的缺口计算全部失真。</p>
+<p><strong>参与人</strong>：陈静（使用者）、刘工（信息科/数据权限）、FDE。赵岚（组长）可以在 Day 2 加入。</p>
+<p><strong>产出</strong>：Facts 清单、术语表、As-is 决策流程图、one-pager v0。</p>
+<p><strong>展示增量</strong>：17:00 给陈静看“我理解的流程”和“数据体检结果”，让她指出哪一步画错了。第一天展示的不是界面。</p>
+<p><strong>停止条件</strong>：Day 1 结束前真实数据仍读不到；或者你只访谈了接口人，没有跟真正做决定的人走一遍。</p>
+<div class="checkpoint">
+<p><strong>停一下</strong>：Day 1 结束时，如果你只得到一份“需求清单”，没有一张带等待、切换、判断、例外的流程图，这一天算完成了吗？</p>
+<p>不算。需求清单是别人告诉你的，流程图是你亲眼看见的。</p>
+</div>
+<h2 id="sec-day2">Day 2：建模与切片</h2>
+<p><strong>目标</strong>：把业务变成显式模型，切出最薄一片。</p>
+<p><strong>上午</strong>：画对象模型，区分 core（源系统直接映射）、derived（算出来的）、use case（用户会编辑的）；画生命周期，标出状态、Action 和写回字段。</p>
+<p><strong>下午</strong>：把模型拿给最懂业务的人，做 30 分钟专家挑错。只问三个问题：</p>
+<ol>
+<li>这里面哪个概念你们实际不这么叫？</li>
+<li>哪条关系是错的？</li>
+<li>有什么规则是图里没有的？</li>
+</ol>
+<p>这 30 分钟改掉的东西，通常比后面三天加起来还多。不要省。</p>
+<p>然后写切片约定，冻结这一片的边界：包含什么、不包含什么、吃什么数据、什么算通过、谁负责、何时冻结。</p>
+<p><strong>参与人</strong>：陈静（使用者）、赵岚（业务规则）、刘工（数据）、FDE。</p>
+<p><strong>产出</strong>：对象模型、生命周期图、假设清单、切片约定。</p>
+<p><strong>展示增量</strong>：让陈静和赵岚当场指出“哪个概念不对、哪条规则漏了”。模型被挑出错，才是好展示。</p>
+<p><strong>停止条件</strong>：业务方对“最终决策是什么”仍说不到一起；或者要讲清楚这一片，必须扩到两个以上决策。那就继续切，不要开始写代码。</p>
+<h2 id="sec-day3">Day 3：跑通一次真实决策</h2>
+<p><strong>目标</strong>：用真实数据，从输入到决策到记录，完整跑通一次，并让一个真实用户用一次。</p>
+<p>三个动作：</p>
+<ol>
+<li><strong>真实数据出结果</strong>：不用样例数据，不手工补数。</li>
+<li><strong>规则校验</strong>：把 Day 2 确认的硬约束接进去，比如资质、人数下限。</li>
+<li><strong>埋指标</strong>：从今天起记录生成耗时、人工修改次数、修改原因。</li>
+</ol>
+<p><strong>参与人</strong>：陈静操作，FDE 在旁边观察和修，刘工处理数据问题。</p>
+<p><strong>产出</strong>：能跑的最小系统、开始累积的基线、已知限制清单、一名真实用户的原话反馈。</p>
+<p><strong>展示增量</strong>：陈静自己走一条路径：看到缺口、调整一个人、保存草稿。FDE 不代操作。</p>
+<p><strong>停止条件</strong>：Day 3 结束还没有一个真实用户碰过系统。第五天的“第一次使用”一定会暴露你在办公室里想不到的问题；此时要么砍到一条更短的路径，要么停。</p>
+<div class="checkpoint">
+<p><strong>停一下</strong>：Day 3 的展示，是“我演示给她看”，还是“她自己做完一次”？</p>
+<p>前者是表演，后者才是验证。用户第一次操作时的卡顿，就是你要修的东西。</p>
+</div>
+<h2 id="sec-day4">Day 4：冻结与 Demo 准备</h2>
+<p><strong>目标</strong>：把 Demo 变成决策工具，而不是表演。</p>
+<p><strong>上午冻结</strong>：给版本打标签，停止加功能。Day 4 加的功能，都是 Day 5 的风险。</p>
+<p><strong>下午准备失败</strong>，至少三套降级：</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th scope="col">风险</th>
+<th scope="col">降级方案</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>数据加载失败</td>
+<td>预生成快照，现场只读</td>
+</tr>
+<tr>
+<td>某条路径跑不通</td>
+<td>明确跳过，说明“这是已知限制”</td>
+</tr>
+<tr>
+<td>决策者问的问题答不上</td>
+<td>指定一人记录，会后 24 小时内答复</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="cb-readiness">演示就绪卡</h3>
+<p>然后填 <a class="term-link" href="main-07-gates.html#term-demo-readiness-card" title="Demo Readiness Card：演示前的 Go/No-Go 检查单；六项缺一项就不开演示会。" target="_blank" rel="noopener">Demo Readiness Card（演示就绪卡）</a>。<span class="case-link">案例 CB-10</span> 是一个填好的例子【示例】：真实数据、用户本人操作、决策可完成、写回可见、失败替代五项通过；业务方在场一项待确认，结论是<strong>有条件 Go</strong>。如果周主任不能到场，就改成“陈静操作 + 次日补审批”，不假装已审批。</p>
+<p><strong>参与人</strong>：FDE、陈静；与周主任确认“他当天要做哪个决定”。</p>
+<p><strong>产出</strong>：冻结版本、演示就绪卡、回滚方案。</p>
+<p><strong>展示增量</strong>：把冻结版本和演示脚本给陈静走一遍，让她确认操作顺序。</p>
+<p><strong>停止条件</strong>：演示就绪卡有任何一项空着，就不开演示会，改成内部彩排。</p>
+<h2 id="sec-day5">Day 5：演示即决策</h2>
+<p><strong>目标</strong>：让决策者亲手做一次真实决策。</p>
+<p>正确的演示不是讲 PPT，也不是你操作他看，而是：</p>
+<ol>
+<li>决策者坐在电脑前；</li>
+<li>用他自家的真实数据；</li>
+<li>完成一个他本周本来就要做的决定；</li>
+<li>看到系统记录下这个决定；</li>
+<li>当场给出结论：扩大、修改还是停止。</li>
+</ol>
+<p><span id="cb-demo"></span></p>
+<p><a class="case-link" href="work-06-demo.html#cb-demo" target="_blank" rel="noopener">案例 CB-17</a> 是一份 8 分钟脚本【示例】，只做三件事：</p>
+<ol>
+<li><strong>0:00–1:00 看缺口</strong>：陈静打开额度全景，看到三个亚专科的额度与需求差额；</li>
+<li><strong>1:00–5:00 处理两个冲突</strong>：C1 把王芳从 10 天改为 9 天、释放 1 天；C2 申请额外 1 天额度，缺口从 2 降到 1，剩余 1 天登记负责人与日期；</li>
+<li><strong>5:00–8:00 走完确认与审批</strong>：赵岚确认本组 11 人天（剩余 1 天线下协调），周主任看总额度未超后批准。</li>
+</ol>
+<p>每一行谁操作、看哪一屏、失败了怎么替代，完整脚本和逐行台词在<a href="work-06-demo.html#sec-case" target="_blank" rel="noopener">工作台 Demo 页</a>。</p>
+<p>Demo 数据也要先备好：4 人、三个亚专科额度 10/22/22（妇科/乳腺/消化）、可用天数 9/20/18/12、需求 12/22/22（同序），快照日期 2026-09-30，姓名化名，缺失时用手工录入或截图【示例】。</p>
+<p><strong>参与人</strong>：陈静操作，赵岚确认，周主任审批，FDE 主持并记录。</p>
+<p><strong>产出</strong>：对照 A05-05 KPI 基线与验证标准的评测结论、下一步范围、运行手册雏形、一页培训材料。</p>
+<p><strong>停止条件</strong>：审批人不到场。不要代签，也不要假装已审批；记录成“次日补审批”，并说明这一轮审批未完成。</p>
+<div class="checkpoint">
+<p><strong>停一下</strong>：如果第五天周主任说“看起来不错，但我们再研究研究”，这算扩大、修改还是停止？</p>
+<p>都不是。没有明确结论，就是没有结论。把它记成“未决策”，并约定下一次判断的日期。</p>
+</div>
+<h2 id="sec-daily">每日节奏与日志</h2>
+<p>每天 17:00，15–30 分钟，给真实用户看。展示只回答一个问题：<strong>今天我多了一个什么能被你判断对错的增量？</strong></p>
+<p>每天的日志写进 A05-03 每日日志，六列：</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th scope="col">日期</th>
+<th scope="col">完成</th>
+<th scope="col">阻塞</th>
+<th scope="col">决策</th>
+<th scope="col">证据变化</th>
+<th scope="col">明日计划</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Day 1</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table></div>
+<p>“决策”不是“今天做了什么”，而是“今天定了什么，谁定的”。“证据变化”记录哪条假设被证实、被推翻，或者新发现了什么。</p>
+<p>每天产出的东西，必须有人接手，否则只是当天的作业。用这张表检查“谁消费它”：</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th scope="col">当天产出</th>
+<th scope="col">谁在什么时候用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Day 1 现状图、证据台账、数据体检</td>
+<td>Day 2 切片：没有现状，切片只能靠猜</td>
+</tr>
+<tr>
+<td>Day 2 候选切片、一页纸、对象草图</td>
+<td>Day 3 闭环：一页纸的决策句就是当天要跑通的路径</td>
+</tr>
+<tr>
+<td>Day 3 可运行闭环、写回记录</td>
+<td>Day 4 冻结：冻结的是能跑的那一版，不是最新代码</td>
+</tr>
+<tr>
+<td>Day 4 冻结版本、Demo 脚本、失败替代</td>
+<td>Day 5 演示：演示只演冻结版，不现场修</td>
+</tr>
+<tr>
+<td>Day 5 反馈、决策、未决项</td>
+<td>复盘与下一轮：没有这些，A06-04 写不出来</td>
+</tr>
+</tbody>
+</table></div>
+<p>每天的 Show &amp; Tell 只讲三句话，顺序不要变：</p>
+<ol>
+<li><strong>今天多了一个什么增量</strong>——用户能看到、能判断对错的东西，不是“写了多少代码”。</li>
+<li><strong>请你做一个什么决定</strong>——确认、否决、改规则，或者指出哪里与实际不符。</li>
+<li><strong>明天准备改什么、需要谁配合</strong>——把今天的反馈变成明天的动作。</li>
+</ol>
+<p>用户不在场的 Show &amp; Tell，不算展示，只能算内部同步。</p>
+<p>五天计划写进 A05-02，七列：日期、上午、下午、参与人、产出、展示时点、风险。<a class="template-link" href="templates/blank/05-02_五天计划.html" data-template-view data-template-title="A05-02 五天计划模板" title="A05-02 五天计划模板 ｜ 当前页弹窗预览">A05-02 五天计划模板</a> 和 <a class="template-link" href="templates/blank/05-03_每日日志.html" data-template-view data-template-title="A05-03 每日日志模板" title="A05-03 每日日志模板 ｜ 当前页弹窗预览">A05-03 每日日志模板</a> 可以直接复制。</p>
+<h3 id="cb-kpi">KPI 基线不能事后补</h3>
+<p>五天验证要用 <a class="term-link" href="main-07-gates.html#term-kpi" title="Key Performance Indicator：能用一个数字衡量“有没有变好”的指标，必须有定义、基线、目标和测量方式。" target="_blank" rel="noopener">KPI（关键绩效指标）</a> 判断“有没有变好”。<span class="case-link">案例 CB-08</span> 给了排班案例的四个指标【示例】：</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th scope="col">指标</th>
+<th scope="col">基线</th>
+<th scope="col">目标</th>
+<th scope="col">反指标</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>额度分配耗时</td>
+<td>约 3 小时（回忆值）</td>
+<td>≤ 1 小时</td>
+<td>返工轮次增加</td>
+</tr>
+<tr>
+<td>冲突发现时点</td>
+<td>月中执行时</td>
+<td>分配提交前</td>
+<td>把冲突藏起来不报</td>
+</tr>
+<tr>
+<td>方案版本数</td>
+<td>约 4 份（Excel、微信、纸质、系统）</td>
+<td>1 份</td>
+<td>为了“一份”而不敢改</td>
+</tr>
+<tr>
+<td>返工轮次</td>
+<td>2–3 轮</td>
+<td>≤ 1 轮</td>
+<td>强行压回意见</td>
+</tr>
+</tbody>
+</table></div>
+<p>基线是受访者回忆值，<strong>不是系统实测</strong>。你要在现场重新计时一次；没有实测，就不能对外声称“下降 X%”。反指标用来防止“指标好看、实际变坏”。</p>
+<h2 id="sec-failures">五种失败模式</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th scope="col">失败模式</th>
+<th scope="col">早期信号</th>
+<th scope="col">预防</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>范围膨胀</td>
+<td>Day 2 有人说“顺便也把……”</td>
+<td>out-of-scope 贴墙；变更要客户方签字</td>
+</tr>
+<tr>
+<td>没有决策者</td>
+<td>来的都是执行层，没人能说“可以”</td>
+<td>筹备周确认 Day 5 到场人，写进合作约定</td>
+</tr>
+<tr>
+<td>数据拖延</td>
+<td>Day 1 还在“走流程”</td>
+<td>权限未通不启动计时</td>
+</tr>
+<tr>
+<td>演示变表演</td>
+<td>Day 4 还在加功能、写漂亮 PPT</td>
+<td>冻结版本；演示必须由决策者操作</td>
+</tr>
+<tr>
+<td>无限居留</td>
+<td>第五天没结论，改成“再给两周”</td>
+<td>启动时写明毕业机制与停止条件</td>
+</tr>
+</tbody>
+</table></div>
+<p>最隐蔽的是“演示变表演”：看起来最热闹，实际没有让任何人做一个决定。</p>
+<div class="hands-on">
+<p><strong>动手 25 分钟</strong>：写出你的五天计划和 Day 1 日志骨架。</p>
+<ol>
+<li>在 <code>05_五天验证/05-02_五天计划.md</code> 里填五行，每天写清上午、下午、参与人、产出、展示时点。</li>
+<li>每天至少写出一个“可展示增量”，不能写“继续开发”。</li>
+<li>在 <code>05_五天验证/05-03_每日日志.md</code> 里先填 Day 1 一行：完成、阻塞、决策、证据变化、明日计划。</li>
+</ol>
+<p><strong>三条自检</strong>：</p>
+<ul>
+<li>五天里有没有哪天没有展示时点？有，就重排。</li>
+<li>Day 4 下午是否只安排冻结和 Demo 准备，没有新功能？</li>
+<li>每天是否有一个“不继续”的停止条件？</li>
+</ul>
+<p><strong>参考答案（Day 1）</strong>：</p>
+<blockquote>
+<p>上午跟陈静走一遍上月额度分配，记等待、切换、判断、例外；下午核对流程并做数据体检。参与人：陈静、刘工、FDE。产出：As-is 决策流、术语表、数据体检、one-pager v0。17:00 展示流程图。风险：数据未授权。</p>
+</blockquote>
+</div>
+<h2 id="sec-pitfalls">常见坑</h2>
+<div class="pitfalls">
+<p><strong>坑 1：把五天当官方日程对外承诺。</strong>
+表现：“官方就是五天上线。”后果：延期时信任崩塌，说法也不准确。
+处理：说清“五天是验证窗口”，给出验证问题和停止条件。</p>
+<p><strong>坑 2：Day 1 先搭框架，不跟现场。</strong>
+表现：第一天装环境、画架构图。后果：Day 3 才发现真正的问题是额度视图。
+处理：Day 1 上午必须跟真实用户走一遍；环境准备放在筹备周。</p>
+<p><strong>坑 3：Day 4 还在加功能。</strong>
+表现：“这个功能很简单，今晚加上。”后果：Day 5 演示没测过的代码。
+处理：Day 4 中午冻结，只修 bug。</p>
+<p><strong>坑 4：把 MVD 当 MVP 宣传。</strong>
+表现：演示成功就说“系统已上线”。后果：第二个部门直接用，发现缺权限和异常处理。
+处理：说清“这是验证版本”；上线前补权限、运维和支持。</p>
+</div>
+<div class="self-test">
+<p><strong>三问自测</strong></p>
+<details>
+<summary>1. 为什么说“五天是验证窗口，不是官方日程”？</summary>
+
+官方公开的是 use case lifecycle 的阶段性工作，没有 FDE 五天逐日日程。五天是为在可控成本内验证一个切片而设定的节拍，可改成三天或十天，但要有验证问题和停止条件。
+
+</details>
+<details>
+<summary>2. Day 4 中午冻结，冻结的到底是什么？</summary>
+
+冻结演示版本的功能范围：版本打标签，之后只修 bug。Day 5 演示的是测过的版本，不是当晚新写的代码。
+
+</details>
+<details>
+<summary>3. Day 3 结束还没有真实用户碰过系统，应该怎么办？</summary>
+
+停下来，砍到一条更短的路径，让真实用户当天走一遍；走不通就按停止条件处理。
+
+</details>
+</div>
+<div class="recap">
+<p><strong>本章带走</strong></p>
+<ol>
+<li>五天是验证窗口，不是官方日程；它成立的前提是每天有展示、每天有增量、Day 4 中午冻结。</li>
+<li>五天交付 MVD，不是 MVP；每天的目标是让真实用户多判断一次对错，而不是多写一个功能。</li>
+<li>五种失败模式都有早期信号；最危险的不是做不出来，而是演示很热闹，却没有人真正做一个决定。</li>
+</ol>
+</div>
+      </div>
+
+      <section class="term-cards" aria-label="本页术语卡"><p class="eyebrow">本页术语</p><div class="term-grid"><article class="term-card" id="term-mvp"><h3 id="term-title-mvp">MVP（最小可用版本） <span class="term-en">Minimum Viable Product</span></h3><p>能进入真实工作、持续被使用的最小版本；五天周期通常交付的不是 MVP。</p></article><article class="term-card" id="term-demo-readiness-card"><h3 id="term-title-demo-readiness-card">Demo Readiness Card（演示就绪卡） <span class="term-en">Demo Readiness Card</span></h3><p>演示前的 Go/No-Go 检查单；六项缺一项就不开演示会。</p><a class="term-first" href="main-07-gates.html" target="_blank" rel="noopener">首次解释</a></article><article class="term-card" id="term-mvd"><h3 id="term-title-mvd">MVD（最小可行演示） <span class="term-en">Minimum Viable Demo</span></h3><p>只为第五天一次真实决策演示服务的最小版本；不能把它当 MVP 对外承诺。</p></article><article class="term-card" id="term-activity-vs-outcome"><h3 id="term-title-activity-vs-outcome">活动指标与结果指标 <span class="term-en">Activity vs Outcome</span></h3><p>session、token、生成行数是活动量；采用、周期、合并 PR、业务变化才是结果。</p></article></div></section>
+      <section class="artifact-box" aria-label="本页产物"><div class="artifact-block"><h3 id="artifacts-out">本页要写出的产物</h3><ul><li><code>A05-02</code> 五天计划 <span class="muted">→ 05_五天验证/05-02_五天计划.md</span> <span class="gate-tag">G5</span> <a href="templates/blank/05-02_五天计划.html" data-template-view data-template-title="A05-02 五天计划模板" title="A05-02 五天计划模板 ｜ 当前页弹窗预览">模板</a> <a href="templates/golden/05-02_五天计划_排班案例.html" data-template-view data-template-title="A05-02 五天计划黄金样例" title="A05-02 五天计划黄金样例 ｜ 当前页弹窗预览">黄金样例</a></li><li><code>A05-03</code> 每日日志 <span class="muted">→ 05_五天验证/05-03_每日日志.md</span> <span class="gate-tag">G5</span> <a href="templates/blank/05-03_每日日志.html" data-template-view data-template-title="A05-03 每日日志模板" title="A05-03 每日日志模板 ｜ 当前页弹窗预览">模板</a> <a href="templates/golden/05-03_每日日志_排班案例.html" data-template-view data-template-title="A05-03 每日日志黄金样例" title="A05-03 每日日志黄金样例 ｜ 当前页弹窗预览">黄金样例</a></li></ul></div><div class="artifact-block"><h3 id="artifacts-in">开始前应已具备</h3><p class="muted"><code>A05-01</code> 五道门检查表、<code>A05-05</code> KPI基线与验证标准</p></div></section>
+      <section class="sources" aria-label="来源"><h2 id="sec-sources">来源与证据等级</h2><ol class="source-list"><li><span class="src-id">S01</span> <strong>Use case lifecycle · Overview</strong> <span class="badge badge-官方">官方</span><div class="muted">Palantir Technologies · 抓取 2026-10-19 · 版权归 Palantir Technologies；仅内部研究，不对外分发原文</div><div class="src-url"><a href="https://www.palantir.com/docs/foundry/use-case-life-cycle/overview/" rel="noreferrer" target="_blank">https://www.palantir.com/docs/foundry/use-case-life-cycle/overview/</a></div></li><li><span class="src-id">S04</span> <strong>Sequencing development</strong> <span class="badge badge-官方">官方</span><div class="muted">Palantir Technologies · 抓取 2026-10-19 · 版权归 Palantir Technologies；仅内部研究，不对外分发原文</div><div class="src-url"><a href="https://www.palantir.com/docs/foundry/use-case-life-cycle/sequencing-development/" rel="noreferrer" target="_blank">https://www.palantir.com/docs/foundry/use-case-life-cycle/sequencing-development/</a></div></li><li><span class="src-id">S17</span> <strong>FDE 方法论沉淀</strong> <span class="badge badge-实践">实践</span><div class="muted">本子项目 · 抓取 2026-09-23 · 内部方法沉淀</div><div class="src-url"><span class="muted">无公开链接</span></div></li><li><span class="src-id">S20</span> <strong>FDE 实施手册 v1（9 章整合读本）</strong> <span class="badge badge-实践">实践</span><div class="muted">本子项目 · 抓取 2026-10-19 · 内部方法沉淀；官方事实另注出处</div><div class="src-url"><span class="muted">无公开链接</span></div></li></ol></section>
+      <nav class="pager" aria-label="翻页"><a class="pager-prev" data-same-tab href="main-07-gates.html"><span>上一页</span><strong>开始前的五道门</strong></a><a class="pager-next" data-same-tab href="main-09-adoption.html"><span>下一页</span><strong>从项目到组织能力</strong></a></nav>
+
+      <footer class="page-foot">
+        <p>本教程为内部方法研究。案例已匿名化，数字标注【示例】。Palantir 官方资料版权归 Palantir Technologies，仅作改写与链接。</p>
+        <p class="muted">发现断链或事实错误？回到 <a href="appendix-sources.html" target="_blank" rel="noopener">来源与版权</a> 核对出处。</p>
+      </footer>
+    </article>
+  </main>
+
+  <aside class="toc" id="toc" aria-label="页内目录">
+    <p class="toc-title">本页目录</p><ol class="toc-list"><li class="toc-h2"><a href="#sec-what-five-days">五天是什么，不是什么</a></li><li class="toc-h2"><a href="#sec-day1">Day 1：接入与看见现状</a></li><li class="toc-h2"><a href="#sec-day2">Day 2：建模与切片</a></li><li class="toc-h2"><a href="#sec-day3">Day 3：跑通一次真实决策</a></li><li class="toc-h2"><a href="#sec-day4">Day 4：冻结与 Demo 准备</a><ul class="toc-sub"><li class="toc-h3"><a href="#cb-readiness">演示就绪卡</a></li></ul></li><li class="toc-h2"><a href="#sec-day5">Day 5：演示即决策</a></li><li class="toc-h2"><a href="#sec-daily">每日节奏与日志</a><ul class="toc-sub"><li class="toc-h3"><a href="#cb-kpi">KPI 基线不能事后补</a></li></ul></li><li class="toc-h2"><a href="#sec-failures">五种失败模式</a></li><li class="toc-h2"><a href="#sec-pitfalls">常见坑</a></li></ol>
+  </aside>
+</div>
+
+<div class="tpl-modal" id="tpl-modal" hidden>
+  <div class="tpl-panel" role="dialog" aria-modal="true" aria-labelledby="tpl-title">
+    <header class="tpl-head">
+      <div class="tpl-heading">
+        <p class="tpl-kicker">模板阅读视图</p>
+        <h2 id="tpl-title">模板</h2>
+      </div>
+      <div class="tpl-actions">
+        <a class="tpl-open" id="tpl-open" href="#" target="_blank" rel="noopener">在新标签打开 ↗</a>
+        <button class="icon-btn" id="tpl-close" type="button" aria-label="关闭模板">✕</button>
+      </div>
+    </header>
+    <div class="tpl-body">
+      <iframe id="tpl-frame" title="模板内容" loading="lazy"></iframe>
+    </div>
+  </div>
+</div>
+
+<div class="search-modal" id="search-modal" hidden>
+  <div class="search-panel" role="dialog" aria-modal="true" aria-labelledby="search-title">
+    <div class="search-head">
+      <label id="search-title" class="sr-only" for="search-input">搜索教程</label>
+      <input id="search-input" type="search" placeholder="搜索概念、产物、模板、方法卡…" autocomplete="off">
+      <button class="icon-btn" id="search-close" type="button" aria-label="关闭搜索">✕</button>
+    </div>
+    <div id="search-results" class="search-results" aria-live="polite"></div>
+    <p class="search-hint">按 <kbd>/</kbd> 或 <kbd>Ctrl</kbd>+<kbd>K</kbd> 打开，<kbd>Esc</kbd> 关闭。索引完全离线。</p>
+  </div>
+</div>
+
+<noscript><p class="noscript-note">搜索与阅读进度需要 JavaScript；正文、目录和翻页仍可正常使用。可用浏览器查找（Ctrl+F）。</p></noscript>
+
+<script src="assets/search-index.js"></script>
+<script src="assets/viz-data.js"></script>
+<script src="assets/app.js"></script>
+<script src="assets/viz.js"></script>
+
+</body>
+</html>
